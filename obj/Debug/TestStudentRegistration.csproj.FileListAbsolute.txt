@@ -1,0 +1,13 @@
+C:\Users\G\source\repos\TestStudentRegistration\bin\Debug\TestStudentRegistration.exe.config
+C:\Users\G\source\repos\TestStudentRegistration\bin\Debug\TestStudentRegistration.exe
+C:\Users\G\source\repos\TestStudentRegistration\bin\Debug\TestStudentRegistration.pdb
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.csprojAssemblyReference.cache
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.Form1.resources
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.Form2.resources
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.Form3.resources
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.Properties.Resources.resources
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.csproj.GenerateResource.cache
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.csproj.CoreCompileInputs.cache
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.exe
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.pdb
+C:\Users\G\source\repos\TestStudentRegistration\obj\Debug\TestStudentRegistration.Form4.resources
