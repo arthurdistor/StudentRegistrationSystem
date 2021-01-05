@@ -35,7 +35,7 @@ namespace TestStudentRegistration
             string query = "SELECT _UserRole from _tblUserAccounts WHERE _Username = @username and _Password=@password";
             string returnValue = "";
 
-            //For Devs, Change the connection string to your own config
+            //For Devs, Change the connection string to your own config.
             string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
           
 
@@ -57,10 +57,14 @@ namespace TestStudentRegistration
             returnValue = returnValue.Trim();
             if (returnValue == "Admin")
             {
-                MessageBox.Show("You are logged in as Admin");
+                MessageBox.Show("You are logged in as " + returnValue);
                 frmAdmin form = new frmAdmin();
                 form.Show();
                 this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("You are logged in as " + returnValue);
             }
             /* else if (returnValue == "User")
              {
