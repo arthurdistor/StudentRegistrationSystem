@@ -17,7 +17,7 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
         }
-
+        public string username = "";
         private void button1_Click(object sender, EventArgs e)
         {
           
@@ -33,38 +33,43 @@ namespace TestStudentRegistration
         private void ValidateUser()
         {
             string query = "SELECT _UserRole from _tblUserAccounts WHERE _Username = @username and _Password=@password";
-            string returnValue = "";
-
+            string query1 = "SELECT _Name from _tblUserAccounts WHERE _Username = @username and _Password=@password";
+            string userrole = "";
+          
             //For Devs, Change the connection string to your own config.
             string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
           
 
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sqlcmd = new SqlCommand(query, con);
+            SqlCommand sqlcmd1 = new SqlCommand(query1, con);
             sqlcmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
             sqlcmd.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPass.Text;
+            sqlcmd1.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
+            sqlcmd1.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPass.Text;
             con.Open();
 
-            returnValue = (string)sqlcmd.ExecuteScalar();
+            userrole = (string)sqlcmd.ExecuteScalar();
+            username = (string)sqlcmd1.ExecuteScalar();
 
-
-            //EDIT to avoid NRE 
-            if (String.IsNullOrEmpty(returnValue))
+            if (String.IsNullOrEmpty(userrole) || String.IsNullOrEmpty(username))
             {
                 MessageBox.Show("Incorrect username or password");
                 return;
             }
-            returnValue = returnValue.Trim();
-            if (returnValue == "Admin")
+            userrole = userrole.Trim();
+       
+            if (userrole == "Admin")
             {
-                MessageBox.Show("You are logged in as " + returnValue);
-                frmAdmin form = new frmAdmin();
+                MessageBox.Show("You are logged in as " + userrole);
+                frmAdmin form = new frmAdmin(username);
                 form.Show();
                 this.Hide();
+                    
             }
             else
             {
-                MessageBox.Show("You are logged in as " + returnValue);
+                MessageBox.Show("You are logged in as " + userrole);
             }
             /* else if (returnValue == "User")
              {
