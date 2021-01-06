@@ -17,12 +17,14 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
         }
-
+    
+        
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(comboRole.Text) || String.IsNullOrWhiteSpace(txtUsername.Text) || String.IsNullOrWhiteSpace(txtPassword.Text) || String.IsNullOrWhiteSpace(txtSecurityPass.Text))
             {
                 MessageBox.Show("Please enter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
             else
             {
@@ -31,14 +33,45 @@ namespace TestStudentRegistration
         }
 
 
+        private void ClearText()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                {
+
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+
+                    if (control is ComboBox)
+                        (control as ComboBox).Text = "";
+
+                    else
+                        func(control.Controls);
+                }
+               
+            };
+
+            func(Controls);
+        }
         private void CreateAccount()
         {
+            
+          
             string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
 
-
+            
+            
             SqlConnection con = new SqlConnection(connectionString);
             //to be updated
-            if (txtSecurityPass.Text == "1234")
+            SqlCommand scmd = new SqlCommand("select _Password from _tblUserAccounts where _Name ='" + frmAdmin.activeUser + "'", con);
+            con.Open();
+            string user = (string)scmd.ExecuteScalar();
+            con.Close();
+            MessageBox.Show(user);
+            if (txtSecurityPass.Text == user)
             {
                 SqlCommand cmd = new SqlCommand("select * from _tblUserAccounts where _Username ='" + txtUsername.Text + "'", con);
                 con.Open();
@@ -60,7 +93,9 @@ namespace TestStudentRegistration
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Your Account is created. You may now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     con.Close();
+                    ClearText();
                 }
+
             }
             else
             {
