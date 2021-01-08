@@ -17,32 +17,76 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
         }
+        //For Devs, Change the connection string to your own config.
+        string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+
+
         public string username = "";
         private void button1_Click(object sender, EventArgs e)
         {
-          
-            if(String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
+
+            if (String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
             {
                 MessageBox.Show("Field/s cannot be empty");
             }
             else
             {
-                ValidateUser();
+            
+                UserInfo x = ValidateUser();
+               
+
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
+                cmd.Parameters.AddWithValue("@username", x.username);
+                cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
+                cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+                MessageBox.Show(x.username);
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
         }
-        private void ValidateUser()
+        public class UserInfo
         {
-            string query = "SELECT _UserRole from _tblUserAccounts WHERE _Username = @username and _Password=@password";
+            public string username { get; set; }
+            public string password { get; set; }
+            public string userlevel { get; set; }
+            public string name { get; set; }
+        }
+
+
+        private UserInfo ValidateUser()
+        {
+
+            UserInfo matchingUser = new UserInfo();
+
+            string query = "SELECT * from _tblUserAccounts WHERE _Username = @username and _Password=@password";
             string query1 = "SELECT _Name from _tblUserAccounts WHERE _Username = @username and _Password=@password";
-            string userrole = "";
-          
-            //For Devs, Change the connection string to your own config.
-            string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
-          
+
+
+
+            string userlevel = "";
+
+
+
 
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sqlcmd = new SqlCommand(query, con);
-            SqlCommand sqlcmd1 = new SqlCommand(query1, con);
+            sqlcmd.Parameters.AddWithValue("@username", txtUser.Text);
+            sqlcmd.Parameters.AddWithValue("@password", txtPass.Text);
+            con.Open();
+            SqlDataReader sqlDataReader = sqlcmd.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                matchingUser.username = sqlDataReader["_Username"].ToString();
+                matchingUser.password = sqlDataReader["_Password"].ToString();
+                matchingUser.userlevel = sqlDataReader["_UserRole"].ToString();
+                matchingUser.name = sqlDataReader["_Name"].ToString();
+            }
+
+
+
+            /*SqlCommand sqlcmd1 = new SqlCommand(query1, con);
             sqlcmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
             sqlcmd.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPass.Text;
             sqlcmd1.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
@@ -51,25 +95,32 @@ namespace TestStudentRegistration
 
             userrole = (string)sqlcmd.ExecuteScalar();
             username = (string)sqlcmd1.ExecuteScalar();
+            */
 
-            if (String.IsNullOrEmpty(userrole) || String.IsNullOrEmpty(username))
+            username = matchingUser.username;
+            userlevel = matchingUser.userlevel;
+
+            if (String.IsNullOrEmpty(userlevel) || String.IsNullOrEmpty(username))
             {
                 MessageBox.Show("Incorrect username or password");
-                return;
+                return matchingUser;
             }
-            userrole = userrole.Trim();
-       
-            if (userrole == "Admin")
+            userlevel = userlevel.Trim();
+
+            if (userlevel == "Admin")
             {
-                MessageBox.Show("You are logged in as " + userrole);
+                MessageBox.Show("You are logged in as " + userlevel);
                 frmAdmin form = new frmAdmin(username);
                 form.Show();
                 this.Hide();
-                    
+                insertLogs();
+                return matchingUser;
+                
             }
             else
             {
-                MessageBox.Show("You are logged in as " + userrole);
+                MessageBox.Show("You are logged in as " + userlevel);
+                return matchingUser;
             }
             /* else if (returnValue == "User")
              {
@@ -78,6 +129,15 @@ namespace TestStudentRegistration
                  form.Show();
                  this.Hide();
              }*/
+        }
+
+
+        private void insertLogs()
+            {
+            
+    
+            
+
         }
     }
 }
