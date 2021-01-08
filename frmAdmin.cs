@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,14 @@ namespace TestStudentRegistration
 {
     public partial class frmAdmin : Form
     {
-        public frmAdmin()
+        public static string activeUser;
+        public frmAdmin(string username)
         {
             InitializeComponent();
+            lblName.Text = username;
+            activeUser = username;
         }
-
+    
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -35,8 +39,8 @@ namespace TestStudentRegistration
         private void button2_Click(object sender, EventArgs e)
         {
             frmStudentRegistration form1 = new frmStudentRegistration();
-            this.Dispose();
             form1.Show();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +57,11 @@ namespace TestStudentRegistration
         private void button5_Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.ShowDialog();
+        }
+        public void importFunction()
+        {
+            string readText = File.ReadAllText("");
+
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -79,8 +88,18 @@ namespace TestStudentRegistration
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+
             frmCreateAccount form = new frmCreateAccount();
-            form.Show();
+            
+                form.ShowDialog();
+           
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
