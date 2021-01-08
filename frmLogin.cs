@@ -19,7 +19,7 @@ namespace TestStudentRegistration
         }
         //For Devs, Change the connection string to your own config.
         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
-
+        bool loginSuccess;
 
         public string username = "";
         private void button1_Click(object sender, EventArgs e)
@@ -33,17 +33,20 @@ namespace TestStudentRegistration
             {
             
                 UserInfo x = ValidateUser();
-               
 
-                SqlConnection con = new SqlConnection(connectionString);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
-                cmd.Parameters.AddWithValue("@username", x.username);
-                cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
-                cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
-                MessageBox.Show(x.username);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                if (loginSuccess)
+                {
+                    SqlConnection con = new SqlConnection(connectionString);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
+                    cmd.Parameters.AddWithValue("@username", x.username);
+                    cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
+                    cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+                    MessageBox.Show(x.username);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+               
             }
         }
         public class UserInfo
@@ -61,15 +64,8 @@ namespace TestStudentRegistration
             UserInfo matchingUser = new UserInfo();
 
             string query = "SELECT * from _tblUserAccounts WHERE _Username = @username and _Password=@password";
-            string query1 = "SELECT _Name from _tblUserAccounts WHERE _Username = @username and _Password=@password";
-
-
 
             string userlevel = "";
-
-
-
-
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sqlcmd = new SqlCommand(query, con);
             sqlcmd.Parameters.AddWithValue("@username", txtUser.Text);
@@ -82,20 +78,8 @@ namespace TestStudentRegistration
                 matchingUser.password = sqlDataReader["_Password"].ToString();
                 matchingUser.userlevel = sqlDataReader["_UserRole"].ToString();
                 matchingUser.name = sqlDataReader["_Name"].ToString();
+                loginSuccess = true;
             }
-
-
-
-            /*SqlCommand sqlcmd1 = new SqlCommand(query1, con);
-            sqlcmd.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
-            sqlcmd.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPass.Text;
-            sqlcmd1.Parameters.Add("@username", SqlDbType.VarChar).Value = txtUser.Text;
-            sqlcmd1.Parameters.Add("@password", SqlDbType.VarChar).Value = txtPass.Text;
-            con.Open();
-
-            userrole = (string)sqlcmd.ExecuteScalar();
-            username = (string)sqlcmd1.ExecuteScalar();
-            */
 
             username = matchingUser.username;
             userlevel = matchingUser.userlevel;
@@ -113,7 +97,6 @@ namespace TestStudentRegistration
                 frmAdmin form = new frmAdmin(username);
                 form.Show();
                 this.Hide();
-                insertLogs();
                 return matchingUser;
                 
             }
@@ -132,12 +115,6 @@ namespace TestStudentRegistration
         }
 
 
-        private void insertLogs()
-            {
-            
-    
-            
-
-        }
+      
     }
 }
