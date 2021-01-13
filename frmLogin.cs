@@ -22,33 +22,7 @@ namespace TestStudentRegistration
         bool loginSuccess;
 
         public string username = "";
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-            if (String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
-            {
-                MessageBox.Show("Field/s cannot be empty");
-            }
-            else
-            {
-            
-                UserInfo x = ValidateUser();
-
-                if (loginSuccess)
-                {
-                    SqlConnection con = new SqlConnection(connectionString);
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
-                    cmd.Parameters.AddWithValue("@username", x.username);
-                    cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
-                    cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
-                    MessageBox.Show(x.username);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-               
-            }
-        }
         public class UserInfo
         {
             public string username { get; set; }
@@ -74,10 +48,10 @@ namespace TestStudentRegistration
             SqlDataReader sqlDataReader = sqlcmd.ExecuteReader();
             while (sqlDataReader.Read())
             {
-                matchingUser.username = sqlDataReader["_Username"].ToString();
-                matchingUser.password = sqlDataReader["_Password"].ToString();
-                matchingUser.userlevel = sqlDataReader["_UserRole"].ToString();
-                matchingUser.name = sqlDataReader["_Name"].ToString();
+                matchingUser.username = sqlDataReader["Username"].ToString();
+                matchingUser.password = sqlDataReader["Password"].ToString();
+                matchingUser.userlevel = sqlDataReader["AccountType"].ToString();
+                matchingUser.name = sqlDataReader["FullName"].ToString();
                 loginSuccess = true;
             }
 
@@ -114,7 +88,32 @@ namespace TestStudentRegistration
              }*/
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
 
-      
+            if (String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
+            {
+                MessageBox.Show("Field/s cannot be empty");
+            }
+            else
+            {
+
+                UserInfo x = ValidateUser();
+
+                if (loginSuccess)
+                {
+                    SqlConnection con = new SqlConnection(connectionString);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
+                    cmd.Parameters.AddWithValue("@username", x.username);
+                    cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
+                    cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+                    MessageBox.Show(x.username);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+
+            }
+        }
     }
 }

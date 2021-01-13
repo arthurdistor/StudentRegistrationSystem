@@ -17,7 +17,7 @@ namespace TestStudentRegistration
         public frmAdmin(string username)
         {
             InitializeComponent();
-            lblName.Text = username;
+            lblGreetings.Text = username;
             activeUser = username;
         }
     
@@ -101,5 +101,7 @@ namespace TestStudentRegistration
         {
 
         }
+
+
     }
 }
