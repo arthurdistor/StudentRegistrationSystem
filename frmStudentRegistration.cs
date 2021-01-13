@@ -14,8 +14,6 @@ namespace TestStudentRegistration
     {
         public frmStudentRegistration()
         {
-            frmAdmin form2 = new frmAdmin();
-            form2.Show();
             InitializeComponent();
         }
 

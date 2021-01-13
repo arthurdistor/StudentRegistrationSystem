@@ -1,7 +1,6 @@
 C:\Users\G\source\repos\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe.config
 C:\Users\G\source\repos\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe
 C:\Users\G\source\repos\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.pdb
-C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\StudentRegistration.csprojAssemblyReference.cache
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmStudentRegistration.resources
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmAdmin.resources
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmLogin.resources

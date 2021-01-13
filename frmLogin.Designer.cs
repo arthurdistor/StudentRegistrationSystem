@@ -140,7 +140,7 @@
             this.button_WOC1.Text = "Login";
             this.button_WOC1.TextColor = System.Drawing.SystemColors.HotTrack;
             this.button_WOC1.UseVisualStyleBackColor = false;
-            this.button_WOC1.Click += new System.EventHandler(this.button_WOC1_Click);
+            
             // 
             // label5
             // 

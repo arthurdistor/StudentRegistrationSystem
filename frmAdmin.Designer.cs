@@ -623,7 +623,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(203, 590);
             this.panel1.TabIndex = 28;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // button_WOC7
             // 
@@ -917,7 +917,7 @@
             this.label22.Size = new System.Drawing.Size(29, 15);
             this.label22.TabIndex = 11;
             this.label22.Text = "Age";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
+         
             // 
             // label21
             // 

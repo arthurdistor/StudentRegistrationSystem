@@ -149,7 +149,7 @@
             this.lblAccountType.Size = new System.Drawing.Size(85, 15);
             this.lblAccountType.TabIndex = 29;
             this.lblAccountType.Text = "Account Type:";
-            this.lblAccountType.Click += new System.EventHandler(this.lblAccountType_Click);
+            
             // 
             // lblName
             // 
@@ -203,7 +203,7 @@
             this.comboRole.Name = "comboRole";
             this.comboRole.Size = new System.Drawing.Size(121, 23);
             this.comboRole.TabIndex = 34;
-            this.comboRole.SelectedIndexChanged += new System.EventHandler(this.comboRole_SelectedIndexChanged);
+           
             // 
             // txtUsername
             // 
@@ -277,7 +277,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(621, 218);
             this.panel2.TabIndex = 41;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            
             // 
             // profile
             // 
