@@ -16,6 +16,7 @@ namespace TestStudentRegistration
         public frmLogin()
         {
             InitializeComponent();
+            
         }
         //For Devs, Change the connection string to your own config.
         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
@@ -37,7 +38,7 @@ namespace TestStudentRegistration
 
             UserInfo matchingUser = new UserInfo();
 
-            string query = "SELECT * from _tblUserAccounts WHERE _Username = @username and _Password=@password";
+            string query = "SELECT * from tblAccounts WHERE Username = @username and Password=@password";
 
             string userlevel = "";
             SqlConnection con = new SqlConnection(connectionString);
@@ -104,16 +105,29 @@ namespace TestStudentRegistration
                 {
                     SqlConnection con = new SqlConnection(connectionString);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into tblUserLogs values(@username,@accounttype,@logintime)", con);
+                    SqlCommand cmd = new SqlCommand("insert into tblLogs(Username, AccountType, LoginTime) values(@username,@accounttype,@logintime)", con);
                     cmd.Parameters.AddWithValue("@username", x.username);
                     cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
                     cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
-                    MessageBox.Show(x.username);
+                    
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    frmAdmin admin = new frmAdmin(username);
+                    admin.Show();
+                    this.Hide();
                 }
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

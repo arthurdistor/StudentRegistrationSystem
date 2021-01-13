@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -39,12 +40,13 @@
             this.btnLogin = new ePOSOne.btnProduct.Button_WOC();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDateTime = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.button_WOC45 = new ePOSOne.btnProduct.Button_WOC();
             this.label44 = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.Logout.SuspendLayout();
@@ -128,6 +130,7 @@
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 8;
             this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnLogin
             // 
@@ -175,16 +178,16 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "System";
             // 
-            // label6
+            // lblDateTime
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label6.Location = new System.Drawing.Point(22, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 21);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Date and time";
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblDateTime.Location = new System.Drawing.Point(22, 9);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(176, 32);
+            this.lblDateTime.TabIndex = 7;
+            this.lblDateTime.Text = "Date and time";
             // 
             // Logout
             // 
@@ -243,12 +246,18 @@
             // Panel
             // 
             this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.Panel.Controls.Add(this.label6);
+            this.Panel.Controls.Add(this.lblDateTime);
             this.Panel.Controls.Add(this.panel1);
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(808, 557);
             this.Panel.TabIndex = 84;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmLogin
             // 
@@ -258,6 +267,7 @@
             this.ClientSize = new System.Drawing.Size(807, 557);
             this.Controls.Add(this.Panel);
             this.Controls.Add(this.Logout);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmLogin";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
@@ -282,12 +292,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private ePOSOne.btnProduct.Button_WOC btnLogin;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Panel Logout;
         private ePOSOne.btnProduct.Button_WOC button_WOC45;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer timer1;
     }
 }
