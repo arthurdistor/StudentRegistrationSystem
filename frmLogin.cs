@@ -112,7 +112,7 @@ namespace TestStudentRegistration
                     
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    frmAdmin admin = new frmAdmin(username);
+                    frmAdmin admin = new frmAdmin("Welcome " + username);
                     admin.Show();
                     this.Hide();
                 }
