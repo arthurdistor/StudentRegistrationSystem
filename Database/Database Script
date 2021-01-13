@@ -1,0 +1,232 @@
+USE [master]
+GO
+/****** Object:  Database [DBStudentRegistrationSystem]    Script Date: 01/13/2021 1:47:42 pm ******/
+CREATE DATABASE [DBStudentRegistrationSystem]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'DBStudentRegistrationSystem', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\DBStudentRegistrationSystem.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'DBStudentRegistrationSystem_log', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\DBStudentRegistrationSystem_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [DBStudentRegistrationSystem].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET  MULTI_USER 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET QUERY_STORE = OFF
+GO
+USE [DBStudentRegistrationSystem]
+GO
+/****** Object:  User [art]    Script Date: 01/13/2021 1:47:42 pm ******/
+CREATE USER [art] FOR LOGIN [testart2] WITH DEFAULT_SCHEMA=[mainadmin]
+GO
+/****** Object:  Schema [Test]    Script Date: 01/13/2021 1:47:42 pm ******/
+CREATE SCHEMA [Test]
+GO
+/****** Object:  Table [dbo].[_tblUserAccounts]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[_tblUserAccounts](
+	[AccountID] [smallint] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](25) NULL,
+	[Password] [varchar](25) NULL,
+	[AccountType] [varchar](50) NULL,
+	[AccountStatus] [varchar](50) NULL,
+	[LogID] [smallint] NULL,
+ CONSTRAINT [PK__tblUserAccounts] PRIMARY KEY CLUSTERED 
+(
+	[AccountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblAccounts]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblAccounts](
+	[accountID] [smallint] NOT NULL,
+	[FullName] [varchar](50) NOT NULL,
+	[Username] [varchar](25) NOT NULL,
+	[Password] [varchar](25) NOT NULL,
+	[AccountType] [varchar](25) NULL,
+	[AccountStatus] [varchar](15) NULL,
+	[LogID] [smallint] NULL,
+	[LastLogin] [datetime] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblEducation]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblEducation](
+	[educationID] [smallint] NOT NULL,
+	[StudentID] [smallint] NOT NULL,
+	[SchoolType] [varchar](50) NULL,
+	[SchoolName] [varchar](100) NULL,
+	[Program] [varchar](50) NULL,
+	[Year] [varchar](50) NULL,
+	[GradudationDate] [varchar](10) NULL,
+ CONSTRAINT [PK_tblEducation] PRIMARY KEY CLUSTERED 
+(
+	[educationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblLogs]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblLogs](
+	[Logid] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](25) NOT NULL,
+	[AccountType] [varchar](50) NOT NULL,
+	[LoginTime] [datetime] NOT NULL,
+	[LogLevel] [varchar](50) NULL,
+	[LogMessage] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblParentGuardianTable]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblParentGuardianTable](
+	[ParentID] [smallint] NOT NULL,
+	[StudentID] [smallint] NULL,
+	[FathersName] [varchar](100) NULL,
+	[FathersOccupation] [varchar](50) NULL,
+	[FathersContactNum] [varchar](20) NULL,
+	[MotherName] [varchar](100) NULL,
+	[MotherOccupation] [varchar](50) NULL,
+	[MothersContactNum] [varchar](20) NULL,
+	[GuardiansName] [varchar](100) NULL,
+	[GuardiansOccupation] [varchar](50) NULL,
+	[GuardiansContactNum] [varchar](20) NULL,
+	[GuardiansRelationship] [varchar](50) NULL,
+ CONSTRAINT [PK_tblParentGuardianTable] PRIMARY KEY CLUSTERED 
+(
+	[ParentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblRegistrationInfo]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblRegistrationInfo](
+	[RegID] [smallint] NOT NULL,
+	[StudentID] [smallint] NULL,
+	[LastEditBy] [varchar](50) NULL,
+	[DateTime] [timestamp] NULL,
+	[Status] [varchar](50) NULL,
+	[Remarks] [text] NULL,
+ CONSTRAINT [PK_tblRegistrationInfo] PRIMARY KEY CLUSTERED 
+(
+	[RegID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblStudent]    Script Date: 01/13/2021 1:47:42 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblStudent](
+	[StudentID] [smallint] NOT NULL,
+	[LRN] [varchar](30) NULL,
+	[FirstName] [varchar](100) NOT NULL,
+	[MiddleName] [varchar](100) NULL,
+	[LastName] [varchar](100) NOT NULL,
+	[Suffix] [varchar](20) NULL,
+	[Gender] [varchar](20) NOT NULL,
+	[Birthdate] [date] NOT NULL,
+	[Birthplace] [varchar](100) NOT NULL,
+	[CivilStatus] [varchar](25) NOT NULL,
+	[Citizenship] [varchar](50) NOT NULL,
+	[StreetNo] [varchar](50) NULL,
+	[Street] [varchar](50) NULL,
+	[Subdivision] [varchar](50) NULL,
+	[Barangay] [varchar](50) NULL,
+	[City] [varchar](50) NULL,
+	[Province] [varchar](50) NULL,
+	[ZipCode] [varchar](10) NULL,
+	[EmailAdd] [varchar](50) NULL,
+	[ContactNo] [varchar](20) NULL,
+	[timestamp] [timestamp] NULL,
+ CONSTRAINT [PK_tblStudent] PRIMARY KEY CLUSTERED 
+(
+	[StudentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+USE [master]
+GO
+ALTER DATABASE [DBStudentRegistrationSystem] SET  READ_WRITE 
+GO
