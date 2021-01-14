@@ -20,7 +20,8 @@ namespace TestStudentRegistration
             InitializeComponent();
             lblGreetings.Text = username;
             activeUser = username;
-            loadData();
+            loadTotalData();
+            loadSimpleStudentData();
         }
         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -103,11 +104,11 @@ namespace TestStudentRegistration
         {
 
         }
-        private void loadData()
+        private void loadTotalData()
         {
             SqlCommand cmd;
             string totalStud = "SELECT COUNT(StudentID)FROM tblStudent;";
-            string totalNewStud = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType = 'New';";
+            string totalNewStud = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType = 'New Student';";
             string totalTransferee = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType='Transferee';";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
@@ -120,9 +121,55 @@ namespace TestStudentRegistration
             con.Close();
 
         }
+        private void loadSimpleStudentData()
+        {
+            SqlConnection connection = new SqlConnection(connectionString); //use your connection string here
+
+
+             var bindingSource = new BindingSource();
+            string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp desc;";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
+            try
+            {
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+                dataGridSimpleStudentInfo.ReadOnly = true;
+                dataGridSimpleStudentInfo.DataSource = bindingSource;
+                dataGridSimpleStudentInfo.RowHeadersVisible = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+            
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
         }
+
+        private void dataGridSimpleStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridSimpleStudentInfo.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            {
+                if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null) 
+                {
+                    
+                    frmStudentRegistration frmStudent = new frmStudentRegistration();
+                    frmStudent.disableComponents();
+                    frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
+                    frmStudent.ShowDialog();
+                   
+                }
+            }
+        }
+
     }
 }
