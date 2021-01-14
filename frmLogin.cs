@@ -68,7 +68,7 @@ namespace TestStudentRegistration
 
             if (userlevel == "Admin")
             {
-                MessageBox.Show("You are logged in as " + userlevel);
+                //MessageBox.Show("You are logged in as " + userlevel);
                 frmAdmin form = new frmAdmin(username);
                 form.Show();
                 this.Hide();
@@ -77,7 +77,7 @@ namespace TestStudentRegistration
             }
             else
             {
-                MessageBox.Show("You are logged in as " + userlevel);
+                //MessageBox.Show("You are logged in as " + userlevel);
                 return matchingUser;
             }
             /* else if (returnValue == "User")
