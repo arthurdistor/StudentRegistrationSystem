@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentRegistration));
             this.txtStudFirstName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Panel();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblTimestamp = new System.Windows.Forms.Label();
+            this.lblLastEditBy = new System.Windows.Forms.Label();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -67,11 +70,12 @@
             this.label31 = new System.Windows.Forms.Label();
             this.txtMotherName = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.txtFathersName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtFatherName = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.comboCourse = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboAdmissionType = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txtYear = new System.Windows.Forms.TextBox();
@@ -88,8 +92,9 @@
             this.txtLRN = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.label59 = new System.Windows.Forms.Label();
             this.txtZipCode = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.txtProvince = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
@@ -99,9 +104,9 @@
             this.label54 = new System.Windows.Forms.Label();
             this.txtStreet = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtStudContactNum = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtSubdivision = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -112,11 +117,8 @@
             this.txtStudStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtStudBirthdPlace = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStudAge = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtStudDateOfBirth = new System.Windows.Forms.ComboBox();
+            this.comboGender = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStudSuffix = new System.Windows.Forms.TextBox();
@@ -152,16 +154,12 @@
             this.button_WOC13 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
-            this.label59 = new System.Windows.Forms.Label();
-            this.comboCourse = new System.Windows.Forms.ComboBox();
-            this.lblLastEditBy = new System.Windows.Forms.Label();
-            this.lblTimestamp = new System.Windows.Forms.Label();
             this.btnDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.txtFatherName.SuspendLayout();
+            this.panel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SaveChanges.SuspendLayout();
@@ -182,6 +180,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDelete.Controls.Add(this.btnEdit);
             this.btnDelete.Controls.Add(this.btnMinimize);
             this.btnDelete.Controls.Add(this.btnClose);
             this.btnDelete.Controls.Add(this.button5);
@@ -194,7 +193,7 @@
             this.btnDelete.Controls.Add(this.label29);
             this.btnDelete.Controls.Add(this.panel5);
             this.btnDelete.Controls.Add(this.label16);
-            this.btnDelete.Controls.Add(this.txtFatherName);
+            this.btnDelete.Controls.Add(this.panel);
             this.btnDelete.Controls.Add(this.label9);
             this.btnDelete.Controls.Add(this.panel3);
             this.btnDelete.Controls.Add(this.panel2);
@@ -203,6 +202,21 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(986, 748);
             this.btnDelete.TabIndex = 21;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Location = new System.Drawing.Point(739, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(82, 48);
+            this.btnEdit.TabIndex = 89;
+            this.btnEdit.Text = "Edit Icon";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnMinimize
             // 
@@ -294,6 +308,7 @@
             this.btnSave.Size = new System.Drawing.Size(82, 48);
             this.btnSave.TabIndex = 64;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label41
             // 
@@ -322,6 +337,28 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(462, 208);
             this.panel6.TabIndex = 62;
+            // 
+            // lblTimestamp
+            // 
+            this.lblTimestamp.AutoSize = true;
+            this.lblTimestamp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimestamp.ForeColor = System.Drawing.Color.Black;
+            this.lblTimestamp.Location = new System.Drawing.Point(16, 85);
+            this.lblTimestamp.Name = "lblTimestamp";
+            this.lblTimestamp.Size = new System.Drawing.Size(144, 17);
+            this.lblTimestamp.TabIndex = 73;
+            this.lblTimestamp.Text = "Username + User Role";
+            // 
+            // lblLastEditBy
+            // 
+            this.lblLastEditBy.AutoSize = true;
+            this.lblLastEditBy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastEditBy.ForeColor = System.Drawing.Color.Black;
+            this.lblLastEditBy.Location = new System.Drawing.Point(16, 30);
+            this.lblLastEditBy.Name = "lblLastEditBy";
+            this.lblLastEditBy.Size = new System.Drawing.Size(144, 17);
+            this.lblLastEditBy.TabIndex = 72;
+            this.lblLastEditBy.Text = "Username + User Role";
             // 
             // txtRemarks
             // 
@@ -418,7 +455,7 @@
             this.panel5.Controls.Add(this.label31);
             this.panel5.Controls.Add(this.txtMotherName);
             this.panel5.Controls.Add(this.label30);
-            this.panel5.Controls.Add(this.textBox23);
+            this.panel5.Controls.Add(this.txtFathersName);
             this.panel5.Location = new System.Drawing.Point(12, 512);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(462, 224);
@@ -606,13 +643,13 @@
             this.label30.TabIndex = 33;
             this.label30.Text = "Father\'s Full Name";
             // 
-            // textBox23
+            // txtFathersName
             // 
-            this.textBox23.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox23.Location = new System.Drawing.Point(10, 32);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(158, 23);
-            this.textBox23.TabIndex = 32;
+            this.txtFathersName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFathersName.Location = new System.Drawing.Point(10, 32);
+            this.txtFathersName.Name = "txtFathersName";
+            this.txtFathersName.Size = new System.Drawing.Size(158, 23);
+            this.txtFathersName.TabIndex = 32;
             // 
             // label16
             // 
@@ -625,30 +662,39 @@
             this.label16.TabIndex = 59;
             this.label16.Text = "Education Information";
             // 
-            // txtFatherName
+            // panel
             // 
-            this.txtFatherName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.txtFatherName.Controls.Add(this.comboCourse);
-            this.txtFatherName.Controls.Add(this.label27);
-            this.txtFatherName.Controls.Add(this.comboBox3);
-            this.txtFatherName.Controls.Add(this.label28);
-            this.txtFatherName.Controls.Add(this.label23);
-            this.txtFatherName.Controls.Add(this.txtYear);
-            this.txtFatherName.Controls.Add(this.label22);
-            this.txtFatherName.Controls.Add(this.label21);
-            this.txtFatherName.Controls.Add(this.txtDateOfGraduation);
-            this.txtFatherName.Controls.Add(this.txtProgram);
-            this.txtFatherName.Controls.Add(this.label20);
-            this.txtFatherName.Controls.Add(this.comboSchoolType);
-            this.txtFatherName.Controls.Add(this.txtSchoolName);
-            this.txtFatherName.Controls.Add(this.label19);
-            this.txtFatherName.Controls.Add(this.label18);
-            this.txtFatherName.Controls.Add(this.label17);
-            this.txtFatherName.Controls.Add(this.txtLRN);
-            this.txtFatherName.Location = new System.Drawing.Point(504, 95);
-            this.txtFatherName.Name = "txtFatherName";
-            this.txtFatherName.Size = new System.Drawing.Size(462, 381);
-            this.txtFatherName.TabIndex = 58;
+            this.panel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel.Controls.Add(this.comboCourse);
+            this.panel.Controls.Add(this.label27);
+            this.panel.Controls.Add(this.comboAdmissionType);
+            this.panel.Controls.Add(this.label28);
+            this.panel.Controls.Add(this.label23);
+            this.panel.Controls.Add(this.txtYear);
+            this.panel.Controls.Add(this.label22);
+            this.panel.Controls.Add(this.label21);
+            this.panel.Controls.Add(this.txtDateOfGraduation);
+            this.panel.Controls.Add(this.txtProgram);
+            this.panel.Controls.Add(this.label20);
+            this.panel.Controls.Add(this.comboSchoolType);
+            this.panel.Controls.Add(this.txtSchoolName);
+            this.panel.Controls.Add(this.label19);
+            this.panel.Controls.Add(this.label18);
+            this.panel.Controls.Add(this.label17);
+            this.panel.Controls.Add(this.txtLRN);
+            this.panel.Location = new System.Drawing.Point(504, 95);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(462, 381);
+            this.panel.TabIndex = 58;
+            // 
+            // comboCourse
+            // 
+            this.comboCourse.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCourse.FormattingEnabled = true;
+            this.comboCourse.Location = new System.Drawing.Point(16, 232);
+            this.comboCourse.Name = "comboCourse";
+            this.comboCourse.Size = new System.Drawing.Size(291, 23);
+            this.comboCourse.TabIndex = 76;
             // 
             // label27
             // 
@@ -661,14 +707,14 @@
             this.label27.TabIndex = 70;
             this.label27.Text = "Course";
             // 
-            // comboBox3
+            // comboAdmissionType
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(174, 183);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
-            this.comboBox3.TabIndex = 67;
+            this.comboAdmissionType.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboAdmissionType.FormattingEnabled = true;
+            this.comboAdmissionType.Location = new System.Drawing.Point(174, 183);
+            this.comboAdmissionType.Name = "comboAdmissionType";
+            this.comboAdmissionType.Size = new System.Drawing.Size(121, 23);
+            this.comboAdmissionType.TabIndex = 67;
             // 
             // label28
             // 
@@ -820,9 +866,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.dateOfBirth);
             this.panel3.Controls.Add(this.label59);
             this.panel3.Controls.Add(this.txtZipCode);
-            this.panel3.Controls.Add(this.label55);
             this.panel3.Controls.Add(this.label58);
             this.panel3.Controls.Add(this.txtProvince);
             this.panel3.Controls.Add(this.label57);
@@ -832,9 +878,9 @@
             this.panel3.Controls.Add(this.label54);
             this.panel3.Controls.Add(this.txtStreet);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.textBox13);
+            this.panel3.Controls.Add(this.txtStudContactNum);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.textBox12);
+            this.panel3.Controls.Add(this.txtEmail);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.txtSubdivision);
             this.panel3.Controls.Add(this.label12);
@@ -845,11 +891,8 @@
             this.panel3.Controls.Add(this.txtStudStatus);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.txtStudBirthdPlace);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtStudAge);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.txtStudDateOfBirth);
+            this.panel3.Controls.Add(this.comboGender);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtStudSuffix);
@@ -864,31 +907,42 @@
             this.panel3.Size = new System.Drawing.Size(462, 384);
             this.panel3.TabIndex = 22;
             // 
+            // dateOfBirth
+            // 
+            this.dateOfBirth.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.dateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOfBirth.Location = new System.Drawing.Point(319, 82);
+            this.dateOfBirth.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
+            this.dateOfBirth.Name = "dateOfBirth";
+            this.dateOfBirth.Size = new System.Drawing.Size(122, 23);
+            this.dateOfBirth.TabIndex = 70;
+            this.dateOfBirth.Value = new System.DateTime(2021, 1, 14, 0, 0, 0, 0);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label59.Location = new System.Drawing.Point(17, 267);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(55, 15);
+            this.label59.TabIndex = 69;
+            this.label59.Text = "Zip Code";
+            // 
             // txtZipCode
             // 
             this.txtZipCode.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZipCode.Location = new System.Drawing.Point(162, 300);
+            this.txtZipCode.Location = new System.Drawing.Point(15, 285);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Size = new System.Drawing.Size(122, 23);
             this.txtZipCode.TabIndex = 68;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label55.Location = new System.Drawing.Point(11, 230);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(52, 15);
-            this.label55.TabIndex = 67;
-            this.label55.Text = "Building";
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label58.Location = new System.Drawing.Point(7, 280);
+            this.label58.Location = new System.Drawing.Point(316, 214);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(56, 15);
             this.label58.TabIndex = 66;
@@ -897,7 +951,7 @@
             // txtProvince
             // 
             this.txtProvince.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProvince.Location = new System.Drawing.Point(10, 300);
+            this.txtProvince.Location = new System.Drawing.Point(312, 232);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(122, 23);
             this.txtProvince.TabIndex = 65;
@@ -907,7 +961,7 @@
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label57.Location = new System.Drawing.Point(316, 228);
+            this.label57.Location = new System.Drawing.Point(166, 212);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(106, 15);
             this.label57.TabIndex = 64;
@@ -916,7 +970,7 @@
             // txtCity
             // 
             this.txtCity.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(319, 248);
+            this.txtCity.Location = new System.Drawing.Point(169, 232);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(122, 23);
             this.txtCity.TabIndex = 63;
@@ -926,7 +980,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label56.Location = new System.Drawing.Point(162, 227);
+            this.label56.Location = new System.Drawing.Point(12, 211);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(58, 15);
             this.label56.TabIndex = 62;
@@ -935,7 +989,7 @@
             // txtBarangay
             // 
             this.txtBarangay.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarangay.Location = new System.Drawing.Point(163, 248);
+            this.txtBarangay.Location = new System.Drawing.Point(13, 232);
             this.txtBarangay.Name = "txtBarangay";
             this.txtBarangay.Size = new System.Drawing.Size(122, 23);
             this.txtBarangay.TabIndex = 61;
@@ -945,7 +999,7 @@
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label54.Location = new System.Drawing.Point(316, 163);
+            this.label54.Location = new System.Drawing.Point(166, 163);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(43, 15);
             this.label54.TabIndex = 59;
@@ -954,7 +1008,7 @@
             // txtStreet
             // 
             this.txtStreet.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStreet.Location = new System.Drawing.Point(319, 183);
+            this.txtStreet.Location = new System.Drawing.Point(169, 183);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(122, 23);
             this.txtStreet.TabIndex = 58;
@@ -964,45 +1018,45 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label15.Location = new System.Drawing.Point(317, 333);
+            this.label15.Location = new System.Drawing.Point(166, 267);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(99, 15);
             this.label15.TabIndex = 57;
             this.label15.Text = "Contact Number";
             // 
-            // textBox13
+            // txtStudContactNum
             // 
-            this.textBox13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(320, 353);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(122, 23);
-            this.textBox13.TabIndex = 56;
+            this.txtStudContactNum.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudContactNum.Location = new System.Drawing.Point(165, 287);
+            this.txtStudContactNum.Name = "txtStudContactNum";
+            this.txtStudContactNum.Size = new System.Drawing.Size(122, 23);
+            this.txtStudContactNum.TabIndex = 56;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label14.Location = new System.Drawing.Point(8, 333);
+            this.label14.Location = new System.Drawing.Point(12, 318);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 15);
             this.label14.TabIndex = 55;
             this.label14.Text = "Email Address";
             // 
-            // textBox12
+            // txtEmail
             // 
-            this.textBox12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(11, 353);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(276, 23);
-            this.textBox12.TabIndex = 54;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(15, 341);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(276, 23);
+            this.txtEmail.TabIndex = 54;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label13.Location = new System.Drawing.Point(11, 213);
+            this.label13.Location = new System.Drawing.Point(316, 163);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 15);
             this.label13.TabIndex = 53;
@@ -1011,7 +1065,7 @@
             // txtSubdivision
             // 
             this.txtSubdivision.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubdivision.Location = new System.Drawing.Point(10, 248);
+            this.txtSubdivision.Location = new System.Drawing.Point(319, 183);
             this.txtSubdivision.Name = "txtSubdivision";
             this.txtSubdivision.Size = new System.Drawing.Size(122, 23);
             this.txtSubdivision.TabIndex = 52;
@@ -1021,7 +1075,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label12.Location = new System.Drawing.Point(161, 163);
+            this.label12.Location = new System.Drawing.Point(11, 163);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 15);
             this.label12.TabIndex = 51;
@@ -1030,7 +1084,7 @@
             // txtStreetNum
             // 
             this.txtStreetNum.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStreetNum.Location = new System.Drawing.Point(164, 183);
+            this.txtStreetNum.Location = new System.Drawing.Point(14, 183);
             this.txtStreetNum.Name = "txtStreetNum";
             this.txtStreetNum.Size = new System.Drawing.Size(122, 23);
             this.txtStreetNum.TabIndex = 50;
@@ -1040,7 +1094,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label11.Location = new System.Drawing.Point(7, 163);
+            this.label11.Location = new System.Drawing.Point(317, 116);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 15);
             this.label11.TabIndex = 49;
@@ -1049,7 +1103,7 @@
             // txtStudCitizenship
             // 
             this.txtStudCitizenship.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudCitizenship.Location = new System.Drawing.Point(10, 183);
+            this.txtStudCitizenship.Location = new System.Drawing.Point(319, 134);
             this.txtStudCitizenship.Name = "txtStudCitizenship";
             this.txtStudCitizenship.Size = new System.Drawing.Size(122, 23);
             this.txtStudCitizenship.TabIndex = 48;
@@ -1059,7 +1113,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label10.Location = new System.Drawing.Point(316, 114);
+            this.label10.Location = new System.Drawing.Point(162, 116);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 15);
             this.label10.TabIndex = 47;
@@ -1068,7 +1122,7 @@
             // txtStudStatus
             // 
             this.txtStudStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudStatus.Location = new System.Drawing.Point(319, 134);
+            this.txtStudStatus.Location = new System.Drawing.Point(162, 137);
             this.txtStudStatus.Name = "txtStudStatus";
             this.txtStudStatus.Size = new System.Drawing.Size(122, 23);
             this.txtStudStatus.TabIndex = 46;
@@ -1078,7 +1132,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label8.Location = new System.Drawing.Point(162, 114);
+            this.label8.Location = new System.Drawing.Point(11, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 15);
             this.label8.TabIndex = 45;
@@ -1087,29 +1141,10 @@
             // txtStudBirthdPlace
             // 
             this.txtStudBirthdPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudBirthdPlace.Location = new System.Drawing.Point(165, 134);
+            this.txtStudBirthdPlace.Location = new System.Drawing.Point(11, 134);
             this.txtStudBirthdPlace.Name = "txtStudBirthdPlace";
             this.txtStudBirthdPlace.Size = new System.Drawing.Size(122, 23);
             this.txtStudBirthdPlace.TabIndex = 44;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label6.Location = new System.Drawing.Point(7, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 15);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "Age";
-            // 
-            // txtStudAge
-            // 
-            this.txtStudAge.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudAge.Location = new System.Drawing.Point(10, 134);
-            this.txtStudAge.Name = "txtStudAge";
-            this.txtStudAge.Size = new System.Drawing.Size(122, 23);
-            this.txtStudAge.TabIndex = 42;
             // 
             // label4
             // 
@@ -1122,22 +1157,14 @@
             this.label4.TabIndex = 41;
             this.label4.Text = "Date of Birth";
             // 
-            // textBox2
+            // comboGender
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(319, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 23);
-            this.textBox2.TabIndex = 40;
-            // 
-            // txtStudDateOfBirth
-            // 
-            this.txtStudDateOfBirth.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudDateOfBirth.FormattingEnabled = true;
-            this.txtStudDateOfBirth.Location = new System.Drawing.Point(163, 82);
-            this.txtStudDateOfBirth.Name = "txtStudDateOfBirth";
-            this.txtStudDateOfBirth.Size = new System.Drawing.Size(121, 23);
-            this.txtStudDateOfBirth.TabIndex = 39;
+            this.comboGender.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboGender.FormattingEnabled = true;
+            this.comboGender.Location = new System.Drawing.Point(163, 82);
+            this.comboGender.Name = "comboGender";
+            this.comboGender.Size = new System.Drawing.Size(121, 23);
+            this.comboGender.TabIndex = 39;
             // 
             // label3
             // 
@@ -1632,48 +1659,6 @@
             this.button_WOC9.TextColor = System.Drawing.Color.White;
             this.button_WOC9.UseVisualStyleBackColor = true;
             // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label59.Location = new System.Drawing.Point(164, 282);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(55, 15);
-            this.label59.TabIndex = 69;
-            this.label59.Text = "Zip Code";
-            // 
-            // comboCourse
-            // 
-            this.comboCourse.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboCourse.FormattingEnabled = true;
-            this.comboCourse.Location = new System.Drawing.Point(16, 232);
-            this.comboCourse.Name = "comboCourse";
-            this.comboCourse.Size = new System.Drawing.Size(291, 23);
-            this.comboCourse.TabIndex = 76;
-            // 
-            // lblLastEditBy
-            // 
-            this.lblLastEditBy.AutoSize = true;
-            this.lblLastEditBy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastEditBy.ForeColor = System.Drawing.Color.Black;
-            this.lblLastEditBy.Location = new System.Drawing.Point(16, 30);
-            this.lblLastEditBy.Name = "lblLastEditBy";
-            this.lblLastEditBy.Size = new System.Drawing.Size(144, 17);
-            this.lblLastEditBy.TabIndex = 72;
-            this.lblLastEditBy.Text = "Username + User Role";
-            // 
-            // lblTimestamp
-            // 
-            this.lblTimestamp.AutoSize = true;
-            this.lblTimestamp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimestamp.ForeColor = System.Drawing.Color.Black;
-            this.lblTimestamp.Location = new System.Drawing.Point(16, 85);
-            this.lblTimestamp.Name = "lblTimestamp";
-            this.lblTimestamp.Size = new System.Drawing.Size(144, 17);
-            this.lblTimestamp.TabIndex = 73;
-            this.lblTimestamp.Text = "Username + User Role";
-            // 
             // frmStudentRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1696,8 +1681,8 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.txtFatherName.ResumeLayout(false);
-            this.txtFatherName.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1752,11 +1737,11 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtMotherName;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox txtFathersName;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel txtFatherName;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboAdmissionType;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtYear;
@@ -1772,9 +1757,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtLRN;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtStudContactNum;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtSubdivision;
         private System.Windows.Forms.Label label12;
@@ -1785,11 +1770,8 @@
         private System.Windows.Forms.TextBox txtStudStatus;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtStudBirthdPlace;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtStudAge;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox txtStudDateOfBirth;
+        private System.Windows.Forms.ComboBox comboGender;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStudSuffix;
@@ -1825,7 +1807,6 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtZipCode;
-        private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label label57;
@@ -1844,6 +1825,8 @@
         private System.Windows.Forms.ComboBox comboCourse;
         private System.Windows.Forms.Label lblTimestamp;
         private System.Windows.Forms.Label lblLastEditBy;
+        private System.Windows.Forms.DateTimePicker dateOfBirth;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 
