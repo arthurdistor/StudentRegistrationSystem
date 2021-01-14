@@ -171,5 +171,42 @@ namespace TestStudentRegistration
             }
         }
 
+        private void btnAdminPanel_Click(object sender, EventArgs e)
+        {
+            Admin_Control.BringToFront();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            btnLogout.BringToFront();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            btnLogout.BringToFront();
+        }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            Accounts.BringToFront();
+        }
+
+        private void buttonStudents_Click(object sender, EventArgs e)
+        {
+            StudentTab.BringToFront();
+        }
+
+
+         private void buttonLogout1_Click(object sender, EventArgs e)
+        {
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
+        }
     }
 }
