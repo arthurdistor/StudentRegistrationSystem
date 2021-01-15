@@ -105,13 +105,18 @@ namespace TestStudentRegistration
                 {
                     SqlConnection con = new SqlConnection(connectionString);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into tblLogs(Username, AccountType, LoginTime) values(@username,@accounttype,@logintime)", con);
+                    SqlCommand cmd = new SqlCommand("insert into tblLogs(Username, AccountType, LoginTime ) values(@username,@accounttype,@logintime)", con);
                     cmd.Parameters.AddWithValue("@username", x.username);
                     cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
                     cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
-                    
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("UPDATE tblAccounts SET LastLogin = @datetimenow WHERE Username = @username;", con);
+                    cmd.Parameters.AddWithValue("@datetimenow", DateTime.Now);
+                    cmd.Parameters.AddWithValue("username", x.username);
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    
                     frmAdmin admin = new frmAdmin("Welcome " + username);
                     admin.Show();
                     this.Hide();
