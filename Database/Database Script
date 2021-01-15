@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [DBStudentRegistrationSystem]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Database [DBStudentRegistrationSystem]    Script Date: 01/14/2021 3:41:23 pm ******/
 CREATE DATABASE [DBStudentRegistrationSystem]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -78,13 +78,13 @@ ALTER DATABASE [DBStudentRegistrationSystem] SET QUERY_STORE = OFF
 GO
 USE [DBStudentRegistrationSystem]
 GO
-/****** Object:  User [art]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  User [art]    Script Date: 01/14/2021 3:41:23 pm ******/
 CREATE USER [art] FOR LOGIN [testart2] WITH DEFAULT_SCHEMA=[mainadmin]
 GO
-/****** Object:  Schema [Test]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Schema [Test]    Script Date: 01/14/2021 3:41:23 pm ******/
 CREATE SCHEMA [Test]
 GO
-/****** Object:  Table [dbo].[tblAccounts]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblAccounts]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,10 +97,14 @@ CREATE TABLE [dbo].[tblAccounts](
 	[AccountType] [varchar](25) NULL,
 	[AccountStatus] [varchar](15) NULL,
 	[LogID] [smallint] NULL,
-	[LastLogin] [datetime] NULL
+	[LastLogin] [datetime] NULL,
+ CONSTRAINT [PK_tblAccounts] PRIMARY KEY CLUSTERED 
+(
+	[accountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblEducation]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblEducation]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,27 +117,32 @@ CREATE TABLE [dbo].[tblEducation](
 	[Program] [varchar](50) NULL,
 	[Grade] [varchar](50) NULL,
 	[GradudationDate] [varchar](10) NULL,
+	[ChosenCourse] [varchar](100) NULL,
  CONSTRAINT [PK_tblEducation] PRIMARY KEY CLUSTERED 
 (
 	[educationID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblLogs]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblLogs]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[tblLogs](
-	[Logid] [int] IDENTITY(1,1) NOT NULL,
+	[Logid] [smallint] IDENTITY(1,1) NOT NULL,
 	[Username] [varchar](25) NOT NULL,
 	[AccountType] [varchar](50) NOT NULL,
 	[LoginTime] [datetime] NOT NULL,
 	[LogLevel] [varchar](50) NULL,
-	[LogMessage] [varchar](50) NULL
+	[LogMessage] [varchar](50) NULL,
+ CONSTRAINT [PK_tblLogs] PRIMARY KEY CLUSTERED 
+(
+	[Logid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblParentGuardianTable]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblParentGuardianTable]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +166,7 @@ CREATE TABLE [dbo].[tblParentGuardianTable](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblRegistrationInfo]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblRegistrationInfo]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -175,7 +184,7 @@ CREATE TABLE [dbo].[tblRegistrationInfo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tblStudent]    Script Date: 01/14/2021 12:11:03 pm ******/
+/****** Object:  Table [dbo].[tblStudent]    Script Date: 01/14/2021 3:41:23 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,8 +218,18 @@ CREATE TABLE [dbo].[tblStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[tblRegistrationInfo]  WITH CHECK ADD  CONSTRAINT [FK_tblRegistrationInfo_tblRegistrationInfo] FOREIGN KEY([RegID])
-REFERENCES [dbo].[tblRegistrationInfo] ([RegID])
+ALTER TABLE [dbo].[tblEducation]  WITH CHECK ADD  CONSTRAINT [FK_tblEducation_tblStudent] FOREIGN KEY([StudentID])
+REFERENCES [dbo].[tblStudent] ([StudentID])
+GO
+ALTER TABLE [dbo].[tblEducation] CHECK CONSTRAINT [FK_tblEducation_tblStudent]
+GO
+ALTER TABLE [dbo].[tblParentGuardianTable]  WITH CHECK ADD  CONSTRAINT [FK_tblParentGuardianTable_tblStudent] FOREIGN KEY([StudentID])
+REFERENCES [dbo].[tblStudent] ([StudentID])
+GO
+ALTER TABLE [dbo].[tblParentGuardianTable] CHECK CONSTRAINT [FK_tblParentGuardianTable_tblStudent]
+GO
+ALTER TABLE [dbo].[tblRegistrationInfo]  WITH CHECK ADD  CONSTRAINT [FK_tblRegistrationInfo_tblRegistrationInfo] FOREIGN KEY([StudentID])
+REFERENCES [dbo].[tblStudent] ([StudentID])
 GO
 ALTER TABLE [dbo].[tblRegistrationInfo] CHECK CONSTRAINT [FK_tblRegistrationInfo_tblRegistrationInfo]
 GO
