@@ -18,10 +18,14 @@ namespace TestStudentRegistration
         public frmAdmin(string username)
         {
             InitializeComponent();
-            lblGreetings.Text = username;
+            lblGreetings.Text = "Welcome " +username;
             activeUser = username;
             loadTotalData();
             loadSimpleStudentData();
+            loadAccountData();
+            loadActiveUserInfo();
+            enableComponents(false);
+          
         }
         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,8 +100,6 @@ namespace TestStudentRegistration
             frmCreateAccount form = new frmCreateAccount();
             
                 form.ShowDialog();
-           
-            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -150,6 +152,35 @@ namespace TestStudentRegistration
             }
         }
             
+        private void loadAccountData()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+
+            var bindingSource = new BindingSource();
+            string ShowInfo = "  SELECT accountID, FullName, AccountType, AccountType from tblAccounts";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
+            try
+            {
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+                dataGridAccount.ReadOnly = true;
+                dataGridAccount.DataSource = bindingSource;
+                dataGridAccount.RowHeadersVisible = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
@@ -178,12 +209,12 @@ namespace TestStudentRegistration
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            btnLogout.BringToFront();
+            pnlDashboard.BringToFront();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            btnLogout.BringToFront();
+            pnlDashboard.BringToFront();
         }
 
         private void btnAccounts_Click(object sender, EventArgs e)
@@ -207,6 +238,115 @@ namespace TestStudentRegistration
         {
             LogoutBox logoutBox = new LogoutBox();
             logoutBox.ShowDialog();
+        }
+
+        private void btnAccountBack_Click(object sender, EventArgs e)
+        {
+            pnlDashboard.BringToFront();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            enableComponents(true);
+            btnEdit.Enabled = false;
+            btnSave.Enabled = true;
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            enableComponents(false);
+            btnSave.Enabled = false;
+            btnEdit.Enabled = true;
+        }
+
+        private void enableComponents(Boolean isTrue)
+        {
+
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                {
+
+                    if (control is TextBox)
+                        (control as TextBox).Enabled = isTrue;
+                    if (control is ComboBox)
+                        (control as ComboBox).Enabled = isTrue;
+
+                    else
+                        func(control.Controls);
+                }
+
+            };
+
+            func(Controls);
+
+        }
+
+
+        private void loadActiveUserInfo()
+        {
+            
+          
+            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            SqlDataReader myReader = command.ExecuteReader();
+
+            while (myReader.Read())
+            {
+                txtFullname.Text = myReader[0].ToString();
+                txtUsername.Text = myReader[1].ToString();
+                comboAccountType.Text = myReader[2].ToString();
+                comboAccStatus.Text = myReader[3].ToString();
+                lblLastLogin.Text = myReader[4].ToString();
+                lblLastActivity.Text = myReader[5].ToString();
+
+            }
+            myReader.Close();
+            connection.Close();
+        }
+        private void dataGridAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridAccount.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            {
+                if (dataGridAccount.CurrentCell != null && dataGridAccount.CurrentCell.Value != null)
+                {
+
+                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+                    SqlConnection connection = new SqlConnection(connectionString);
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader myReader = command.ExecuteReader();
+
+                    while (myReader.Read())
+                    {
+                        txtFullname.Text = myReader[0].ToString();
+                        txtUsername.Text = myReader[1].ToString();
+                        comboAccountType.Text = myReader[2].ToString();
+                        comboAccStatus.Text = myReader[3].ToString();
+                        lblLastLogin.Text = myReader[4].ToString();
+                        lblLastActivity.Text = myReader[5].ToString();
+
+                    }
+                    myReader.Close();
+                    connection.Close();
+                
+                }
+            }
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            pnlCreateAccount.BringToFront();
+        }
+
+        private void btnAddAccountBack_Click(object sender, EventArgs e)
+        {
+            pnlDashboard.BringToFront();
         }
     }
 }
