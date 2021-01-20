@@ -230,14 +230,14 @@ namespace TestStudentRegistration
 
          private void buttonLogout1_Click(object sender, EventArgs e)
         {
-            LogoutBox logoutBox = new LogoutBox();
-            logoutBox.ShowDialog();
+            //LogoutBox logoutBox = new LogoutBox();
+            //logoutBox.ShowDialog();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            LogoutBox logoutBox = new LogoutBox();
-            logoutBox.ShowDialog();
+            //LogoutBox logoutBox = new LogoutBox();
+            //logoutBox.ShowDialog();
         }
 
         private void btnAccountBack_Click(object sender, EventArgs e)

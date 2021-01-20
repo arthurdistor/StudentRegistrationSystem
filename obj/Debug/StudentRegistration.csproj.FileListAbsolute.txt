@@ -10,3 +10,16 @@ C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\StudentRegistration.
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\StudentRegistration.csproj.CoreCompileInputs.cache
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.exe
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.pdb
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\StudentRegistration.csprojAssemblyReference.cache
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmStudentRegistration.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmAdmin.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmLogin.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.frmCreateAccount.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.Properties.Resources.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\StudentRegistration.csproj.GenerateResource.cache
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\StudentRegistration.csproj.CoreCompileInputs.cache
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.exe
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.pdb
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe.config
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.pdb
