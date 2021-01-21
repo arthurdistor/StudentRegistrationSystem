@@ -23,3 +23,5 @@ C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentR
 C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe.config
 C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.exe
 C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.pdb
+C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\StudentRegistration.csprojAssemblyReference.cache
+C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.LogoutBox.resources

@@ -23,7 +23,7 @@ namespace TestStudentRegistration
             loadTotalData();
             loadSimpleStudentData();
             loadAccountData();
-            loadActiveUserInfo();
+            UIButtonDashboarClick();
             enableComponents(false);
           
         }
@@ -209,9 +209,26 @@ namespace TestStudentRegistration
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            loadSimpleStudentData();
             pnlDashboard.BringToFront();
+            UIButtonDashboarClick();
         }
+        private void UIButtonDashboarClick()
+        {
+            btnDashboard.BorderColor = Color.White;
+            btnDashboard.ButtonColor = Color.White;
+            buttonStudents.ButtonColor = Color.FromArgb(4, 45, 101);
+            buttonStudents.BorderColor = Color.FromArgb(4, 45, 101);
 
+        }
+        private void UIButtonStudentsClick()
+        {
+            buttonStudents.ButtonColor = Color.White;
+            buttonStudents.BorderColor = Color.White;
+            btnDashboard.ButtonColor = Color.FromArgb(4, 45, 101);
+            btnDashboard.BorderColor = Color.FromArgb(4, 45, 101);
+
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             pnlDashboard.BringToFront();
@@ -219,6 +236,7 @@ namespace TestStudentRegistration
 
         private void btnAccounts_Click(object sender, EventArgs e)
         {
+            loadActiveUserInfo();
             Accounts.BringToFront();
         }
 
@@ -230,14 +248,14 @@ namespace TestStudentRegistration
 
          private void buttonLogout1_Click(object sender, EventArgs e)
         {
-            //LogoutBox logoutBox = new LogoutBox();
-            //logoutBox.ShowDialog();
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            //LogoutBox logoutBox = new LogoutBox();
-            //logoutBox.ShowDialog();
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
         }
 
         private void btnAccountBack_Click(object sender, EventArgs e)
@@ -288,9 +306,10 @@ namespace TestStudentRegistration
 
         private void loadActiveUserInfo()
         {
-            
-          
-            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
+
+            //Use this query if tblLogs was implemented
+            //string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
+            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + activeUser+"';";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
@@ -303,7 +322,7 @@ namespace TestStudentRegistration
                 comboAccountType.Text = myReader[2].ToString();
                 comboAccStatus.Text = myReader[3].ToString();
                 lblLastLogin.Text = myReader[4].ToString();
-                lblLastActivity.Text = myReader[5].ToString();
+                //lblLastActivity.Text = myReader[5].ToString();
 
             }
             myReader.Close();
@@ -316,7 +335,11 @@ namespace TestStudentRegistration
                 if (dataGridAccount.CurrentCell != null && dataGridAccount.CurrentCell.Value != null)
                 {
 
-                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+                    //Use this query if tblLogs was implemented
+                  //  string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+                   
+                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+
                     SqlConnection connection = new SqlConnection(connectionString);
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
@@ -329,8 +352,7 @@ namespace TestStudentRegistration
                         comboAccountType.Text = myReader[2].ToString();
                         comboAccStatus.Text = myReader[3].ToString();
                         lblLastLogin.Text = myReader[4].ToString();
-                        lblLastActivity.Text = myReader[5].ToString();
-
+                       // lblLastActivity.Text = myReader[5].ToString();
                     }
                     myReader.Close();
                     connection.Close();
@@ -347,6 +369,13 @@ namespace TestStudentRegistration
         private void btnAddAccountBack_Click(object sender, EventArgs e)
         {
             pnlDashboard.BringToFront();
+        }
+
+        private void buttonStudents_Click_1(object sender, EventArgs e)
+        {
+            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            frmStudentRegistration.Show();
+            UIButtonStudentsClick();
         }
     }
 }

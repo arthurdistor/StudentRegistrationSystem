@@ -73,6 +73,10 @@
     <Compile Include="frmCreateAccount.Designer.cs">
       <DependentUpon>frmCreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogoutBox.cs" />
+    <Compile Include="LogoutBox.Designer.cs">
+      <DependentUpon>LogoutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmStudentRegistration.resx">
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreateAccount.resx">
       <DependentUpon>frmCreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoutBox.resx">
+      <DependentUpon>LogoutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,11 +13,11 @@ namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
-        // string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
-        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
-        public int studNumber;
-        public string customID = "";
-        public string finalStudID = "";
+         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+        //string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+        private string studNumber;
+        private string customID = "";
+        private string finalStudID = "";
 
 
 
@@ -138,16 +138,16 @@ namespace TestStudentRegistration
                 txtYear.Text = myReader[27].ToString();
                 txtDateOfGraduation.Text = myReader[28].ToString();
                 //27 ParentID, 28 studID
-                txtFathersName.Text = myReader[31].ToString();
-                txtFatherOccupation.Text = myReader[32].ToString();
-                txtFatherContact.Text = myReader[33].ToString();
-                txtMotherName.Text = myReader[34].ToString();
-                txtMotherOccupation.Text = myReader[35].ToString();
-                txtMotherContact.Text = myReader[36].ToString();
-                txtGuardianName.Text = myReader[37].ToString();
-                txtGuardianOccupation.Text = myReader[38].ToString();
-                txtGuardianContact.Text = myReader[39].ToString();
-                txtRelationship.Text = myReader[40].ToString();
+                txtFathersName.Text = myReader[32].ToString();
+                txtFatherOccupation.Text = myReader[33].ToString();
+                txtFatherContact.Text = myReader[34].ToString();
+                txtMotherName.Text = myReader[35].ToString();
+                txtMotherOccupation.Text = myReader[36].ToString();
+                txtMotherContact.Text = myReader[37].ToString();
+                txtGuardianName.Text = myReader[38].ToString();
+                txtGuardianOccupation.Text = myReader[39].ToString();
+                txtGuardianContact.Text = myReader[40].ToString();
+                txtRelationship.Text = myReader[41].ToString();
 
             }
             connection.Close();
@@ -164,31 +164,24 @@ namespace TestStudentRegistration
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            //string studentIDExistQuery = "SELECT StudentID FROM tblStudent WHERE StudentID =" + studNumber;
-            //SqlConnection con = new SqlConnection(connectionString);
-            //SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
-            //con.Open();
-            //SqlDataReader dr = cmd.ExecuteReader();
-            //if (dr.Read())
-            //{
-            //    dr.Close();
-            //    UpdateStudentInfo();
-            //    MessageBox.Show("gg");
-            //    //insertToTblStudent(finalStudID);
 
-            //}
-            //else
-            //{
-            //   // finalStudID1 = Int32.Parse(finalStudID);
-            //   // insertToTblStudent();
-            //    //insertToTblEducation();
-            //    //insertToTblParentGuardian();
-            //    generateStudentID1();
 
-            //}
-            //con.Close();
-            generateStudentID1();
-
+            string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';" ;
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                //Update student info  
+                dr.Close();
+                UpdateStudentInfo();
+            }
+            else
+            {
+                //Insert new student
+                generateStudentID1();
+            }
 
 
         }
@@ -213,7 +206,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Successfully Insert!");
+                    
                     insertToTblParentGuardian();
                     insertToTblEducation();
 
@@ -279,7 +272,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Successfully education!");
+                    
                 }
             }
 
@@ -305,7 +298,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Successfully parentguardan!");
+                   
                 }
             }
 

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.btnAdminPanel = new System.Windows.Forms.Button();
@@ -69,26 +69,6 @@
             this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.Accounts = new System.Windows.Forms.Panel();
-            this.pnlCreateAccount = new System.Windows.Forms.Panel();
-            this.btnAddAccountBack = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboRole = new System.Windows.Forms.ComboBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblAccountType = new System.Windows.Forms.Label();
-            this.lblSecurityPass = new System.Windows.Forms.Label();
-            this.txtSecurityPass = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
@@ -119,6 +99,26 @@
             this.button_WOC10 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC11 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
+            this.pnlCreateAccount = new System.Windows.Forms.Panel();
+            this.btnAddAccountBack = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboRole = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblAccountType = new System.Windows.Forms.Label();
+            this.lblSecurityPass = new System.Windows.Forms.Label();
+            this.txtSecurityPass = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.Logs = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -217,11 +217,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.Accounts.SuspendLayout();
-            this.pnlCreateAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAccountBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
             this.panel2.SuspendLayout();
@@ -229,6 +224,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.pnlCreateAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Logs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -399,6 +399,7 @@
             this.buttonStudents.Text = "Students";
             this.buttonStudents.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.buttonStudents.UseVisualStyleBackColor = true;
+            this.buttonStudents.Click += new System.EventHandler(this.buttonStudents_Click_1);
             // 
             // btnDashboard
             // 
@@ -560,35 +561,35 @@
             this.dataGridSimpleStudentInfo.AllowUserToDeleteRows = false;
             this.dataGridSimpleStudentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSimpleStudentInfo.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSimpleStudentInfo.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSimpleStudentInfo.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridSimpleStudentInfo.Location = new System.Drawing.Point(222, 268);
             this.dataGridSimpleStudentInfo.Name = "dataGridSimpleStudentInfo";
             this.dataGridSimpleStudentInfo.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridSimpleStudentInfo.RowHeadersVisible = false;
             this.dataGridSimpleStudentInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridSimpleStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -813,236 +814,6 @@
             this.Accounts.Name = "Accounts";
             this.Accounts.Size = new System.Drawing.Size(850, 591);
             this.Accounts.TabIndex = 14;
-            // 
-            // pnlCreateAccount
-            // 
-            this.pnlCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.pnlCreateAccount.Controls.Add(this.btnAddAccountBack);
-            this.pnlCreateAccount.Controls.Add(this.button2);
-            this.pnlCreateAccount.Controls.Add(this.button1);
-            this.pnlCreateAccount.Controls.Add(this.label2);
-            this.pnlCreateAccount.Controls.Add(this.label3);
-            this.pnlCreateAccount.Controls.Add(this.panel9);
-            this.pnlCreateAccount.Location = new System.Drawing.Point(208, 0);
-            this.pnlCreateAccount.Name = "pnlCreateAccount";
-            this.pnlCreateAccount.Size = new System.Drawing.Size(642, 586);
-            this.pnlCreateAccount.TabIndex = 68;
-            // 
-            // btnAddAccountBack
-            // 
-            this.btnAddAccountBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAccountBack.BackgroundImage")));
-            this.btnAddAccountBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddAccountBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAccountBack.Location = new System.Drawing.Point(19, 27);
-            this.btnAddAccountBack.Name = "btnAddAccountBack";
-            this.btnAddAccountBack.Size = new System.Drawing.Size(48, 48);
-            this.btnAddAccountBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAddAccountBack.TabIndex = 73;
-            this.btnAddAccountBack.TabStop = false;
-            this.btnAddAccountBack.Click += new System.EventHandler(this.btnAddAccountBack_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(441, 426);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 48);
-            this.button2.TabIndex = 72;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(541, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 48);
-            this.button1.TabIndex = 71;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label2.Location = new System.Drawing.Point(519, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 20);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Time and Date";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label3.Location = new System.Drawing.Point(66, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(236, 40);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "Add an Account";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.comboRole);
-            this.panel9.Controls.Add(this.txtName);
-            this.panel9.Controls.Add(this.lblAccountType);
-            this.panel9.Controls.Add(this.lblSecurityPass);
-            this.panel9.Controls.Add(this.txtSecurityPass);
-            this.panel9.Controls.Add(this.lblName);
-            this.panel9.Controls.Add(this.txtPassword);
-            this.panel9.Controls.Add(this.lblUsername);
-            this.panel9.Controls.Add(this.textBox8);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(9, 181);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(621, 218);
-            this.panel9.TabIndex = 68;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.panel10.Controls.Add(this.pictureBox3);
-            this.panel10.Controls.Add(this.label4);
-            this.panel10.Location = new System.Drawing.Point(13, 27);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(167, 163);
-            this.panel10.TabIndex = 0;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(54, 54);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(27, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 21);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Profile Picture";
-            // 
-            // comboRole
-            // 
-            this.comboRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboRole.FormattingEnabled = true;
-            this.comboRole.Items.AddRange(new object[] {
-            "Full Admin",
-            "Admin",
-            "Student Assistant"});
-            this.comboRole.Location = new System.Drawing.Point(468, 88);
-            this.comboRole.Name = "comboRole";
-            this.comboRole.Size = new System.Drawing.Size(121, 23);
-            this.comboRole.TabIndex = 34;
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(217, 39);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(207, 23);
-            this.txtName.TabIndex = 37;
-            // 
-            // lblAccountType
-            // 
-            this.lblAccountType.AutoSize = true;
-            this.lblAccountType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.lblAccountType.Location = new System.Drawing.Point(486, 63);
-            this.lblAccountType.Name = "lblAccountType";
-            this.lblAccountType.Size = new System.Drawing.Size(85, 15);
-            this.lblAccountType.TabIndex = 29;
-            this.lblAccountType.Text = "Account Type:";
-            // 
-            // lblSecurityPass
-            // 
-            this.lblSecurityPass.AutoSize = true;
-            this.lblSecurityPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecurityPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.lblSecurityPass.Location = new System.Drawing.Point(214, 169);
-            this.lblSecurityPass.Name = "lblSecurityPass";
-            this.lblSecurityPass.Size = new System.Drawing.Size(111, 15);
-            this.lblSecurityPass.TabIndex = 39;
-            this.lblSecurityPass.Text = "Security Password:";
-            // 
-            // txtSecurityPass
-            // 
-            this.txtSecurityPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityPass.Location = new System.Drawing.Point(217, 187);
-            this.txtSecurityPass.Name = "txtSecurityPass";
-            this.txtSecurityPass.Size = new System.Drawing.Size(207, 23);
-            this.txtSecurityPass.TabIndex = 36;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.lblName.Location = new System.Drawing.Point(214, 21);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(62, 15);
-            this.lblName.TabIndex = 30;
-            this.lblName.Text = "Full Name";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(217, 136);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(207, 23);
-            this.txtPassword.TabIndex = 38;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.lblUsername.Location = new System.Drawing.Point(214, 70);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(67, 15);
-            this.lblUsername.TabIndex = 32;
-            this.lblUsername.Text = "Username:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(217, 88);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(207, 23);
-            this.textBox8.TabIndex = 35;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label6.Location = new System.Drawing.Point(214, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 15);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Password:";
             // 
             // button9
             // 
@@ -1456,6 +1227,236 @@
             this.button_WOC12.Text = "Dashboard";
             this.button_WOC12.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.button_WOC12.UseVisualStyleBackColor = true;
+            // 
+            // pnlCreateAccount
+            // 
+            this.pnlCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.pnlCreateAccount.Controls.Add(this.btnAddAccountBack);
+            this.pnlCreateAccount.Controls.Add(this.button2);
+            this.pnlCreateAccount.Controls.Add(this.button1);
+            this.pnlCreateAccount.Controls.Add(this.label2);
+            this.pnlCreateAccount.Controls.Add(this.label3);
+            this.pnlCreateAccount.Controls.Add(this.panel9);
+            this.pnlCreateAccount.Location = new System.Drawing.Point(208, 0);
+            this.pnlCreateAccount.Name = "pnlCreateAccount";
+            this.pnlCreateAccount.Size = new System.Drawing.Size(642, 586);
+            this.pnlCreateAccount.TabIndex = 68;
+            // 
+            // btnAddAccountBack
+            // 
+            this.btnAddAccountBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAccountBack.BackgroundImage")));
+            this.btnAddAccountBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddAccountBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAccountBack.Location = new System.Drawing.Point(19, 27);
+            this.btnAddAccountBack.Name = "btnAddAccountBack";
+            this.btnAddAccountBack.Size = new System.Drawing.Size(48, 48);
+            this.btnAddAccountBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAddAccountBack.TabIndex = 73;
+            this.btnAddAccountBack.TabStop = false;
+            this.btnAddAccountBack.Click += new System.EventHandler(this.btnAddAccountBack_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Enabled = false;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(441, 426);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 48);
+            this.button2.TabIndex = 72;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(541, 426);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 48);
+            this.button1.TabIndex = 71;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label2.Location = new System.Drawing.Point(519, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 20);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "Time and Date";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label3.Location = new System.Drawing.Point(66, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(236, 40);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Add an Account";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.comboRole);
+            this.panel9.Controls.Add(this.txtName);
+            this.panel9.Controls.Add(this.lblAccountType);
+            this.panel9.Controls.Add(this.lblSecurityPass);
+            this.panel9.Controls.Add(this.txtSecurityPass);
+            this.panel9.Controls.Add(this.lblName);
+            this.panel9.Controls.Add(this.txtPassword);
+            this.panel9.Controls.Add(this.lblUsername);
+            this.panel9.Controls.Add(this.textBox8);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(9, 181);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(621, 218);
+            this.panel9.TabIndex = 68;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.panel10.Controls.Add(this.pictureBox3);
+            this.panel10.Controls.Add(this.label4);
+            this.panel10.Location = new System.Drawing.Point(13, 27);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(167, 163);
+            this.panel10.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Location = new System.Drawing.Point(54, 54);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(60, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(27, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 21);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Profile Picture";
+            // 
+            // comboRole
+            // 
+            this.comboRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRole.FormattingEnabled = true;
+            this.comboRole.Items.AddRange(new object[] {
+            "Full Admin",
+            "Admin",
+            "Student Assistant"});
+            this.comboRole.Location = new System.Drawing.Point(468, 88);
+            this.comboRole.Name = "comboRole";
+            this.comboRole.Size = new System.Drawing.Size(121, 23);
+            this.comboRole.TabIndex = 34;
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(217, 39);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(207, 23);
+            this.txtName.TabIndex = 37;
+            // 
+            // lblAccountType
+            // 
+            this.lblAccountType.AutoSize = true;
+            this.lblAccountType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.lblAccountType.Location = new System.Drawing.Point(486, 63);
+            this.lblAccountType.Name = "lblAccountType";
+            this.lblAccountType.Size = new System.Drawing.Size(85, 15);
+            this.lblAccountType.TabIndex = 29;
+            this.lblAccountType.Text = "Account Type:";
+            // 
+            // lblSecurityPass
+            // 
+            this.lblSecurityPass.AutoSize = true;
+            this.lblSecurityPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.lblSecurityPass.Location = new System.Drawing.Point(214, 169);
+            this.lblSecurityPass.Name = "lblSecurityPass";
+            this.lblSecurityPass.Size = new System.Drawing.Size(111, 15);
+            this.lblSecurityPass.TabIndex = 39;
+            this.lblSecurityPass.Text = "Security Password:";
+            // 
+            // txtSecurityPass
+            // 
+            this.txtSecurityPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityPass.Location = new System.Drawing.Point(217, 187);
+            this.txtSecurityPass.Name = "txtSecurityPass";
+            this.txtSecurityPass.Size = new System.Drawing.Size(207, 23);
+            this.txtSecurityPass.TabIndex = 36;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.lblName.Location = new System.Drawing.Point(214, 21);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(62, 15);
+            this.lblName.TabIndex = 30;
+            this.lblName.Text = "Full Name";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(217, 136);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(207, 23);
+            this.txtPassword.TabIndex = 38;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.lblUsername.Location = new System.Drawing.Point(214, 70);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(67, 15);
+            this.lblUsername.TabIndex = 32;
+            this.lblUsername.Text = "Username:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(217, 88);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(207, 23);
+            this.textBox8.TabIndex = 35;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label6.Location = new System.Drawing.Point(214, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 15);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Password:";
             // 
             // Logs
             // 
@@ -2543,9 +2544,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(850, 588);
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.pnlCreateAccount);
-            this.Controls.Add(this.Accounts);
             this.Controls.Add(this.Admin_Control);
+            this.Controls.Add(this.Accounts);
+            this.Controls.Add(this.pnlCreateAccount);
             this.Controls.Add(this.lblTimeDate);
             this.Controls.Add(this.SelectAdmission);
             this.Controls.Add(this.StudentTab);
@@ -2573,14 +2574,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.Accounts.ResumeLayout(false);
             this.Accounts.PerformLayout();
-            this.pnlCreateAccount.ResumeLayout(false);
-            this.pnlCreateAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAccountBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -2590,6 +2583,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.pnlCreateAccount.ResumeLayout(false);
+            this.pnlCreateAccount.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Logs.ResumeLayout(false);
             this.Logs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
