@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace TestStudentRegistration
 {
     public partial class frmLogin : Form
@@ -19,7 +19,7 @@ namespace TestStudentRegistration
             
         }
         //For Devs, Change the connection string to your own config.
-        string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         bool loginSuccess;
 
         public string username = "";

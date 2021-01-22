@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
-         string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         //string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
         private string studNumber;
         private string customID = "";
@@ -110,6 +110,7 @@ namespace TestStudentRegistration
 
             while (myReader.Read())
             {
+                studNumber = myReader[0].ToString();
                 txtLRN.Text = myReader[1].ToString();
                 txtStudFirstName.Text = myReader[2].ToString();
                 txtStudMiddleName.Text = myReader[3].ToString();

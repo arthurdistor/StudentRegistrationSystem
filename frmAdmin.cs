@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace TestStudentRegistration
 {
     public partial class frmAdmin : Form
@@ -27,7 +27,7 @@ namespace TestStudentRegistration
             enableComponents(false);
           
         }
-        string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

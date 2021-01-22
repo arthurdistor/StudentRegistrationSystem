@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace TestStudentRegistration
 {
     public partial class frmCreateAccount : Form
@@ -17,8 +17,8 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
         }
-    
-        
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(comboRole.Text) || String.IsNullOrWhiteSpace(txtUsername.Text) || String.IsNullOrWhiteSpace(txtPassword.Text) || String.IsNullOrWhiteSpace(txtSecurityPass.Text))
@@ -60,7 +60,7 @@ namespace TestStudentRegistration
         {
             
           
-            string connectionString = @"Server=DESKTOP-8SJ75OR\SQLEXPRESS;Database=DBStudentRegistrationSystem;Trusted_Connection=True;";
+          
 
             
             
