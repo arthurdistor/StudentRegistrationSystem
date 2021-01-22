@@ -506,6 +506,7 @@
             this.button_WOC4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.button_WOC4.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.button_WOC4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC4.Enabled = false;
             this.button_WOC4.FlatAppearance.BorderSize = 0;
             this.button_WOC4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button_WOC4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
