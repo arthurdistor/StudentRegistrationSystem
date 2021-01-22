@@ -21,7 +21,6 @@ namespace TestStudentRegistration
             lblGreetings.Text = "Welcome " +username;
             activeUser = username;
             loadTotalData();
-            loadSimpleStudentData();
             loadAccountData();
             UIButtonDashboarClick();
             enableComponents(false);
@@ -183,6 +182,7 @@ namespace TestStudentRegistration
         
         private void timer1_Tick(object sender, EventArgs e)
         {
+            loadSimpleStudentData();
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
         }
 
