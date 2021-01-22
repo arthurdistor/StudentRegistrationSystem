@@ -403,6 +403,7 @@
             // 
             // comboStatus
             // 
+            this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
             this.comboStatus.Location = new System.Drawing.Point(16, 135);
@@ -710,6 +711,7 @@
             // 
             // comboCourse
             // 
+            this.comboCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCourse.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCourse.FormattingEnabled = true;
             this.comboCourse.Items.AddRange(new object[] {
@@ -722,7 +724,6 @@
             this.comboCourse.Name = "comboCourse";
             this.comboCourse.Size = new System.Drawing.Size(291, 23);
             this.comboCourse.TabIndex = 76;
-            this.comboCourse.Text = "BS in Information Technology (BSIT)";
             // 
             // label27
             // 
@@ -737,6 +738,7 @@
             // 
             // comboAdmissionType
             // 
+            this.comboAdmissionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAdmissionType.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboAdmissionType.FormattingEnabled = true;
             this.comboAdmissionType.Items.AddRange(new object[] {
@@ -746,7 +748,6 @@
             this.comboAdmissionType.Name = "comboAdmissionType";
             this.comboAdmissionType.Size = new System.Drawing.Size(121, 23);
             this.comboAdmissionType.TabIndex = 67;
-            this.comboAdmissionType.Text = "New Student";
             // 
             // label28
             // 
@@ -1198,6 +1199,7 @@
             // 
             // comboGender
             // 
+            this.comboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboGender.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboGender.FormattingEnabled = true;
             this.comboGender.Items.AddRange(new object[] {
@@ -1208,7 +1210,6 @@
             this.comboGender.Name = "comboGender";
             this.comboGender.Size = new System.Drawing.Size(121, 23);
             this.comboGender.TabIndex = 39;
-            this.comboGender.Text = "Male";
             // 
             // label3
             // 
