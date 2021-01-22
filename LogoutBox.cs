@@ -24,7 +24,12 @@ namespace TestStudentRegistration
 
         private void button_WOC45_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Close();
+            frmAdmin obj = (frmAdmin)Application.OpenForms["frmAdmin"];
+            obj.Hide();
+           
         }
     }
 }
