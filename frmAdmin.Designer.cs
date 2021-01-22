@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.btnAdminPanel = new System.Windows.Forms.Button();
@@ -101,23 +101,23 @@
             this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
             this.pnlCreateAccount = new System.Windows.Forms.Panel();
             this.btnAddAccountBack = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreateAccCancel = new System.Windows.Forms.Button();
+            this.btnCreateAccAdd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.pnlCreateAccountComponents = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboRole = new System.Windows.Forms.ComboBox();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.cmbCreateAccType = new System.Windows.Forms.ComboBox();
+            this.txtCreateAccName = new System.Windows.Forms.TextBox();
             this.lblAccountType = new System.Windows.Forms.Label();
             this.lblSecurityPass = new System.Windows.Forms.Label();
-            this.txtSecurityPass = new System.Windows.Forms.TextBox();
+            this.txtCreateAccSecPass = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtCreateAccPass = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtCreateAccUsername = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Logs = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
@@ -226,7 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.pnlCreateAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).BeginInit();
-            this.panel9.SuspendLayout();
+            this.pnlCreateAccountComponents.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Logs.SuspendLayout();
@@ -562,35 +562,35 @@
             this.dataGridSimpleStudentInfo.AllowUserToDeleteRows = false;
             this.dataGridSimpleStudentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSimpleStudentInfo.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridSimpleStudentInfo.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridSimpleStudentInfo.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridSimpleStudentInfo.Location = new System.Drawing.Point(222, 268);
             this.dataGridSimpleStudentInfo.Name = "dataGridSimpleStudentInfo";
             this.dataGridSimpleStudentInfo.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridSimpleStudentInfo.RowHeadersVisible = false;
             this.dataGridSimpleStudentInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridSimpleStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1233,11 +1233,11 @@
             // 
             this.pnlCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
             this.pnlCreateAccount.Controls.Add(this.btnAddAccountBack);
-            this.pnlCreateAccount.Controls.Add(this.button2);
-            this.pnlCreateAccount.Controls.Add(this.button1);
+            this.pnlCreateAccount.Controls.Add(this.btnCreateAccCancel);
+            this.pnlCreateAccount.Controls.Add(this.btnCreateAccAdd);
             this.pnlCreateAccount.Controls.Add(this.label2);
             this.pnlCreateAccount.Controls.Add(this.label3);
-            this.pnlCreateAccount.Controls.Add(this.panel9);
+            this.pnlCreateAccount.Controls.Add(this.pnlCreateAccountComponents);
             this.pnlCreateAccount.Location = new System.Drawing.Point(208, 0);
             this.pnlCreateAccount.Name = "pnlCreateAccount";
             this.pnlCreateAccount.Size = new System.Drawing.Size(642, 586);
@@ -1256,34 +1256,36 @@
             this.btnAddAccountBack.TabStop = false;
             this.btnAddAccountBack.Click += new System.EventHandler(this.btnAddAccountBack_Click);
             // 
-            // button2
+            // btnCreateAccCancel
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(441, 426);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 48);
-            this.button2.TabIndex = 72;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCreateAccCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnCreateAccCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateAccCancel.BackgroundImage")));
+            this.btnCreateAccCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCreateAccCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateAccCancel.Enabled = false;
+            this.btnCreateAccCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnCreateAccCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccCancel.Location = new System.Drawing.Point(441, 426);
+            this.btnCreateAccCancel.Name = "btnCreateAccCancel";
+            this.btnCreateAccCancel.Size = new System.Drawing.Size(82, 48);
+            this.btnCreateAccCancel.TabIndex = 6;
+            this.btnCreateAccCancel.UseVisualStyleBackColor = false;
+            this.btnCreateAccCancel.Click += new System.EventHandler(this.btnCreateAccCancel_Click);
             // 
-            // button1
+            // btnCreateAccAdd
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(541, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 48);
-            this.button1.TabIndex = 71;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCreateAccAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnCreateAccAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateAccAdd.BackgroundImage")));
+            this.btnCreateAccAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCreateAccAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateAccAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnCreateAccAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateAccAdd.Location = new System.Drawing.Point(541, 426);
+            this.btnCreateAccAdd.Name = "btnCreateAccAdd";
+            this.btnCreateAccAdd.Size = new System.Drawing.Size(82, 48);
+            this.btnCreateAccAdd.TabIndex = 7;
+            this.btnCreateAccAdd.UseVisualStyleBackColor = false;
+            this.btnCreateAccAdd.Click += new System.EventHandler(this.btnCreateAccAdd_Click);
             // 
             // label2
             // 
@@ -1307,24 +1309,24 @@
             this.label3.TabIndex = 70;
             this.label3.Text = "Add an Account";
             // 
-            // panel9
+            // pnlCreateAccountComponents
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.comboRole);
-            this.panel9.Controls.Add(this.txtName);
-            this.panel9.Controls.Add(this.lblAccountType);
-            this.panel9.Controls.Add(this.lblSecurityPass);
-            this.panel9.Controls.Add(this.txtSecurityPass);
-            this.panel9.Controls.Add(this.lblName);
-            this.panel9.Controls.Add(this.txtPassword);
-            this.panel9.Controls.Add(this.lblUsername);
-            this.panel9.Controls.Add(this.textBox8);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(9, 181);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(621, 218);
-            this.panel9.TabIndex = 68;
+            this.pnlCreateAccountComponents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
+            this.pnlCreateAccountComponents.Controls.Add(this.panel10);
+            this.pnlCreateAccountComponents.Controls.Add(this.cmbCreateAccType);
+            this.pnlCreateAccountComponents.Controls.Add(this.txtCreateAccName);
+            this.pnlCreateAccountComponents.Controls.Add(this.lblAccountType);
+            this.pnlCreateAccountComponents.Controls.Add(this.lblSecurityPass);
+            this.pnlCreateAccountComponents.Controls.Add(this.txtCreateAccSecPass);
+            this.pnlCreateAccountComponents.Controls.Add(this.lblName);
+            this.pnlCreateAccountComponents.Controls.Add(this.txtCreateAccPass);
+            this.pnlCreateAccountComponents.Controls.Add(this.lblUsername);
+            this.pnlCreateAccountComponents.Controls.Add(this.txtCreateAccUsername);
+            this.pnlCreateAccountComponents.Controls.Add(this.label6);
+            this.pnlCreateAccountComponents.Location = new System.Drawing.Point(9, 181);
+            this.pnlCreateAccountComponents.Name = "pnlCreateAccountComponents";
+            this.pnlCreateAccountComponents.Size = new System.Drawing.Size(621, 218);
+            this.pnlCreateAccountComponents.TabIndex = 68;
             // 
             // panel10
             // 
@@ -1359,26 +1361,26 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Profile Picture";
             // 
-            // comboRole
+            // cmbCreateAccType
             // 
-            this.comboRole.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboRole.FormattingEnabled = true;
-            this.comboRole.Items.AddRange(new object[] {
+            this.cmbCreateAccType.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCreateAccType.FormattingEnabled = true;
+            this.cmbCreateAccType.Items.AddRange(new object[] {
             "Full Admin",
             "Admin",
             "Student Assistant"});
-            this.comboRole.Location = new System.Drawing.Point(468, 88);
-            this.comboRole.Name = "comboRole";
-            this.comboRole.Size = new System.Drawing.Size(121, 23);
-            this.comboRole.TabIndex = 34;
+            this.cmbCreateAccType.Location = new System.Drawing.Point(468, 88);
+            this.cmbCreateAccType.Name = "cmbCreateAccType";
+            this.cmbCreateAccType.Size = new System.Drawing.Size(121, 23);
+            this.cmbCreateAccType.TabIndex = 5;
             // 
-            // txtName
+            // txtCreateAccName
             // 
-            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(217, 39);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(207, 23);
-            this.txtName.TabIndex = 37;
+            this.txtCreateAccName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreateAccName.Location = new System.Drawing.Point(217, 39);
+            this.txtCreateAccName.Name = "txtCreateAccName";
+            this.txtCreateAccName.Size = new System.Drawing.Size(207, 23);
+            this.txtCreateAccName.TabIndex = 1;
             // 
             // lblAccountType
             // 
@@ -1402,13 +1404,14 @@
             this.lblSecurityPass.TabIndex = 39;
             this.lblSecurityPass.Text = "Security Password:";
             // 
-            // txtSecurityPass
+            // txtCreateAccSecPass
             // 
-            this.txtSecurityPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityPass.Location = new System.Drawing.Point(217, 187);
-            this.txtSecurityPass.Name = "txtSecurityPass";
-            this.txtSecurityPass.Size = new System.Drawing.Size(207, 23);
-            this.txtSecurityPass.TabIndex = 36;
+            this.txtCreateAccSecPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreateAccSecPass.Location = new System.Drawing.Point(217, 187);
+            this.txtCreateAccSecPass.Name = "txtCreateAccSecPass";
+            this.txtCreateAccSecPass.Size = new System.Drawing.Size(207, 23);
+            this.txtCreateAccSecPass.TabIndex = 4;
+            this.txtCreateAccSecPass.UseSystemPasswordChar = true;
             // 
             // lblName
             // 
@@ -1421,13 +1424,14 @@
             this.lblName.TabIndex = 30;
             this.lblName.Text = "Full Name";
             // 
-            // txtPassword
+            // txtCreateAccPass
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(217, 136);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(207, 23);
-            this.txtPassword.TabIndex = 38;
+            this.txtCreateAccPass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreateAccPass.Location = new System.Drawing.Point(217, 136);
+            this.txtCreateAccPass.Name = "txtCreateAccPass";
+            this.txtCreateAccPass.Size = new System.Drawing.Size(207, 23);
+            this.txtCreateAccPass.TabIndex = 3;
+            this.txtCreateAccPass.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 
@@ -1440,13 +1444,13 @@
             this.lblUsername.TabIndex = 32;
             this.lblUsername.Text = "Username:";
             // 
-            // textBox8
+            // txtCreateAccUsername
             // 
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(217, 88);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(207, 23);
-            this.textBox8.TabIndex = 35;
+            this.txtCreateAccUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCreateAccUsername.Location = new System.Drawing.Point(217, 88);
+            this.txtCreateAccUsername.Name = "txtCreateAccUsername";
+            this.txtCreateAccUsername.Size = new System.Drawing.Size(207, 23);
+            this.txtCreateAccUsername.TabIndex = 2;
             // 
             // label6
             // 
@@ -2545,15 +2549,15 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(850, 588);
             this.Controls.Add(this.pnlDashboard);
-            this.Controls.Add(this.Admin_Control);
-            this.Controls.Add(this.Accounts);
             this.Controls.Add(this.pnlCreateAccount);
+            this.Controls.Add(this.Accounts);
+            this.Controls.Add(this.Admin_Control);
             this.Controls.Add(this.lblTimeDate);
-            this.Controls.Add(this.SelectAdmission);
             this.Controls.Add(this.StudentTab);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.Logs);
             this.Controls.Add(this.Archive);
+            this.Controls.Add(this.SelectAdmission);
             this.Name = "frmAdmin";
             this.Text = "Form2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
@@ -2587,8 +2591,8 @@
             this.pnlCreateAccount.ResumeLayout(false);
             this.pnlCreateAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddAccountBack)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.pnlCreateAccountComponents.ResumeLayout(false);
+            this.pnlCreateAccountComponents.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -2777,23 +2781,23 @@
         private System.Windows.Forms.Label lblLastLogin;
         private System.Windows.Forms.Panel pnlCreateAccount;
         private System.Windows.Forms.PictureBox btnAddAccountBack;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateAccCancel;
+        private System.Windows.Forms.Button btnCreateAccAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel pnlCreateAccountComponents;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboRole;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ComboBox cmbCreateAccType;
+        private System.Windows.Forms.TextBox txtCreateAccName;
         private System.Windows.Forms.Label lblAccountType;
         private System.Windows.Forms.Label lblSecurityPass;
-        private System.Windows.Forms.TextBox txtSecurityPass;
+        private System.Windows.Forms.TextBox txtCreateAccSecPass;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtCreateAccPass;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCreateAccUsername;
         private System.Windows.Forms.Label label6;
     }
 }

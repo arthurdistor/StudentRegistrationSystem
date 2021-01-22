@@ -37,16 +37,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new ePOSOne.btnProduct.Button_WOC();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button_WOC45 = new ePOSOne.btnProduct.Button_WOC();
             this.label44 = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnLogin = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC45 = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.Logout.SuspendLayout();
@@ -59,7 +59,7 @@
             this.txtUser.Location = new System.Drawing.Point(46, 203);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(164, 23);
-            this.txtUser.TabIndex = 0;
+            this.txtUser.TabIndex = 1;
             this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUser_KeyPress);
             // 
             // txtPass
@@ -69,7 +69,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(164, 23);
-            this.txtPass.TabIndex = 1;
+            this.txtPass.TabIndex = 2;
             this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
             // 
             // label1
@@ -134,30 +134,6 @@
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnLogin.BorderColor = System.Drawing.Color.White;
-            this.btnLogin.ButtonColor = System.Drawing.Color.White;
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogin.Location = new System.Drawing.Point(61, 315);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.OnHoverBorderColor = System.Drawing.Color.Blue;
-            this.btnLogin.OnHoverButtonColor = System.Drawing.Color.Blue;
-            this.btnLogin.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnLogin.Size = new System.Drawing.Size(135, 36);
-            this.btnLogin.TabIndex = 7;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.TextColor = System.Drawing.SystemColors.HotTrack;
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -213,27 +189,6 @@
             this.label7.TabIndex = 66;
             this.label7.Text = "i";
             // 
-            // button_WOC45
-            // 
-            this.button_WOC45.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC45.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC45.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC45.FlatAppearance.BorderSize = 0;
-            this.button_WOC45.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC45.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC45.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC45.Location = new System.Drawing.Point(144, 93);
-            this.button_WOC45.Name = "button_WOC45";
-            this.button_WOC45.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC45.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC45.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC45.Size = new System.Drawing.Size(121, 46);
-            this.button_WOC45.TabIndex = 65;
-            this.button_WOC45.Text = "Okay";
-            this.button_WOC45.TextColor = System.Drawing.Color.White;
-            this.button_WOC45.UseVisualStyleBackColor = true;
-            // 
             // label44
             // 
             this.label44.AutoSize = true;
@@ -260,6 +215,51 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnLogin.BorderColor = System.Drawing.Color.White;
+            this.btnLogin.ButtonColor = System.Drawing.Color.White;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogin.Location = new System.Drawing.Point(61, 315);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.OnHoverBorderColor = System.Drawing.Color.Blue;
+            this.btnLogin.OnHoverButtonColor = System.Drawing.Color.Blue;
+            this.btnLogin.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnLogin.Size = new System.Drawing.Size(135, 36);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.TextColor = System.Drawing.SystemColors.HotTrack;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // button_WOC45
+            // 
+            this.button_WOC45.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC45.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC45.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC45.FlatAppearance.BorderSize = 0;
+            this.button_WOC45.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC45.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC45.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC45.Location = new System.Drawing.Point(144, 93);
+            this.button_WOC45.Name = "button_WOC45";
+            this.button_WOC45.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC45.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC45.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC45.Size = new System.Drawing.Size(121, 46);
+            this.button_WOC45.TabIndex = 65;
+            this.button_WOC45.Text = "Okay";
+            this.button_WOC45.TextColor = System.Drawing.Color.White;
+            this.button_WOC45.UseVisualStyleBackColor = true;
             // 
             // frmLogin
             // 

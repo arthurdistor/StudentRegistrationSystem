@@ -18,13 +18,13 @@ namespace TestStudentRegistration
         public frmAdmin(string username)
         {
             InitializeComponent();
-            lblGreetings.Text = "Welcome " +username;
+            lblGreetings.Text = "Welcome " + username;
             activeUser = username;
             loadTotalData();
             loadAccountData();
             UIButtonDashboarClick();
             enableComponents(false);
-          
+
         }
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,12 +46,12 @@ namespace TestStudentRegistration
         {
             frmStudentRegistration form1 = new frmStudentRegistration();
             form1.Show();
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -77,12 +77,12 @@ namespace TestStudentRegistration
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -97,8 +97,8 @@ namespace TestStudentRegistration
 
 
             frmCreateAccount form = new frmCreateAccount();
-            
-                form.ShowDialog();
+
+            form.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -113,9 +113,9 @@ namespace TestStudentRegistration
             string totalTransferee = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType='Transferee';";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-           cmd  = new SqlCommand(totalStud, con);
-           lblTotalStudents.Text = cmd.ExecuteScalar().ToString();
-           cmd = new SqlCommand(totalNewStud, con);
+            cmd = new SqlCommand(totalStud, con);
+            lblTotalStudents.Text = cmd.ExecuteScalar().ToString();
+            cmd = new SqlCommand(totalNewStud, con);
             lblTotalNewStudents.Text = cmd.ExecuteScalar().ToString();
             cmd = new SqlCommand(totalTransferee, con);
             lblTotalTransferees.Text = cmd.ExecuteScalar().ToString();
@@ -127,7 +127,7 @@ namespace TestStudentRegistration
             SqlConnection connection = new SqlConnection(connectionString); //use your connection string here
 
 
-             var bindingSource = new BindingSource();
+            var bindingSource = new BindingSource();
             string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp desc;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
@@ -150,7 +150,7 @@ namespace TestStudentRegistration
                 connection.Close();
             }
         }
-            
+
         private void loadAccountData()
         {
             SqlConnection connection = new SqlConnection(connectionString);
@@ -179,7 +179,7 @@ namespace TestStudentRegistration
                 connection.Close();
             }
         }
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             loadSimpleStudentData();
@@ -190,14 +190,14 @@ namespace TestStudentRegistration
         {
             if (dataGridSimpleStudentInfo.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
             {
-                if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null) 
+                if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null)
                 {
-                    
+
                     frmStudentRegistration frmStudent = new frmStudentRegistration();
                     frmStudent.disableComponents();
                     frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
                     frmStudent.ShowDialog();
-                   
+
                 }
             }
         }
@@ -246,7 +246,7 @@ namespace TestStudentRegistration
         }
 
 
-         private void buttonLogout1_Click(object sender, EventArgs e)
+        private void buttonLogout1_Click(object sender, EventArgs e)
         {
             LogoutBox logoutBox = new LogoutBox();
             logoutBox.ShowDialog();
@@ -309,7 +309,7 @@ namespace TestStudentRegistration
 
             //Use this query if tblLogs was implemented
             //string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
-            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + activeUser+"';";
+            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + activeUser + "';";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
@@ -336,8 +336,8 @@ namespace TestStudentRegistration
                 {
 
                     //Use this query if tblLogs was implemented
-                  //  string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
-                   
+                    //  string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+
                     string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
 
                     SqlConnection connection = new SqlConnection(connectionString);
@@ -352,17 +352,48 @@ namespace TestStudentRegistration
                         comboAccountType.Text = myReader[2].ToString();
                         comboAccStatus.Text = myReader[3].ToString();
                         lblLastLogin.Text = myReader[4].ToString();
-                       // lblLastActivity.Text = myReader[5].ToString();
+                        // lblLastActivity.Text = myReader[5].ToString();
                     }
                     myReader.Close();
                     connection.Close();
-                
+
                 }
             }
         }
+        private void EnableContentAddAccountPanel(Panel panel, bool enabled)
+        {
+            foreach (Control ctrl in panel.Controls)
+            {
+                ctrl.Enabled = enabled;
+            }
+        }
+        private void ClearText()
+        {
+            Action<Control.ControlCollection> func = null;
 
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                {
+
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+
+                    if (control is ComboBox)
+                        (control as ComboBox).Text = "";
+
+                    else
+                        func(control.Controls);
+                }
+
+            };
+
+            func(Controls);
+        }
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
+            EnableContentAddAccountPanel(pnlCreateAccountComponents, true);
+
             pnlCreateAccount.BringToFront();
         }
 
@@ -376,6 +407,56 @@ namespace TestStudentRegistration
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
             frmStudentRegistration.Show();
             UIButtonStudentsClick();
+        }
+        private void createUserAccount()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            //to be updated
+            SqlCommand scmd = new SqlCommand("select Password from tblAccounts where Username ='" + activeUser + "'", con);
+            con.Open();
+            string user = (string)scmd.ExecuteScalar();
+            con.Close();
+
+            if (txtCreateAccSecPass.Text == user)
+            {
+                SqlCommand cmd = new SqlCommand("select * from tblAccounts where Username ='" + txtCreateAccUsername.Text + "'", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    dr.Close();
+                    MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    dr.Close();
+                    cmd = new SqlCommand("insert into tblAccounts (Username, Password, FullName, AccountType, AccountStatus) values(@username,@password,@name,@userrole,@accstatus)", con);
+                    cmd.Parameters.AddWithValue("@username", txtCreateAccUsername.Text);
+                    cmd.Parameters.AddWithValue("@password", txtCreateAccPass.Text);
+                    cmd.Parameters.AddWithValue("@name", txtCreateAccName.Text);
+                    cmd.Parameters.AddWithValue("@userrole", cmbCreateAccType.SelectedItem);
+                    cmd.Parameters.AddWithValue("@accstatus", "Enabled");
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Your Account is created. You may now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    con.Close();
+                    ClearText();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Incorrect Security Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCreateAccAdd_Click(object sender, EventArgs e)
+        {
+            createUserAccount();
+        }
+
+        private void btnCreateAccCancel_Click(object sender, EventArgs e)
+        {
+            Admin_Control.BringToFront();
         }
     }
 }
