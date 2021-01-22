@@ -88,8 +88,7 @@ namespace TestStudentRegistration
                  this.Hide();
              }*/
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void loginFunction()
         {
 
             if (String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
@@ -116,13 +115,17 @@ namespace TestStudentRegistration
                     cmd.Parameters.AddWithValue("username", x.username);
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    
+
                     frmAdmin admin = new frmAdmin(username);
                     admin.Show();
                     this.Hide();
                 }
 
             }
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            loginFunction();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -133,6 +136,22 @@ namespace TestStudentRegistration
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                loginFunction();
+            }
+        }
+
+        private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                loginFunction();
+            }
         }
     }
 }
