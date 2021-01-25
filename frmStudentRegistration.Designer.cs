@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentRegistration));
             this.txtStudFirstName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Panel();
@@ -74,12 +75,12 @@
             this.txtFathersName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.txtYear = new System.Windows.Forms.ComboBox();
             this.comboCourse = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.comboAdmissionType = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.txtDateOfGraduation = new System.Windows.Forms.TextBox();
@@ -154,6 +155,7 @@
             this.button_WOC14 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC15 = new ePOSOne.btnProduct.Button_WOC();
             this.label52 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -498,9 +500,11 @@
             // 
             this.txtGuardianContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGuardianContact.Location = new System.Drawing.Point(328, 138);
+            this.txtGuardianContact.MaxLength = 13;
             this.txtGuardianContact.Name = "txtGuardianContact";
             this.txtGuardianContact.Size = new System.Drawing.Size(122, 23);
             this.txtGuardianContact.TabIndex = 60;
+            this.txtGuardianContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGuardianContact_KeyPress);
             // 
             // label39
             // 
@@ -517,9 +521,11 @@
             // 
             this.txtMotherContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotherContact.Location = new System.Drawing.Point(328, 85);
+            this.txtMotherContact.MaxLength = 13;
             this.txtMotherContact.Name = "txtMotherContact";
             this.txtMotherContact.Size = new System.Drawing.Size(122, 23);
             this.txtMotherContact.TabIndex = 58;
+            this.txtMotherContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMotherContact_KeyPress);
             // 
             // label38
             // 
@@ -536,9 +542,11 @@
             // 
             this.txtFatherContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFatherContact.Location = new System.Drawing.Point(328, 32);
+            this.txtFatherContact.MaxLength = 13;
             this.txtFatherContact.Name = "txtFatherContact";
             this.txtFatherContact.Size = new System.Drawing.Size(122, 23);
             this.txtFatherContact.TabIndex = 56;
+            this.txtFatherContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFatherContact_KeyPress);
             // 
             // label37
             // 
@@ -687,12 +695,12 @@
             // panel
             // 
             this.panel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel.Controls.Add(this.txtYear);
             this.panel.Controls.Add(this.comboCourse);
             this.panel.Controls.Add(this.label27);
             this.panel.Controls.Add(this.comboAdmissionType);
             this.panel.Controls.Add(this.label28);
             this.panel.Controls.Add(this.label23);
-            this.panel.Controls.Add(this.txtYear);
             this.panel.Controls.Add(this.label22);
             this.panel.Controls.Add(this.label21);
             this.panel.Controls.Add(this.txtDateOfGraduation);
@@ -708,6 +716,23 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(462, 381);
             this.panel.TabIndex = 58;
+            // 
+            // txtYear
+            // 
+            this.txtYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtYear.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtYear.FormattingEnabled = true;
+            this.txtYear.Items.AddRange(new object[] {
+            "Grade 12",
+            "Grade 11",
+            "4th Year",
+            "3rd Year",
+            "2nd Year",
+            "1st Year"});
+            this.txtYear.Location = new System.Drawing.Point(328, 132);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(121, 23);
+            this.txtYear.TabIndex = 77;
             // 
             // comboCourse
             // 
@@ -770,14 +795,6 @@
             this.label23.Size = new System.Drawing.Size(76, 15);
             this.label23.TabIndex = 65;
             this.label23.Text = "Year / Grade";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtYear.Location = new System.Drawing.Point(327, 134);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(122, 23);
-            this.txtYear.TabIndex = 64;
             // 
             // label22
             // 
@@ -891,6 +908,7 @@
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.Size = new System.Drawing.Size(150, 20);
             this.txtLRN.TabIndex = 58;
+            this.txtLRN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLRN_KeyPress);
             // 
             // label9
             // 
@@ -1068,9 +1086,11 @@
             // 
             this.txtStudContactNum.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudContactNum.Location = new System.Drawing.Point(165, 287);
+            this.txtStudContactNum.MaxLength = 15;
             this.txtStudContactNum.Name = "txtStudContactNum";
             this.txtStudContactNum.Size = new System.Drawing.Size(122, 23);
             this.txtStudContactNum.TabIndex = 56;
+            this.txtStudContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudContactNum_KeyPress);
             // 
             // label14
             // 
@@ -1697,6 +1717,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmStudentRegistration";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmStudentRegistration_Load_1);
             this.btnDelete.ResumeLayout(false);
             this.btnDelete.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
@@ -1768,7 +1789,6 @@
         private System.Windows.Forms.ComboBox comboAdmissionType;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtDateOfGraduation;
@@ -1851,6 +1871,8 @@
         private System.Windows.Forms.Label lblLastEditBy;
         private System.Windows.Forms.DateTimePicker dateOfBirth;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox txtYear;
     }
 }
 

@@ -26,7 +26,13 @@ namespace TestStudentRegistration
             enableComponents(false);
 
         }
-        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        //string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+
+        public static string userPosition = "";
+        public static string userName = "";
+
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -407,6 +413,9 @@ namespace TestStudentRegistration
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
             frmStudentRegistration.Show();
             UIButtonStudentsClick();
+
+            userPosition = lblGreetings.Text;
+            userName = lblGreetings.Text;
         }
         private void createUserAccount()
         {

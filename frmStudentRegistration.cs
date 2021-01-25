@@ -13,27 +13,35 @@ namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
-        //string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+        //string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
         private string studNumber;
         private string customID = "";
         private string finalStudID = "";
 
 
+        
+
+        public static string userPosition = "";
+        public static string userName = "";
 
 
         public frmStudentRegistration()
         {
             InitializeComponent();
 
-
+            timeStamp();
+            passingNamePosition();
 
         }
-
+        public void passingNamePosition()
+        {
+            lblLastEditBy.Text = frmAdmin.userName;
+        }
         public void timeStamp()
         {
-            //timer1.Start();
-            //lblTimestamp.Text = DateTime.Today.ToShortDateString() + " " +  DateTime.Now.ToShortTimeString();
+            timer1.Start();
+            lblTimestamp.Text = DateTime.Today.ToShortDateString() + " " +  DateTime.Now.ToShortTimeString();
             //lblTimestamp.Text = DateTime.Now.ToShortDateString();
         }
 
@@ -312,57 +320,59 @@ namespace TestStudentRegistration
 
         private void UpdateStudentInfo()
         {
+            
             string updateQuery =
-            @"UPDATE tblStudent
+            @"
+            BEGIN TRANSACTION 
+            UPDATE tblStudent 
             SET 
-            tblStudent.FirstName = @FirstName
-            tblStudent.MiddleName = @MiddleName
-            tblStudent.LastName = @LastName
-            tblStudent.Suffix = @Suffix
-            tblStudent.Gender = @Gender
-            tblStudent.Birthdate = @Birthdate
-            tblStudent.Birthplace = @Birthplace
-            tblStudent.CivilStatus = @CivilStatus
-            tblStudent.Citizenship = @Citizenship
-            tblStudent.StreetNo = @StreetNo
-            tblStudent.Street = @Street
-            tblStudent.Subdivision = @Subdivision
-            tblStudent.Barangay = @Barangay
-            tblStudent.City = @City
-            tblStudent.Province = @Province
-            tblStudent.ZipCode = @ZipCode
-            tblStudent.EmailAdd = @EmailAdd
-            tblStudent.ContactNo = @ContactNo
-            tblStudent.admissionType = @admissionType
+            tblStudent.FirstName = @FirstName,
+            tblStudent.MiddleName = @MiddleName,
+            tblStudent.LastName = @LastName,
+            tblStudent.Suffix = @Suffix,
+            tblStudent.Gender = @Gender,
+            tblStudent.Birthdate = @Birthdate,
+            tblStudent.Birthplace = @Birthplace,
+            tblStudent.CivilStatus = @CivilStatus,
+            tblStudent.Citizenship = @Citizenship,
+            tblStudent.StreetNo = @StreetNo,
+            tblStudent.Street = @Street,
+            tblStudent.Subdivision = @Subdivision,
+            tblStudent.Barangay = @Barangay,
+            tblStudent.City = @City,
+            tblStudent.Province = @Province,
+            tblStudent.ZipCode = @ZipCode,
+            tblStudent.EmailAdd = @EmailAdd,
+            tblStudent.ContactNo = @ContactNo,
+            tblStudent.admissionType = @admissionType   
+            WHERE tblStudent.StudentID = @studentID;    
 
+            UPDATE tblEducation
+            SET 
+            tblEducation.SchoolType = @SchoolType,            
+            tblEducation.SchoolName = @SchoolName,           
+            tblEducation.Program = @Program,            
+            tblEducation.Grade = @Grade,
+            tblEducation.GradudationDate = @GradudationDate,            
+            tblEducation.ChosenCourse = @ChosenCourse          
+            WHERE tblEducation.StudentID = @studentID;
 
-            tblEducation.SchoolType = @SchoolType            
-            tblEducation.SchoolName = @SchoolName            
-            tblEducation.Program = @Program            
-            tblEducation.Grade = @Grade
-            tblEducation.GradudationDate = @GradudationDate            
-            tblEducation.ChosenCourse = @ChosenCourse            
-
-
-            tblParentGuardianTable.FathersName = @FathersName
-            tblParentGuardianTable.FathersOccupation = @FathersOccupation
-            tblParentGuardianTable.FathersContactNum = @FathersContactNum
-            tblParentGuardianTable.MotherName = @MotherName
-            tblParentGuardianTable.MotherOccupation = @MotherOccupation
-            tblParentGuardianTable.MothersContactNum = @MothersContactNum
-            tblParentGuardianTable.GuardiansName = @GuardiansName
-            tblParentGuardianTable.GuardiansOccupation = @GuardiansOccupation
-            tblParentGuardianTable.GuardiansContactNum = @GuardiansContactNum
+            UPDATE tblParentGuardianTable
+            SET 
+            tblParentGuardianTable.FathersName = @FathersName,
+            tblParentGuardianTable.FathersOccupation = @FathersOccupation,
+            tblParentGuardianTable.FathersContactNum = @FathersContactNum,
+            tblParentGuardianTable.MotherName = @MotherName,
+            tblParentGuardianTable.MotherOccupation = @MotherOccupation,
+            tblParentGuardianTable.MothersContactNum = @MothersContactNum,
+            tblParentGuardianTable.GuardiansName = @GuardiansName,
+            tblParentGuardianTable.GuardiansOccupation = @GuardiansOccupation,
+            tblParentGuardianTable.GuardiansContactNum = @GuardiansContactNum,
             tblParentGuardianTable.GuardiansRelationship = @GuardiansRelationship
-        
-        
-        
-           FROM tblStudent
-                LEFT JOIN tblEducation
-                ON tblStudent.StudentID = tblEducation.StudentID
-                LEFT JOIN tblParentGuardianTable
-                ON tblEducation.StudentID = tblParentGuardianTable.StudentID
-            WHERE tblStudent.StudentID = @studentID;
+            WHERE tblParentGuardianTable.StudentID = @studentID;
+
+
+            COMMIT;
             ";
 
             disableComponents();
@@ -370,12 +380,14 @@ namespace TestStudentRegistration
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(updateQuery, connection);
             connection.Open();
+            command.Parameters.AddWithValue("@studentID", studNumber);
             command.Parameters.AddWithValue("@FirstName", txtStudFirstName.Text);
             command.Parameters.AddWithValue("@MiddleName", txtStudMiddleName.Text);
             command.Parameters.AddWithValue("@LastName", txtStudLastName.Text);
             command.Parameters.AddWithValue("@Suffix", txtStudSuffix.Text);
             command.Parameters.AddWithValue("@Gender", comboGender.Text);
-            command.Parameters.AddWithValue("@Birthdate", dateOfBirth.Text);
+            //command.Parameters.AddWithValue("@Birthdate", dateOfBirth.Text);
+            command.Parameters.AddWithValue("@Birthdate", dateOfBirth.Value.Date.ToString("yyyyMMdd"));
             command.Parameters.AddWithValue("@Birthplace", txtStudBirthdPlace.Text);
             command.Parameters.AddWithValue("@CivilStatus", txtStudStatus.Text);
             command.Parameters.AddWithValue("@Citizenship", txtStudCitizenship.Text);
@@ -408,8 +420,7 @@ namespace TestStudentRegistration
             command.Parameters.AddWithValue("@GuardiansContactNum", txtGuardianContact.Text);
             command.Parameters.AddWithValue("@GuardiansRelationship", txtRelationship.Text);
 
-            //Kopyahin mo lang nasa taas tapos naka label naman na yung mga yan kung @Firstname, susundan mo ng component niya, txtStudFirstName.Text
-
+           
             command.ExecuteNonQuery();
             connection.Close();
 
@@ -442,9 +453,6 @@ namespace TestStudentRegistration
             con.Close();
 
             insertStudData();
-            // insertToTblStudent();
-            //insertToTblParentGuardian();
-            // insertToTblEducation();
         }
         public void insertStudData()
         {
@@ -478,12 +486,14 @@ namespace TestStudentRegistration
                 //cmd.Parameters.AddWithValue("@timestamp", Convert.ToDateTime(lbl.Text);
                 cmd.Parameters.AddWithValue("@admissionType", comboAdmissionType.Text);
 
-                MessageBox.Show("Successfully Insert to tblStudent");
+                
 
                 insertToTblEducation();
                 insertToTblParentGuardian();
 
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Successfully Insert to tblStudent");
                 con.Close();
 
             }
@@ -515,9 +525,8 @@ namespace TestStudentRegistration
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
             timeStamp();
-            // tbStudID.Text = finalStudID;
-            // generateParentID();
-            // generateEducationID();
+           // lblLastEditBy.Text = frmAdmin.userName;
+      
         }
 
         private void btnDeleteStudData_Click(object sender, EventArgs e)
@@ -527,22 +536,90 @@ namespace TestStudentRegistration
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
-            //Class1 obj = new Class1();
-            //int a;
-            //obj.exe("select max(StudentID) from tblStudent");
-            //if (obj.dr.Read())
-            //{
-            //    if (obj.dr[0] != System.DBNull.Value)
-            //    {
-            //        a = Convert.ToInt32(obj.dr[0].ToString());
-            //        tbStudID.Text = (a + 1).ToString();
-            //    }
-            //    else
-            //    {
-            //        tbStudID.Text = "1";
-            //    }
-            //}
 
+        }
+
+        private void frmStudentRegistration_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStudContactNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtStudContactNum.MaxLength = 13;
+
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtFatherContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtFatherContact.MaxLength = 13;
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtMotherContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtMotherContact.MaxLength = 13;
+
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtGuardianContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtGuardianContact.MaxLength = 13;
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtLRN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtLRN.MaxLength = 13;
+            // only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
         }
     }
 }

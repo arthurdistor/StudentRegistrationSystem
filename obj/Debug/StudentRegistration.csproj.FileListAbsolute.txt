@@ -25,3 +25,16 @@ C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentR
 C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\TestStudentRegistration.pdb
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\StudentRegistration.csprojAssemblyReference.cache
 C:\Users\G\source\repos\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.LogoutBox.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\bin\Debug\TestStudentRegistration.exe.config
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.exe
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.pdb
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\bin\Debug\TestStudentRegistration.exe
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\bin\Debug\TestStudentRegistration.pdb
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\StudentRegistration.csprojResolveAssemblyReference.cache
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.frmStudentRegistration.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.frmAdmin.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.frmLogin.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.frmCreateAccount.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.LogoutBox.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.Properties.Resources.resources
+E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\StudentRegistration.csproj.GenerateResource.Cache
