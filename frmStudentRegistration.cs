@@ -19,8 +19,9 @@ namespace TestStudentRegistration
         private string customID = "";
         private string finalStudID = "";
 
-        
-        
+        private string customRegID = "";
+        private string finalRegID = "";
+
 
         public static string userPosition = "";
         public static string userName = "";
@@ -31,7 +32,7 @@ namespace TestStudentRegistration
             InitializeComponent();
 
             timeStamp();
-            passingNamePosition();
+           // passingNamePosition();
 
         }
         public void passingNamePosition()
@@ -173,25 +174,103 @@ namespace TestStudentRegistration
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+            if (
+                txtLRN.Text == string.Empty ||
+                txtStudFirstName.Text == string.Empty ||
+                txtStudLastName.Text == string.Empty ||
+                comboGender.Text == string.Empty ||
+                dateOfBirth.Text == string.Empty ||
+                txtStudBirthdPlace.Text == string.Empty ||
+                txtStudStatus.Text == string.Empty ||
+                txtStudCitizenship.Text == string.Empty ||
+                txtStreetNum.Text == string.Empty ||
+                txtStreet.Text == string.Empty ||
+                txtSubdivision.Text == string.Empty ||
+                txtBarangay.Text == string.Empty ||
+                txtCity.Text == string.Empty ||
+                txtProvince.Text == string.Empty ||
+                txtZipCode.Text == string.Empty ||
+                txtEmail.Text == string.Empty ||
+                txtStudContactNum.Text == string.Empty ||
 
+                comboAdmissionType.Text == string.Empty ||
 
-            string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';" ;
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+                comboSchoolType.Text == string.Empty ||
+                txtSchoolName.Text == string.Empty ||
+                txtProgram.Text == string.Empty ||
+                txtYear.Text == string.Empty ||
+                txtDateOfGraduation.Text == string.Empty ||
+
+                txtFathersName.Text == string.Empty ||
+                txtFatherOccupation.Text == string.Empty ||
+                txtFatherContact.Text == string.Empty ||
+                txtMotherName.Text == string.Empty ||
+                txtMotherOccupation.Text == string.Empty ||
+                txtMotherContact.Text == string.Empty ||
+                txtGuardianName.Text == string.Empty ||
+                txtGuardianOccupation.Text == string.Empty ||
+                txtGuardianContact.Text == string.Empty ||
+                txtRelationship.Text == string.Empty 
+                )
             {
-                //Update student info  
-                dr.Close();
-                UpdateStudentInfo();
+                MessageBox.Show("Fill the textbox");
             }
-            else
-            {
-                //Insert new student
-                generateStudentID1();
+            else {
+                string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';";
+                SqlConnection con = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //Update student info  
+                    dr.Close();
+                    UpdateStudentInfo();
+                }
+                else
+                {
+                    //Insert new student
+                    generateStudentID1();
+                    txtLRN.Text = "";
+                    txtStudFirstName.Text = "";
+                    txtStudMiddleName.Text = "";
+                    txtStudLastName.Text = "";
+                    txtStudSuffix.Text = "";
+                    comboGender.Text = "";
+                    dateOfBirth.Text = "";
+                    txtStudBirthdPlace.Text = "";
+                    txtStudStatus.Text = "";
+                    txtStudCitizenship.Text = "";
+                    txtStreetNum.Text = "";
+                    txtStreet.Text = "";
+                    txtSubdivision.Text = "";
+                    txtBarangay.Text = "";
+                    txtCity.Text = "";
+                    txtProvince.Text = "";
+                    txtZipCode.Text = "";
+                    txtEmail.Text = "";
+                    txtStudContactNum.Text = "";
+                    //20 Stud timestamp
+                    comboAdmissionType.Text = "";
+                    //22education ID 23 studID
+                    comboSchoolType.Text = "";
+                    txtSchoolName.Text = "";
+                    txtProgram.Text = "";
+                    txtYear.Text = "";
+                    txtDateOfGraduation.Text = "";
+                    //27 ParentID, 28 studID
+                    txtFathersName.Text = "";
+                    txtFatherOccupation.Text = "";
+                    txtFatherContact.Text = "";
+                    txtMotherName.Text = "";
+                    txtMotherOccupation.Text = "";
+                    txtMotherContact.Text = "";
+                    txtGuardianName.Text = "";
+                    txtGuardianOccupation.Text = "";
+                    txtGuardianContact.Text = "";
+                    txtRelationship.Text = "";
+                }
             }
-
 
         }
 
@@ -280,7 +359,6 @@ namespace TestStudentRegistration
                     SqlCommand cmd = new SqlCommand(q, con);
 
                     cmd.ExecuteNonQuery();
-
                     
                 }
             }
@@ -317,6 +395,57 @@ namespace TestStudentRegistration
 
             }
         }
+
+
+        //private void generateRegID()
+        //{
+        //    SqlConnection con = new SqlConnection(connectionString);
+
+            
+        //    DateTime dateTime = DateTime.Now;
+        //    customRegID = dateTime.ToString("yyyyMM");
+
+        //    SqlCommand cmd = new SqlCommand("SELECT COUNT(RegID) as numrows FROM tblRegistrationInfo;", con);
+        //    con.Open();
+        //    SqlDataReader dr = cmd.ExecuteReader();
+        //    dr.Read();
+        //    if (!dr.HasRows || dr.IsDBNull(0))
+        //    {
+        //        finalRegID = customRegID + "00001";
+        //    }
+        //    else
+        //    {
+        //        int newID = Convert.ToInt32(dr.GetInt32(0));
+        //        newID++;
+        //        finalRegID = customRegID + newID.ToString("00000");
+        //    }
+        //    con.Close();
+
+           
+        //}
+        //public void insertToTblRegInfo()
+        //{
+        //    try
+        //    {
+        //        SqlConnection con = new SqlConnection(connectionString);
+        //        con.Open();
+
+        //        if (con.State == System.Data.ConnectionState.Open)
+        //        {
+        //            string q = "Insert into tblEducation(RegID, StudentID, LastEditBy, DateTime, Grade, Status, Remarks) values ('" + finalRegID + "','" + finalStudID + "','" + lblLastEditBy.Text.ToString() + "','" + DateTime.Now + "','" + comboStatus.Text.ToString() + "','" + txtDateOfGraduation.Text.ToString() + "','" + comboCourse.Text.ToString() + "')";
+        //            SqlCommand cmd = new SqlCommand(q, con);
+
+        //            cmd.ExecuteNonQuery();
+
+        //        }
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+
+        //    }
+        //}
 
         private void UpdateStudentInfo()
         {
@@ -620,6 +749,16 @@ namespace TestStudentRegistration
             //{
             //    e.Handled = true;
             //}
+        }
+
+        private void txtZipCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtZipCode.MaxLength = 4;
         }
     }
 }
