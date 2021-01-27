@@ -14,6 +14,7 @@ namespace TestStudentRegistration
 {
     public partial class frmAdmin : Form
     {
+        protected readonly string _k3ys = "agapitechkey2successXDXD";
         public static string activeUser;
         public frmAdmin(string username)
         {
@@ -440,8 +441,8 @@ namespace TestStudentRegistration
                 {
                     dr.Close();
                     cmd = new SqlCommand("insert into tblAccounts (Username, Password, FullName, AccountType, AccountStatus) values(@username,@password,@name,@userrole,@accstatus)", con);
-                    cmd.Parameters.AddWithValue("@username", txtCreateAccUsername.Text);
-                    cmd.Parameters.AddWithValue("@password", txtCreateAccPass.Text);
+                    cmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys));
+                    cmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtCreateAccPass.Text, _k3ys));
                     cmd.Parameters.AddWithValue("@name", txtCreateAccName.Text);
                     cmd.Parameters.AddWithValue("@userrole", cmbCreateAccType.SelectedItem);
                     cmd.Parameters.AddWithValue("@accstatus", "Enabled");

@@ -50,6 +50,8 @@
     <Compile Include="Button_WOC.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Decrypter.cs" />
+    <Compile Include="Encrypter.cs" />
     <Compile Include="frmStudentRegistration.cs">
       <SubType>Form</SubType>
     </Compile>

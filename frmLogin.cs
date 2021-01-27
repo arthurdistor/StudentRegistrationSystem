@@ -13,6 +13,7 @@ namespace TestStudentRegistration
 {
     public partial class frmLogin : Form
     {
+        protected readonly string _k3ys = "agapitechkey2successXDXD"; 
         public frmLogin()
         {
             InitializeComponent();
@@ -50,8 +51,8 @@ namespace TestStudentRegistration
             string userlevel = "";
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand sqlcmd = new SqlCommand(query, con);
-            sqlcmd.Parameters.AddWithValue("@username", txtUser.Text);
-            sqlcmd.Parameters.AddWithValue("@password", txtPass.Text);
+            sqlcmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtUser.Text, _k3ys));
+            sqlcmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtPass.Text, _k3ys));
             con.Open();
             SqlDataReader sqlDataReader = sqlcmd.ExecuteReader();
             while (sqlDataReader.Read())
@@ -63,7 +64,7 @@ namespace TestStudentRegistration
                 loginSuccess = true;
             }
 
-            username = matchingUser.username;
+            username = Decrypter.Decrypt(matchingUser.username, _k3ys);
             userlevel = matchingUser.userlevel;
 
             if (String.IsNullOrEmpty(userlevel) || String.IsNullOrEmpty(username))

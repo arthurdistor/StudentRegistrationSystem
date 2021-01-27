@@ -35,26 +35,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlDashboard = new System.Windows.Forms.Panel();
-            this.StudentTab = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.btnExportStudent = new System.Windows.Forms.Button();
-            this.btnAddStudent = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dataGridFullStudent = new System.Windows.Forms.DataGridView();
-            this.lblStudDateTime = new System.Windows.Forms.Label();
-            this.btnAdminPanel = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.TabsPanel = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.buttonLogout1 = new ePOSOne.btnProduct.Button_WOC();
             this.buttonStudents = new ePOSOne.btnProduct.Button_WOC();
             this.btnDashboard = new ePOSOne.btnProduct.Button_WOC();
+            this.btnAdminPanel = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.lblGreetings = new System.Windows.Forms.Label();
             this.registered = new System.Windows.Forms.Panel();
             this.lblTotalStudents = new System.Windows.Forms.Label();
@@ -67,6 +55,18 @@
             this.lblTotalTransferees = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridSimpleStudentInfo = new System.Windows.Forms.DataGridView();
+            this.StudentTab = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.btnExportStudent = new System.Windows.Forms.Button();
+            this.btnAddStudent = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dataGridFullStudent = new System.Windows.Forms.DataGridView();
+            this.lblStudDateTime = new System.Windows.Forms.Label();
             this.Admin_Control = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -201,14 +201,14 @@
             this.label34 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlDashboard.SuspendLayout();
-            this.StudentTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).BeginInit();
             this.TabsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.registered.SuspendLayout();
             this.newStudents.SuspendLayout();
             this.Transferees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).BeginInit();
+            this.StudentTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).BeginInit();
             this.Admin_Control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -266,227 +266,6 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(849, 590);
             this.pnlDashboard.TabIndex = 3;
-            // 
-            // StudentTab
-            // 
-            this.StudentTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.StudentTab.Controls.Add(this.btnSearch);
-            this.StudentTab.Controls.Add(this.button22);
-            this.StudentTab.Controls.Add(this.btnExportStudent);
-            this.StudentTab.Controls.Add(this.btnAddStudent);
-            this.StudentTab.Controls.Add(this.button18);
-            this.StudentTab.Controls.Add(this.button17);
-            this.StudentTab.Controls.Add(this.comboBox3);
-            this.StudentTab.Controls.Add(this.comboBox4);
-            this.StudentTab.Controls.Add(this.txtSearch);
-            this.StudentTab.Controls.Add(this.dataGridFullStudent);
-            this.StudentTab.Controls.Add(this.lblStudDateTime);
-            this.StudentTab.Location = new System.Drawing.Point(204, 0);
-            this.StudentTab.Name = "StudentTab";
-            this.StudentTab.Size = new System.Drawing.Size(663, 590);
-            this.StudentTab.TabIndex = 16;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(230, 88);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(60, 26);
-            this.btnSearch.TabIndex = 85;
-            this.btnSearch.Text = "Go";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button22.BackgroundImage")));
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Location = new System.Drawing.Point(296, 88);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(60, 26);
-            this.button22.TabIndex = 84;
-            this.button22.UseVisualStyleBackColor = false;
-            // 
-            // btnExportStudent
-            // 
-            this.btnExportStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnExportStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExportStudent.BackgroundImage")));
-            this.btnExportStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExportStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExportStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnExportStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportStudent.Location = new System.Drawing.Point(324, 18);
-            this.btnExportStudent.Name = "btnExportStudent";
-            this.btnExportStudent.Size = new System.Drawing.Size(82, 48);
-            this.btnExportStudent.TabIndex = 83;
-            this.btnExportStudent.UseVisualStyleBackColor = false;
-            // 
-            // btnAddStudent
-            // 
-            this.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddStudent.BackgroundImage")));
-            this.btnAddStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStudent.Location = new System.Drawing.Point(227, 18);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(82, 48);
-            this.btnAddStudent.TabIndex = 82;
-            this.btnAddStudent.UseVisualStyleBackColor = false;
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button18.BackgroundImage")));
-            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Location = new System.Drawing.Point(130, 18);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(82, 48);
-            this.button18.TabIndex = 81;
-            this.button18.UseVisualStyleBackColor = false;
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
-            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Location = new System.Drawing.Point(33, 18);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(82, 48);
-            this.button17.TabIndex = 80;
-            this.button17.UseVisualStyleBackColor = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.BackColor = System.Drawing.Color.White;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(526, 90);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 23);
-            this.comboBox3.TabIndex = 77;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.BackColor = System.Drawing.Color.White;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(420, 90);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(100, 23);
-            this.comboBox4.TabIndex = 76;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.txtSearch.Location = new System.Drawing.Point(30, 92);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(191, 20);
-            this.txtSearch.TabIndex = 32;
-            // 
-            // dataGridFullStudent
-            // 
-            this.dataGridFullStudent.AllowUserToAddRows = false;
-            this.dataGridFullStudent.AllowUserToDeleteRows = false;
-            this.dataGridFullStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridFullStudent.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridFullStudent.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dataGridFullStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridFullStudent.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridFullStudent.Location = new System.Drawing.Point(16, 122);
-            this.dataGridFullStudent.Name = "dataGridFullStudent";
-            this.dataGridFullStudent.ReadOnly = true;
-            this.dataGridFullStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridFullStudent.Size = new System.Drawing.Size(610, 452);
-            this.dataGridFullStudent.TabIndex = 31;
-            // 
-            // lblStudDateTime
-            // 
-            this.lblStudDateTime.AutoSize = true;
-            this.lblStudDateTime.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblStudDateTime.Location = new System.Drawing.Point(449, 22);
-            this.lblStudDateTime.Name = "lblStudDateTime";
-            this.lblStudDateTime.Size = new System.Drawing.Size(111, 20);
-            this.lblStudDateTime.TabIndex = 19;
-            this.lblStudDateTime.Text = "Time and Date";
-            // 
-            // btnAdminPanel
-            // 
-            this.btnAdminPanel.BackColor = System.Drawing.Color.Red;
-            this.btnAdminPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdminPanel.BackgroundImage")));
-            this.btnAdminPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdminPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdminPanel.FlatAppearance.BorderSize = 0;
-            this.btnAdminPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnAdminPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdminPanel.ForeColor = System.Drawing.Color.White;
-            this.btnAdminPanel.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnAdminPanel.Location = new System.Drawing.Point(702, 405);
-            this.btnAdminPanel.Name = "btnAdminPanel";
-            this.btnAdminPanel.Size = new System.Drawing.Size(83, 34);
-            this.btnAdminPanel.TabIndex = 30;
-            this.btnAdminPanel.UseVisualStyleBackColor = false;
-            this.btnAdminPanel.Click += new System.EventHandler(this.btnAdminPanel_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
-            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnExport.Location = new System.Drawing.Point(702, 456);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(83, 34);
-            this.btnExport.TabIndex = 29;
-            this.btnExport.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(702, 405);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(83, 34);
-            this.button3.TabIndex = 28;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
             // 
             // TabsPanel
             // 
@@ -583,6 +362,65 @@
             this.btnDashboard.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // btnAdminPanel
+            // 
+            this.btnAdminPanel.BackColor = System.Drawing.Color.Red;
+            this.btnAdminPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdminPanel.BackgroundImage")));
+            this.btnAdminPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdminPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminPanel.FlatAppearance.BorderSize = 0;
+            this.btnAdminPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnAdminPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPanel.ForeColor = System.Drawing.Color.White;
+            this.btnAdminPanel.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnAdminPanel.Location = new System.Drawing.Point(702, 405);
+            this.btnAdminPanel.Name = "btnAdminPanel";
+            this.btnAdminPanel.Size = new System.Drawing.Size(83, 34);
+            this.btnAdminPanel.TabIndex = 30;
+            this.btnAdminPanel.UseVisualStyleBackColor = false;
+            this.btnAdminPanel.Click += new System.EventHandler(this.btnAdminPanel_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
+            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnExport.Location = new System.Drawing.Point(702, 456);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(83, 34);
+            this.btnExport.TabIndex = 29;
+            this.btnExport.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(702, 405);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(83, 34);
+            this.button3.TabIndex = 28;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             // 
             // lblGreetings
             // 
@@ -758,6 +596,168 @@
             this.dataGridSimpleStudentInfo.Size = new System.Drawing.Size(411, 308);
             this.dataGridSimpleStudentInfo.TabIndex = 18;
             this.dataGridSimpleStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSimpleStudentInfo_CellClick);
+            // 
+            // StudentTab
+            // 
+            this.StudentTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.StudentTab.Controls.Add(this.btnSearch);
+            this.StudentTab.Controls.Add(this.button22);
+            this.StudentTab.Controls.Add(this.btnExportStudent);
+            this.StudentTab.Controls.Add(this.btnAddStudent);
+            this.StudentTab.Controls.Add(this.button18);
+            this.StudentTab.Controls.Add(this.button17);
+            this.StudentTab.Controls.Add(this.comboBox3);
+            this.StudentTab.Controls.Add(this.comboBox4);
+            this.StudentTab.Controls.Add(this.txtSearch);
+            this.StudentTab.Controls.Add(this.dataGridFullStudent);
+            this.StudentTab.Controls.Add(this.lblStudDateTime);
+            this.StudentTab.Location = new System.Drawing.Point(204, 0);
+            this.StudentTab.Name = "StudentTab";
+            this.StudentTab.Size = new System.Drawing.Size(663, 590);
+            this.StudentTab.TabIndex = 16;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(230, 88);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(60, 26);
+            this.btnSearch.TabIndex = 85;
+            this.btnSearch.Text = "Go";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button22.BackgroundImage")));
+            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Location = new System.Drawing.Point(296, 88);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(60, 26);
+            this.button22.TabIndex = 84;
+            this.button22.UseVisualStyleBackColor = false;
+            // 
+            // btnExportStudent
+            // 
+            this.btnExportStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnExportStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExportStudent.BackgroundImage")));
+            this.btnExportStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnExportStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportStudent.Location = new System.Drawing.Point(324, 18);
+            this.btnExportStudent.Name = "btnExportStudent";
+            this.btnExportStudent.Size = new System.Drawing.Size(82, 48);
+            this.btnExportStudent.TabIndex = 83;
+            this.btnExportStudent.UseVisualStyleBackColor = false;
+            // 
+            // btnAddStudent
+            // 
+            this.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddStudent.BackgroundImage")));
+            this.btnAddStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStudent.Location = new System.Drawing.Point(227, 18);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(82, 48);
+            this.btnAddStudent.TabIndex = 82;
+            this.btnAddStudent.UseVisualStyleBackColor = false;
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button18.BackgroundImage")));
+            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Location = new System.Drawing.Point(130, 18);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(82, 48);
+            this.button18.TabIndex = 81;
+            this.button18.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
+            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.Location = new System.Drawing.Point(33, 18);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(82, 48);
+            this.button17.TabIndex = 80;
+            this.button17.UseVisualStyleBackColor = false;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.BackColor = System.Drawing.Color.White;
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(526, 90);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(100, 23);
+            this.comboBox3.TabIndex = 77;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.BackColor = System.Drawing.Color.White;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(420, 90);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(100, 23);
+            this.comboBox4.TabIndex = 76;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.txtSearch.Location = new System.Drawing.Point(30, 92);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(191, 20);
+            this.txtSearch.TabIndex = 32;
+            // 
+            // dataGridFullStudent
+            // 
+            this.dataGridFullStudent.AllowUserToAddRows = false;
+            this.dataGridFullStudent.AllowUserToDeleteRows = false;
+            this.dataGridFullStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridFullStudent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridFullStudent.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridFullStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridFullStudent.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridFullStudent.Location = new System.Drawing.Point(16, 122);
+            this.dataGridFullStudent.Name = "dataGridFullStudent";
+            this.dataGridFullStudent.ReadOnly = true;
+            this.dataGridFullStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridFullStudent.Size = new System.Drawing.Size(610, 452);
+            this.dataGridFullStudent.TabIndex = 31;
+            // 
+            // lblStudDateTime
+            // 
+            this.lblStudDateTime.AutoSize = true;
+            this.lblStudDateTime.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblStudDateTime.Location = new System.Drawing.Point(449, 22);
+            this.lblStudDateTime.Name = "lblStudDateTime";
+            this.lblStudDateTime.Size = new System.Drawing.Size(111, 20);
+            this.lblStudDateTime.TabIndex = 19;
+            this.lblStudDateTime.Text = "Time and Date";
             // 
             // Admin_Control
             // 
@@ -2522,9 +2522,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(850, 588);
+            this.Controls.Add(this.pnlCreateAccount);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.StudentTab);
-            this.Controls.Add(this.pnlCreateAccount);
             this.Controls.Add(this.Accounts);
             this.Controls.Add(this.Admin_Control);
             this.Controls.Add(this.lblTimeDate);
@@ -2537,9 +2537,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDashboard.PerformLayout();
-            this.StudentTab.ResumeLayout(false);
-            this.StudentTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).EndInit();
             this.TabsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.registered.ResumeLayout(false);
@@ -2549,6 +2546,9 @@
             this.Transferees.ResumeLayout(false);
             this.Transferees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).EndInit();
+            this.StudentTab.ResumeLayout(false);
+            this.StudentTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).EndInit();
             this.Admin_Control.ResumeLayout(false);
             this.Admin_Control.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
