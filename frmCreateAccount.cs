@@ -17,7 +17,9 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
         }
+        //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+
 
         private void btnCreate_Click(object sender, EventArgs e)
         {

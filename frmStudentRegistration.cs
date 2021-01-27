@@ -13,8 +13,9 @@ namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
-        //string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
-        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+        //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+
         private string studNumber;
         private string customID = "";
         private string finalStudID = "";
