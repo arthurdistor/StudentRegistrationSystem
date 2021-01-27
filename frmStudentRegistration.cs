@@ -13,8 +13,8 @@ namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
-        //string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
-        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        //string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
         private string studNumber;
         private string customID = "";
         private string finalStudID = "";

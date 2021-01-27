@@ -19,8 +19,8 @@ namespace TestStudentRegistration
             
         }
         //For Devs, Change the connection string to your own config.
-        //string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
-        string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+        //string connectionString = @"Data Source=desktop-40uhahe\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True";
 
         bool loginSuccess;
 

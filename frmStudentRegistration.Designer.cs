@@ -44,7 +44,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblTimestamp = new System.Windows.Forms.Label();
             this.lblLastEditBy = new System.Windows.Forms.Label();
-            this.btnAddRemark = new ePOSOne.btnProduct.Button_WOC();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -132,30 +131,31 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblRegistrationNum = new System.Windows.Forms.Label();
             this.SaveChanges = new System.Windows.Forms.Panel();
-            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
             this.label34 = new System.Windows.Forms.Label();
             this.Attachment = new System.Windows.Forms.Panel();
-            this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
             this.label46 = new System.Windows.Forms.Label();
             this.ArchiveData = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
-            this.button_WOC10 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC11 = new ePOSOne.btnProduct.Button_WOC();
             this.label47 = new System.Windows.Forms.Label();
             this.UnarchiveData = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
-            this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC13 = new ePOSOne.btnProduct.Button_WOC();
             this.label50 = new System.Windows.Forms.Label();
             this.Delete = new System.Windows.Forms.Panel();
             this.label53 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.button_WOC14 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC15 = new ePOSOne.btnProduct.Button_WOC();
             this.label52 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnAddRemark = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC14 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC15 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC10 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC11 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC13 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
             this.btnDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -361,27 +361,6 @@
             this.lblLastEditBy.Size = new System.Drawing.Size(144, 17);
             this.lblLastEditBy.TabIndex = 72;
             this.lblLastEditBy.Text = "Username + User Role";
-            // 
-            // btnAddRemark
-            // 
-            this.btnAddRemark.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddRemark.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddRemark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddRemark.FlatAppearance.BorderSize = 0;
-            this.btnAddRemark.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.btnAddRemark.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.btnAddRemark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRemark.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRemark.Location = new System.Drawing.Point(323, 165);
-            this.btnAddRemark.Name = "btnAddRemark";
-            this.btnAddRemark.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.btnAddRemark.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.btnAddRemark.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAddRemark.Size = new System.Drawing.Size(126, 21);
-            this.btnAddRemark.TabIndex = 71;
-            this.btnAddRemark.Text = "Add New Remark";
-            this.btnAddRemark.TextColor = System.Drawing.Color.White;
-            this.btnAddRemark.UseVisualStyleBackColor = true;
             // 
             // txtRemarks
             // 
@@ -1342,48 +1321,6 @@
             this.SaveChanges.Size = new System.Drawing.Size(369, 157);
             this.SaveChanges.TabIndex = 22;
             // 
-            // button_WOC7
-            // 
-            this.button_WOC7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC7.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC7.FlatAppearance.BorderSize = 0;
-            this.button_WOC7.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC7.Location = new System.Drawing.Point(184, 91);
-            this.button_WOC7.Name = "button_WOC7";
-            this.button_WOC7.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC7.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC7.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC7.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC7.TabIndex = 66;
-            this.button_WOC7.Text = "No";
-            this.button_WOC7.TextColor = System.Drawing.Color.White;
-            this.button_WOC7.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC6
-            // 
-            this.button_WOC6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC6.FlatAppearance.BorderSize = 0;
-            this.button_WOC6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC6.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC6.Location = new System.Drawing.Point(69, 91);
-            this.button_WOC6.Name = "button_WOC6";
-            this.button_WOC6.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC6.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC6.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC6.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC6.TabIndex = 65;
-            this.button_WOC6.Text = "Yes";
-            this.button_WOC6.TextColor = System.Drawing.Color.White;
-            this.button_WOC6.UseVisualStyleBackColor = true;
-            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1406,48 +1343,6 @@
             this.Attachment.Name = "Attachment";
             this.Attachment.Size = new System.Drawing.Size(369, 373);
             this.Attachment.TabIndex = 23;
-            // 
-            // button_WOC8
-            // 
-            this.button_WOC8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC8.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC8.FlatAppearance.BorderSize = 0;
-            this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC8.Location = new System.Drawing.Point(184, 295);
-            this.button_WOC8.Name = "button_WOC8";
-            this.button_WOC8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC8.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC8.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC8.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC8.TabIndex = 66;
-            this.button_WOC8.Text = "Add New";
-            this.button_WOC8.TextColor = System.Drawing.Color.White;
-            this.button_WOC8.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC9
-            // 
-            this.button_WOC9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC9.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC9.FlatAppearance.BorderSize = 0;
-            this.button_WOC9.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC9.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC9.Location = new System.Drawing.Point(69, 295);
-            this.button_WOC9.Name = "button_WOC9";
-            this.button_WOC9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC9.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC9.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC9.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC9.TabIndex = 65;
-            this.button_WOC9.Text = "Done";
-            this.button_WOC9.TextColor = System.Drawing.Color.White;
-            this.button_WOC9.UseVisualStyleBackColor = true;
             // 
             // label46
             // 
@@ -1484,48 +1379,6 @@
             this.label48.TabIndex = 67;
             this.label48.Text = "archive this data?";
             // 
-            // button_WOC10
-            // 
-            this.button_WOC10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC10.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC10.FlatAppearance.BorderSize = 0;
-            this.button_WOC10.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC10.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC10.Location = new System.Drawing.Point(187, 91);
-            this.button_WOC10.Name = "button_WOC10";
-            this.button_WOC10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC10.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC10.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC10.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC10.TabIndex = 66;
-            this.button_WOC10.Text = "No";
-            this.button_WOC10.TextColor = System.Drawing.Color.White;
-            this.button_WOC10.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC11
-            // 
-            this.button_WOC11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC11.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC11.FlatAppearance.BorderSize = 0;
-            this.button_WOC11.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC11.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC11.Location = new System.Drawing.Point(72, 91);
-            this.button_WOC11.Name = "button_WOC11";
-            this.button_WOC11.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC11.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC11.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC11.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC11.TabIndex = 65;
-            this.button_WOC11.Text = "Yes";
-            this.button_WOC11.TextColor = System.Drawing.Color.White;
-            this.button_WOC11.UseVisualStyleBackColor = true;
-            // 
             // label47
             // 
             this.label47.AutoSize = true;
@@ -1560,48 +1413,6 @@
             this.label49.Size = new System.Drawing.Size(209, 30);
             this.label49.TabIndex = 67;
             this.label49.Text = "unarchive this data?";
-            // 
-            // button_WOC12
-            // 
-            this.button_WOC12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC12.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC12.FlatAppearance.BorderSize = 0;
-            this.button_WOC12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC12.Location = new System.Drawing.Point(187, 91);
-            this.button_WOC12.Name = "button_WOC12";
-            this.button_WOC12.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC12.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC12.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC12.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC12.TabIndex = 66;
-            this.button_WOC12.Text = "No";
-            this.button_WOC12.TextColor = System.Drawing.Color.White;
-            this.button_WOC12.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC13
-            // 
-            this.button_WOC13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC13.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC13.FlatAppearance.BorderSize = 0;
-            this.button_WOC13.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC13.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC13.Location = new System.Drawing.Point(72, 91);
-            this.button_WOC13.Name = "button_WOC13";
-            this.button_WOC13.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC13.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC13.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC13.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC13.TabIndex = 65;
-            this.button_WOC13.Text = "Yes";
-            this.button_WOC13.TextColor = System.Drawing.Color.White;
-            this.button_WOC13.UseVisualStyleBackColor = true;
             // 
             // label50
             // 
@@ -1650,6 +1461,80 @@
             this.label51.TabIndex = 67;
             this.label51.Text = "DELETE this data?";
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label52.Location = new System.Drawing.Point(61, 20);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(262, 30);
+            this.label52.TabIndex = 0;
+            this.label52.Text = "Are you sure you want to";
+            // 
+            // btnAddRemark
+            // 
+            this.btnAddRemark.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddRemark.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddRemark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddRemark.FlatAppearance.BorderSize = 0;
+            this.btnAddRemark.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.btnAddRemark.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.btnAddRemark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddRemark.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRemark.Location = new System.Drawing.Point(323, 165);
+            this.btnAddRemark.Name = "btnAddRemark";
+            this.btnAddRemark.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnAddRemark.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnAddRemark.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAddRemark.Size = new System.Drawing.Size(126, 21);
+            this.btnAddRemark.TabIndex = 71;
+            this.btnAddRemark.Text = "Add New Remark";
+            this.btnAddRemark.TextColor = System.Drawing.Color.White;
+            this.btnAddRemark.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC7
+            // 
+            this.button_WOC7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC7.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC7.FlatAppearance.BorderSize = 0;
+            this.button_WOC7.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC7.Location = new System.Drawing.Point(184, 91);
+            this.button_WOC7.Name = "button_WOC7";
+            this.button_WOC7.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC7.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC7.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC7.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC7.TabIndex = 66;
+            this.button_WOC7.Text = "No";
+            this.button_WOC7.TextColor = System.Drawing.Color.White;
+            this.button_WOC7.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC6
+            // 
+            this.button_WOC6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC6.FlatAppearance.BorderSize = 0;
+            this.button_WOC6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC6.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC6.Location = new System.Drawing.Point(69, 91);
+            this.button_WOC6.Name = "button_WOC6";
+            this.button_WOC6.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC6.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC6.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC6.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC6.TabIndex = 65;
+            this.button_WOC6.Text = "Yes";
+            this.button_WOC6.TextColor = System.Drawing.Color.White;
+            this.button_WOC6.UseVisualStyleBackColor = true;
+            // 
             // button_WOC14
             // 
             this.button_WOC14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
@@ -1692,16 +1577,131 @@
             this.button_WOC15.TextColor = System.Drawing.Color.White;
             this.button_WOC15.UseVisualStyleBackColor = true;
             // 
-            // label52
+            // button_WOC10
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label52.Location = new System.Drawing.Point(61, 20);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(262, 30);
-            this.label52.TabIndex = 0;
-            this.label52.Text = "Are you sure you want to";
+            this.button_WOC10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC10.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC10.FlatAppearance.BorderSize = 0;
+            this.button_WOC10.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC10.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC10.Location = new System.Drawing.Point(187, 91);
+            this.button_WOC10.Name = "button_WOC10";
+            this.button_WOC10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC10.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC10.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC10.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC10.TabIndex = 66;
+            this.button_WOC10.Text = "No";
+            this.button_WOC10.TextColor = System.Drawing.Color.White;
+            this.button_WOC10.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC11
+            // 
+            this.button_WOC11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC11.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC11.FlatAppearance.BorderSize = 0;
+            this.button_WOC11.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC11.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC11.Location = new System.Drawing.Point(72, 91);
+            this.button_WOC11.Name = "button_WOC11";
+            this.button_WOC11.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC11.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC11.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC11.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC11.TabIndex = 65;
+            this.button_WOC11.Text = "Yes";
+            this.button_WOC11.TextColor = System.Drawing.Color.White;
+            this.button_WOC11.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC12
+            // 
+            this.button_WOC12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC12.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC12.FlatAppearance.BorderSize = 0;
+            this.button_WOC12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC12.Location = new System.Drawing.Point(187, 91);
+            this.button_WOC12.Name = "button_WOC12";
+            this.button_WOC12.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC12.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC12.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC12.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC12.TabIndex = 66;
+            this.button_WOC12.Text = "No";
+            this.button_WOC12.TextColor = System.Drawing.Color.White;
+            this.button_WOC12.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC13
+            // 
+            this.button_WOC13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC13.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC13.FlatAppearance.BorderSize = 0;
+            this.button_WOC13.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC13.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC13.Location = new System.Drawing.Point(72, 91);
+            this.button_WOC13.Name = "button_WOC13";
+            this.button_WOC13.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC13.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC13.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC13.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC13.TabIndex = 65;
+            this.button_WOC13.Text = "Yes";
+            this.button_WOC13.TextColor = System.Drawing.Color.White;
+            this.button_WOC13.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC8
+            // 
+            this.button_WOC8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC8.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC8.FlatAppearance.BorderSize = 0;
+            this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC8.Location = new System.Drawing.Point(184, 295);
+            this.button_WOC8.Name = "button_WOC8";
+            this.button_WOC8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC8.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC8.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC8.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC8.TabIndex = 66;
+            this.button_WOC8.Text = "Add New";
+            this.button_WOC8.TextColor = System.Drawing.Color.White;
+            this.button_WOC8.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC9
+            // 
+            this.button_WOC9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC9.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC9.FlatAppearance.BorderSize = 0;
+            this.button_WOC9.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC9.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC9.Location = new System.Drawing.Point(69, 295);
+            this.button_WOC9.Name = "button_WOC9";
+            this.button_WOC9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC9.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC9.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC9.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC9.TabIndex = 65;
+            this.button_WOC9.Text = "Done";
+            this.button_WOC9.TextColor = System.Drawing.Color.White;
+            this.button_WOC9.UseVisualStyleBackColor = true;
             // 
             // frmStudentRegistration
             // 
