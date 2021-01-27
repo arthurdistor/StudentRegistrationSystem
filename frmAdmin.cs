@@ -20,7 +20,7 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
             lblGreetings.Text = "Welcome " + username;
-            activeUser = username;
+            activeUser =username;
             loadTotalData();
             loadAccountData();
             UIButtonDashboarClick();
@@ -164,7 +164,7 @@ namespace TestStudentRegistration
 
 
             var bindingSource = new BindingSource();
-            string ShowInfo = "  SELECT accountID, FullName, AccountType, AccountType from tblAccounts";
+            string ShowInfo = "  SELECT accountID, FullName as 'Full Name', AccountType as 'Account Type', AccountStatus as 'Account Status' from tblAccounts";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
             {
@@ -244,6 +244,7 @@ namespace TestStudentRegistration
 
         private void btnAccounts_Click(object sender, EventArgs e)
         {
+            enableComponents(false);
             loadActiveUserInfo();
             Accounts.BringToFront();
         }
@@ -317,7 +318,7 @@ namespace TestStudentRegistration
 
             //Use this query if tblLogs was implemented
             //string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
-            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + activeUser + "';";
+            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + Encrypter.Encrypt(activeUser, _k3ys) + "';";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
@@ -326,7 +327,7 @@ namespace TestStudentRegistration
             while (myReader.Read())
             {
                 txtFullname.Text = myReader[0].ToString();
-                txtUsername.Text = myReader[1].ToString();
+                txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(), _k3ys);
                 comboAccountType.Text = myReader[2].ToString();
                 comboAccStatus.Text = myReader[3].ToString();
                 lblLastLogin.Text = myReader[4].ToString();
@@ -356,7 +357,7 @@ namespace TestStudentRegistration
                     while (myReader.Read())
                     {
                         txtFullname.Text = myReader[0].ToString();
-                        txtUsername.Text = myReader[1].ToString();
+                        txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(),_k3ys);
                         comboAccountType.Text = myReader[2].ToString();
                         comboAccStatus.Text = myReader[3].ToString();
                         lblLastLogin.Text = myReader[4].ToString();
