@@ -203,11 +203,11 @@ namespace TestStudentRegistration
                     frmStudentRegistration frmStudent = new frmStudentRegistration();
                     if (accountType.Equals("Full Admin"))
                     {
-                       
+                       //Might add something here
                     }
                     else if(accountType.Equals("Admin"))
                     {
-
+                        frmStudent.AdminUser();
                     }
                     else if (accountType.Equals("Student Assistant"))
                     {
@@ -217,7 +217,6 @@ namespace TestStudentRegistration
                     frmStudent.disableComponents();
                     frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
                     frmStudent.ShowDialog();
-
                 }
             }
         }
@@ -256,6 +255,7 @@ namespace TestStudentRegistration
 
         private void btnAccounts_Click(object sender, EventArgs e)
         {
+            loadAccountData();
             enableComponents(false);
             loadActiveUserInfo();
             Accounts.BringToFront();
@@ -461,7 +461,8 @@ namespace TestStudentRegistration
                     cmd.Parameters.AddWithValue("@accstatus", "Enabled");
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Your Account is created. You may now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your Account is created. You can now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadAccountData();
                     con.Close();
                     ClearText();
                 }
@@ -545,6 +546,10 @@ namespace TestStudentRegistration
             btnEditStudent.Visible = false;
             btnAddStudent.Visible = false;
             btnExportStudent.Visible = false;
+        }
+        public void AdminUser()
+        {
+            btnAdminPanel.Visible = false;
         }
     }
 }

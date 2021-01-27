@@ -628,9 +628,14 @@ namespace TestStudentRegistration
             btnArchive.Visible = false;
             btnAddRemark.Visible = false;
             btnDeleteStudent.Visible = false;
-            btnLock.Visible = false;
+           
             btnEdit.Visible = false;
             btnAttachment.Visible = false;
+        }
+        public void AdminUser()
+        {
+            btnLock.Visible = false;
+            btnDeleteStudent.Visible = false;
         }
     }
 }

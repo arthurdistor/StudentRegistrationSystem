@@ -140,18 +140,18 @@ namespace TestStudentRegistration
                     dashboard.accountType = x.userlevel;
                     if (x.userlevel == "Full Admin")
                     { 
-                        dashboard.Show();
+                       //Might add something here
                     }
                     else if (x.userlevel == "Admin")
                     {
-
+                        dashboard.AdminUser();
                     }
                     else if (x.userlevel == "Student Assistant")
                     {
                         dashboard.StudentAssistantUser();
-                        dashboard.Show();
+                        
                     }
-
+                    dashboard.Show();
                     this.Hide();
                 }
 
