@@ -189,6 +189,7 @@ namespace TestStudentRegistration
         private void timer1_Tick(object sender, EventArgs e)
         {
             loadSimpleStudentData();
+            lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
         }
 
@@ -410,12 +411,10 @@ namespace TestStudentRegistration
 
         private void buttonStudents_Click_1(object sender, EventArgs e)
         {
-            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-            frmStudentRegistration.Show();
-            UIButtonStudentsClick();
-
-            userPosition = lblGreetings.Text;
-            userName = lblGreetings.Text;
+            enableComponents(true);
+            loadFullStudentData();
+            StudentTab.BringToFront();
+           
         }
         private void createUserAccount()
         {
@@ -467,5 +466,36 @@ namespace TestStudentRegistration
         {
             Admin_Control.BringToFront();
         }
+
+        private void loadFullStudentData()
+        {
+            SqlConnection connection = new SqlConnection(connectionString); //use your connection string here
+
+
+            var bindingSource = new BindingSource();
+            string ShowInfo = "SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp desc;";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
+            try
+            {
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+                dataGridFullStudent.ReadOnly = true;
+                dataGridFullStudent.DataSource = bindingSource;
+                dataGridFullStudent.RowHeadersVisible = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+     
     }
 }
