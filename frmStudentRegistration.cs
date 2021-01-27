@@ -276,7 +276,7 @@ namespace TestStudentRegistration
 
         public void insertToTblStudent()
         {
-           
+          
 
             try
             {
