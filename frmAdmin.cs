@@ -497,6 +497,30 @@ namespace TestStudentRegistration
             }
         }
 
-     
+        private void pictureBox8_MouseHover(object sender, EventArgs e)
+        {
+            buttonLogout1.ButtonColor = Color.White;
+            buttonLogout1.BorderColor = Color.White;
+            pictureBox8.BackColor = Color.White;
+           
+        }
+
+        private void buttonLogout1_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.White;
+       
+        }
+
+        private void buttonLogout1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
+        }
+
+        private void pictureBox8_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
+            buttonLogout1.ButtonColor = Color.FromArgb(4, 45, 101); ;
+            buttonLogout1.BorderColor = Color.FromArgb(4, 45, 101); ;
+        }
     }
 }
