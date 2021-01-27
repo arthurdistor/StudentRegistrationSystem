@@ -62,10 +62,11 @@ namespace TestStudentRegistration
                 matchingUser.userlevel = sqlDataReader["AccountType"].ToString();
                 matchingUser.name = sqlDataReader["FullName"].ToString();
                 loginSuccess = true;
+                username = Decrypter.Decrypt(matchingUser.username, _k3ys);
+                userlevel = matchingUser.userlevel;
             }
 
-            username = Decrypter.Decrypt(matchingUser.username, _k3ys);
-            userlevel = matchingUser.userlevel;
+            
 
             if (String.IsNullOrEmpty(userlevel) || String.IsNullOrEmpty(username))
             {
