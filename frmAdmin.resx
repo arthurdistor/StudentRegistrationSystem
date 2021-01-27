@@ -328,7 +328,7 @@
         Ufx859oiih+ilX7YMLwByxJVOgSQilEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button18.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEditStudent.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAF4AAABeCAYAAACq0qNuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAX
         EQAAFxEByibzPwAABIVJREFUeF7tnM2LHEUYh3djRAXBrCYqBIn5EN1kYzzlqucYjQfRy568ehE86G3/
@@ -353,7 +353,7 @@
         3sbO/hLJtrNf5njBh0STIPp+yRZCCCGEEOIuY27ufzrwT5CnOF13AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button17.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnFolder.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHEAAABxCAYAAADifkzQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAX
         EQAAFxEByibzPwAABZlJREFUeF7t3VtoHFUcx/FqqbeKmipKWxXtm1YRRIqCLwoqKGhRqRe8Qq1SvJR6

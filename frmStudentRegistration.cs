@@ -195,7 +195,7 @@ namespace TestStudentRegistration
 
 
         }
-
+        
         public void insertToTblStudent()
         {
 
@@ -621,6 +621,16 @@ namespace TestStudentRegistration
             //{
             //    e.Handled = true;
             //}
+        }
+        public void StudentAssistantUser()
+        {
+            btnSave.Visible = false;
+            btnArchive.Visible = false;
+            btnAddRemark.Visible = false;
+            btnDeleteStudent.Visible = false;
+            btnLock.Visible = false;
+            btnEdit.Visible = false;
+            btnAttachment.Visible = false;
         }
     }
 }

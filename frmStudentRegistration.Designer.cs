@@ -35,9 +35,9 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnArchive = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnLock = new System.Windows.Forms.Button();
             this.btnAttachment = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -185,9 +185,7 @@
             this.btnDelete.Controls.Add(this.btnEdit);
             this.btnDelete.Controls.Add(this.btnMinimize);
             this.btnDelete.Controls.Add(this.btnClose);
-            this.btnDelete.Controls.Add(this.button5);
-            this.btnDelete.Controls.Add(this.btnArchive);
-            this.btnDelete.Controls.Add(this.button4);
+            this.btnDelete.Controls.Add(this.btnDeleteStudent);
             this.btnDelete.Controls.Add(this.btnAttachment);
             this.btnDelete.Controls.Add(this.btnSave);
             this.btnDelete.Controls.Add(this.label41);
@@ -199,6 +197,8 @@
             this.btnDelete.Controls.Add(this.label9);
             this.btnDelete.Controls.Add(this.panel3);
             this.btnDelete.Controls.Add(this.panel2);
+            this.btnDelete.Controls.Add(this.btnArchive);
+            this.btnDelete.Controls.Add(this.btnLock);
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Location = new System.Drawing.Point(-1, 0);
             this.btnDelete.Name = "btnDelete";
@@ -244,20 +244,20 @@
             this.btnClose.TabIndex = 87;
             this.btnClose.TabStop = false;
             // 
-            // button5
+            // btnDeleteStudent
             // 
-            this.button5.BackColor = System.Drawing.Color.Red;
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Enabled = false;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(651, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(82, 48);
-            this.button5.TabIndex = 68;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Visible = false;
+            this.btnDeleteStudent.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteStudent.BackgroundImage")));
+            this.btnDeleteStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDeleteStudent.Enabled = false;
+            this.btnDeleteStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteStudent.Location = new System.Drawing.Point(651, 12);
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(82, 48);
+            this.btnDeleteStudent.TabIndex = 68;
+            this.btnDeleteStudent.UseVisualStyleBackColor = false;
+            this.btnDeleteStudent.Visible = false;
             // 
             // btnArchive
             // 
@@ -272,18 +272,18 @@
             this.btnArchive.TabIndex = 66;
             this.btnArchive.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnLock
             // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(552, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 48);
-            this.button4.TabIndex = 67;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnLock.BackColor = System.Drawing.Color.Red;
+            this.btnLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLock.BackgroundImage")));
+            this.btnLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLock.Location = new System.Drawing.Point(552, 12);
+            this.btnLock.Name = "btnLock";
+            this.btnLock.Size = new System.Drawing.Size(82, 48);
+            this.btnLock.TabIndex = 67;
+            this.btnLock.UseVisualStyleBackColor = false;
             // 
             // btnAttachment
             // 
@@ -1859,9 +1859,9 @@
         private System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox txtStreet;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDeleteStudent;
         private System.Windows.Forms.Button btnArchive;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLock;
         private System.Windows.Forms.Button btnAttachment;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.PictureBox btnClose;

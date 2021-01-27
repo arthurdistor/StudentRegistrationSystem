@@ -72,9 +72,9 @@ namespace TestStudentRegistration
             {
                 MessageBox.Show("Incorrect username or password");
                 return matchingUser;
-            }
+            }    /*
             userlevel = userlevel.Trim();
-
+        
             if (userlevel == "Admin")
             {
                 //MessageBox.Show("You are logged in as " + userlevel);
@@ -82,21 +82,33 @@ namespace TestStudentRegistration
                 form.Show();
                 this.Hide();
                 return matchingUser;
-                
+
+            }
+            else if (userlevel == "Student Assistant")
+            {
+                MessageBox.Show("You are logged in as a User");
+                frmAdmin form = new frmAdmin(username);
+                form.StudentAssistantUser();
+                form.Show();
+                this.Hide();
+                return matchingUser;
             }
             else
             {
                 //MessageBox.Show("You are logged in as " + userlevel);
                 return matchingUser;
             }
-            /* else if (returnValue == "User")
-             {
-                 MessageBox.Show("You are logged in as a User");
-                 frmUser form = new frmUser();
-                 form.Show();
-                 this.Hide();
-             }*/
-        }
+           
+
+                /* else if (returnValue == "User")
+                 {
+                     MessageBox.Show("You are logged in as a User");
+                     frmUser form = new frmUser();
+                     form.Show();
+                     this.Hide();
+                 }*/
+            return matchingUser;
+            }
         private void loginFunction()
         {
 
@@ -124,9 +136,22 @@ namespace TestStudentRegistration
                     cmd.Parameters.AddWithValue("username", x.username);
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    frmAdmin dashboard = new frmAdmin(username);
+                    dashboard.accountType = x.userlevel;
+                    if (x.userlevel == "Full Admin")
+                    { 
+                        dashboard.Show();
+                    }
+                    else if (x.userlevel == "Admin")
+                    {
 
-                    frmAdmin admin = new frmAdmin(username);
-                    admin.Show();
+                    }
+                    else if (x.userlevel == "Student Assistant")
+                    {
+                        dashboard.StudentAssistantUser();
+                        dashboard.Show();
+                    }
+
                     this.Hide();
                 }
 

@@ -30,7 +30,7 @@ namespace TestStudentRegistration
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
 
-        public static string userPosition = "";
+        public string accountType = "";
         public static string userName = "";
 
 
@@ -200,8 +200,20 @@ namespace TestStudentRegistration
             {
                 if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null)
                 {
-
                     frmStudentRegistration frmStudent = new frmStudentRegistration();
+                    if (accountType.Equals("Full Admin"))
+                    {
+                       
+                    }
+                    else if(accountType.Equals("Admin"))
+                    {
+
+                    }
+                    else if (accountType.Equals("Student Assistant"))
+                    {
+                        frmStudent.StudentAssistantUser();
+                    }
+                   
                     frmStudent.disableComponents();
                     frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
                     frmStudent.ShowDialog();
@@ -423,14 +435,14 @@ namespace TestStudentRegistration
         {
             SqlConnection con = new SqlConnection(connectionString);
             //to be updated
-            SqlCommand scmd = new SqlCommand("select Password from tblAccounts where Username ='" + activeUser + "'", con);
+            SqlCommand scmd = new SqlCommand("select Password from tblAccounts where Username ='" + Encrypter.Encrypt(activeUser, _k3ys) + "'", con);
             con.Open();
             string user = (string)scmd.ExecuteScalar();
             con.Close();
 
-            if (txtCreateAccSecPass.Text == user)
+            if (Encrypter.Encrypt(txtCreateAccSecPass.Text, _k3ys) == user)
             {
-                SqlCommand cmd = new SqlCommand("select * from tblAccounts where Username ='" + txtCreateAccUsername.Text + "'", con);
+                SqlCommand cmd = new SqlCommand("select * from tblAccounts where Username ='" + Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys) + "'", con);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -523,6 +535,16 @@ namespace TestStudentRegistration
             pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
             buttonLogout1.ButtonColor = Color.FromArgb(4, 45, 101); ;
             buttonLogout1.BorderColor = Color.FromArgb(4, 45, 101); ;
+        }
+        public void StudentAssistantUser()
+        {
+            button_WOC4.Visible = false;
+            btnAdminPanel.Visible = false;
+            btnExport.Visible = false;
+            btnFolder.Visible = false;
+            btnEditStudent.Visible = false;
+            btnAddStudent.Visible = false;
+            btnExportStudent.Visible = false;
         }
     }
 }
