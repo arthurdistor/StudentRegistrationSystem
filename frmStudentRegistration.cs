@@ -162,7 +162,7 @@ namespace TestStudentRegistration
             }
             connection.Close();
         }
-       
+     
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
