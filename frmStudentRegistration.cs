@@ -15,34 +15,86 @@ namespace TestStudentRegistration
     {
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING ON THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
+       // SqlConnection con = new SqlConnection("Data Source=desktop-40uhahe\\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True");
 
         private string studNumber;
         private string customID = "";
         private string finalStudID = "";
-
         
-        
-
-        public static string userPosition = "";
         public static string userName = "";
-
 
         public frmStudentRegistration()
         {
             InitializeComponent();
 
             timeStamp();
-            passingNamePosition();
+           // lblUsername.Text = frmAdmin.passName;
+            //comboStatus.Text = frmAdmin.passAccStatus;
+
+            getLastEdit();
+            
+        }
+        
+
+        private void getLastEdit()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader sr = null;
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT TOP(1) LastEditBy FROM tblRegistrationInfo ORDER BY RegID DESC";
+            con.Open();
+            sr = cmd.ExecuteReader();
+            if (sr.Read())
+            {
+                lblLastEditBy.Text = sr.GetValue(0).ToString();
+            }
+            con.Close();
 
         }
-        public void passingNamePosition()
+        private void insertToTblRegistrationInfo()
         {
-            lblLastEditBy.Text = frmAdmin.userName;
+            //SqlConnection con = new SqlConnection(connectionString);
+            //con.Open();
+            //if (con.State == System.Data.ConnectionState.Open)
+            //{
+            //    string q = "Insert into tblRegistrationInfo(StudentID, LastEditBy, DateTime, Status, Remarks) values ('" + finalStudID + "','" + lblLastEditBy.Text + "','" + Convert.ToDateTime(lblTimestamp.Text) + "','" + comboStatus.Text + "','" + txtRemarks + "')";
+            //    SqlCommand cmd = new SqlCommand(q, con);
+            //    cmd.ExecuteNonQuery();
+            //}
+
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("insert into tblRegistrationInfo(StudentID, LastEditBy, DateTime, Status, Remarks) values(@StudentID,@LastEditBy,@DateTime,@Status,@Remarks)", con);
+
+                cmd.Parameters.AddWithValue("@StudentID", finalStudID);
+                //cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
+                cmd.Parameters.AddWithValue("@LastEditBy", lblUsername.Text);
+                cmd.Parameters.AddWithValue("@DateTime", Convert.ToDateTime(lblTimestamp.Text));
+                cmd.Parameters.AddWithValue("@Status", comboStatus.Text);
+                cmd.Parameters.AddWithValue("@Remarks", txtRemarks.Text);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Successfully Insert to tblRegistrationInfo");
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "gg");
+            }
+
+
         }
+
         public void timeStamp()
         {
             timer1.Start();
-            lblTimestamp.Text = DateTime.Today.ToShortDateString() + " " +  DateTime.Now.ToShortTimeString();
+            lblTimestamp.Text = DateTime.Today.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
             //lblTimestamp.Text = DateTime.Now.ToShortDateString();
         }
 
@@ -162,6 +214,64 @@ namespace TestStudentRegistration
             }
             connection.Close();
         }
+        //public void loadStudData(string studNum)
+        //{
+        //    string query = "SELECT * FROM tblStudent S RIGHT JOIN tblEducation E ON S.StudentID = E.StudentID RIGHT JOIN tblParentGuardianTable P ON S.StudentID = P.StudentID RIGHT JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE S.StudentID =" + studNum;
+        //    SqlConnection connection = new SqlConnection(connectionString);
+        //    SqlCommand command = new SqlCommand(query, connection);
+
+        //    connection.Open();
+        //    SqlDataReader myReader = command.ExecuteReader();
+
+        //    while (myReader.Read())
+        //    {
+        //        studNumber = myReader[0].ToString();
+        //        txtLRN.Text = myReader[1].ToString();
+        //        txtStudFirstName.Text = myReader[2].ToString();
+        //        txtStudMiddleName.Text = myReader[3].ToString();
+        //        txtStudLastName.Text = myReader[4].ToString();
+        //        txtStudSuffix.Text = myReader[5].ToString();
+        //        comboGender.Text = myReader[6].ToString();
+        //        dateOfBirth.Text = myReader[7].ToString();
+        //        txtStudBirthdPlace.Text = myReader[8].ToString();
+        //        txtStudStatus.Text = myReader[9].ToString();
+        //        txtStudCitizenship.Text = myReader[10].ToString();
+        //        txtStreetNum.Text = myReader[11].ToString();
+        //        txtStreet.Text = myReader[12].ToString();
+        //        txtSubdivision.Text = myReader[13].ToString();
+        //        txtBarangay.Text = myReader[14].ToString();
+        //        txtCity.Text = myReader[15].ToString();
+        //        txtProvince.Text = myReader[16].ToString();
+        //        txtZipCode.Text = myReader[17].ToString();
+        //        txtEmail.Text = myReader[18].ToString();
+        //        txtStudContactNum.Text = myReader[19].ToString();
+        //        //20 Stud timestamp
+        //        comboAdmissionType.Text = myReader[21].ToString();
+        //        //22education ID 23 studID
+        //        comboSchoolType.Text = myReader[24].ToString();
+        //        txtSchoolName.Text = myReader[25].ToString();
+        //        txtProgram.Text = myReader[26].ToString();
+        //        txtYear.Text = myReader[27].ToString();
+        //        txtDateOfGraduation.Text = myReader[28].ToString();
+        //        //27 ParentID, 28 studID
+        //        txtFathersName.Text = myReader[32].ToString();
+        //        txtFatherOccupation.Text = myReader[33].ToString();
+        //        txtFatherContact.Text = myReader[34].ToString();
+        //        txtMotherName.Text = myReader[35].ToString();
+        //        txtMotherOccupation.Text = myReader[36].ToString();
+        //        txtMotherContact.Text = myReader[37].ToString();
+        //        txtGuardianName.Text = myReader[38].ToString();
+        //        txtGuardianOccupation.Text = myReader[39].ToString();
+        //        txtGuardianContact.Text = myReader[40].ToString();
+        //        txtRelationship.Text = myReader[41].ToString();
+
+        //        lblLastEditBy.Text = myReader[44].ToString();
+        //        lblTimestamp.Text = myReader[45].ToString();
+        //        comboStatus.Text = myReader[46].ToString();
+        //        txtRemarks.Text = myReader[47].ToString();
+        //    }
+        //    connection.Close();
+        //}
 
 
 
@@ -169,37 +279,117 @@ namespace TestStudentRegistration
         {
 
             enableComponents();
+            btnSave.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (
+                txtLRN.Text == string.Empty ||
+                txtStudFirstName.Text == string.Empty ||
+                txtStudLastName.Text == string.Empty ||
+                comboGender.Text == string.Empty ||
+                dateOfBirth.Text == string.Empty ||
+                txtStudBirthdPlace.Text == string.Empty ||
+                txtStudStatus.Text == string.Empty ||
+                txtStudCitizenship.Text == string.Empty ||
+                //txtStreetNum.Text == string.Empty ||
+                //txtStreet.Text == string.Empty ||
+                //txtSubdivision.Text == string.Empty ||
+                txtBarangay.Text == string.Empty ||
+                txtCity.Text == string.Empty ||
+                txtProvince.Text == string.Empty ||
+                txtZipCode.Text == string.Empty ||
+                txtEmail.Text == string.Empty ||
+                txtStudContactNum.Text == string.Empty ||
 
+                comboAdmissionType.Text == string.Empty ||
 
+                comboSchoolType.Text == string.Empty ||
+                txtSchoolName.Text == string.Empty ||
+                txtProgram.Text == string.Empty ||
+                txtYear.Text == string.Empty ||
+                txtDateOfGraduation.Text == string.Empty ||
 
-            string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';" ;
-            SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+                txtFathersName.Text == string.Empty ||
+                txtFatherOccupation.Text == string.Empty ||
+                //txtFatherContact.Text == string.Empty ||
+                txtMotherName.Text == string.Empty ||
+                txtMotherOccupation.Text == string.Empty ||
+                //txtMotherContact.Text == string.Empty ||
+                txtGuardianName.Text == string.Empty ||
+                txtGuardianOccupation.Text == string.Empty ||
+                txtGuardianContact.Text == string.Empty ||
+                txtRelationship.Text == string.Empty
+                )
             {
-                //Update student info  
-                dr.Close();
-                UpdateStudentInfo();
+                MessageBox.Show("Fill all the required textbox");
             }
+            
             else
             {
-                //Insert new student
-                generateStudentID1();
+                string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';";
+                SqlConnection con = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    //Update student info  
+                    dr.Close();
+                    UpdateStudentInfo();
+                    MessageBox.Show("Successfully Update");
+                }
+                else
+                {
+                    //Insert new student
+                    generateStudentID1();
+                    txtLRN.Text = "";
+                    txtStudFirstName.Text = "";
+                    txtStudMiddleName.Text = "";
+                    txtStudLastName.Text = "";
+                    txtStudSuffix.Text = "";
+                    comboGender.Text = "";
+                    dateOfBirth.Text = "";
+                    txtStudBirthdPlace.Text = "";
+                    txtStudStatus.Text = "";
+                    txtStudCitizenship.Text = "";
+                    txtStreetNum.Text = "";
+                    txtStreet.Text = "";
+                    txtSubdivision.Text = "";
+                    txtBarangay.Text = "";
+                    txtCity.Text = "";
+                    txtProvince.Text = "";
+                    txtZipCode.Text = "";
+                    txtEmail.Text = "";
+                    txtStudContactNum.Text = "";
+                    //20 Stud timestamp
+                    comboAdmissionType.Text = "";
+                    //22education ID 23 studID
+                    comboSchoolType.Text = "";
+                    txtSchoolName.Text = "";
+                    txtProgram.Text = "";
+                    txtYear.Text = "";
+                    txtDateOfGraduation.Text = "";
+                    comboSchoolType.Text = "";
+                    comboCourse.Text = "";
+                    //27 ParentID, 28 studID
+                    txtFathersName.Text = "";
+                    txtFatherOccupation.Text = "";
+                    txtFatherContact.Text = "";
+                    txtMotherName.Text = "";
+                    txtMotherOccupation.Text = "";
+                    txtMotherContact.Text = "";
+                    txtGuardianName.Text = "";
+                    txtGuardianOccupation.Text = "";
+                    txtGuardianContact.Text = "";
+                    txtRelationship.Text = "";
+                }
             }
 
-
         }
-        
-        public void insertToTblStudent()
+        private void insertToTblStudent()
         {
-
-
             try
             {
                 SqlConnection con = new SqlConnection(connectionString);
@@ -216,9 +406,9 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    
-                    insertToTblParentGuardian();
-                    insertToTblEducation();
+
+                   // insertToTblParentGuardian();
+                   // insertToTblEducation();
 
                     txtLRN.Text = "";
                     txtStudFirstName.Text = "";
@@ -264,7 +454,6 @@ namespace TestStudentRegistration
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 
@@ -282,7 +471,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    
+                    MessageBox.Show("Successfully Insert to insertToTblEducation");
                 }
             }
 
@@ -308,7 +497,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                   
+                    MessageBox.Show("Successfully Insert to insertToTblParentGuardian");
                 }
             }
 
@@ -321,7 +510,7 @@ namespace TestStudentRegistration
 
         private void UpdateStudentInfo()
         {
-            
+
             string updateQuery =
             @"
             BEGIN TRANSACTION 
@@ -421,19 +610,15 @@ namespace TestStudentRegistration
             command.Parameters.AddWithValue("@GuardiansContactNum", txtGuardianContact.Text);
             command.Parameters.AddWithValue("@GuardiansRelationship", txtRelationship.Text);
 
-           
+
             command.ExecuteNonQuery();
             connection.Close();
-
-
         }
 
         private void generateStudentID1()
         {
             SqlConnection con = new SqlConnection(connectionString);
 
-            //string customID = "";
-            //string finalStudID = "";
             DateTime dateTime = DateTime.Now;
             customID = dateTime.ToString("yyyyMM");
 
@@ -460,42 +645,43 @@ namespace TestStudentRegistration
             try
             {
                 SqlConnection con = new SqlConnection(connectionString);
-                con.Open();
+            con.Open();
 
-                SqlCommand cmd = new SqlCommand("insert into tblStudent(StudentID, LRN, FirstName, MiddleName, LastName, Suffix, Gender, Birthdate, Birthplace, CivilStatus, Citizenship, StreetNo, Street, Subdivision, Barangay, City, Province, ZipCode, EmailAdd, ContactNo, admissionType) values(@StudentID,@LRN,@FirstName,@MiddleName,@LastName,@Suffix,@Gender,@Birthdate,@Birthplace,@CivilStatus,@Citizenship,@StreetNo,@Street,@Subdivision,@Barangay,@City,@Province,@ZipCode,@EmailAdd,@ContactNo,@admissionType)", con);
+            SqlCommand cmd = new SqlCommand("insert into tblStudent(StudentID, LRN, FirstName, MiddleName, LastName, Suffix, Gender, Birthdate, Birthplace, CivilStatus, Citizenship, StreetNo, Street, Subdivision, Barangay, City, Province, ZipCode, EmailAdd, ContactNo, admissionType) values(@StudentID,@LRN,@FirstName,@MiddleName,@LastName,@Suffix,@Gender,@Birthdate,@Birthplace,@CivilStatus,@Citizenship,@StreetNo,@Street,@Subdivision,@Barangay,@City,@Province,@ZipCode,@EmailAdd,@ContactNo,@admissionType)", con);
 
-                cmd.Parameters.AddWithValue("@StudentID", finalStudID);
-                cmd.Parameters.AddWithValue("@LRN", txtLRN.Text);
-                cmd.Parameters.AddWithValue("@FirstName", txtStudFirstName.Text);
-                cmd.Parameters.AddWithValue("@MiddleName", txtStudMiddleName.Text);
-                cmd.Parameters.AddWithValue("@LastName", txtStudLastName.Text);
-                cmd.Parameters.AddWithValue("@Suffix", txtStudSuffix.Text);
-                cmd.Parameters.AddWithValue("@Gender", comboGender.Text);
-                cmd.Parameters.AddWithValue("@Birthdate", dateOfBirth.Value.Date.ToString("yyyyMMdd"));
-                cmd.Parameters.AddWithValue("@Birthplace", txtStudBirthdPlace.Text);
-                cmd.Parameters.AddWithValue("@CivilStatus", txtStudStatus.Text);
-                cmd.Parameters.AddWithValue("@Citizenship", txtStudCitizenship.Text);
-                cmd.Parameters.AddWithValue("@StreetNo", txtStreetNum.Text);
-                cmd.Parameters.AddWithValue("@Street", txtStreet.Text);
-                cmd.Parameters.AddWithValue("@Subdivision", txtSubdivision.Text);
-                cmd.Parameters.AddWithValue("@Barangay", txtBarangay.Text);
-                cmd.Parameters.AddWithValue("@City", txtCity.Text);
-                cmd.Parameters.AddWithValue("@Province", txtProvince.Text);
-                cmd.Parameters.AddWithValue("@ZipCode", txtZipCode.Text);
-                cmd.Parameters.AddWithValue("@EmailAdd", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@ContactNo", txtStudContactNum.Text);
-                //cmd.Parameters.AddWithValue("@timestamp", Convert.ToDateTime(lbl.Text);
-                cmd.Parameters.AddWithValue("@admissionType", comboAdmissionType.Text);
+            cmd.Parameters.AddWithValue("@StudentID", finalStudID);
+            cmd.Parameters.AddWithValue("@LRN", txtLRN.Text);
+            cmd.Parameters.AddWithValue("@FirstName", txtStudFirstName.Text);
+            cmd.Parameters.AddWithValue("@MiddleName", txtStudMiddleName.Text);
+            cmd.Parameters.AddWithValue("@LastName", txtStudLastName.Text);
+            cmd.Parameters.AddWithValue("@Suffix", txtStudSuffix.Text);
+            cmd.Parameters.AddWithValue("@Gender", comboGender.Text);
+            cmd.Parameters.AddWithValue("@Birthdate", dateOfBirth.Value.Date.ToString("yyyyMMdd"));
+            cmd.Parameters.AddWithValue("@Birthplace", txtStudBirthdPlace.Text);
+            cmd.Parameters.AddWithValue("@CivilStatus", txtStudStatus.Text);
+            cmd.Parameters.AddWithValue("@Citizenship", txtStudCitizenship.Text);
+            cmd.Parameters.AddWithValue("@StreetNo", txtStreetNum.Text);
+            cmd.Parameters.AddWithValue("@Street", txtStreet.Text);
+            cmd.Parameters.AddWithValue("@Subdivision", txtSubdivision.Text);
+            cmd.Parameters.AddWithValue("@Barangay", txtBarangay.Text);
+            cmd.Parameters.AddWithValue("@City", txtCity.Text);
+            cmd.Parameters.AddWithValue("@Province", txtProvince.Text);
+            cmd.Parameters.AddWithValue("@ZipCode", txtZipCode.Text);
+            cmd.Parameters.AddWithValue("@EmailAdd", txtEmail.Text);
+            cmd.Parameters.AddWithValue("@ContactNo", txtStudContactNum.Text);
+            //cmd.Parameters.AddWithValue("@timestamp", Convert.ToDateTime(lbl.Text);
+            cmd.Parameters.AddWithValue("@admissionType", comboAdmissionType.Text);
 
-                
 
-                insertToTblEducation();
-                insertToTblParentGuardian();
 
-                cmd.ExecuteNonQuery();
+            insertToTblEducation();
+            insertToTblParentGuardian();
+            insertToTblRegistrationInfo();
 
-                MessageBox.Show("Successfully Insert to tblStudent");
-                con.Close();
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Successfully Insert to tblStudent");
+            con.Close();
 
             }
             catch (Exception ex)
@@ -503,31 +689,13 @@ namespace TestStudentRegistration
                 MessageBox.Show(ex.Message + "gg");
             }
         }
-
-        //public void generateEducationID()
-        //{
-        //    Class1 objs = new Class1();
-        //    int b;
-        //    objs.exe("select max(educationID) from tblEducation");
-        //    if (objs.dr.Read())
-        //    {
-        //        if (objs.dr[0] != System.DBNull.Value)
-        //        {
-        //            b = Convert.ToInt32(objs.dr[0].ToString());
-        //            tbEducationID.Text = (b + 1).ToString();
-        //        }
-        //        else
-        //        {
-        //            tbEducationID.Text = "1";
-        //        }
-        //    }
-        //}
+        
 
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
             timeStamp();
-           // lblLastEditBy.Text = frmAdmin.userName;
-      
+           
+
         }
 
         private void btnDeleteStudData_Click(object sender, EventArgs e)
@@ -552,7 +720,7 @@ namespace TestStudentRegistration
                 e.Handled = true;
             }
 
-            txtStudContactNum.MaxLength = 13;
+            txtStudContactNum.MaxLength = 11;
 
             // only allow one decimal point
             //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
@@ -568,7 +736,7 @@ namespace TestStudentRegistration
                 e.Handled = true;
             }
 
-            txtFatherContact.MaxLength = 13;
+            txtFatherContact.MaxLength = 11;
 
             //// only allow one decimal point
             //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
@@ -584,7 +752,7 @@ namespace TestStudentRegistration
                 e.Handled = true;
             }
 
-            txtMotherContact.MaxLength = 13;
+            txtMotherContact.MaxLength = 11;
 
             // only allow one decimal point
             //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
@@ -600,7 +768,7 @@ namespace TestStudentRegistration
                 e.Handled = true;
             }
 
-            txtGuardianContact.MaxLength = 13;
+            txtGuardianContact.MaxLength = 11;
             // only allow one decimal point
             //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             //{
@@ -622,13 +790,25 @@ namespace TestStudentRegistration
             //    e.Handled = true;
             //}
         }
+        private void txtZipCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtZipCode.MaxLength = 4;
+        }
+
+
+
         public void StudentAssistantUser()
         {
             btnSave.Visible = false;
             btnArchive.Visible = false;
             btnAddRemark.Visible = false;
             btnDeleteStudent.Visible = false;
-           
+
             btnEdit.Visible = false;
             btnAttachment.Visible = false;
         }
@@ -637,5 +817,39 @@ namespace TestStudentRegistration
             btnLock.Visible = false;
             btnDeleteStudent.Visible = false;
         }
+
+        private void txtLRN_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+
+                string selectQuery = "SELECT LRN FROM tblStudent WHERE LRN='" + txtLRN.Text + "'";
+
+                SqlCommand scmd = new SqlCommand(selectQuery, con);
+                SqlDataReader readData = scmd.ExecuteReader();
+                readData.Read();
+                if (readData.HasRows)
+                {
+                    //MessageBox.Show("LRN is already existed in the database");
+                    // txtLRN.Text = "";
+                    btnSave.Enabled = false;
+                }
+
+                else
+                {
+                    btnSave.Enabled = true;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+       
     }
 }
+
