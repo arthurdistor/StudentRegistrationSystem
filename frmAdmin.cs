@@ -20,7 +20,7 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
             lblGreetings.Text = "Welcome " + username;
-            activeUser =username;
+            activeUser = username;
             loadTotalData();
             loadAccountData();
             UIButtonDashboarClick();
@@ -203,9 +203,9 @@ namespace TestStudentRegistration
                     frmStudentRegistration frmStudent = new frmStudentRegistration();
                     if (accountType.Equals("Full Admin"))
                     {
-                       //Might add something here
+                        //Might add something here
                     }
-                    else if(accountType.Equals("Admin"))
+                    else if (accountType.Equals("Admin"))
                     {
                         frmStudent.AdminUser();
                     }
@@ -213,7 +213,7 @@ namespace TestStudentRegistration
                     {
                         frmStudent.StudentAssistantUser();
                     }
-                   
+
                     frmStudent.disableComponents();
                     frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
                     frmStudent.ShowDialog();
@@ -281,7 +281,7 @@ namespace TestStudentRegistration
 
         private void btnAccountBack_Click(object sender, EventArgs e)
         {
-            pnlDashboard.BringToFront();
+            Admin_Control.BringToFront();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -317,7 +317,6 @@ namespace TestStudentRegistration
                     else
                         func(control.Controls);
                 }
-
             };
 
             func(Controls);
@@ -344,7 +343,6 @@ namespace TestStudentRegistration
                 comboAccStatus.Text = myReader[3].ToString();
                 lblLastLogin.Text = myReader[4].ToString();
                 //lblLastActivity.Text = myReader[5].ToString();
-
             }
             myReader.Close();
             connection.Close();
@@ -369,7 +367,7 @@ namespace TestStudentRegistration
                     while (myReader.Read())
                     {
                         txtFullname.Text = myReader[0].ToString();
-                        txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(),_k3ys);
+                        txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(), _k3ys);
                         comboAccountType.Text = myReader[2].ToString();
                         comboAccStatus.Text = myReader[3].ToString();
                         lblLastLogin.Text = myReader[4].ToString();
@@ -429,7 +427,7 @@ namespace TestStudentRegistration
             enableComponents(true);
             loadFullStudentData();
             StudentTab.BringToFront();
-           
+
         }
         private void createUserAccount()
         {
@@ -517,13 +515,13 @@ namespace TestStudentRegistration
             buttonLogout1.ButtonColor = Color.White;
             buttonLogout1.BorderColor = Color.White;
             pictureBox8.BackColor = Color.White;
-           
+
         }
 
         private void buttonLogout1_MouseHover(object sender, EventArgs e)
         {
             pictureBox8.BackColor = Color.White;
-       
+
         }
 
         private void buttonLogout1_MouseLeave(object sender, EventArgs e)
@@ -615,6 +613,40 @@ namespace TestStudentRegistration
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
             frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
             frmStudentRegistration.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadFullStudentData();
+            txtSearch.Clear();
+        }
+        private void searchStudent()
+        {
+            if (comboSearchType.Text.Equals("") || comboSearchType.Text.Equals(null))
+            {
+                MessageBox.Show("Please include what data to search");
+                comboSearchType.Focus();
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID where S." + comboSearchType.Text + " like'" + txtSearch.Text + "%';", con);
+
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                dataGridFullStudent.DataSource = dt;
+                con.Close();
+            }
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchStudent();
+        }
+
+        private void comboSearchType_TextChanged(object sender, EventArgs e)
+        {
+            searchStudent();
         }
     }
 }
