@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateAccount));
             this.TabsPanel = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.button_WOC3 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC2 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.lblAccountType = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -50,9 +53,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button_WOC3 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC2 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.TabsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel2.SuspendLayout();
@@ -84,6 +84,70 @@
             this.pictureBox8.Size = new System.Drawing.Size(45, 30);
             this.pictureBox8.TabIndex = 14;
             this.pictureBox8.TabStop = false;
+            // 
+            // button_WOC3
+            // 
+            this.button_WOC3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC3.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC3.FlatAppearance.BorderSize = 0;
+            this.button_WOC3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC3.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC3.Location = new System.Drawing.Point(35, 324);
+            this.button_WOC3.Name = "button_WOC3";
+            this.button_WOC3.OnHoverBorderColor = System.Drawing.Color.White;
+            this.button_WOC3.OnHoverButtonColor = System.Drawing.Color.White;
+            this.button_WOC3.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC3.Size = new System.Drawing.Size(188, 46);
+            this.button_WOC3.TabIndex = 12;
+            this.button_WOC3.Text = "Logout";
+            this.button_WOC3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC3.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC2
+            // 
+            this.button_WOC2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC2.FlatAppearance.BorderSize = 0;
+            this.button_WOC2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC2.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC2.Location = new System.Drawing.Point(35, 253);
+            this.button_WOC2.Name = "button_WOC2";
+            this.button_WOC2.OnHoverBorderColor = System.Drawing.Color.White;
+            this.button_WOC2.OnHoverButtonColor = System.Drawing.Color.White;
+            this.button_WOC2.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC2.Size = new System.Drawing.Size(188, 46);
+            this.button_WOC2.TabIndex = 11;
+            this.button_WOC2.Text = "Students";
+            this.button_WOC2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC2.UseVisualStyleBackColor = true;
+            this.button_WOC2.Click += new System.EventHandler(this.button_WOC2_Click);
+            // 
+            // button_WOC1
+            // 
+            this.button_WOC1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC1.FlatAppearance.BorderSize = 0;
+            this.button_WOC1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC1.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC1.Location = new System.Drawing.Point(35, 182);
+            this.button_WOC1.Name = "button_WOC1";
+            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.White;
+            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.White;
+            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC1.Size = new System.Drawing.Size(188, 46);
+            this.button_WOC1.TabIndex = 10;
+            this.button_WOC1.Text = "Dashboard";
+            this.button_WOC1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC1.UseVisualStyleBackColor = true;
             // 
             // lblAccountType
             // 
@@ -299,69 +363,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 67;
             this.pictureBox4.TabStop = false;
-            // 
-            // button_WOC3
-            // 
-            this.button_WOC3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC3.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC3.FlatAppearance.BorderSize = 0;
-            this.button_WOC3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC3.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC3.Location = new System.Drawing.Point(35, 324);
-            this.button_WOC3.Name = "button_WOC3";
-            this.button_WOC3.OnHoverBorderColor = System.Drawing.Color.White;
-            this.button_WOC3.OnHoverButtonColor = System.Drawing.Color.White;
-            this.button_WOC3.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC3.Size = new System.Drawing.Size(188, 46);
-            this.button_WOC3.TabIndex = 12;
-            this.button_WOC3.Text = "Logout";
-            this.button_WOC3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC3.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC2
-            // 
-            this.button_WOC2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC2.FlatAppearance.BorderSize = 0;
-            this.button_WOC2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC2.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC2.Location = new System.Drawing.Point(35, 253);
-            this.button_WOC2.Name = "button_WOC2";
-            this.button_WOC2.OnHoverBorderColor = System.Drawing.Color.White;
-            this.button_WOC2.OnHoverButtonColor = System.Drawing.Color.White;
-            this.button_WOC2.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC2.Size = new System.Drawing.Size(188, 46);
-            this.button_WOC2.TabIndex = 11;
-            this.button_WOC2.Text = "Students";
-            this.button_WOC2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC2.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC1
-            // 
-            this.button_WOC1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC1.FlatAppearance.BorderSize = 0;
-            this.button_WOC1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC1.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC1.Location = new System.Drawing.Point(35, 182);
-            this.button_WOC1.Name = "button_WOC1";
-            this.button_WOC1.OnHoverBorderColor = System.Drawing.Color.White;
-            this.button_WOC1.OnHoverButtonColor = System.Drawing.Color.White;
-            this.button_WOC1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC1.Size = new System.Drawing.Size(188, 46);
-            this.button_WOC1.TabIndex = 10;
-            this.button_WOC1.Text = "Dashboard";
-            this.button_WOC1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC1.UseVisualStyleBackColor = true;
             // 
             // frmCreateAccount
             // 

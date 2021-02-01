@@ -115,9 +115,9 @@ namespace TestStudentRegistration
         private void loadTotalData()
         {
             SqlCommand cmd;
-            string totalStud = "SELECT COUNT(StudentID)FROM tblStudent;";
-            string totalNewStud = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType = 'New Student';";
-            string totalTransferee = "SELECT COUNT(StudentID)FROM tblStudent WHERE admissionType='Transferee';";
+            string totalStud = "SELECT COUNT(S.StudentID)FROM tblStudent S INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE R.Status = 'Enrolled' OR R.Status = 'Registered';";
+            string totalNewStud = "SELECT COUNT(S.StudentID)FROM tblStudent S INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE admissionType = 'New Student' AND (R.Status = 'Enrolled' OR R.Status = 'Registered') ;";
+            string totalTransferee = "SELECT COUNT(S.StudentID)FROM tblStudent S INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE admissionType = 'Transferee' AND (R.Status = 'Enrolled' OR R.Status = 'Registered') ;";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             cmd = new SqlCommand(totalStud, con);
@@ -135,7 +135,7 @@ namespace TestStudentRegistration
 
 
             var bindingSource = new BindingSource();
-            string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp asc;";
+            string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE R.Status = 'Enrolled' OR R.Status = 'Registered' ORDER BY  S.timestamp asc;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
             {
@@ -189,7 +189,9 @@ namespace TestStudentRegistration
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             loadSimpleStudentData();
+            loadTotalData();
             lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblAccTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
@@ -198,29 +200,38 @@ namespace TestStudentRegistration
 
         private void dataGridSimpleStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridSimpleStudentInfo.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            try
             {
-                if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null)
+                if (dataGridSimpleStudentInfo.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
                 {
-                    frmStudentRegistration frmStudent = new frmStudentRegistration();
-                    if (accountType.Equals("Full Admin"))
+                    if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null)
                     {
-                        //Might add something here
-                    }
-                    else if (accountType.Equals("Admin"))
-                    {
-                        frmStudent.AdminUser();
-                    }
-                    else if (accountType.Equals("Student Assistant"))
-                    {
-                        frmStudent.StudentAssistantUser();
-                    }
+                        frmStudentRegistration frmStudent = new frmStudentRegistration();
+                        if (accountType.Equals("Full Admin"))
+                        {
+                            frmStudent.FullAdmin();
+                        }
+                        else if (accountType.Equals("Admin"))
+                        {
+                            frmStudent.AdminUser();
+                        }
+                        else if (accountType.Equals("Student Assistant"))
+                        {
+                            frmStudent.StudentAssistantUser();
+                        }
 
-                    frmStudent.disableComponents();
-                    frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
-                    frmStudent.ShowDialog();
+                        frmStudent.disableComponents();
+                        frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
+                        frmStudent.ShowDialog();
+                    }
                 }
             }
+
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No Data Found");
+            }
+            
         }
 
         private void btnAdminPanel_Click(object sender, EventArgs e)
@@ -433,43 +444,51 @@ namespace TestStudentRegistration
         }
         private void createUserAccount()
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            //to be updated
-            SqlCommand scmd = new SqlCommand("select Password from tblAccounts where Username ='" + Encrypter.Encrypt(activeUser, _k3ys) + "'", con);
-            con.Open();
-            string user = (string)scmd.ExecuteScalar();
-            con.Close();
-
-            if (Encrypter.Encrypt(txtCreateAccSecPass.Text, _k3ys) == user)
+            try
             {
-                SqlCommand cmd = new SqlCommand("select * from tblAccounts where Username ='" + Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys) + "'", con);
+                SqlConnection con = new SqlConnection(connectionString);
+                //to be updated
+                SqlCommand scmd = new SqlCommand("select Password from tblAccounts where Username ='" + Encrypter.Encrypt(activeUser, _k3ys) + "'", con);
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                string user = (string)scmd.ExecuteScalar();
+                con.Close();
+
+                if (Encrypter.Encrypt(txtCreateAccSecPass.Text, _k3ys) == user)
                 {
-                    dr.Close();
-                    MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SqlCommand cmd = new SqlCommand("select * from tblAccounts where Username ='" + Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys) + "'", con);
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        dr.Close();
+                        MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        dr.Close();
+                        cmd = new SqlCommand("insert into tblAccounts (Username, Password, FullName, AccountType, AccountStatus) values(@username,@password,@name,@userrole,@accstatus)", con);
+                        cmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys));
+                        cmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtCreateAccPass.Text, _k3ys));
+                        cmd.Parameters.AddWithValue("@name", txtCreateAccName.Text);
+                        cmd.Parameters.AddWithValue("@userrole", cmbCreateAccType.SelectedItem);
+                        cmd.Parameters.AddWithValue("@accstatus", "Enabled");
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Your Account is created. You can now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadAccountData();
+                        con.Close();
+                        ClearText();
+                    }
                 }
                 else
                 {
-                    dr.Close();
-                    cmd = new SqlCommand("insert into tblAccounts (Username, Password, FullName, AccountType, AccountStatus) values(@username,@password,@name,@userrole,@accstatus)", con);
-                    cmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtCreateAccUsername.Text, _k3ys));
-                    cmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtCreateAccPass.Text, _k3ys));
-                    cmd.Parameters.AddWithValue("@name", txtCreateAccName.Text);
-                    cmd.Parameters.AddWithValue("@userrole", cmbCreateAccType.SelectedItem);
-                    cmd.Parameters.AddWithValue("@accstatus", "Enabled");
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Your Account is created. You can now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadAccountData();
-                    con.Close();
-                    ClearText();
+                    MessageBox.Show("Incorrect Security Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch(Exception Ex)
             {
-                MessageBox.Show("Incorrect Security Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error Occured \n" + Ex.Message);
+
             }
         }
 
@@ -489,7 +508,7 @@ namespace TestStudentRegistration
 
 
             var bindingSource = new BindingSource();
-            string ShowInfo = "SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp desc;";
+            string ShowInfo = "SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE R.Status = 'Enrolled' OR R.Status = 'Registered' ORDER BY S.timestamp desc;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
             {
@@ -607,21 +626,47 @@ namespace TestStudentRegistration
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            if (accountType.Equals("Full Admin"))
+            {
+                frmStudentRegistration.FullAdmin();
+            }
+            else if (accountType.Equals("Admin"))
+            {
+                frmStudentRegistration.AdminUser();
+            }
+            else if (accountType.Equals("Student Assistant"))
+            {
+                frmStudentRegistration.StudentAssistantUser();
+            }
             frmStudentRegistration.ShowDialog();
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-            frmStudentRegistration.userName = activeUser;
-            if (dataGridFullStudent.CurrentCell.Value.ToString().Equals(null))
+            try
             {
-                MessageBox.Show("No data to show");
-            }
-            else
-            {
+                frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+                frmStudentRegistration.userName = activeUser;
+
+                if (accountType.Equals("Full Admin"))
+                {
+                    frmStudentRegistration.FullAdmin();
+                }
+                else if (accountType.Equals("Admin"))
+                {
+                    frmStudentRegistration.AdminUser();
+                }
+                else if (accountType.Equals("Student Assistant"))
+                {
+                    frmStudentRegistration.StudentAssistantUser();
+                }
+
                 frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
                 frmStudentRegistration.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("No data to show");
             }
         }
 
@@ -641,7 +686,7 @@ namespace TestStudentRegistration
             {
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID where S." + comboSearchType.Text + " like'" + txtSearch.Text + "%';", con);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID where S." + comboSearchType.Text + " like'" + txtSearch.Text + "%' AND (R.Status = 'Enrolled' OR R.Status = 'Registered') ;", con);
 
                 DataTable dt = new DataTable();
                 dataAdapter.Fill(dt);

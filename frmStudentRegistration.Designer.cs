@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentRegistration));
             this.txtStudFirstName = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Panel();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnAttachment = new System.Windows.Forms.Button();
@@ -41,6 +40,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblTimestamp = new System.Windows.Forms.Label();
             this.lblLastEditBy = new System.Windows.Forms.Label();
+            this.btnAddRemark = new ePOSOne.btnProduct.Button_WOC();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.comboStatus = new System.Windows.Forms.ComboBox();
@@ -127,35 +127,32 @@
             this.lblName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblRegistrationNum = new System.Windows.Forms.Label();
-            this.btnArchive = new System.Windows.Forms.Button();
-            this.btnLock = new System.Windows.Forms.Button();
             this.SaveChanges = new System.Windows.Forms.Panel();
+            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
             this.label34 = new System.Windows.Forms.Label();
             this.Attachment = new System.Windows.Forms.Panel();
+            this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
             this.label46 = new System.Windows.Forms.Label();
             this.ArchiveData = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
+            this.button_WOC10 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC11 = new ePOSOne.btnProduct.Button_WOC();
             this.label47 = new System.Windows.Forms.Label();
             this.UnarchiveData = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
+            this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC13 = new ePOSOne.btnProduct.Button_WOC();
             this.label50 = new System.Windows.Forms.Label();
             this.Delete = new System.Windows.Forms.Panel();
             this.label53 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnDeleteStudent = new System.Windows.Forms.Button();
-            this.btnAddRemark = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC14 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC15 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC10 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC11 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC12 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC13 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC8 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC9 = new ePOSOne.btnProduct.Button_WOC();
+            this.label52 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -177,7 +174,7 @@
             this.txtStudFirstName.Location = new System.Drawing.Point(10, 30);
             this.txtStudFirstName.Name = "txtStudFirstName";
             this.txtStudFirstName.Size = new System.Drawing.Size(122, 23);
-            this.txtStudFirstName.TabIndex = 16;
+            this.txtStudFirstName.TabIndex = 1;
             // 
             // btnDelete
             // 
@@ -185,7 +182,6 @@
             this.btnDelete.Controls.Add(this.btnEdit);
             this.btnDelete.Controls.Add(this.btnMinimize);
             this.btnDelete.Controls.Add(this.btnClose);
-            this.btnDelete.Controls.Add(this.btnDeleteStudent);
             this.btnDelete.Controls.Add(this.btnAttachment);
             this.btnDelete.Controls.Add(this.btnSave);
             this.btnDelete.Controls.Add(this.label41);
@@ -197,28 +193,11 @@
             this.btnDelete.Controls.Add(this.label9);
             this.btnDelete.Controls.Add(this.panel3);
             this.btnDelete.Controls.Add(this.panel2);
-            this.btnDelete.Controls.Add(this.btnArchive);
-            this.btnDelete.Controls.Add(this.btnLock);
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Location = new System.Drawing.Point(-1, 0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(986, 748);
             this.btnDelete.TabIndex = 21;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.White;
-            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(739, 12);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(82, 48);
-            this.btnEdit.TabIndex = 89;
-            this.btnEdit.Text = "Edit Icon";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnMinimize
             // 
@@ -321,6 +300,27 @@
             this.lblLastEditBy.TabIndex = 72;
             this.lblLastEditBy.Text = "Username";
             // 
+            // btnAddRemark
+            // 
+            this.btnAddRemark.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddRemark.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnAddRemark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddRemark.FlatAppearance.BorderSize = 0;
+            this.btnAddRemark.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.btnAddRemark.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.btnAddRemark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddRemark.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRemark.Location = new System.Drawing.Point(323, 165);
+            this.btnAddRemark.Name = "btnAddRemark";
+            this.btnAddRemark.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnAddRemark.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnAddRemark.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAddRemark.Size = new System.Drawing.Size(126, 21);
+            this.btnAddRemark.TabIndex = 71;
+            this.btnAddRemark.Text = "Add New Remark";
+            this.btnAddRemark.TextColor = System.Drawing.Color.White;
+            this.btnAddRemark.UseVisualStyleBackColor = true;
+            // 
             // txtRemarks
             // 
             this.txtRemarks.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -346,14 +346,10 @@
             this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Items.AddRange(new object[] {
-            "Enrolled",
-            "Registered",
-            "Archive"});
             this.comboStatus.Location = new System.Drawing.Point(16, 135);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(158, 23);
-            this.comboStatus.TabIndex = 68;
+            this.comboStatus.TabIndex = 37;
             // 
             // label44
             // 
@@ -445,7 +441,7 @@
             this.txtGuardianContact.MaxLength = 13;
             this.txtGuardianContact.Name = "txtGuardianContact";
             this.txtGuardianContact.Size = new System.Drawing.Size(122, 23);
-            this.txtGuardianContact.TabIndex = 60;
+            this.txtGuardianContact.TabIndex = 35;
             this.txtGuardianContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGuardianContact_KeyPress);
             // 
             // label39
@@ -466,7 +462,7 @@
             this.txtMotherContact.MaxLength = 13;
             this.txtMotherContact.Name = "txtMotherContact";
             this.txtMotherContact.Size = new System.Drawing.Size(122, 23);
-            this.txtMotherContact.TabIndex = 58;
+            this.txtMotherContact.TabIndex = 32;
             this.txtMotherContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMotherContact_KeyPress);
             // 
             // label38
@@ -487,7 +483,7 @@
             this.txtFatherContact.MaxLength = 13;
             this.txtFatherContact.Name = "txtFatherContact";
             this.txtFatherContact.Size = new System.Drawing.Size(122, 23);
-            this.txtFatherContact.TabIndex = 56;
+            this.txtFatherContact.TabIndex = 29;
             this.txtFatherContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFatherContact_KeyPress);
             // 
             // label37
@@ -507,7 +503,7 @@
             this.txtGuardianOccupation.Location = new System.Drawing.Point(187, 138);
             this.txtGuardianOccupation.Name = "txtGuardianOccupation";
             this.txtGuardianOccupation.Size = new System.Drawing.Size(122, 23);
-            this.txtGuardianOccupation.TabIndex = 54;
+            this.txtGuardianOccupation.TabIndex = 34;
             // 
             // label36
             // 
@@ -526,7 +522,7 @@
             this.txtMotherOccupation.Location = new System.Drawing.Point(187, 85);
             this.txtMotherOccupation.Name = "txtMotherOccupation";
             this.txtMotherOccupation.Size = new System.Drawing.Size(122, 23);
-            this.txtMotherOccupation.TabIndex = 52;
+            this.txtMotherOccupation.TabIndex = 31;
             // 
             // label35
             // 
@@ -545,7 +541,7 @@
             this.txtFatherOccupation.Location = new System.Drawing.Point(187, 32);
             this.txtFatherOccupation.Name = "txtFatherOccupation";
             this.txtFatherOccupation.Size = new System.Drawing.Size(122, 23);
-            this.txtFatherOccupation.TabIndex = 50;
+            this.txtFatherOccupation.TabIndex = 28;
             // 
             // label33
             // 
@@ -564,7 +560,7 @@
             this.txtRelationship.Location = new System.Drawing.Point(10, 193);
             this.txtRelationship.Name = "txtRelationship";
             this.txtRelationship.Size = new System.Drawing.Size(158, 23);
-            this.txtRelationship.TabIndex = 38;
+            this.txtRelationship.TabIndex = 36;
             // 
             // label32
             // 
@@ -583,7 +579,7 @@
             this.txtGuardianName.Location = new System.Drawing.Point(10, 138);
             this.txtGuardianName.Name = "txtGuardianName";
             this.txtGuardianName.Size = new System.Drawing.Size(158, 23);
-            this.txtGuardianName.TabIndex = 36;
+            this.txtGuardianName.TabIndex = 33;
             // 
             // label31
             // 
@@ -602,7 +598,7 @@
             this.txtMotherName.Location = new System.Drawing.Point(10, 85);
             this.txtMotherName.Name = "txtMotherName";
             this.txtMotherName.Size = new System.Drawing.Size(158, 23);
-            this.txtMotherName.TabIndex = 34;
+            this.txtMotherName.TabIndex = 30;
             // 
             // label30
             // 
@@ -621,7 +617,7 @@
             this.txtFathersName.Location = new System.Drawing.Point(10, 32);
             this.txtFathersName.Name = "txtFathersName";
             this.txtFathersName.Size = new System.Drawing.Size(158, 23);
-            this.txtFathersName.TabIndex = 32;
+            this.txtFathersName.TabIndex = 27;
             // 
             // label16
             // 
@@ -674,7 +670,7 @@
             this.txtYear.Location = new System.Drawing.Point(328, 132);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(121, 23);
-            this.txtYear.TabIndex = 77;
+            this.txtYear.TabIndex = 23;
             // 
             // comboCourse
             // 
@@ -690,7 +686,7 @@
             this.comboCourse.Location = new System.Drawing.Point(16, 232);
             this.comboCourse.Name = "comboCourse";
             this.comboCourse.Size = new System.Drawing.Size(291, 23);
-            this.comboCourse.TabIndex = 76;
+            this.comboCourse.TabIndex = 26;
             // 
             // label27
             // 
@@ -714,7 +710,7 @@
             this.comboAdmissionType.Location = new System.Drawing.Point(174, 183);
             this.comboAdmissionType.Name = "comboAdmissionType";
             this.comboAdmissionType.Size = new System.Drawing.Size(121, 23);
-            this.comboAdmissionType.TabIndex = 67;
+            this.comboAdmissionType.TabIndex = 25;
             // 
             // label28
             // 
@@ -766,7 +762,7 @@
             this.txtDateOfGraduation.Location = new System.Drawing.Point(16, 183);
             this.txtDateOfGraduation.Name = "txtDateOfGraduation";
             this.txtDateOfGraduation.Size = new System.Drawing.Size(122, 23);
-            this.txtDateOfGraduation.TabIndex = 58;
+            this.txtDateOfGraduation.TabIndex = 24;
             // 
             // txtProgram
             // 
@@ -774,7 +770,7 @@
             this.txtProgram.Location = new System.Drawing.Point(16, 134);
             this.txtProgram.Name = "txtProgram";
             this.txtProgram.Size = new System.Drawing.Size(276, 23);
-            this.txtProgram.TabIndex = 62;
+            this.txtProgram.TabIndex = 22;
             // 
             // label20
             // 
@@ -800,7 +796,7 @@
             this.comboSchoolType.Location = new System.Drawing.Point(16, 82);
             this.comboSchoolType.Name = "comboSchoolType";
             this.comboSchoolType.Size = new System.Drawing.Size(121, 23);
-            this.comboSchoolType.TabIndex = 58;
+            this.comboSchoolType.TabIndex = 20;
             // 
             // txtSchoolName
             // 
@@ -808,7 +804,7 @@
             this.txtSchoolName.Location = new System.Drawing.Point(173, 82);
             this.txtSchoolName.Name = "txtSchoolName";
             this.txtSchoolName.Size = new System.Drawing.Size(276, 23);
-            this.txtSchoolName.TabIndex = 58;
+            this.txtSchoolName.TabIndex = 21;
             // 
             // label19
             // 
@@ -848,7 +844,7 @@
             this.txtLRN.Location = new System.Drawing.Point(188, 8);
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.Size = new System.Drawing.Size(150, 20);
-            this.txtLRN.TabIndex = 58;
+            this.txtLRN.TabIndex = 19;
             this.txtLRN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLRN_KeyPress);
             // 
             // label9
@@ -918,7 +914,7 @@
             this.txtStudStatus.Location = new System.Drawing.Point(164, 136);
             this.txtStudStatus.Name = "txtStudStatus";
             this.txtStudStatus.Size = new System.Drawing.Size(121, 21);
-            this.txtStudStatus.TabIndex = 78;
+            this.txtStudStatus.TabIndex = 8;
             // 
             // dateOfBirth
             // 
@@ -928,7 +924,7 @@
             this.dateOfBirth.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateOfBirth.Name = "dateOfBirth";
             this.dateOfBirth.Size = new System.Drawing.Size(122, 23);
-            this.dateOfBirth.TabIndex = 70;
+            this.dateOfBirth.TabIndex = 6;
             this.dateOfBirth.Value = new System.DateTime(2021, 1, 14, 0, 0, 0, 0);
             // 
             // label59
@@ -948,7 +944,7 @@
             this.txtZipCode.Location = new System.Drawing.Point(15, 285);
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Size = new System.Drawing.Size(122, 23);
-            this.txtZipCode.TabIndex = 68;
+            this.txtZipCode.TabIndex = 16;
             this.txtZipCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtZipCode_KeyPress_1);
             // 
             // label58
@@ -968,7 +964,7 @@
             this.txtProvince.Location = new System.Drawing.Point(312, 232);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(122, 23);
-            this.txtProvince.TabIndex = 65;
+            this.txtProvince.TabIndex = 15;
             // 
             // label57
             // 
@@ -987,7 +983,7 @@
             this.txtCity.Location = new System.Drawing.Point(169, 232);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(122, 23);
-            this.txtCity.TabIndex = 63;
+            this.txtCity.TabIndex = 14;
             // 
             // label56
             // 
@@ -1006,7 +1002,7 @@
             this.txtBarangay.Location = new System.Drawing.Point(13, 232);
             this.txtBarangay.Name = "txtBarangay";
             this.txtBarangay.Size = new System.Drawing.Size(122, 23);
-            this.txtBarangay.TabIndex = 61;
+            this.txtBarangay.TabIndex = 13;
             // 
             // label54
             // 
@@ -1025,7 +1021,7 @@
             this.txtStreet.Location = new System.Drawing.Point(169, 183);
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(122, 23);
-            this.txtStreet.TabIndex = 58;
+            this.txtStreet.TabIndex = 11;
             // 
             // label15
             // 
@@ -1045,7 +1041,7 @@
             this.txtStudContactNum.MaxLength = 15;
             this.txtStudContactNum.Name = "txtStudContactNum";
             this.txtStudContactNum.Size = new System.Drawing.Size(122, 23);
-            this.txtStudContactNum.TabIndex = 56;
+            this.txtStudContactNum.TabIndex = 17;
             this.txtStudContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudContactNum_KeyPress);
             // 
             // label14
@@ -1065,7 +1061,7 @@
             this.txtEmail.Location = new System.Drawing.Point(15, 341);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(276, 23);
-            this.txtEmail.TabIndex = 54;
+            this.txtEmail.TabIndex = 18;
             // 
             // label13
             // 
@@ -1084,7 +1080,7 @@
             this.txtSubdivision.Location = new System.Drawing.Point(319, 183);
             this.txtSubdivision.Name = "txtSubdivision";
             this.txtSubdivision.Size = new System.Drawing.Size(122, 23);
-            this.txtSubdivision.TabIndex = 52;
+            this.txtSubdivision.TabIndex = 12;
             // 
             // label12
             // 
@@ -1103,7 +1099,7 @@
             this.txtStreetNum.Location = new System.Drawing.Point(14, 183);
             this.txtStreetNum.Name = "txtStreetNum";
             this.txtStreetNum.Size = new System.Drawing.Size(122, 23);
-            this.txtStreetNum.TabIndex = 50;
+            this.txtStreetNum.TabIndex = 10;
             // 
             // label11
             // 
@@ -1122,7 +1118,7 @@
             this.txtStudCitizenship.Location = new System.Drawing.Point(319, 134);
             this.txtStudCitizenship.Name = "txtStudCitizenship";
             this.txtStudCitizenship.Size = new System.Drawing.Size(122, 23);
-            this.txtStudCitizenship.TabIndex = 48;
+            this.txtStudCitizenship.TabIndex = 9;
             // 
             // label10
             // 
@@ -1152,7 +1148,7 @@
             this.txtStudBirthdPlace.Location = new System.Drawing.Point(11, 134);
             this.txtStudBirthdPlace.Name = "txtStudBirthdPlace";
             this.txtStudBirthdPlace.Size = new System.Drawing.Size(122, 23);
-            this.txtStudBirthdPlace.TabIndex = 44;
+            this.txtStudBirthdPlace.TabIndex = 7;
             // 
             // label4
             // 
@@ -1177,7 +1173,7 @@
             this.comboGender.Location = new System.Drawing.Point(163, 82);
             this.comboGender.Name = "comboGender";
             this.comboGender.Size = new System.Drawing.Size(121, 23);
-            this.comboGender.TabIndex = 39;
+            this.comboGender.TabIndex = 5;
             // 
             // label3
             // 
@@ -1207,7 +1203,7 @@
             this.txtStudSuffix.Location = new System.Drawing.Point(10, 82);
             this.txtStudSuffix.Name = "txtStudSuffix";
             this.txtStudSuffix.Size = new System.Drawing.Size(122, 23);
-            this.txtStudSuffix.TabIndex = 36;
+            this.txtStudSuffix.TabIndex = 4;
             // 
             // label7
             // 
@@ -1226,7 +1222,7 @@
             this.txtStudLastName.Location = new System.Drawing.Point(319, 30);
             this.txtStudLastName.Name = "txtStudLastName";
             this.txtStudLastName.Size = new System.Drawing.Size(131, 23);
-            this.txtStudLastName.TabIndex = 34;
+            this.txtStudLastName.TabIndex = 3;
             // 
             // label2
             // 
@@ -1245,7 +1241,7 @@
             this.txtStudMiddleName.Location = new System.Drawing.Point(163, 30);
             this.txtStudMiddleName.Name = "txtStudMiddleName";
             this.txtStudMiddleName.Size = new System.Drawing.Size(122, 23);
-            this.txtStudMiddleName.TabIndex = 32;
+            this.txtStudMiddleName.TabIndex = 2;
             // 
             // lblName
             // 
@@ -1278,32 +1274,6 @@
             this.lblRegistrationNum.TabIndex = 0;
             this.lblRegistrationNum.Text = "Registration #";
             // 
-            // btnArchive
-            // 
-            this.btnArchive.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnArchive.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnArchive.BackgroundImage")));
-            this.btnArchive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchive.Location = new System.Drawing.Point(552, 12);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(82, 48);
-            this.btnArchive.TabIndex = 66;
-            this.btnArchive.UseVisualStyleBackColor = false;
-            // 
-            // btnLock
-            // 
-            this.btnLock.BackColor = System.Drawing.Color.Red;
-            this.btnLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLock.BackgroundImage")));
-            this.btnLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLock.Location = new System.Drawing.Point(552, 12);
-            this.btnLock.Name = "btnLock";
-            this.btnLock.Size = new System.Drawing.Size(82, 48);
-            this.btnLock.TabIndex = 67;
-            this.btnLock.UseVisualStyleBackColor = false;
-            // 
             // SaveChanges
             // 
             this.SaveChanges.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1315,6 +1285,48 @@
             this.SaveChanges.Name = "SaveChanges";
             this.SaveChanges.Size = new System.Drawing.Size(369, 157);
             this.SaveChanges.TabIndex = 22;
+            // 
+            // button_WOC7
+            // 
+            this.button_WOC7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC7.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC7.FlatAppearance.BorderSize = 0;
+            this.button_WOC7.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC7.Location = new System.Drawing.Point(184, 91);
+            this.button_WOC7.Name = "button_WOC7";
+            this.button_WOC7.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC7.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC7.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC7.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC7.TabIndex = 66;
+            this.button_WOC7.Text = "No";
+            this.button_WOC7.TextColor = System.Drawing.Color.White;
+            this.button_WOC7.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC6
+            // 
+            this.button_WOC6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC6.FlatAppearance.BorderSize = 0;
+            this.button_WOC6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC6.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC6.Location = new System.Drawing.Point(69, 91);
+            this.button_WOC6.Name = "button_WOC6";
+            this.button_WOC6.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC6.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC6.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC6.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC6.TabIndex = 65;
+            this.button_WOC6.Text = "Yes";
+            this.button_WOC6.TextColor = System.Drawing.Color.White;
+            this.button_WOC6.UseVisualStyleBackColor = true;
             // 
             // label34
             // 
@@ -1338,6 +1350,48 @@
             this.Attachment.Name = "Attachment";
             this.Attachment.Size = new System.Drawing.Size(369, 373);
             this.Attachment.TabIndex = 23;
+            // 
+            // button_WOC8
+            // 
+            this.button_WOC8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC8.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC8.FlatAppearance.BorderSize = 0;
+            this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC8.Location = new System.Drawing.Point(184, 295);
+            this.button_WOC8.Name = "button_WOC8";
+            this.button_WOC8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC8.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC8.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC8.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC8.TabIndex = 66;
+            this.button_WOC8.Text = "Add New";
+            this.button_WOC8.TextColor = System.Drawing.Color.White;
+            this.button_WOC8.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC9
+            // 
+            this.button_WOC9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC9.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC9.FlatAppearance.BorderSize = 0;
+            this.button_WOC9.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC9.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC9.Location = new System.Drawing.Point(69, 295);
+            this.button_WOC9.Name = "button_WOC9";
+            this.button_WOC9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC9.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC9.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC9.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC9.TabIndex = 65;
+            this.button_WOC9.Text = "Done";
+            this.button_WOC9.TextColor = System.Drawing.Color.White;
+            this.button_WOC9.UseVisualStyleBackColor = true;
             // 
             // label46
             // 
@@ -1374,6 +1428,48 @@
             this.label48.TabIndex = 67;
             this.label48.Text = "archive this data?";
             // 
+            // button_WOC10
+            // 
+            this.button_WOC10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC10.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC10.FlatAppearance.BorderSize = 0;
+            this.button_WOC10.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC10.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC10.Location = new System.Drawing.Point(187, 91);
+            this.button_WOC10.Name = "button_WOC10";
+            this.button_WOC10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC10.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC10.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC10.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC10.TabIndex = 66;
+            this.button_WOC10.Text = "No";
+            this.button_WOC10.TextColor = System.Drawing.Color.White;
+            this.button_WOC10.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC11
+            // 
+            this.button_WOC11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC11.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC11.FlatAppearance.BorderSize = 0;
+            this.button_WOC11.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC11.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC11.Location = new System.Drawing.Point(72, 91);
+            this.button_WOC11.Name = "button_WOC11";
+            this.button_WOC11.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC11.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC11.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC11.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC11.TabIndex = 65;
+            this.button_WOC11.Text = "Yes";
+            this.button_WOC11.TextColor = System.Drawing.Color.White;
+            this.button_WOC11.UseVisualStyleBackColor = true;
+            // 
             // label47
             // 
             this.label47.AutoSize = true;
@@ -1408,6 +1504,48 @@
             this.label49.Size = new System.Drawing.Size(209, 30);
             this.label49.TabIndex = 67;
             this.label49.Text = "unarchive this data?";
+            // 
+            // button_WOC12
+            // 
+            this.button_WOC12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC12.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC12.FlatAppearance.BorderSize = 0;
+            this.button_WOC12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC12.Location = new System.Drawing.Point(187, 91);
+            this.button_WOC12.Name = "button_WOC12";
+            this.button_WOC12.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC12.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC12.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC12.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC12.TabIndex = 66;
+            this.button_WOC12.Text = "No";
+            this.button_WOC12.TextColor = System.Drawing.Color.White;
+            this.button_WOC12.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC13
+            // 
+            this.button_WOC13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC13.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC13.FlatAppearance.BorderSize = 0;
+            this.button_WOC13.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC13.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC13.Location = new System.Drawing.Point(72, 91);
+            this.button_WOC13.Name = "button_WOC13";
+            this.button_WOC13.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC13.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC13.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC13.Size = new System.Drawing.Size(109, 46);
+            this.button_WOC13.TabIndex = 65;
+            this.button_WOC13.Text = "Yes";
+            this.button_WOC13.TextColor = System.Drawing.Color.White;
+            this.button_WOC13.UseVisualStyleBackColor = true;
             // 
             // label50
             // 
@@ -1456,95 +1594,6 @@
             this.label51.TabIndex = 67;
             this.label51.Text = "DELETE this data?";
             // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label52.Location = new System.Drawing.Point(61, 20);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(262, 30);
-            this.label52.TabIndex = 0;
-            this.label52.Text = "Are you sure you want to";
-            // 
-            // btnDeleteStudent
-            // 
-            this.btnDeleteStudent.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteStudent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteStudent.BackgroundImage")));
-            this.btnDeleteStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDeleteStudent.Enabled = false;
-            this.btnDeleteStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnDeleteStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteStudent.Location = new System.Drawing.Point(651, 12);
-            this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(82, 48);
-            this.btnDeleteStudent.TabIndex = 68;
-            this.btnDeleteStudent.UseVisualStyleBackColor = false;
-            this.btnDeleteStudent.Visible = false;
-            // 
-            // btnAddRemark
-            // 
-            this.btnAddRemark.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddRemark.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnAddRemark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddRemark.FlatAppearance.BorderSize = 0;
-            this.btnAddRemark.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.btnAddRemark.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.btnAddRemark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRemark.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRemark.Location = new System.Drawing.Point(323, 165);
-            this.btnAddRemark.Name = "btnAddRemark";
-            this.btnAddRemark.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.btnAddRemark.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.btnAddRemark.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAddRemark.Size = new System.Drawing.Size(126, 21);
-            this.btnAddRemark.TabIndex = 71;
-            this.btnAddRemark.Text = "Add New Remark";
-            this.btnAddRemark.TextColor = System.Drawing.Color.White;
-            this.btnAddRemark.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC7
-            // 
-            this.button_WOC7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC7.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC7.FlatAppearance.BorderSize = 0;
-            this.button_WOC7.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC7.Location = new System.Drawing.Point(184, 91);
-            this.button_WOC7.Name = "button_WOC7";
-            this.button_WOC7.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC7.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC7.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC7.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC7.TabIndex = 66;
-            this.button_WOC7.Text = "No";
-            this.button_WOC7.TextColor = System.Drawing.Color.White;
-            this.button_WOC7.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC6
-            // 
-            this.button_WOC6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC6.FlatAppearance.BorderSize = 0;
-            this.button_WOC6.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC6.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC6.Location = new System.Drawing.Point(69, 91);
-            this.button_WOC6.Name = "button_WOC6";
-            this.button_WOC6.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC6.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC6.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC6.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC6.TabIndex = 65;
-            this.button_WOC6.Text = "Yes";
-            this.button_WOC6.TextColor = System.Drawing.Color.White;
-            this.button_WOC6.UseVisualStyleBackColor = true;
-            // 
             // button_WOC14
             // 
             this.button_WOC14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
@@ -1587,131 +1636,30 @@
             this.button_WOC15.TextColor = System.Drawing.Color.White;
             this.button_WOC15.UseVisualStyleBackColor = true;
             // 
-            // button_WOC10
+            // label52
             // 
-            this.button_WOC10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC10.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC10.FlatAppearance.BorderSize = 0;
-            this.button_WOC10.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC10.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC10.Location = new System.Drawing.Point(187, 91);
-            this.button_WOC10.Name = "button_WOC10";
-            this.button_WOC10.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC10.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC10.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC10.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC10.TabIndex = 66;
-            this.button_WOC10.Text = "No";
-            this.button_WOC10.TextColor = System.Drawing.Color.White;
-            this.button_WOC10.UseVisualStyleBackColor = true;
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label52.Location = new System.Drawing.Point(61, 20);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(262, 30);
+            this.label52.TabIndex = 0;
+            this.label52.Text = "Are you sure you want to";
             // 
-            // button_WOC11
+            // btnEdit
             // 
-            this.button_WOC11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC11.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC11.FlatAppearance.BorderSize = 0;
-            this.button_WOC11.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC11.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC11.Location = new System.Drawing.Point(72, 91);
-            this.button_WOC11.Name = "button_WOC11";
-            this.button_WOC11.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC11.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC11.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC11.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC11.TabIndex = 65;
-            this.button_WOC11.Text = "Yes";
-            this.button_WOC11.TextColor = System.Drawing.Color.White;
-            this.button_WOC11.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC12
-            // 
-            this.button_WOC12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC12.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC12.FlatAppearance.BorderSize = 0;
-            this.button_WOC12.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC12.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC12.Location = new System.Drawing.Point(187, 91);
-            this.button_WOC12.Name = "button_WOC12";
-            this.button_WOC12.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC12.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC12.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC12.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC12.TabIndex = 66;
-            this.button_WOC12.Text = "No";
-            this.button_WOC12.TextColor = System.Drawing.Color.White;
-            this.button_WOC12.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC13
-            // 
-            this.button_WOC13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC13.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC13.FlatAppearance.BorderSize = 0;
-            this.button_WOC13.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC13.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC13.Location = new System.Drawing.Point(72, 91);
-            this.button_WOC13.Name = "button_WOC13";
-            this.button_WOC13.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC13.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC13.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC13.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC13.TabIndex = 65;
-            this.button_WOC13.Text = "Yes";
-            this.button_WOC13.TextColor = System.Drawing.Color.White;
-            this.button_WOC13.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC8
-            // 
-            this.button_WOC8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC8.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC8.FlatAppearance.BorderSize = 0;
-            this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC8.Location = new System.Drawing.Point(184, 295);
-            this.button_WOC8.Name = "button_WOC8";
-            this.button_WOC8.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC8.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC8.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC8.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC8.TabIndex = 66;
-            this.button_WOC8.Text = "Add New";
-            this.button_WOC8.TextColor = System.Drawing.Color.White;
-            this.button_WOC8.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC9
-            // 
-            this.button_WOC9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC9.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC9.FlatAppearance.BorderSize = 0;
-            this.button_WOC9.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC9.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC9.Location = new System.Drawing.Point(69, 295);
-            this.button_WOC9.Name = "button_WOC9";
-            this.button_WOC9.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC9.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC9.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC9.Size = new System.Drawing.Size(109, 46);
-            this.button_WOC9.TabIndex = 65;
-            this.button_WOC9.Text = "Done";
-            this.button_WOC9.TextColor = System.Drawing.Color.White;
-            this.button_WOC9.UseVisualStyleBackColor = true;
+            this.btnEdit.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Location = new System.Drawing.Point(549, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(82, 48);
+            this.btnEdit.TabIndex = 89;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // frmStudentRegistration
             // 
@@ -1868,8 +1816,6 @@
         private System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox txtStreet;
-        private System.Windows.Forms.Button btnArchive;
-        private System.Windows.Forms.Button btnLock;
         private System.Windows.Forms.Button btnAttachment;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.PictureBox btnClose;
@@ -1878,11 +1824,10 @@
         private System.Windows.Forms.Label lblTimestamp;
         private System.Windows.Forms.Label lblLastEditBy;
         private System.Windows.Forms.DateTimePicker dateOfBirth;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox txtYear;
         private System.Windows.Forms.ComboBox txtStudStatus;
-        private System.Windows.Forms.Button btnDeleteStudent;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 

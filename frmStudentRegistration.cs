@@ -804,17 +804,21 @@ namespace TestStudentRegistration
         public void StudentAssistantUser()
         {
             btnSave.Visible = false;
-            btnArchive.Visible = false;
             btnAddRemark.Visible = false;
-            btnDeleteStudent.Visible = false;
-            btnLock.Visible = false;
             btnEdit.Visible = false;
             btnAttachment.Visible = false;
+            comboStatus.Enabled = false;
         }
         public void AdminUser()
         {
-            btnLock.Visible = false;
-            btnDeleteStudent.Visible = false;
+            comboStatus.Items.Add("Enrolled");
+            comboStatus.Items.Add("Registered");
+        }
+        public void FullAdmin()
+        {
+            comboStatus.Items.Add("Enrolled");
+            comboStatus.Items.Add("Registered");
+            comboStatus.Items.Add("Archived");
         }
 
         private void txtLRN_TextChanged(object sender, EventArgs e)

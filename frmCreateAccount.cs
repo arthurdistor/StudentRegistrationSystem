@@ -105,6 +105,10 @@ namespace TestStudentRegistration
             }
         }
 
+        private void button_WOC2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
