@@ -551,5 +551,55 @@ namespace TestStudentRegistration
         {
             btnAdminPanel.Visible = false;
         }
+
+        private void btnDashboard_Click_1(object sender, EventArgs e)
+        {
+            loadSimpleStudentData();
+            pnlDashboard.BringToFront();
+            UIButtonDashboarClick();
+        }
+
+        private void buttonStudents_Click_2(object sender, EventArgs e)
+        {
+            UIButtonStudentsClick();
+            StudentTab.BringToFront();
+         
+        }
+
+        private void buttonLogout1_Click_1(object sender, EventArgs e)
+        {
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
+        }
+
+        private void pictureBox8_Click_1(object sender, EventArgs e)
+        {
+            LogoutBox logoutBox = new LogoutBox();
+            logoutBox.ShowDialog();
+        }
+
+        private void pictureBox8_MouseHover_1(object sender, EventArgs e)
+        {
+            buttonLogout1.ButtonColor = Color.White;
+            buttonLogout1.BorderColor = Color.White;
+            pictureBox8.BackColor = Color.White;
+        }
+
+        private void buttonLogout1_MouseHover_1(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.White;
+        }
+
+        private void buttonLogout1_MouseLeave_1(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
+        }
+
+        private void pictureBox8_MouseLeave_1(object sender, EventArgs e)
+        {
+            pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
+            buttonLogout1.ButtonColor = Color.FromArgb(4, 45, 101);
+            buttonLogout1.BorderColor = Color.FromArgb(4, 45, 101);
+        }
     }
 }

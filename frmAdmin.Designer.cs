@@ -30,11 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlDashboard = new System.Windows.Forms.Panel();
+            this.lblTimeDate = new System.Windows.Forms.Label();
+            this.btnAdminPanel = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblGreetings = new System.Windows.Forms.Label();
+            this.registered = new System.Windows.Forms.Panel();
+            this.lblTotalStudents = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.newStudents = new System.Windows.Forms.Panel();
+            this.lblTotalNewStudents = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button_WOC4 = new ePOSOne.btnProduct.Button_WOC();
+            this.Transferees = new System.Windows.Forms.Panel();
+            this.lblTotalTransferees = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridSimpleStudentInfo = new System.Windows.Forms.DataGridView();
             this.StudentTab = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
@@ -116,27 +132,6 @@
             this.LogLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label30 = new System.Windows.Forms.Label();
             this.Archive = new System.Windows.Forms.Panel();
-            this.SelectAdmission = new System.Windows.Forms.Panel();
-            this.button_WOC41 = new ePOSOne.btnProduct.Button_WOC();
-            this.button_WOC42 = new ePOSOne.btnProduct.Button_WOC();
-            this.label34 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblTimeDate = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblTotalTransferees = new System.Windows.Forms.Label();
-            this.Transferees = new System.Windows.Forms.Panel();
-            this.button_WOC4 = new ePOSOne.btnProduct.Button_WOC();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTotalNewStudents = new System.Windows.Forms.Label();
-            this.newStudents = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTotalStudents = new System.Windows.Forms.Label();
-            this.registered = new System.Windows.Forms.Panel();
-            this.lblGreetings = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnAdminPanel = new System.Windows.Forms.Button();
-            this.dataGridSimpleStudentInfo = new System.Windows.Forms.DataGridView();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -153,29 +148,38 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.SelectAdmission = new System.Windows.Forms.Panel();
+            this.button_WOC41 = new ePOSOne.btnProduct.Button_WOC();
+            this.button_WOC42 = new ePOSOne.btnProduct.Button_WOC();
+            this.label34 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Edit = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.button_WOC43 = new ePOSOne.btnProduct.Button_WOC();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_WOC43 = new ePOSOne.btnProduct.Button_WOC();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.Tabs = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.buttonLogout1 = new ePOSOne.btnProduct.Button_WOC();
             this.buttonStudents = new ePOSOne.btnProduct.Button_WOC();
             this.btnDashboard = new ePOSOne.btnProduct.Button_WOC();
             this.pnlDashboard.SuspendLayout();
+            this.registered.SuspendLayout();
+            this.newStudents.SuspendLayout();
+            this.Transferees.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).BeginInit();
             this.StudentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).BeginInit();
             this.Admin_Control.SuspendLayout();
@@ -195,17 +199,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.Archive.SuspendLayout();
-            this.SelectAdmission.SuspendLayout();
-            this.Transferees.SuspendLayout();
-            this.newStudents.SuspendLayout();
-            this.registered.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.SelectAdmission.SuspendLayout();
             this.Edit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Tabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
@@ -231,6 +231,252 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(778, 749);
             this.pnlDashboard.TabIndex = 3;
+            // 
+            // lblTimeDate
+            // 
+            this.lblTimeDate.AutoSize = true;
+            this.lblTimeDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
+            this.lblTimeDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblTimeDate.Location = new System.Drawing.Point(654, 32);
+            this.lblTimeDate.Name = "lblTimeDate";
+            this.lblTimeDate.Size = new System.Drawing.Size(111, 20);
+            this.lblTimeDate.TabIndex = 19;
+            this.lblTimeDate.Text = "Time and Date";
+            // 
+            // btnAdminPanel
+            // 
+            this.btnAdminPanel.BackColor = System.Drawing.Color.Red;
+            this.btnAdminPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdminPanel.BackgroundImage")));
+            this.btnAdminPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdminPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdminPanel.FlatAppearance.BorderSize = 0;
+            this.btnAdminPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnAdminPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminPanel.ForeColor = System.Drawing.Color.White;
+            this.btnAdminPanel.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnAdminPanel.Location = new System.Drawing.Point(611, 451);
+            this.btnAdminPanel.Name = "btnAdminPanel";
+            this.btnAdminPanel.Size = new System.Drawing.Size(83, 45);
+            this.btnAdminPanel.TabIndex = 30;
+            this.btnAdminPanel.UseVisualStyleBackColor = false;
+            this.btnAdminPanel.Click += new System.EventHandler(this.btnAdminPanel_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
+            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnExport.Location = new System.Drawing.Point(611, 520);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(83, 45);
+            this.btnExport.TabIndex = 29;
+            this.btnExport.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button3.Location = new System.Drawing.Point(611, 451);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(83, 45);
+            this.button3.TabIndex = 28;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            // 
+            // lblGreetings
+            // 
+            this.lblGreetings.AutoSize = true;
+            this.lblGreetings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblGreetings.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGreetings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblGreetings.Location = new System.Drawing.Point(37, 34);
+            this.lblGreetings.Name = "lblGreetings";
+            this.lblGreetings.Size = new System.Drawing.Size(214, 40);
+            this.lblGreetings.TabIndex = 26;
+            this.lblGreetings.Text = "Welcome User";
+            // 
+            // registered
+            // 
+            this.registered.BackColor = System.Drawing.Color.Silver;
+            this.registered.Controls.Add(this.lblTotalStudents);
+            this.registered.Controls.Add(this.label1);
+            this.registered.Location = new System.Drawing.Point(85, 108);
+            this.registered.Name = "registered";
+            this.registered.Size = new System.Drawing.Size(188, 145);
+            this.registered.TabIndex = 20;
+            // 
+            // lblTotalStudents
+            // 
+            this.lblTotalStudents.AutoSize = true;
+            this.lblTotalStudents.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblTotalStudents.Location = new System.Drawing.Point(37, 55);
+            this.lblTotalStudents.Name = "lblTotalStudents";
+            this.lblTotalStudents.Size = new System.Drawing.Size(112, 65);
+            this.lblTotalStudents.TabIndex = 1;
+            this.lblTotalStudents.Text = "153";
+            this.lblTotalStudents.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total Students Registered";
+            // 
+            // newStudents
+            // 
+            this.newStudents.BackColor = System.Drawing.Color.Silver;
+            this.newStudents.Controls.Add(this.lblTotalNewStudents);
+            this.newStudents.Controls.Add(this.label5);
+            this.newStudents.Location = new System.Drawing.Point(296, 108);
+            this.newStudents.Name = "newStudents";
+            this.newStudents.Size = new System.Drawing.Size(188, 145);
+            this.newStudents.TabIndex = 21;
+            // 
+            // lblTotalNewStudents
+            // 
+            this.lblTotalNewStudents.AutoSize = true;
+            this.lblTotalNewStudents.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalNewStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblTotalNewStudents.Location = new System.Drawing.Point(38, 55);
+            this.lblTotalNewStudents.Name = "lblTotalNewStudents";
+            this.lblTotalNewStudents.Size = new System.Drawing.Size(112, 65);
+            this.lblTotalNewStudents.TabIndex = 3;
+            this.lblTotalNewStudents.Text = "153";
+            this.lblTotalNewStudents.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label5.Location = new System.Drawing.Point(13, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(161, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "New Students Registered";
+            // 
+            // button_WOC4
+            // 
+            this.button_WOC4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC4.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC4.Enabled = false;
+            this.button_WOC4.FlatAppearance.BorderSize = 0;
+            this.button_WOC4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button_WOC4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button_WOC4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC4.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC4.Location = new System.Drawing.Point(556, 377);
+            this.button_WOC4.Name = "button_WOC4";
+            this.button_WOC4.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC4.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC4.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC4.Size = new System.Drawing.Size(188, 46);
+            this.button_WOC4.TabIndex = 23;
+            this.button_WOC4.Text = "Quick Links";
+            this.button_WOC4.TextColor = System.Drawing.Color.White;
+            this.button_WOC4.UseVisualStyleBackColor = true;
+            // 
+            // Transferees
+            // 
+            this.Transferees.BackColor = System.Drawing.Color.Silver;
+            this.Transferees.Controls.Add(this.lblTotalTransferees);
+            this.Transferees.Controls.Add(this.label7);
+            this.Transferees.Location = new System.Drawing.Point(508, 108);
+            this.Transferees.Name = "Transferees";
+            this.Transferees.Size = new System.Drawing.Size(188, 145);
+            this.Transferees.TabIndex = 22;
+            // 
+            // lblTotalTransferees
+            // 
+            this.lblTotalTransferees.AutoSize = true;
+            this.lblTotalTransferees.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTransferees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.lblTotalTransferees.Location = new System.Drawing.Point(37, 55);
+            this.lblTotalTransferees.Name = "lblTotalTransferees";
+            this.lblTotalTransferees.Size = new System.Drawing.Size(112, 65);
+            this.lblTotalTransferees.TabIndex = 3;
+            this.lblTotalTransferees.Text = "153";
+            this.lblTotalTransferees.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label7.Location = new System.Drawing.Point(24, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 17);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Transferees Registered";
+            // 
+            // dataGridSimpleStudentInfo
+            // 
+            this.dataGridSimpleStudentInfo.AllowUserToAddRows = false;
+            this.dataGridSimpleStudentInfo.AllowUserToDeleteRows = false;
+            this.dataGridSimpleStudentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridSimpleStudentInfo.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridSimpleStudentInfo.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridSimpleStudentInfo.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridSimpleStudentInfo.Location = new System.Drawing.Point(35, 280);
+            this.dataGridSimpleStudentInfo.Name = "dataGridSimpleStudentInfo";
+            this.dataGridSimpleStudentInfo.ReadOnly = true;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.dataGridSimpleStudentInfo.RowHeadersVisible = false;
+            this.dataGridSimpleStudentInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridSimpleStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridSimpleStudentInfo.Size = new System.Drawing.Size(485, 390);
+            this.dataGridSimpleStudentInfo.TabIndex = 18;
+            this.dataGridSimpleStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSimpleStudentInfo_CellClick);
             // 
             // StudentTab
             // 
@@ -1281,322 +1527,6 @@
             this.Archive.Size = new System.Drawing.Size(776, 749);
             this.Archive.TabIndex = 17;
             // 
-            // SelectAdmission
-            // 
-            this.SelectAdmission.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.SelectAdmission.Controls.Add(this.button_WOC41);
-            this.SelectAdmission.Controls.Add(this.button_WOC42);
-            this.SelectAdmission.Controls.Add(this.label34);
-            this.SelectAdmission.Location = new System.Drawing.Point(234, 217);
-            this.SelectAdmission.Name = "SelectAdmission";
-            this.SelectAdmission.Size = new System.Drawing.Size(419, 184);
-            this.SelectAdmission.TabIndex = 80;
-            // 
-            // button_WOC41
-            // 
-            this.button_WOC41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC41.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC41.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC41.FlatAppearance.BorderSize = 0;
-            this.button_WOC41.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC41.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC41.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC41.Location = new System.Drawing.Point(225, 90);
-            this.button_WOC41.Name = "button_WOC41";
-            this.button_WOC41.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC41.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC41.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC41.Size = new System.Drawing.Size(140, 46);
-            this.button_WOC41.TabIndex = 66;
-            this.button_WOC41.Text = "Transferee";
-            this.button_WOC41.TextColor = System.Drawing.Color.White;
-            this.button_WOC41.UseVisualStyleBackColor = true;
-            // 
-            // button_WOC42
-            // 
-            this.button_WOC42.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC42.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC42.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC42.FlatAppearance.BorderSize = 0;
-            this.button_WOC42.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC42.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC42.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC42.Location = new System.Drawing.Point(53, 90);
-            this.button_WOC42.Name = "button_WOC42";
-            this.button_WOC42.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC42.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC42.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC42.Size = new System.Drawing.Size(138, 46);
-            this.button_WOC42.TabIndex = 65;
-            this.button_WOC42.Text = "New Student";
-            this.button_WOC42.TextColor = System.Drawing.Color.White;
-            this.button_WOC42.UseVisualStyleBackColor = true;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label34.Location = new System.Drawing.Point(67, 29);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(292, 30);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Select the type of Admission";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lblTimeDate
-            // 
-            this.lblTimeDate.AutoSize = true;
-            this.lblTimeDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
-            this.lblTimeDate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblTimeDate.Location = new System.Drawing.Point(654, 32);
-            this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(111, 20);
-            this.lblTimeDate.TabIndex = 19;
-            this.lblTimeDate.Text = "Time and Date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label7.Location = new System.Drawing.Point(24, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 17);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Transferees Registered";
-            // 
-            // lblTotalTransferees
-            // 
-            this.lblTotalTransferees.AutoSize = true;
-            this.lblTotalTransferees.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalTransferees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblTotalTransferees.Location = new System.Drawing.Point(37, 55);
-            this.lblTotalTransferees.Name = "lblTotalTransferees";
-            this.lblTotalTransferees.Size = new System.Drawing.Size(112, 65);
-            this.lblTotalTransferees.TabIndex = 3;
-            this.lblTotalTransferees.Text = "153";
-            this.lblTotalTransferees.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Transferees
-            // 
-            this.Transferees.BackColor = System.Drawing.Color.Silver;
-            this.Transferees.Controls.Add(this.lblTotalTransferees);
-            this.Transferees.Controls.Add(this.label7);
-            this.Transferees.Location = new System.Drawing.Point(508, 108);
-            this.Transferees.Name = "Transferees";
-            this.Transferees.Size = new System.Drawing.Size(188, 145);
-            this.Transferees.TabIndex = 22;
-            // 
-            // button_WOC4
-            // 
-            this.button_WOC4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC4.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC4.Enabled = false;
-            this.button_WOC4.FlatAppearance.BorderSize = 0;
-            this.button_WOC4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button_WOC4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button_WOC4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC4.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC4.Location = new System.Drawing.Point(556, 377);
-            this.button_WOC4.Name = "button_WOC4";
-            this.button_WOC4.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC4.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.button_WOC4.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC4.Size = new System.Drawing.Size(188, 46);
-            this.button_WOC4.TabIndex = 23;
-            this.button_WOC4.Text = "Quick Links";
-            this.button_WOC4.TextColor = System.Drawing.Color.White;
-            this.button_WOC4.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label5.Location = new System.Drawing.Point(13, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "New Students Registered";
-            // 
-            // lblTotalNewStudents
-            // 
-            this.lblTotalNewStudents.AutoSize = true;
-            this.lblTotalNewStudents.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalNewStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblTotalNewStudents.Location = new System.Drawing.Point(38, 55);
-            this.lblTotalNewStudents.Name = "lblTotalNewStudents";
-            this.lblTotalNewStudents.Size = new System.Drawing.Size(112, 65);
-            this.lblTotalNewStudents.TabIndex = 3;
-            this.lblTotalNewStudents.Text = "153";
-            this.lblTotalNewStudents.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // newStudents
-            // 
-            this.newStudents.BackColor = System.Drawing.Color.Silver;
-            this.newStudents.Controls.Add(this.lblTotalNewStudents);
-            this.newStudents.Controls.Add(this.label5);
-            this.newStudents.Location = new System.Drawing.Point(296, 108);
-            this.newStudents.Name = "newStudents";
-            this.newStudents.Size = new System.Drawing.Size(188, 145);
-            this.newStudents.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label1.Location = new System.Drawing.Point(12, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total Students Registered";
-            // 
-            // lblTotalStudents
-            // 
-            this.lblTotalStudents.AutoSize = true;
-            this.lblTotalStudents.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblTotalStudents.Location = new System.Drawing.Point(37, 55);
-            this.lblTotalStudents.Name = "lblTotalStudents";
-            this.lblTotalStudents.Size = new System.Drawing.Size(112, 65);
-            this.lblTotalStudents.TabIndex = 1;
-            this.lblTotalStudents.Text = "153";
-            this.lblTotalStudents.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // registered
-            // 
-            this.registered.BackColor = System.Drawing.Color.Silver;
-            this.registered.Controls.Add(this.lblTotalStudents);
-            this.registered.Controls.Add(this.label1);
-            this.registered.Location = new System.Drawing.Point(85, 108);
-            this.registered.Name = "registered";
-            this.registered.Size = new System.Drawing.Size(188, 145);
-            this.registered.TabIndex = 20;
-            // 
-            // lblGreetings
-            // 
-            this.lblGreetings.AutoSize = true;
-            this.lblGreetings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblGreetings.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGreetings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.lblGreetings.Location = new System.Drawing.Point(37, 34);
-            this.lblGreetings.Name = "lblGreetings";
-            this.lblGreetings.Size = new System.Drawing.Size(214, 40);
-            this.lblGreetings.TabIndex = 26;
-            this.lblGreetings.Text = "Welcome User";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button3.Location = new System.Drawing.Point(611, 451);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(83, 45);
-            this.button3.TabIndex = 28;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            // 
-            // btnExport
-            // 
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
-            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnExport.Location = new System.Drawing.Point(611, 520);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(83, 45);
-            this.btnExport.TabIndex = 29;
-            this.btnExport.UseVisualStyleBackColor = false;
-            // 
-            // btnAdminPanel
-            // 
-            this.btnAdminPanel.BackColor = System.Drawing.Color.Red;
-            this.btnAdminPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdminPanel.BackgroundImage")));
-            this.btnAdminPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdminPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdminPanel.FlatAppearance.BorderSize = 0;
-            this.btnAdminPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnAdminPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.btnAdminPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminPanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdminPanel.ForeColor = System.Drawing.Color.White;
-            this.btnAdminPanel.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnAdminPanel.Location = new System.Drawing.Point(611, 451);
-            this.btnAdminPanel.Name = "btnAdminPanel";
-            this.btnAdminPanel.Size = new System.Drawing.Size(83, 45);
-            this.btnAdminPanel.TabIndex = 30;
-            this.btnAdminPanel.UseVisualStyleBackColor = false;
-            this.btnAdminPanel.Click += new System.EventHandler(this.btnAdminPanel_Click);
-            // 
-            // dataGridSimpleStudentInfo
-            // 
-            this.dataGridSimpleStudentInfo.AllowUserToAddRows = false;
-            this.dataGridSimpleStudentInfo.AllowUserToDeleteRows = false;
-            this.dataGridSimpleStudentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridSimpleStudentInfo.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridSimpleStudentInfo.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSimpleStudentInfo.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridSimpleStudentInfo.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridSimpleStudentInfo.Location = new System.Drawing.Point(35, 280);
-            this.dataGridSimpleStudentInfo.Name = "dataGridSimpleStudentInfo";
-            this.dataGridSimpleStudentInfo.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSimpleStudentInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridSimpleStudentInfo.RowHeadersVisible = false;
-            this.dataGridSimpleStudentInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridSimpleStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSimpleStudentInfo.Size = new System.Drawing.Size(485, 390);
-            this.dataGridSimpleStudentInfo.TabIndex = 18;
-            this.dataGridSimpleStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSimpleStudentInfo_CellClick);
-            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
@@ -1759,6 +1689,76 @@
             this.label41.TabIndex = 82;
             this.label41.Text = "Time and Date";
             // 
+            // SelectAdmission
+            // 
+            this.SelectAdmission.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.SelectAdmission.Controls.Add(this.button_WOC41);
+            this.SelectAdmission.Controls.Add(this.button_WOC42);
+            this.SelectAdmission.Controls.Add(this.label34);
+            this.SelectAdmission.Location = new System.Drawing.Point(234, 217);
+            this.SelectAdmission.Name = "SelectAdmission";
+            this.SelectAdmission.Size = new System.Drawing.Size(419, 184);
+            this.SelectAdmission.TabIndex = 80;
+            // 
+            // button_WOC41
+            // 
+            this.button_WOC41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC41.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC41.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC41.FlatAppearance.BorderSize = 0;
+            this.button_WOC41.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC41.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC41.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC41.Location = new System.Drawing.Point(225, 90);
+            this.button_WOC41.Name = "button_WOC41";
+            this.button_WOC41.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC41.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.button_WOC41.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC41.Size = new System.Drawing.Size(140, 46);
+            this.button_WOC41.TabIndex = 66;
+            this.button_WOC41.Text = "Transferee";
+            this.button_WOC41.TextColor = System.Drawing.Color.White;
+            this.button_WOC41.UseVisualStyleBackColor = true;
+            // 
+            // button_WOC42
+            // 
+            this.button_WOC42.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC42.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.button_WOC42.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_WOC42.FlatAppearance.BorderSize = 0;
+            this.button_WOC42.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC42.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_WOC42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_WOC42.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_WOC42.Location = new System.Drawing.Point(53, 90);
+            this.button_WOC42.Name = "button_WOC42";
+            this.button_WOC42.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC42.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.button_WOC42.OnHoverTextColor = System.Drawing.Color.White;
+            this.button_WOC42.Size = new System.Drawing.Size(138, 46);
+            this.button_WOC42.TabIndex = 65;
+            this.button_WOC42.Text = "New Student";
+            this.button_WOC42.TextColor = System.Drawing.Color.White;
+            this.button_WOC42.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label34.Location = new System.Drawing.Point(67, 29);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(292, 30);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Select the type of Admission";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Edit
             // 
             this.Edit.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1781,136 +1781,17 @@
             this.Edit.Size = new System.Drawing.Size(364, 384);
             this.Edit.TabIndex = 81;
             // 
-            // panel8
+            // pictureBox1
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.panel8.Controls.Add(this.pictureBox6);
-            this.panel8.Controls.Add(this.label36);
-            this.panel8.Location = new System.Drawing.Point(99, 15);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(167, 163);
-            this.panel8.TabIndex = 67;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.White;
-            this.label36.Location = new System.Drawing.Point(27, 131);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(113, 21);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Profile Picture";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(52, 50);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(63, 59);
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label35.Location = new System.Drawing.Point(39, 201);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(67, 15);
-            this.label35.TabIndex = 68;
-            this.label35.Text = "First Name";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(42, 220);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(119, 20);
-            this.textBox3.TabIndex = 69;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label37.Location = new System.Drawing.Point(192, 201);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(81, 15);
-            this.label37.TabIndex = 70;
-            this.label37.Text = "Middle Name";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(195, 220);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(119, 20);
-            this.textBox4.TabIndex = 71;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label38.Location = new System.Drawing.Point(39, 251);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(65, 15);
-            this.label38.TabIndex = 72;
-            this.label38.Text = "Last Name";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(42, 270);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(119, 20);
-            this.textBox5.TabIndex = 73;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label39.Location = new System.Drawing.Point(192, 250);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(49, 15);
-            this.label39.TabIndex = 74;
-            this.label39.Text = "Gender";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.label42.Location = new System.Drawing.Point(39, 299);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(59, 15);
-            this.label42.TabIndex = 82;
-            this.label42.Text = "Password";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(195, 269);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(119, 20);
-            this.textBox6.TabIndex = 75;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(42, 318);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(119, 20);
-            this.textBox7.TabIndex = 83;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(98, 295);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(51, 20);
-            this.label43.TabIndex = 84;
-            this.label43.Text = "•••••••";
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(314, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 86;
+            this.pictureBox1.TabStop = false;
             // 
             // button_WOC43
             // 
@@ -1933,17 +1814,136 @@
             this.button_WOC43.TextColor = System.Drawing.Color.White;
             this.button_WOC43.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // label43
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(314, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 86;
-            this.pictureBox1.TabStop = false;
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(98, 295);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(51, 20);
+            this.label43.TabIndex = 84;
+            this.label43.Text = "•••••••";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(42, 318);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(119, 20);
+            this.textBox7.TabIndex = 83;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(195, 269);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(119, 20);
+            this.textBox6.TabIndex = 75;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label42.Location = new System.Drawing.Point(39, 299);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(59, 15);
+            this.label42.TabIndex = 82;
+            this.label42.Text = "Password";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label39.Location = new System.Drawing.Point(192, 250);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(49, 15);
+            this.label39.TabIndex = 74;
+            this.label39.Text = "Gender";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(42, 270);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(119, 20);
+            this.textBox5.TabIndex = 73;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label38.Location = new System.Drawing.Point(39, 251);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(65, 15);
+            this.label38.TabIndex = 72;
+            this.label38.Text = "Last Name";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(195, 220);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(119, 20);
+            this.textBox4.TabIndex = 71;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label37.Location = new System.Drawing.Point(192, 201);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(81, 15);
+            this.label37.TabIndex = 70;
+            this.label37.Text = "Middle Name";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(42, 220);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(119, 20);
+            this.textBox3.TabIndex = 69;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.label35.Location = new System.Drawing.Point(39, 201);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(67, 15);
+            this.label35.TabIndex = 68;
+            this.label35.Text = "First Name";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.panel8.Controls.Add(this.pictureBox6);
+            this.panel8.Controls.Add(this.label36);
+            this.panel8.Location = new System.Drawing.Point(99, 15);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(167, 163);
+            this.panel8.TabIndex = 67;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.Location = new System.Drawing.Point(52, 50);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(63, 59);
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(27, 131);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(113, 21);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Profile Picture";
             // 
             // Tabs
             // 
@@ -1968,6 +1968,9 @@
             this.pictureBox8.Size = new System.Drawing.Size(45, 30);
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click_1);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.pictureBox8_MouseLeave_1);
+            this.pictureBox8.MouseHover += new System.EventHandler(this.pictureBox8_MouseHover_1);
             // 
             // buttonLogout1
             // 
@@ -1989,6 +1992,9 @@
             this.buttonLogout1.Text = "Logout";
             this.buttonLogout1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.buttonLogout1.UseVisualStyleBackColor = true;
+            this.buttonLogout1.Click += new System.EventHandler(this.buttonLogout1_Click_1);
+            this.buttonLogout1.MouseLeave += new System.EventHandler(this.buttonLogout1_MouseLeave_1);
+            this.buttonLogout1.MouseHover += new System.EventHandler(this.buttonLogout1_MouseHover_1);
             // 
             // buttonStudents
             // 
@@ -2010,6 +2016,7 @@
             this.buttonStudents.Text = "Students";
             this.buttonStudents.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.buttonStudents.UseVisualStyleBackColor = true;
+            this.buttonStudents.Click += new System.EventHandler(this.buttonStudents_Click_2);
             // 
             // btnDashboard
             // 
@@ -2031,6 +2038,7 @@
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click_1);
             // 
             // frmAdmin
             // 
@@ -2053,6 +2061,13 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDashboard.PerformLayout();
+            this.registered.ResumeLayout(false);
+            this.registered.PerformLayout();
+            this.newStudents.ResumeLayout(false);
+            this.newStudents.PerformLayout();
+            this.Transferees.ResumeLayout(false);
+            this.Transferees.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).EndInit();
             this.StudentTab.ResumeLayout(false);
             this.StudentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).EndInit();
@@ -2082,23 +2097,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.Archive.ResumeLayout(false);
             this.Archive.PerformLayout();
-            this.SelectAdmission.ResumeLayout(false);
-            this.SelectAdmission.PerformLayout();
-            this.Transferees.ResumeLayout(false);
-            this.Transferees.PerformLayout();
-            this.newStudents.ResumeLayout(false);
-            this.newStudents.PerformLayout();
-            this.registered.ResumeLayout(false);
-            this.registered.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.SelectAdmission.ResumeLayout(false);
+            this.SelectAdmission.PerformLayout();
             this.Edit.ResumeLayout(false);
             this.Edit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tabs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);

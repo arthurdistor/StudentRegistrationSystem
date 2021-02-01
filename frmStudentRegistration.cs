@@ -72,7 +72,7 @@ namespace TestStudentRegistration
 
                 cmd.Parameters.AddWithValue("@StudentID", finalStudID);
                 //cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
-                cmd.Parameters.AddWithValue("@LastEditBy", lblUsername.Text);
+                cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
                 cmd.Parameters.AddWithValue("@DateTime", Convert.ToDateTime(lblTimestamp.Text));
                 cmd.Parameters.AddWithValue("@Status", comboStatus.Text);
                 cmd.Parameters.AddWithValue("@Remarks", txtRemarks.Text);
