@@ -562,8 +562,10 @@ namespace TestStudentRegistration
         private void buttonStudents_Click_2(object sender, EventArgs e)
         {
             UIButtonStudentsClick();
+            enableComponents(true);
+            loadFullStudentData();
             StudentTab.BringToFront();
-         
+
         }
 
         private void buttonLogout1_Click_1(object sender, EventArgs e)
@@ -600,6 +602,19 @@ namespace TestStudentRegistration
             pictureBox8.BackColor = Color.FromArgb(4, 45, 101);
             buttonLogout1.ButtonColor = Color.FromArgb(4, 45, 101);
             buttonLogout1.BorderColor = Color.FromArgb(4, 45, 101);
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            frmStudentRegistration.ShowDialog();
+        }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
+            frmStudentRegistration.ShowDialog();
         }
     }
 }

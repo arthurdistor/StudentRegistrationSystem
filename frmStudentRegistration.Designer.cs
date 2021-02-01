@@ -36,8 +36,6 @@
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
-            this.btnArchive = new System.Windows.Forms.Button();
-            this.btnLock = new System.Windows.Forms.Button();
             this.btnAttachment = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label41 = new System.Windows.Forms.Label();
@@ -116,7 +114,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtStudCitizenship = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtStudStatus = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtStudBirthdPlace = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -131,6 +128,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblRegistrationNum = new System.Windows.Forms.Label();
+            this.btnArchive = new System.Windows.Forms.Button();
+            this.btnLock = new System.Windows.Forms.Button();
             this.SaveChanges = new System.Windows.Forms.Panel();
             this.button_WOC7 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC6 = new ePOSOne.btnProduct.Button_WOC();
@@ -156,6 +155,7 @@
             this.button_WOC15 = new ePOSOne.btnProduct.Button_WOC();
             this.label52 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtStudStatus = new System.Windows.Forms.ComboBox();
             this.btnDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -258,32 +258,6 @@
             this.btnDeleteStudent.TabIndex = 68;
             this.btnDeleteStudent.UseVisualStyleBackColor = false;
             this.btnDeleteStudent.Visible = false;
-            // 
-            // btnArchive
-            // 
-            this.btnArchive.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnArchive.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnArchive.BackgroundImage")));
-            this.btnArchive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchive.Location = new System.Drawing.Point(552, 12);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(82, 48);
-            this.btnArchive.TabIndex = 66;
-            this.btnArchive.UseVisualStyleBackColor = false;
-            // 
-            // btnLock
-            // 
-            this.btnLock.BackColor = System.Drawing.Color.Red;
-            this.btnLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLock.BackgroundImage")));
-            this.btnLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.btnLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLock.Location = new System.Drawing.Point(552, 12);
-            this.btnLock.Name = "btnLock";
-            this.btnLock.Size = new System.Drawing.Size(82, 48);
-            this.btnLock.TabIndex = 67;
-            this.btnLock.UseVisualStyleBackColor = false;
             // 
             // btnAttachment
             // 
@@ -408,6 +382,10 @@
             this.comboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboStatus.FormattingEnabled = true;
+            this.comboStatus.Items.AddRange(new object[] {
+            "Enrolled",
+            "Registered",
+            "Archive"});
             this.comboStatus.Location = new System.Drawing.Point(16, 135);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(158, 23);
@@ -847,19 +825,18 @@
             // 
             // comboSchoolType
             // 
+            this.comboSchoolType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSchoolType.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSchoolType.FormattingEnabled = true;
             this.comboSchoolType.Items.AddRange(new object[] {
             "Elementary",
             "Junior High School",
             "Senior High School",
-            "Tertiary",
             "ALS"});
             this.comboSchoolType.Location = new System.Drawing.Point(16, 82);
             this.comboSchoolType.Name = "comboSchoolType";
             this.comboSchoolType.Size = new System.Drawing.Size(121, 23);
             this.comboSchoolType.TabIndex = 58;
-            this.comboSchoolType.Text = "Elementary";
             // 
             // txtSchoolName
             // 
@@ -924,6 +901,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.txtStudStatus);
             this.panel3.Controls.Add(this.dateOfBirth);
             this.panel3.Controls.Add(this.label59);
             this.panel3.Controls.Add(this.txtZipCode);
@@ -946,7 +924,6 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txtStudCitizenship);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.txtStudStatus);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.txtStudBirthdPlace);
             this.panel3.Controls.Add(this.label4);
@@ -1179,14 +1156,6 @@
             this.label10.TabIndex = 47;
             this.label10.Text = "Civil Status";
             // 
-            // txtStudStatus
-            // 
-            this.txtStudStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudStatus.Location = new System.Drawing.Point(162, 137);
-            this.txtStudStatus.Name = "txtStudStatus";
-            this.txtStudStatus.Size = new System.Drawing.Size(122, 23);
-            this.txtStudStatus.TabIndex = 46;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -1329,6 +1298,32 @@
             this.lblRegistrationNum.Size = new System.Drawing.Size(209, 40);
             this.lblRegistrationNum.TabIndex = 0;
             this.lblRegistrationNum.Text = "Registration #";
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnArchive.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnArchive.BackgroundImage")));
+            this.btnArchive.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnArchive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Location = new System.Drawing.Point(552, 12);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(82, 48);
+            this.btnArchive.TabIndex = 66;
+            this.btnArchive.UseVisualStyleBackColor = false;
+            // 
+            // btnLock
+            // 
+            this.btnLock.BackColor = System.Drawing.Color.Red;
+            this.btnLock.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLock.BackgroundImage")));
+            this.btnLock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.btnLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLock.Location = new System.Drawing.Point(552, 12);
+            this.btnLock.Name = "btnLock";
+            this.btnLock.Size = new System.Drawing.Size(82, 48);
+            this.btnLock.TabIndex = 67;
+            this.btnLock.UseVisualStyleBackColor = false;
             // 
             // SaveChanges
             // 
@@ -1703,6 +1698,20 @@
             this.label52.TabIndex = 0;
             this.label52.Text = "Are you sure you want to";
             // 
+            // txtStudStatus
+            // 
+            this.txtStudStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtStudStatus.FormattingEnabled = true;
+            this.txtStudStatus.Items.AddRange(new object[] {
+            "Single",
+            "Married",
+            "Divorce",
+            "Widowed"});
+            this.txtStudStatus.Location = new System.Drawing.Point(164, 136);
+            this.txtStudStatus.Name = "txtStudStatus";
+            this.txtStudStatus.Size = new System.Drawing.Size(121, 21);
+            this.txtStudStatus.TabIndex = 78;
+            // 
             // frmStudentRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1811,7 +1820,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtStudCitizenship;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtStudStatus;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtStudBirthdPlace;
         private System.Windows.Forms.Label label4;
@@ -1873,6 +1881,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox txtYear;
+        private System.Windows.Forms.ComboBox txtStudStatus;
     }
 }
 
