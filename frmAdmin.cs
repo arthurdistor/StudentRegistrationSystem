@@ -135,7 +135,7 @@ namespace TestStudentRegistration
 
 
             var bindingSource = new BindingSource();
-            string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp desc;";
+            string ShowInfo = "SELECT S.StudentID, CONCAT(S.FirstName,' ',S.MiddleName,' ', S.LastName) AS 'Full Name',S.admissionType as 'Admission Type', E.Grade as 'Grade Level' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID ORDER BY S.timestamp asc;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
             {
@@ -192,6 +192,8 @@ namespace TestStudentRegistration
             loadSimpleStudentData();
             lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+            lblAccTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+            lblAdminTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
         }
 
         private void dataGridSimpleStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -611,8 +613,16 @@ namespace TestStudentRegistration
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-            frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
-            frmStudentRegistration.ShowDialog();
+            frmStudentRegistration.userName = activeUser;
+            if (dataGridFullStudent.CurrentCell.Value.ToString().Equals(null))
+            {
+                MessageBox.Show("No data to show");
+            }
+            else
+            {
+                frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
+                frmStudentRegistration.ShowDialog();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

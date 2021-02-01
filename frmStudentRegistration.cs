@@ -27,7 +27,6 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
 
-            timeStamp();
            // lblUsername.Text = frmAdmin.passName;
             //comboStatus.Text = frmAdmin.passAccStatus;
 
@@ -57,14 +56,14 @@ namespace TestStudentRegistration
 
                 cmd.Parameters.AddWithValue("@StudentID", finalStudID);
                 //cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
-                cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
-                cmd.Parameters.AddWithValue("@DateTime", Convert.ToDateTime(lblTimestamp.Text));
+                cmd.Parameters.AddWithValue("@LastEditBy", userName);
+                cmd.Parameters.AddWithValue("@DateTime", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Status", comboStatus.Text);
                 cmd.Parameters.AddWithValue("@Remarks", txtRemarks.Text);
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Successfully Insert to tblRegistrationInfo");
+                
                 con.Close();
 
             }
@@ -242,6 +241,7 @@ namespace TestStudentRegistration
                 txtProgram.Text = myReader[26].ToString();
                 txtYear.Text = myReader[27].ToString();
                 txtDateOfGraduation.Text = myReader[28].ToString();
+                comboCourse.Text = myReader[29].ToString();
                 //27 ParentID, 28 studID
                 txtFathersName.Text = myReader[32].ToString();
                 txtFatherOccupation.Text = myReader[33].ToString();
@@ -462,7 +462,6 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Successfully Insert to insertToTblEducation");
                 }
             }
 
@@ -488,7 +487,7 @@ namespace TestStudentRegistration
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Successfully Insert to insertToTblParentGuardian");
+                    
                 }
             }
 
@@ -551,7 +550,14 @@ namespace TestStudentRegistration
             tblParentGuardianTable.GuardiansContactNum = @GuardiansContactNum,
             tblParentGuardianTable.GuardiansRelationship = @GuardiansRelationship
             WHERE tblParentGuardianTable.StudentID = @studentID;
-
+               
+            UPDATE tblRegistrationInfo
+            SET
+            tblRegistrationInfo.LastEditBy = @RegLastEdit,
+            tblRegistrationInfo.DateTime = @RegDateTimeNow,
+            tblRegistrationInfo.Status = @RegStatus,
+            tblRegistrationInfo.Remarks = @RegRemarks
+             WHERE tblRegistrationInfo.StudentID = @studentID;
 
             COMMIT;
             ";
@@ -600,9 +606,12 @@ namespace TestStudentRegistration
             command.Parameters.AddWithValue("@GuardiansOccupation", txtGuardianOccupation.Text);
             command.Parameters.AddWithValue("@GuardiansContactNum", txtGuardianContact.Text);
             command.Parameters.AddWithValue("@GuardiansRelationship", txtRelationship.Text);
+            command.Parameters.AddWithValue("@RegLastEdit", userName);
+            command.Parameters.AddWithValue("@RegDateTimeNow", DateTime.Now);
+            command.Parameters.AddWithValue("@RegStatus", comboStatus.Text);
+            command.Parameters.AddWithValue("@RegRemarks", txtRemarks.Text);
 
-
-            command.ExecuteNonQuery();
+           command.ExecuteNonQuery();
             connection.Close();
         }
 
@@ -684,7 +693,6 @@ namespace TestStudentRegistration
 
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
-            timeStamp();
            
 
         }
@@ -799,7 +807,7 @@ namespace TestStudentRegistration
             btnArchive.Visible = false;
             btnAddRemark.Visible = false;
             btnDeleteStudent.Visible = false;
-
+            btnLock.Visible = false;
             btnEdit.Visible = false;
             btnAttachment.Visible = false;
         }
@@ -840,7 +848,11 @@ namespace TestStudentRegistration
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
+        private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            txtZipCode.MaxLength = 9;
+        }
     }
 }
 

@@ -66,7 +66,6 @@ namespace TestStudentRegistration
                 userlevel = matchingUser.userlevel;
             }
 
-            
 
             if (String.IsNullOrEmpty(userlevel) || String.IsNullOrEmpty(username))
             {
