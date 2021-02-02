@@ -17,6 +17,8 @@ namespace TestStudentRegistration
         protected readonly string _k3ys = "agapitechkey2successXDXD";
         public static string activeUser;
         public string fullname;
+        public string accountType = "";
+        public static string userName = "";
         public frmAdmin(string username)
         {
             InitializeComponent();
@@ -28,6 +30,19 @@ namespace TestStudentRegistration
             enableComponents(false);
 
         }
+        public void insertLogs(string fullname, string accountType, string logLevel, string logMessage)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@accounttype,@logintime,@loglevel,@logMessage)", con);
+            cmd.Parameters.AddWithValue("@fullname", fullname);
+            cmd.Parameters.AddWithValue("@accounttype", accountType);
+            cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@loglevel", logLevel);
+            cmd.Parameters.AddWithValue("@logmessage", logMessage);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             lblGreetings.Text = "Welcome " + fullname;
@@ -36,8 +51,7 @@ namespace TestStudentRegistration
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
 
-        public string accountType = "";
-        public static string userName = "";
+
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -231,6 +245,8 @@ namespace TestStudentRegistration
                         frmStudent.disableComponents();
                         frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
                         frmStudent.studentNumberFromAdmin = dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        frmStudent.name = fullname;
+                        frmStudent.accounttype = accountType;
                         frmStudent.ShowDialog();
                     }
                 }
@@ -352,7 +368,7 @@ namespace TestStudentRegistration
             btnSave.Enabled = false;
             btnEdit.Enabled = true;
             UpdateAccount();
-
+            insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
         }
 
         private void enableComponents(Boolean isTrue)
@@ -688,6 +704,8 @@ namespace TestStudentRegistration
                 frmStudentRegistration.StudentAssistantUser();
             }
             frmStudentRegistration.btnEdit.Visible = false;
+            frmStudentRegistration.name = fullname;
+            frmStudentRegistration.accounttype = accountType;
             frmStudentRegistration.ShowDialog();
         }
 
@@ -719,7 +737,8 @@ namespace TestStudentRegistration
 
                         frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentRow.Cells["StudentID"].FormattedValue.ToString());
                         frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.CurrentRow.Cells["StudentID"].FormattedValue.ToString();
-                   
+                    frmStudentRegistration.name = fullname;
+                    frmStudentRegistration.accounttype = accountType;
                     frmStudentRegistration.btnEdit.Visible = false;
                     frmStudentRegistration.ShowDialog();
                 }
@@ -864,7 +883,8 @@ namespace TestStudentRegistration
                     frmStudentRegistration.loadStudData(DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
                     frmStudentRegistration.studentNumberFromAdmin = DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
                 }
-
+                frmStudentRegistration.name = fullname;
+                frmStudentRegistration.accounttype = accountType;
                 frmStudentRegistration.btnEdit.Visible = false;
                 frmStudentRegistration.ShowDialog();
             }
@@ -935,6 +955,7 @@ namespace TestStudentRegistration
         private void btnLogs_Click(object sender, EventArgs e)
         {
             Logs.BringToFront();
+            loadLogs();
         }
 
         private void btnLogsBack_Click(object sender, EventArgs e)
@@ -948,6 +969,33 @@ namespace TestStudentRegistration
             txtCreateAccPass.Clear();
             txtCreateAccSecPass.Clear();
             cmbCreateAccType.Text = "";
+        }
+        private void loadLogs()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            var bindingSource = new BindingSource();
+            string ShowInfo = "SELECT Name, AccountType, LogLevel, LogMessage from tblLogs ORDER BY LoginTime desc";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
+            try
+            {
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+                dataGridLogs.ReadOnly = true;
+                dataGridLogs.DataSource = bindingSource;
+                dataGridLogs.RowHeadersVisible = false;
+                dataGridLogs.AllowUserToResizeRows = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
       

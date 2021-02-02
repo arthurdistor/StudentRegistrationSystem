@@ -22,7 +22,7 @@ namespace TestStudentRegistration
         private string finalStudID = "";
         
         public static string userName = "";
-
+        public string name, accounttype;
         public string studentNumberFromAdmin;
         public frmStudentRegistration()
         {
@@ -34,9 +34,25 @@ namespace TestStudentRegistration
            
             
         }
-        
+        private void frmStudentRegistration_Load_1(object sender, EventArgs e)
+        {
 
-        
+        }
+
+        public void insertLogs(string fullname, string accountType, string logLevel, string logMessage)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@accounttype,@logintime,@loglevel,@logMessage)", con);
+            cmd.Parameters.AddWithValue("@fullname", fullname);
+            cmd.Parameters.AddWithValue("@accounttype", accountType);
+            cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@loglevel", logLevel);
+            cmd.Parameters.AddWithValue("@logmessage", logMessage);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
         private void insertToTblRegistrationInfo()
         {
             //SqlConnection con = new SqlConnection(connectionString);
@@ -336,11 +352,13 @@ namespace TestStudentRegistration
                         dr.Close();
                         UpdateStudentInfo();
                         MessageBox.Show("Successfully Update");
+                        insertLogs(name, accounttype, "Medium", "Update Student Information of Student: " + studNumber);
                     }
                     else
                     {
                         //Insert new student
                         generateStudentID1();
+                        insertLogs(name, accounttype, "Medium", "Added New Student:" + finalStudID);
                         txtLRN.Text = "";
                         txtStudFirstName.Text = "";
                         txtStudMiddleName.Text = "";
@@ -689,7 +707,7 @@ namespace TestStudentRegistration
 
             MessageBox.Show("Student Registered");
             con.Close();
-
+            
             }
             catch (Exception ex)
             {
@@ -714,10 +732,7 @@ namespace TestStudentRegistration
 
         }
 
-        private void frmStudentRegistration_Load_1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void txtStudContactNum_KeyPress(object sender, KeyPressEventArgs e)
         {
