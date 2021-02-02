@@ -202,9 +202,9 @@ namespace TestStudentRegistration
         {
             try
             {
-                if (dataGridSimpleStudentInfo.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+                if (e.RowIndex != -1)
                 {
-                    if (dataGridSimpleStudentInfo.CurrentCell != null && dataGridSimpleStudentInfo.CurrentCell.Value != null)
+                    if (dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                     {
                         frmStudentRegistration frmStudent = new frmStudentRegistration();
                         if (accountType.Equals("Full Admin"))
@@ -221,7 +221,7 @@ namespace TestStudentRegistration
                         }
 
                         frmStudent.disableComponents();
-                        frmStudent.loadStudData(dataGridSimpleStudentInfo.CurrentCell.Value.ToString());
+                        frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
                         frmStudent.ShowDialog();
                     }
                 }
@@ -362,15 +362,15 @@ namespace TestStudentRegistration
         }
         private void dataGridAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridAccount.CurrentCell.ColumnIndex.Equals(0) && e.RowIndex != -1)
+            if ( e.RowIndex != -1)
             {
-                if (dataGridAccount.CurrentCell != null && dataGridAccount.CurrentCell.Value != null)
+                if (dataGridAccount.Rows[e.RowIndex].Cells[e.ColumnIndex].Value!=null)
                 {
 
                     //Use this query if tblLogs was implemented
                     //  string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
 
-                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
 
                     SqlConnection connection = new SqlConnection(connectionString);
                     SqlCommand command = new SqlCommand(query, connection);
@@ -389,7 +389,7 @@ namespace TestStudentRegistration
                     myReader.Close();
                     connection.Close();
 
-                }
+               }
             }
         }
         private void EnableContentAddAccountPanel(Panel panel, bool enabled)
@@ -431,7 +431,7 @@ namespace TestStudentRegistration
 
         private void btnAddAccountBack_Click(object sender, EventArgs e)
         {
-            pnlDashboard.BringToFront();
+            Accounts.BringToFront();
         }
 
         private void buttonStudents_Click_1(object sender, EventArgs e)
@@ -440,7 +440,6 @@ namespace TestStudentRegistration
             enableComponents(true);
             loadFullStudentData();
             StudentTab.BringToFront();
-
         }
         private void createUserAccount()
         {
@@ -694,6 +693,53 @@ namespace TestStudentRegistration
                 con.Close();
             }
         }
+        private void searchStudentArc()
+        {
+            if (comboSearchTypeArc.Text.Equals("") || comboSearchTypeArc.Text.Equals(null))
+            {
+                MessageBox.Show("Please include what data to search");
+                comboSearchType.Focus();
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(connectionString);
+                con.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID where S." + comboSearchTypeArc.Text + " like'" + txtArcSearch.Text + "%' AND R.Status = 'Archived';", con);
+
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                DataGridArchive.DataSource = dt;
+                con.Close();
+            }
+        }
+        private void loadArchiveStudentData()
+        {
+            SqlConnection connection = new SqlConnection(connectionString); 
+
+
+            var bindingSource = new BindingSource();
+            string ShowInfo = "SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE R.Status = 'Archived' ORDER BY S.timestamp desc;";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
+            try
+            {
+                SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                bindingSource.DataSource = table;
+                DataGridArchive.ReadOnly = true;
+                DataGridArchive.DataSource = bindingSource;
+                DataGridArchive.RowHeadersVisible = false;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             searchStudent();
@@ -702,6 +748,29 @@ namespace TestStudentRegistration
         private void comboSearchType_TextChanged(object sender, EventArgs e)
         {
             searchStudent();
+        }
+
+        private void txtArcSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchStudentArc();
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            searchStudentArc();
+
+        }
+
+        private void btnArchive_Click(object sender, EventArgs e)
+        {
+            enableComponents(true);
+            loadArchiveStudentData();
+            Archive.BringToFront();
+        }
+
+        private void btnArchiveBack_Click(object sender, EventArgs e)
+        {
+            Admin_Control.BringToFront();
         }
     }
 }
