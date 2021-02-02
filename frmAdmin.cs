@@ -233,7 +233,6 @@ namespace TestStudentRegistration
             }
             
         }
-
         private void btnAdminPanel_Click(object sender, EventArgs e)
         {
             Admin_Control.BringToFront();
@@ -635,6 +634,7 @@ namespace TestStudentRegistration
             {
                 frmStudentRegistration.StudentAssistantUser();
             }
+            frmStudentRegistration.btnEdit.Visible = false;
             frmStudentRegistration.ShowDialog();
         }
 
@@ -642,32 +642,39 @@ namespace TestStudentRegistration
         {
             try
             {
-                frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
-                frmStudentRegistration.userName = activeUser;
+                if (dataGridFullStudent.Rows.Count == 0)
+                {
+                    MessageBox.Show("No Data Found");
+                }
+                else
+                {
+                    frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+                    frmStudentRegistration.userName = activeUser;
 
 
-                if (accountType.Equals("Full Admin"))
-                {
-                    frmStudentRegistration.FullAdmin();
+                    if (accountType.Equals("Full Admin"))
+                    {
+                        frmStudentRegistration.FullAdmin();
+                    }
+                    else if (accountType.Equals("Admin"))
+                    {
+                        frmStudentRegistration.AdminUser();
+                    }
+                    else if (accountType.Equals("Student Assistant"))
+                    {
+                        frmStudentRegistration.StudentAssistantUser();
+                    }
+                    foreach (DataGridViewRow row in dataGridFullStudent.Rows)
+                    {
+                        frmStudentRegistration.loadStudData(dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
+                        frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
+                    }
+
+                    frmStudentRegistration.btnEdit.Visible = false;
+                    frmStudentRegistration.ShowDialog();
                 }
-                else if (accountType.Equals("Admin"))
-                {
-                    frmStudentRegistration.AdminUser();
-                }
-                else if (accountType.Equals("Student Assistant"))
-                {
-                    frmStudentRegistration.StudentAssistantUser();
-                }
-                foreach (DataGridViewRow row in dataGridFullStudent.Rows)
-                {
-                    frmStudentRegistration.loadStudData(dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
-                    frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
-                }
-                
-                frmStudentRegistration.btnEdit.Visible = false;
-                frmStudentRegistration.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("No data to show");
             }
@@ -776,10 +783,44 @@ namespace TestStudentRegistration
 
         private void btnEditArc_Click(object sender, EventArgs e)
         {
+
+
+            try
+            {
+                frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+                frmStudentRegistration.userName = activeUser;
+
+
+                if (accountType.Equals("Full Admin"))
+                {
+                    frmStudentRegistration.FullAdmin();
+                }
+                else if (accountType.Equals("Admin"))
+                {
+                    frmStudentRegistration.AdminUser();
+                }
+                else if (accountType.Equals("Student Assistant"))
+                {
+                    frmStudentRegistration.StudentAssistantUser();
+                }
+                foreach (DataGridViewRow row in DataGridArchive.Rows)
+                {
+                    frmStudentRegistration.loadStudData(DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
+                    frmStudentRegistration.studentNumberFromAdmin = DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
+                }
+
+                frmStudentRegistration.btnEdit.Visible = false;
+                frmStudentRegistration.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No data to show");
+            }
             /*
             try
             {
-                if (DataGridArchive. != -1)
+                
+                if (DataGridArchive.Rows != -1)
                 {
                     if (DataGridArchive.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                     {
@@ -801,6 +842,7 @@ namespace TestStudentRegistration
                         frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
                         frmStudent.ShowDialog();
                     }
+                
                 }
             }
 
@@ -814,6 +856,30 @@ namespace TestStudentRegistration
         private void dataGridFullStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnRefreshArc_Click(object sender, EventArgs e)
+        {
+            loadArchiveStudentData();
+        }
+
+        private void btnFolder_Click(object sender, EventArgs e)
+        {
+            if (accountType.Equals("Full Admin"))
+            {
+               
+            }
+            else if (accountType.Equals("Admin"))
+            {
+               
+            }
+            else if (accountType.Equals("Student Assistant"))
+            {
+                btnEditArc.Visible = false;
+               
+            }
+            Archive.BringToFront();
+            loadArchiveStudentData();
         }
     }
 }

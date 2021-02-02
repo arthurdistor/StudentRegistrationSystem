@@ -998,6 +998,15 @@
   <metadata name="LogLevel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="LogID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="LogMessage.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="LogLevel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="btnEditArc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAF4AAABeCAYAAACq0qNuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAX
@@ -1021,39 +1030,6 @@
         t33KANz/S3oVcLZg0oK+OyDxJrkyTnaEOT/TqLxUAWkvBn3V4Ly/yGdkmeiH06qCtJPuclOY+yc5Q14n
         j/kSoiq43IZAe+R5JJQhk/0JeY1oZ9cBIo+43z6Q/Qdjp8mrRD96WTdI7ZUZXtsPop3i5Su0j/gUUTcI
         3sbO/hLJtrNf5njBh0STIPp+yRZCCCGEEOIuY27ufzrwT5CnOF13AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="button14.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
 </value>
   </data>
   <data name="btnRefreshArc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
