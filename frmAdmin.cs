@@ -302,12 +302,48 @@ namespace TestStudentRegistration
             btnSave.Enabled = true;
 
         }
-
+        private void UpdateAccount()
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                string query = @"
+            UPDATE tblAccounts
+            SET
+            FullName = @Fullname,            
+            Username = @Username,           
+            AccountType = @AccountType,            
+            AccountStatus = @AccountStatus
+            WHERE accountID ='" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
+                
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                command.Parameters.AddWithValue("@Fullname", txtFullname.Text);
+                command.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtUsername.Text, _k3ys));
+                command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
+                command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Update Successfully");
+            }
+            catch(Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+                loadAccountData();
+            }
+           
+           
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             enableComponents(false);
             btnSave.Enabled = false;
             btnEdit.Enabled = true;
+            UpdateAccount();
+
         }
 
         private void enableComponents(Boolean isTrue)
@@ -651,7 +687,6 @@ namespace TestStudentRegistration
                     frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
                     frmStudentRegistration.userName = activeUser;
 
-
                     if (accountType.Equals("Full Admin"))
                     {
                         frmStudentRegistration.FullAdmin();
@@ -664,12 +699,10 @@ namespace TestStudentRegistration
                     {
                         frmStudentRegistration.StudentAssistantUser();
                     }
-                    foreach (DataGridViewRow row in dataGridFullStudent.Rows)
-                    {
-                        frmStudentRegistration.loadStudData(dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
-                        frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
-                    }
 
+                        frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentRow.Cells["StudentID"].FormattedValue.ToString());
+                        frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.CurrentRow.Cells["StudentID"].FormattedValue.ToString();
+                   
                     frmStudentRegistration.btnEdit.Visible = false;
                     frmStudentRegistration.ShowDialog();
                 }
@@ -778,6 +811,11 @@ namespace TestStudentRegistration
 
         private void btnArchiveBack_Click(object sender, EventArgs e)
         {
+            if(folderArcback)
+            {
+                StudentTab.BringToFront();
+            }
+            else
             Admin_Control.BringToFront();
         }
 
@@ -862,24 +900,28 @@ namespace TestStudentRegistration
         {
             loadArchiveStudentData();
         }
-
+        bool folderArcback;
         private void btnFolder_Click(object sender, EventArgs e)
         {
-            if (accountType.Equals("Full Admin"))
-            {
-               
-            }
-            else if (accountType.Equals("Admin"))
-            {
-               
-            }
-            else if (accountType.Equals("Student Assistant"))
+            folderArcback = true;
+            if (accountType.Equals("Student Assistant"))
             {
                 btnEditArc.Visible = false;
-               
+                
             }
+
             Archive.BringToFront();
             loadArchiveStudentData();
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+            Logs.BringToFront();
+        }
+
+        private void btnLogsBack_Click(object sender, EventArgs e)
+        {
+            Admin_Control.BringToFront();
         }
     }
 }
