@@ -136,6 +136,7 @@ namespace TestStudentRegistration
                     cmd.ExecuteNonQuery();
                     con.Close();
                     frmAdmin dashboard = new frmAdmin(username);
+                    dashboard.fullname = x.name;
                     dashboard.accountType = x.userlevel;
                     if (x.userlevel == "Full Admin")
                     { 

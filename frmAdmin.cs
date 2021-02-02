@@ -16,15 +16,21 @@ namespace TestStudentRegistration
     {
         protected readonly string _k3ys = "agapitechkey2successXDXD";
         public static string activeUser;
+        public string fullname;
         public frmAdmin(string username)
         {
             InitializeComponent();
-            lblGreetings.Text = "Welcome " + username;
+            
             activeUser = username;
             loadTotalData();
             loadAccountData();
             UIButtonDashboarClick();
             enableComponents(false);
+
+        }
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+            lblGreetings.Text = "Welcome " + fullname;
 
         }
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
@@ -176,6 +182,7 @@ namespace TestStudentRegistration
                 dataGridAccount.ReadOnly = true;
                 dataGridAccount.DataSource = bindingSource;
                 dataGridAccount.RowHeadersVisible = false;
+                dataGridAccount.AllowUserToResizeRows = false;
             }
             catch (SqlException ex)
             {
@@ -422,6 +429,9 @@ namespace TestStudentRegistration
                     }
                     myReader.Close();
                     connection.Close();
+                    enableComponents(false);
+                    btnSave.Enabled = false;
+                    btnEdit.Enabled = true;
                }
             }
         }
@@ -458,13 +468,14 @@ namespace TestStudentRegistration
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
             EnableContentAddAccountPanel(pnlCreateAccountComponents, true);
-
+            clearTextAccount();
             pnlCreateAccount.BringToFront();
         }
 
         private void btnAddAccountBack_Click(object sender, EventArgs e)
         {
             Accounts.BringToFront();
+            clearTextAccount();
         }
 
         private void buttonStudents_Click_1(object sender, EventArgs e)
@@ -531,7 +542,8 @@ namespace TestStudentRegistration
 
         private void btnCreateAccCancel_Click(object sender, EventArgs e)
         {
-            Admin_Control.BringToFront();
+            Accounts.BringToFront();
+            clearTextAccount();
         }
         private void loadFullStudentData()
         {
@@ -607,6 +619,7 @@ namespace TestStudentRegistration
             loadSimpleStudentData();
             pnlDashboard.BringToFront();
             UIButtonDashboarClick();
+            clearTextAccount();
         }
 
         private void buttonStudents_Click_2(object sender, EventArgs e)
@@ -615,6 +628,7 @@ namespace TestStudentRegistration
             enableComponents(true);
             loadFullStudentData();
             StudentTab.BringToFront();
+            clearTextAccount();
 
         }
 
@@ -923,5 +937,15 @@ namespace TestStudentRegistration
         {
             Admin_Control.BringToFront();
         }
+        private void clearTextAccount()
+        {
+            txtCreateAccName.Clear();
+            txtCreateAccUsername.Clear();
+            txtCreateAccPass.Clear();
+            txtCreateAccSecPass.Clear();
+            cmbCreateAccType.Text = "";
+        }
+
+      
     }
 }

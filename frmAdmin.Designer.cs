@@ -126,7 +126,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.button_WOC25 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC21 = new ePOSOne.btnProduct.Button_WOC();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridLogs = new System.Windows.Forms.DataGridView();
             this.label30 = new System.Windows.Forms.Label();
             this.Archive = new System.Windows.Forms.Panel();
             this.btnEditArc = new System.Windows.Forms.Button();
@@ -186,7 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.Logs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogsBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).BeginInit();
             this.Archive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArchiveBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridArchive)).BeginInit();
@@ -816,7 +816,7 @@
             this.dataGridAccount.Location = new System.Drawing.Point(48, 381);
             this.dataGridAccount.Name = "dataGridAccount";
             this.dataGridAccount.ReadOnly = true;
-            this.dataGridAccount.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dataGridAccount.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccount.Size = new System.Drawing.Size(519, 336);
             this.dataGridAccount.TabIndex = 32;
@@ -1107,7 +1107,6 @@
             this.btnCreateAccCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCreateAccCancel.BackgroundImage")));
             this.btnCreateAccCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCreateAccCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateAccCancel.Enabled = false;
             this.btnCreateAccCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnCreateAccCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateAccCancel.Location = new System.Drawing.Point(538, 428);
@@ -1320,7 +1319,7 @@
             this.Logs.Controls.Add(this.label31);
             this.Logs.Controls.Add(this.button_WOC25);
             this.Logs.Controls.Add(this.button_WOC21);
-            this.Logs.Controls.Add(this.dataGridView3);
+            this.Logs.Controls.Add(this.dataGridLogs);
             this.Logs.Controls.Add(this.label30);
             this.Logs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.Logs.Location = new System.Drawing.Point(207, 0);
@@ -1461,18 +1460,18 @@
             this.button_WOC21.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.button_WOC21.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dataGridLogs
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridView3.Location = new System.Drawing.Point(21, 146);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(494, 557);
-            this.dataGridView3.TabIndex = 32;
+            this.dataGridLogs.AllowUserToAddRows = false;
+            this.dataGridLogs.AllowUserToDeleteRows = false;
+            this.dataGridLogs.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLogs.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridLogs.Location = new System.Drawing.Point(21, 146);
+            this.dataGridLogs.Name = "dataGridLogs";
+            this.dataGridLogs.ReadOnly = true;
+            this.dataGridLogs.Size = new System.Drawing.Size(494, 557);
+            this.dataGridLogs.TabIndex = 32;
             // 
             // label30
             // 
@@ -1968,19 +1967,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(985, 749);
-            this.Controls.Add(this.Accounts);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.Logs);
+            this.Controls.Add(this.Accounts);
+            this.Controls.Add(this.pnlCreateAccount);
             this.Controls.Add(this.Archive);
             this.Controls.Add(this.StudentTab);
             this.Controls.Add(this.Admin_Control);
-            this.Controls.Add(this.pnlCreateAccount);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.SelectAdmission);
             this.Name = "frmAdmin";
             this.Text = "Student Registration System";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
+            this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDashboard.PerformLayout();
             this.registered.ResumeLayout(false);
@@ -2016,7 +2016,7 @@
             this.Logs.ResumeLayout(false);
             this.Logs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogsBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).EndInit();
             this.Archive.ResumeLayout(false);
             this.Archive.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnArchiveBack)).EndInit();
@@ -2060,7 +2060,7 @@
         private System.Windows.Forms.DataGridView dataGridAccount;
         private System.Windows.Forms.Panel Logs;
         private ePOSOne.btnProduct.Button_WOC button_WOC21;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridLogs;
         private System.Windows.Forms.Label label30;
         private ePOSOne.btnProduct.Button_WOC button_WOC25;
         private System.Windows.Forms.Label lblAdminTimeDate;
