@@ -221,6 +221,7 @@ namespace TestStudentRegistration
                         }
                         frmStudent.disableComponents();
                         frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
+                        frmStudent.studentNumberFromAdmin = dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
                         frmStudent.ShowDialog();
                     }
                 }
@@ -621,6 +622,7 @@ namespace TestStudentRegistration
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
+            frmStudentRegistration.userName = activeUser;
             if (accountType.Equals("Full Admin"))
             {
                 frmStudentRegistration.FullAdmin();
@@ -643,6 +645,7 @@ namespace TestStudentRegistration
                 frmStudentRegistration frmStudentRegistration = new frmStudentRegistration();
                 frmStudentRegistration.userName = activeUser;
 
+
                 if (accountType.Equals("Full Admin"))
                 {
                     frmStudentRegistration.FullAdmin();
@@ -658,8 +661,9 @@ namespace TestStudentRegistration
                 foreach (DataGridViewRow row in dataGridFullStudent.Rows)
                 {
                     frmStudentRegistration.loadStudData(dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
-                    
+                    frmStudentRegistration.studentNumberFromAdmin = dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
                 }
+                
                 frmStudentRegistration.btnEdit.Visible = false;
                 frmStudentRegistration.ShowDialog();
             }

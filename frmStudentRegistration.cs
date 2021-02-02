@@ -23,6 +23,7 @@ namespace TestStudentRegistration
         
         public static string userName = "";
 
+        public string studentNumberFromAdmin;
         public frmStudentRegistration()
         {
             InitializeComponent();
@@ -55,7 +56,6 @@ namespace TestStudentRegistration
                 SqlCommand cmd = new SqlCommand("insert into tblRegistrationInfo(StudentID, LastEditBy, DateTime, Status, Remarks) values(@StudentID,@LastEditBy,@DateTime,@Status,@Remarks)", con);
 
                 cmd.Parameters.AddWithValue("@StudentID", finalStudID);
-                //cmd.Parameters.AddWithValue("@LastEditBy", lblLastEditBy.Text);
                 cmd.Parameters.AddWithValue("@LastEditBy", userName);
                 cmd.Parameters.AddWithValue("@DateTime", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Status", comboStatus.Text);
@@ -835,20 +835,26 @@ namespace TestStudentRegistration
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
-                string selectQuery = "SELECT LRN FROM tblStudent WHERE LRN='" + txtLRN.Text + "'";
+                string selectQuery = "SELECT StudentID,LRN FROM tblStudent WHERE LRN='" + txtLRN.Text + "'";
 
                 SqlCommand scmd = new SqlCommand(selectQuery, con);
                 SqlDataReader readData = scmd.ExecuteReader();
                 readData.Read();
                 if (readData.HasRows)
                 {
-                    string a = readData.GetString(0);
-                    if (readData.GetString(0).Equals(null) || readData.GetString(0).Equals(""))
+                   
+                    if (readData.GetString(1).Equals(null) || readData.GetString(1).Equals(""))
                     {
                         return false;
                     }
                     else
-                    return true;
+                    {
+                        if (readData.GetString(0).Equals(studentNumberFromAdmin))
+                            return false;
+                        else
+                            return true;
+                    }
+                 
 
                 }
 
