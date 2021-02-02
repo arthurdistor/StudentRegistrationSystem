@@ -152,6 +152,8 @@ namespace TestStudentRegistration
                 dataGridSimpleStudentInfo.ReadOnly = true;
                 dataGridSimpleStudentInfo.DataSource = bindingSource;
                 dataGridSimpleStudentInfo.RowHeadersVisible = false;
+                dataGridSimpleStudentInfo.AllowUserToResizeRows = false;
+
             }
            
             catch (SqlException ex)
@@ -563,6 +565,7 @@ namespace TestStudentRegistration
                 dataGridFullStudent.ReadOnly = true;
                 dataGridFullStudent.DataSource = bindingSource;
                 dataGridFullStudent.RowHeadersVisible = false;
+                dataGridFullStudent.AllowUserToResizeRows = false;
             }
             catch (SqlException ex)
             {
@@ -785,7 +788,8 @@ namespace TestStudentRegistration
                 DataGridArchive.ReadOnly = true;
                 DataGridArchive.DataSource = bindingSource;
                 DataGridArchive.RowHeadersVisible = false;
-         }
+                DataGridArchive.AllowUserToResizeRows = false;
+            }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
