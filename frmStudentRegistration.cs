@@ -276,7 +276,7 @@ namespace TestStudentRegistration
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (
-                
+
                 txtStudFirstName.Text == string.Empty ||
                 txtStudLastName.Text == string.Empty ||
                 comboGender.Text == string.Empty ||
@@ -316,65 +316,72 @@ namespace TestStudentRegistration
             {
                 MessageBox.Show("Fill all the required textbox");
             }
-            
+
             else
             {
-                string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';";
-                SqlConnection con = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                if (isLRNExist())
                 {
-                    //Update student info  
-                    dr.Close();
-                    UpdateStudentInfo();
-                    MessageBox.Show("Successfully Update");
+                    MessageBox.Show("LRN already exist");
                 }
                 else
                 {
-                    //Insert new student
-                    generateStudentID1();
-                    txtLRN.Text = "";
-                    txtStudFirstName.Text = "";
-                    txtStudMiddleName.Text = "";
-                    txtStudLastName.Text = "";
-                    txtStudSuffix.Text = "";
-                    comboGender.Text = "";
-                    dateOfBirth.Text = "";
-                    txtStudBirthdPlace.Text = "";
-                    txtStudStatus.Text = "";
-                    txtStudCitizenship.Text = "";
-                    txtStreetNum.Text = "";
-                    txtStreet.Text = "";
-                    txtSubdivision.Text = "";
-                    txtBarangay.Text = "";
-                    txtCity.Text = "";
-                    txtProvince.Text = "";
-                    txtZipCode.Text = "";
-                    txtEmail.Text = "";
-                    txtStudContactNum.Text = "";
-                    //20 Stud timestamp
-                    comboAdmissionType.Text = "";
-                    //22education ID 23 studID
-                    comboSchoolType.Text = "";
-                    txtSchoolName.Text = "";
-                    txtProgram.Text = "";
-                    txtYear.Text = "";
-                    txtDateOfGraduation.Text = "";
-                    comboSchoolType.Text = "";
-                    comboCourse.Text = "";
-                    //27 ParentID, 28 studID
-                    txtFathersName.Text = "";
-                    txtFatherOccupation.Text = "";
-                    txtFatherContact.Text = "";
-                    txtMotherName.Text = "";
-                    txtMotherOccupation.Text = "";
-                    txtMotherContact.Text = "";
-                    txtGuardianName.Text = "";
-                    txtGuardianOccupation.Text = "";
-                    txtGuardianContact.Text = "";
-                    txtRelationship.Text = "";
+                    string studentIDExistQuery = "SELECT studentID FROM tblStudent WHERE StudentID ='" + studNumber + "';";
+                    SqlConnection con = new SqlConnection(connectionString);
+                    SqlCommand cmd = new SqlCommand(studentIDExistQuery, con);
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        //Update student info  
+                        dr.Close();
+                        UpdateStudentInfo();
+                        MessageBox.Show("Successfully Update");
+                    }
+                    else
+                    {
+                        //Insert new student
+                        generateStudentID1();
+                        txtLRN.Text = "";
+                        txtStudFirstName.Text = "";
+                        txtStudMiddleName.Text = "";
+                        txtStudLastName.Text = "";
+                        txtStudSuffix.Text = "";
+                        comboGender.Text = "";
+                        dateOfBirth.Text = "";
+                        txtStudBirthdPlace.Text = "";
+                        txtStudStatus.Text = "";
+                        txtStudCitizenship.Text = "";
+                        txtStreetNum.Text = "";
+                        txtStreet.Text = "";
+                        txtSubdivision.Text = "";
+                        txtBarangay.Text = "";
+                        txtCity.Text = "";
+                        txtProvince.Text = "";
+                        txtZipCode.Text = "";
+                        txtEmail.Text = "";
+                        txtStudContactNum.Text = "";
+                        //20 Stud timestamp
+                        comboAdmissionType.Text = "";
+                        //22education ID 23 studID
+                        comboSchoolType.Text = "";
+                        txtSchoolName.Text = "";
+                        txtProgram.Text = "";
+                        txtYear.Text = "";
+                        txtDateOfGraduation.Text = "";
+                        comboSchoolType.Text = "";
+                        comboCourse.Text = "";
+                        //27 ParentID, 28 studID
+                        txtFathersName.Text = "";
+                        txtFatherOccupation.Text = "";
+                        txtFatherContact.Text = "";
+                        txtMotherName.Text = "";
+                        txtMotherOccupation.Text = "";
+                        txtMotherContact.Text = "";
+                        txtGuardianName.Text = "";
+                        txtGuardianOccupation.Text = "";
+                        txtGuardianContact.Text = "";
+                        txtRelationship.Text = "";
+                    }
                 }
             }
 
@@ -821,7 +828,7 @@ namespace TestStudentRegistration
             comboStatus.Items.Add("Archived");
         }
 
-        private void txtLRN_TextChanged(object sender, EventArgs e)
+        private bool isLRNExist()
         {
             try
             {
@@ -835,22 +842,33 @@ namespace TestStudentRegistration
                 readData.Read();
                 if (readData.HasRows)
                 {
-                    //MessageBox.Show("LRN is already existed in the database");
-                    // txtLRN.Text = "";
-                    btnSave.Enabled = false;
+                    string a = readData.GetString(0);
+                    if (readData.GetString(0).Equals(null) || readData.GetString(0).Equals(""))
+                    {
+                        return false;
+                    }
+                    else
+                    return true;
+
                 }
 
                 else
                 {
-                    btnSave.Enabled = true;
+                    return false;
                 }
+                
 
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;
             }
+        }
+        private void txtLRN_TextChanged(object sender, EventArgs e)
+        {
+          
         }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)

@@ -1827,7 +1827,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox txtYear;
         private System.Windows.Forms.ComboBox txtStudStatus;
-        private System.Windows.Forms.Button btnEdit;
+        public System.Windows.Forms.Button btnEdit;
     }
 }
 

@@ -140,7 +140,6 @@ namespace TestStudentRegistration
             try
             {
                 SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
                 bindingSource.DataSource = table;
@@ -148,6 +147,7 @@ namespace TestStudentRegistration
                 dataGridSimpleStudentInfo.DataSource = bindingSource;
                 dataGridSimpleStudentInfo.RowHeadersVisible = false;
             }
+           
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
@@ -219,7 +219,6 @@ namespace TestStudentRegistration
                         {
                             frmStudent.StudentAssistantUser();
                         }
-
                         frmStudent.disableComponents();
                         frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
                         frmStudent.ShowDialog();
@@ -273,7 +272,6 @@ namespace TestStudentRegistration
             loadActiveUserInfo();
             Accounts.BringToFront();
         }
-
         private void buttonStudents_Click(object sender, EventArgs e)
         {
             StudentTab.BringToFront();
@@ -388,7 +386,6 @@ namespace TestStudentRegistration
                     }
                     myReader.Close();
                     connection.Close();
-
                }
             }
         }
@@ -500,7 +497,6 @@ namespace TestStudentRegistration
         {
             Admin_Control.BringToFront();
         }
-
         private void loadFullStudentData()
         {
             SqlConnection connection = new SqlConnection(connectionString); //use your connection string here
@@ -659,8 +655,12 @@ namespace TestStudentRegistration
                 {
                     frmStudentRegistration.StudentAssistantUser();
                 }
-
-                frmStudentRegistration.loadStudData(dataGridFullStudent.CurrentCell.Value.ToString());
+                foreach (DataGridViewRow row in dataGridFullStudent.Rows)
+                {
+                    frmStudentRegistration.loadStudData(dataGridFullStudent.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
+                    
+                }
+                frmStudentRegistration.btnEdit.Visible = false;
                 frmStudentRegistration.ShowDialog();
             }
             catch(Exception ex)
@@ -686,7 +686,6 @@ namespace TestStudentRegistration
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID where S." + comboSearchType.Text + " like'" + txtSearch.Text + "%' AND (R.Status = 'Enrolled' OR R.Status = 'Registered') ;", con);
-
                 DataTable dt = new DataTable();
                 dataAdapter.Fill(dt);
                 dataGridFullStudent.DataSource = dt;
@@ -715,8 +714,6 @@ namespace TestStudentRegistration
         private void loadArchiveStudentData()
         {
             SqlConnection connection = new SqlConnection(connectionString); 
-
-
             var bindingSource = new BindingSource();
             string ShowInfo = "SELECT S.StudentID, S.LastName as 'Last Name', S.FirstName as 'First Name', S.MiddleName as 'Middlde Name', S.Gender, S.admissionType as 'Admission Type', E.ChosenCourse as 'Course' from tblStudent S INNER JOIN tblEducation E ON S.StudentID = E.StudentID INNER JOIN tblRegistrationInfo R ON S.StudentID = R.StudentID WHERE R.Status = 'Archived' ORDER BY S.timestamp desc;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
@@ -730,7 +727,7 @@ namespace TestStudentRegistration
                 DataGridArchive.ReadOnly = true;
                 DataGridArchive.DataSource = bindingSource;
                 DataGridArchive.RowHeadersVisible = false;
-            }
+         }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
@@ -771,6 +768,48 @@ namespace TestStudentRegistration
         private void btnArchiveBack_Click(object sender, EventArgs e)
         {
             Admin_Control.BringToFront();
+        }
+
+        private void btnEditArc_Click(object sender, EventArgs e)
+        {
+            /*
+            try
+            {
+                if (DataGridArchive. != -1)
+                {
+                    if (DataGridArchive.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        frmStudentRegistration frmStudent = new frmStudentRegistration();
+                        if (accountType.Equals("Full Admin"))
+                        {
+                            frmStudent.FullAdmin();
+                        }
+                        else if (accountType.Equals("Admin"))
+                        {
+                            frmStudent.AdminUser();
+                        }
+                        else if (accountType.Equals("Student Assistant"))
+                        {
+                            frmStudent.StudentAssistantUser();
+                        }
+
+                        frmStudent.disableComponents();
+                        frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
+                        frmStudent.ShowDialog();
+                    }
+                }
+            }
+
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No Data Found");
+            }
+            */
+        }
+
+        private void dataGridFullStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
