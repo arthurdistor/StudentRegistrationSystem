@@ -364,10 +364,10 @@ namespace TestStudentRegistration
                         txtStudMiddleName.Text = "";
                         txtStudLastName.Text = "";
                         txtStudSuffix.Text = "";
-                        comboGender.Text = "";
+                        comboGender.SelectedIndex = -1;
                         dateOfBirth.Text = "";
                         txtStudBirthdPlace.Text = "";
-                        txtStudStatus.Text = "";
+                        txtStudStatus.SelectedIndex = -1;
                         txtStudCitizenship.Text = "";
                         txtStreetNum.Text = "";
                         txtStreet.Text = "";
@@ -379,15 +379,15 @@ namespace TestStudentRegistration
                         txtEmail.Text = "";
                         txtStudContactNum.Text = "";
                         //20 Stud timestamp
-                        comboAdmissionType.Text = "";
+                        comboAdmissionType.SelectedIndex = -1;
                         //22education ID 23 studID
-                        comboSchoolType.Text = "";
+                        comboSchoolType.SelectedIndex = -1;
                         txtSchoolName.Text = "";
                         txtProgram.Text = "";
-                        txtYear.Text = "";
+                        txtYear.SelectedIndex = -1;
                         txtDateOfGraduation.Text = "";
-                        comboSchoolType.Text = "";
-                        comboCourse.Text = "";
+                        comboCourse.SelectedIndex = -1;
+
                         //27 ParentID, 28 studID
                         txtFathersName.Text = "";
                         txtFatherOccupation.Text = "";
@@ -399,6 +399,8 @@ namespace TestStudentRegistration
                         txtGuardianOccupation.Text = "";
                         txtGuardianContact.Text = "";
                         txtRelationship.Text = "";
+
+                        comboStatus.SelectedIndex = -1;
                     }
                 }
             }
@@ -464,6 +466,8 @@ namespace TestStudentRegistration
                     txtGuardianOccupation.Text = "";
                     txtGuardianContact.Text = "";
                     txtRelationship.Text = "";
+
+                    
                 }
             }
 
@@ -890,6 +894,16 @@ namespace TestStudentRegistration
         private void txtLRN_TextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void txtDateOfGraduation_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            txtDateOfGraduation.MaxLength = 4;
         }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)
