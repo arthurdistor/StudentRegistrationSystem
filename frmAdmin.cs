@@ -217,6 +217,8 @@ namespace TestStudentRegistration
 
             loadSimpleStudentData();
             loadTotalData();
+            lblLogsDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+            lblArcDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
             lblAccTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
@@ -994,7 +996,7 @@ namespace TestStudentRegistration
         {
             SqlConnection connection = new SqlConnection(connectionString);
             var bindingSource = new BindingSource();
-            string ShowInfo = "SELECT Name, AccountType, LogLevel, LogMessage from tblLogs ORDER BY LoginTime desc";
+            string ShowInfo = "SELECT Name, AccountType, LogLevel, LogMessage, LoginTime from tblLogs ORDER BY LoginTime desc";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(ShowInfo, connection);
             try
             {
@@ -1097,7 +1099,7 @@ namespace TestStudentRegistration
                 worksheet.Cells[1, 1].EntireRow.Font.Bold = true;
 
                 var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.FileName = "Student Data Reports " + DateTime.Today.ToShortDateString();
+                saveFileDialog.FileName = "Student Data Reports " + DateTime.Now.ToString("MMMM-dd-yyyy HH-mm");
                 saveFileDialog.DefaultExt = ".xlsx";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
