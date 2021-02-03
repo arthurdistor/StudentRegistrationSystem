@@ -1672,7 +1672,7 @@
             this.Controls.Add(this.Attachment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmStudentRegistration";
-            this.Text = "Form1";
+            this.Text = "Student Registration System";
             this.Load += new System.EventHandler(this.frmStudentRegistration_Load_1);
             this.btnDelete.ResumeLayout(false);
             this.btnDelete.PerformLayout();

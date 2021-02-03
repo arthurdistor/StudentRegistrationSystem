@@ -47,7 +47,8 @@ namespace TestStudentRegistration
         {
             lblGreetings.Text = "Welcome " + fullname;
             studentDataGrid();
-
+            loadSimpleStudentData();
+            loadTotalData();
         }
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
