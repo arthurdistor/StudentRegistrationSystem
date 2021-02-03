@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlDashboard = new System.Windows.Forms.Panel();
-            this.dataGridStudentFullData = new System.Windows.Forms.DataGridView();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.btnAdminPanel = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.lblTotalTransferees = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridSimpleStudentInfo = new System.Windows.Forms.DataGridView();
+            this.dataGridStudentFullData = new System.Windows.Forms.DataGridView();
             this.StudentTab = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExportStudent = new System.Windows.Forms.Button();
@@ -169,11 +169,11 @@
             this.button_WOC41 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC42 = new ePOSOne.btnProduct.Button_WOC();
             this.pnlDashboard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentFullData)).BeginInit();
             this.registered.SuspendLayout();
             this.newStudents.SuspendLayout();
             this.Transferees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentFullData)).BeginInit();
             this.StudentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).BeginInit();
             this.Admin_Control.SuspendLayout();
@@ -225,48 +225,6 @@
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(778, 749);
             this.pnlDashboard.TabIndex = 3;
-            // 
-            // dataGridStudentFullData
-            // 
-            this.dataGridStudentFullData.AllowUserToAddRows = false;
-            this.dataGridStudentFullData.AllowUserToDeleteRows = false;
-            this.dataGridStudentFullData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridStudentFullData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridStudentFullData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridStudentFullData.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridStudentFullData.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridStudentFullData.GridColor = System.Drawing.SystemColors.ControlText;
-            this.dataGridStudentFullData.Location = new System.Drawing.Point(30, 709);
-            this.dataGridStudentFullData.Name = "dataGridStudentFullData";
-            this.dataGridStudentFullData.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridStudentFullData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridStudentFullData.RowHeadersVisible = false;
-            this.dataGridStudentFullData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridStudentFullData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridStudentFullData.Size = new System.Drawing.Size(719, 37);
-            this.dataGridStudentFullData.TabIndex = 31;
-            this.dataGridStudentFullData.Visible = false;
             // 
             // lblTimeDate
             // 
@@ -494,6 +452,48 @@
             this.dataGridSimpleStudentInfo.TabIndex = 18;
             this.dataGridSimpleStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridSimpleStudentInfo_CellClick);
             // 
+            // dataGridStudentFullData
+            // 
+            this.dataGridStudentFullData.AllowUserToAddRows = false;
+            this.dataGridStudentFullData.AllowUserToDeleteRows = false;
+            this.dataGridStudentFullData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridStudentFullData.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridStudentFullData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridStudentFullData.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridStudentFullData.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridStudentFullData.GridColor = System.Drawing.SystemColors.ControlText;
+            this.dataGridStudentFullData.Location = new System.Drawing.Point(30, 709);
+            this.dataGridStudentFullData.Name = "dataGridStudentFullData";
+            this.dataGridStudentFullData.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridStudentFullData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridStudentFullData.RowHeadersVisible = false;
+            this.dataGridStudentFullData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridStudentFullData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridStudentFullData.Size = new System.Drawing.Size(719, 37);
+            this.dataGridStudentFullData.TabIndex = 31;
+            this.dataGridStudentFullData.Visible = false;
+            // 
             // StudentTab
             // 
             this.StudentTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(229)))), ((int)(((byte)(237)))));
@@ -646,6 +646,7 @@
             this.dataGridFullStudent.Size = new System.Drawing.Size(719, 569);
             this.dataGridFullStudent.TabIndex = 31;
             this.dataGridFullStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFullStudent_CellContentClick);
+            this.dataGridFullStudent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridFullStudent_CellDoubleClick);
             // 
             // lblStudDateTime
             // 
@@ -891,9 +892,8 @@
             this.lblLastLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastLogin.Location = new System.Drawing.Point(213, 141);
             this.lblLastLogin.Name = "lblLastLogin";
-            this.lblLastLogin.Size = new System.Drawing.Size(109, 17);
+            this.lblLastLogin.Size = new System.Drawing.Size(0, 17);
             this.lblLastLogin.TabIndex = 30;
-            this.lblLastLogin.Text = "Last Logon Date";
             // 
             // comboAccStatus
             // 
@@ -946,9 +946,8 @@
             this.lblLastActivity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastActivity.Location = new System.Drawing.Point(431, 139);
             this.lblLastActivity.Name = "lblLastActivity";
-            this.lblLastActivity.Size = new System.Drawing.Size(125, 17);
+            this.lblLastActivity.Size = new System.Drawing.Size(0, 17);
             this.lblLastActivity.TabIndex = 18;
-            this.lblLastActivity.Text = "Added Student xxx";
             // 
             // label28
             // 
@@ -2022,8 +2021,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(985, 749);
-            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.StudentTab);
+            this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.Accounts);
             this.Controls.Add(this.Logs);
             this.Controls.Add(this.Admin_Control);
@@ -2038,7 +2037,6 @@
             this.Load += new System.EventHandler(this.frmAdmin_Load);
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDashboard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentFullData)).EndInit();
             this.registered.ResumeLayout(false);
             this.registered.PerformLayout();
             this.newStudents.ResumeLayout(false);
@@ -2046,6 +2044,7 @@
             this.Transferees.ResumeLayout(false);
             this.Transferees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSimpleStudentInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentFullData)).EndInit();
             this.StudentTab.ResumeLayout(false);
             this.StudentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFullStudent)).EndInit();

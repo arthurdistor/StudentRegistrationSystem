@@ -125,7 +125,8 @@ namespace TestStudentRegistration
                 {
                     SqlConnection con = new SqlConnection(connectionString);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@accounttype,@logintime,'Low','Login Account')", con);
+                    SqlCommand cmd = new SqlCommand("insert into tblLogs(Username, Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@username, @fullname,@accounttype,@logintime,'Low','Login Account')", con);
+                    cmd.Parameters.AddWithValue("@username", x.username);
                     cmd.Parameters.AddWithValue("@fullname", x.name);
                     cmd.Parameters.AddWithValue("@accounttype", x.userlevel);
                     cmd.Parameters.AddWithValue("@logintime", DateTime.Now);

@@ -401,8 +401,8 @@ namespace TestStudentRegistration
         {
 
             //Use this query if tblLogs was implemented
-            //string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.Username='" + activeUser+"';";
-            string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + Encrypter.Encrypt(activeUser, _k3ys) + "';";
+            string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.FullName = L.Name where A.Username ='" + Encrypter.Encrypt(activeUser, _k3ys) + "'ORDER BY L.LoginTime DESC;";
+           // string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.Username='" + Encrypter.Encrypt(activeUser, _k3ys) + "';";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
@@ -415,7 +415,7 @@ namespace TestStudentRegistration
                 comboAccountType.Text = myReader[2].ToString();
                 comboAccStatus.Text = myReader[3].ToString();
                 lblLastLogin.Text = myReader[4].ToString();
-                //lblLastActivity.Text = myReader[5].ToString();
+                lblLastActivity.Text = myReader[5].ToString();
             }
             myReader.Close();
             connection.Close();
@@ -428,23 +428,41 @@ namespace TestStudentRegistration
                 {
 
                     //Use this query if tblLogs was implemented
-                    //  string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.LogID = L.Logid WHERE A.accountID =" + dataGridAccount.CurrentCell.Value.ToString();
+                   string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.FullName = L.Name where A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString() + " ORDER BY L.LoginTime DESC;";
 
-                    string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
+                   // string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
 
                     SqlConnection connection = new SqlConnection(connectionString);
                     SqlCommand command = new SqlCommand(query, connection);
                     connection.Open();
                     SqlDataReader myReader = command.ExecuteReader();
 
-                    while (myReader.Read())
+                    if (myReader.Read())
                     {
                         txtFullname.Text = myReader[0].ToString();
                         txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(), _k3ys);
                         comboAccountType.Text = myReader[2].ToString();
                         comboAccStatus.Text = myReader[3].ToString();
                         lblLastLogin.Text = myReader[4].ToString();
-                        // lblLastActivity.Text = myReader[5].ToString();
+                        lblLastActivity.Text = myReader[5].ToString();
+                    }
+                    
+                    else
+                    {
+                        myReader.Close();
+                        string queryNoLogs = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
+                        command = new SqlCommand(queryNoLogs, connection);
+                        myReader = command.ExecuteReader();
+                        if (myReader.Read())
+                        {
+                            txtFullname.Text = myReader[0].ToString();
+                            txtUsername.Text = Decrypter.Decrypt(myReader[1].ToString(), _k3ys);
+                            comboAccountType.Text = myReader[2].ToString();
+                            comboAccStatus.Text = myReader[3].ToString();
+                            lblLastLogin.Text = "---";
+                            lblLastActivity.Text="---";
+                        }
+
                     }
                     myReader.Close();
                     connection.Close();
@@ -932,7 +950,7 @@ namespace TestStudentRegistration
 
         private void dataGridFullStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void btnRefreshArc_Click(object sender, EventArgs e)
@@ -1052,7 +1070,7 @@ namespace TestStudentRegistration
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = true;
+                app.Visible = false;
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
 
@@ -1075,9 +1093,10 @@ namespace TestStudentRegistration
                         }
                     }
                 }
+                worksheet.Cells[1, 1].EntireRow.Font.Bold = true;
 
                 var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.FileName = "Student Data";
+                saveFileDialog.FileName = "Student Data Reports " + DateTime.Today.ToShortDateString();
                 saveFileDialog.DefaultExt = ".xlsx";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -1103,7 +1122,49 @@ namespace TestStudentRegistration
             sdr.Fill(dt);
             dataGridStudentFullData.DataSource = dt;
             con.Close();
+        }
 
+
+
+        private void dataGridFullStudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex != -1)
+                {
+                    if (dataGridFullStudent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        frmStudentRegistration frmStudent = new frmStudentRegistration();
+                        if (accountType.Equals("Full Admin"))
+                        {
+                            frmStudent.FullAdmin();
+                        }
+                        else if (accountType.Equals("Admin"))
+                        {
+                            frmStudent.AdminUser();
+                        }
+                        else if (accountType.Equals("Student Assistant"))
+                        {
+                            frmStudent.StudentAssistantUser();
+                        }
+                        frmStudent.disableComponents();
+                        frmStudent.loadStudData(dataGridFullStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
+                        frmStudent.studentNumberFromAdmin = dataGridFullStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        frmStudent.name = fullname;
+                        frmStudent.accounttype = accountType;
+                        frmStudent.ShowDialog();
+                    }
+                }
+            }
+
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No Data Found");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
