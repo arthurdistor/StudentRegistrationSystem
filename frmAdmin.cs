@@ -46,6 +46,7 @@ namespace TestStudentRegistration
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             lblGreetings.Text = "Welcome " + fullname;
+            studentDataGrid();
 
         }
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
@@ -1000,6 +1001,52 @@ namespace TestStudentRegistration
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            //    Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            //    Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            //    app.Visible = true;
+            //    worksheet = workbook.Sheets["Sheet1"];
+            //    worksheet = workbook.ActiveSheet;
+
+            //    for (int i = 1; i < dataGridStudentFullData.Columns.Count + 1; i++)
+            //    {
+            //        worksheet.Cells[1, i] = dataGridStudentFullData.Columns[i - 1].HeaderText;
+            //    }
+            //    //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
+            //    for (int i = 0; i < dataGridStudentFullData.Rows.Count + 0; i++)
+            //    {
+            //        for (int j = 0; j < dataGridStudentFullData.Columns.Count; j++)
+            //        {
+            //            if (dataGridStudentFullData.Rows[i].Cells[j].Value != null)
+            //            {
+            //                worksheet.Cells[i + 2, j + 1] = dataGridStudentFullData.Rows[i].Cells[j].Value.ToString();
+            //            }
+            //            else
+            //            {
+            //                worksheet.Cells[i + 2, j + 1] = "";
+            //            }
+            //        }
+            //    }
+
+            //    var saveFileDialog = new SaveFileDialog();
+            //    saveFileDialog.FileName = "Student Data";
+            //    saveFileDialog.DefaultExt = ".xlsx";
+            //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            //    {
+            //        workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
+        }
+
+        private void btnExportStudent_Click(object sender, EventArgs e)
+        {
             try
             {
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
@@ -1009,18 +1056,18 @@ namespace TestStudentRegistration
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
 
-                for (int i = 1; i < dataGridSimpleStudentInfo.Columns.Count + 1; i++)
+                for (int i = 1; i < dataGridStudentFullData.Columns.Count + 1; i++)
                 {
-                    worksheet.Cells[1, i] = dataGridSimpleStudentInfo.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i] = dataGridStudentFullData.Columns[i - 1].HeaderText;
                 }
-                //for (int i = 0; i < dataGridSimpleStudentInfo.Rows.Count - 1; i++)
-                for (int i = 0; i < dataGridSimpleStudentInfo.Rows.Count + 0; i++)
+                //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
+                for (int i = 0; i < dataGridStudentFullData.Rows.Count + 0; i++)
                 {
-                    for (int j = 0; j < dataGridSimpleStudentInfo.Columns.Count; j++)
+                    for (int j = 0; j < dataGridStudentFullData.Columns.Count; j++)
                     {
-                        if (dataGridSimpleStudentInfo.Rows[i].Cells[j].Value != null)
+                        if (dataGridStudentFullData.Rows[i].Cells[j].Value != null)
                         {
-                            worksheet.Cells[i + 2, j + 1] = dataGridSimpleStudentInfo.Rows[i].Cells[j].Value.ToString();
+                            worksheet.Cells[i + 2, j + 1] = dataGridStudentFullData.Rows[i].Cells[j].Value.ToString();
                         }
                         else
                         {
@@ -1041,53 +1088,22 @@ namespace TestStudentRegistration
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
-        private void btnExportStudent_Click(object sender, EventArgs e)
+        private void studentDataGrid()
         {
-            try
-            {
-                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = true;
-                worksheet = workbook.Sheets["Sheet1"];
-                worksheet = workbook.ActiveSheet;
+            SqlConnection con = new SqlConnection(connectionString);
+            string sqlquery = "select tblStudent.StudentID, tblStudent.LRN, tblStudent.FirstName, tblStudent.MiddleName, tblStudent.LastName, tblStudent.Suffix, tblStudent.Gender, tblStudent.Birthdate, tblStudent.Birthplace, tblStudent.CivilStatus, tblStudent.Citizenship, tblStudent.StreetNo, tblStudent.Street, tblStudent.Subdivision, tblStudent.Barangay, tblStudent.City, tblStudent.Province, tblStudent.ZipCode, tblStudent.EmailAdd, tblStudent.ContactNo, tblStudent.ContactNo, tblParentGuardianTable.FathersName, tblParentGuardianTable.FathersOccupation, tblParentGuardianTable.FathersContactNum, tblParentGuardianTable.MotherName, tblParentGuardianTable.MotherOccupation, tblParentGuardianTable.MothersContactNum, tblParentGuardianTable.GuardiansName, tblParentGuardianTable.GuardiansOccupation, tblParentGuardianTable.GuardiansContactNum, tblParentGuardianTable.GuardiansRelationship, tblEducation.SchoolType, tblEducation.SchoolName, tblEducation.Program, tblEducation.Grade, tblEducation.GradudationDate, tblEducation.ChosenCourse from [dbo].[tblStudent] inner join [dbo].[tblParentGuardianTable]";
+            sqlquery += "on tblStudent.StudentID = tblParentGuardianTable.StudentID inner join [dbo].[tblEducation] on tblParentGuardianTable.StudentID=tblEducation.StudentID";
 
-                for (int i = 1; i < dataGridFullStudent.Columns.Count + 1; i++)
-                {
-                    worksheet.Cells[1, i] = dataGridFullStudent.Columns[i - 1].HeaderText;
-                }
-               // for (int i = 0; i < dataGridFullStudent.Rows.Count - 1; i++)
-                for (int i = 0; i < dataGridFullStudent.Rows.Count + 0; i++)
-                {
-                    for (int j = 0; j < dataGridFullStudent.Columns.Count; j++)
-                    {
-                        if (dataGridFullStudent.Rows[i].Cells[j].Value != null)
-                        {
-                            worksheet.Cells[i + 2, j + 1] = dataGridFullStudent.Rows[i].Cells[j].Value.ToString();
-                        }
-                        else
-                        {
-                            worksheet.Cells[i + 2, j + 1] = "";
-                        }
-                    }
-                }
+            SqlCommand com = new SqlCommand(sqlquery, con);
+            con.Open();
+            SqlDataAdapter sdr = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            sdr.Fill(dt);
+            dataGridStudentFullData.DataSource = dt;
+            con.Close();
 
-                var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.FileName = "Full Student Data";
-                saveFileDialog.DefaultExt = ".xlsx";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
         }
     }
 }
