@@ -198,6 +198,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(986, 748);
             this.btnDelete.TabIndex = 21;
+            this.btnDelete.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // btnEdit
             // 
@@ -301,6 +302,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(462, 330);
             this.panel6.TabIndex = 62;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // lblTimestamp
             // 
@@ -497,6 +499,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(462, 224);
             this.panel5.TabIndex = 60;
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // label40
             // 
@@ -726,6 +729,7 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(462, 278);
             this.panel.TabIndex = 58;
+            this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // txtYear
             // 
@@ -923,6 +927,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(462, 384);
             this.panel3.TabIndex = 22;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // txtStudStatus
             // 

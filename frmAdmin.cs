@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Runtime.InteropServices;
+
 namespace TestStudentRegistration
 {
     public partial class frmAdmin : Form
@@ -19,6 +21,13 @@ namespace TestStudentRegistration
         public string fullname;
         public string accountType = "";
         public static string userName = "";
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int LPAR);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        const int HT_CAPTION = 0x2;
         public frmAdmin(string username)
         {
             InitializeComponent();
@@ -28,7 +37,16 @@ namespace TestStudentRegistration
             loadAccountData();
             UIButtonDashboarClick();
             enableComponents(false);
+            this.MouseDown += new MouseEventHandler(move_window);
 
+        }
+        private void move_window(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
         public void insertLogs(string fullname, string accountType, string logLevel, string logMessage)
         {

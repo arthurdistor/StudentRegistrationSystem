@@ -217,6 +217,7 @@ namespace TestStudentRegistration
         private void btnCloseYes_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            
         }
     }
 }

@@ -9,10 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Runtime.InteropServices;
+
 namespace TestStudentRegistration
 {
     public partial class frmStudentRegistration : Form
     {
+
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING ON THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
        // SqlConnection con = new SqlConnection("Data Source=desktop-40uhahe\\mssqlserver01;Initial Catalog=DBStudentRegistrationSystem;Integrated Security=True");
@@ -24,15 +27,29 @@ namespace TestStudentRegistration
         public static string userName = "";
         public string name, accounttype;
         public string studentNumberFromAdmin;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int LPAR);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        const int HT_CAPTION = 0x2;
         public frmStudentRegistration()
         {
             InitializeComponent();
 
-           // lblUsername.Text = frmAdmin.passName;
+            // lblUsername.Text = frmAdmin.passName;
             //comboStatus.Text = frmAdmin.passAccStatus;
+            this.MouseDown += new MouseEventHandler(move_window);
 
-           
-            
+
+        }
+        private void move_window(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
         private void frmStudentRegistration_Load_1(object sender, EventArgs e)
         {
