@@ -917,6 +917,7 @@ namespace TestStudentRegistration
             this.WindowState = FormWindowState.Minimized;
         }
 
+
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             txtZipCode.MaxLength = 9;

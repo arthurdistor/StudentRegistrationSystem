@@ -193,7 +193,7 @@
             this.btnDelete.Controls.Add(this.label9);
             this.btnDelete.Controls.Add(this.panel3);
             this.btnDelete.Controls.Add(this.panel2);
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnDelete.Location = new System.Drawing.Point(-1, 0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(986, 748);
@@ -204,6 +204,7 @@
             this.btnEdit.BackColor = System.Drawing.Color.LimeGreen;
             this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Location = new System.Drawing.Point(549, 12);
@@ -244,6 +245,7 @@
             this.btnAttachment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnAttachment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAttachment.BackgroundImage")));
             this.btnAttachment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAttachment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAttachment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnAttachment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttachment.Location = new System.Drawing.Point(453, 12);
@@ -257,6 +259,7 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Location = new System.Drawing.Point(354, 12);
@@ -293,6 +296,7 @@
             this.panel6.Controls.Add(this.label44);
             this.panel6.Controls.Add(this.label43);
             this.panel6.Controls.Add(this.label42);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel6.Location = new System.Drawing.Point(504, 406);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(462, 330);
@@ -365,6 +369,7 @@
             this.btnAddRemark.Text = "Add New Remark";
             this.btnAddRemark.TextColor = System.Drawing.Color.White;
             this.btnAddRemark.UseVisualStyleBackColor = true;
+            this.btnAddRemark.Visible = false;
             // 
             // comboAdmissionType
             // 
@@ -487,6 +492,7 @@
             this.panel5.Controls.Add(this.txtMotherName);
             this.panel5.Controls.Add(this.label30);
             this.panel5.Controls.Add(this.txtFathersName);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel5.Location = new System.Drawing.Point(12, 512);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(462, 224);
@@ -715,6 +721,7 @@
             this.panel.Controls.Add(this.label18);
             this.panel.Controls.Add(this.label17);
             this.panel.Controls.Add(this.txtLRN);
+            this.panel.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel.Location = new System.Drawing.Point(504, 95);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(462, 278);
@@ -911,6 +918,7 @@
             this.panel3.Controls.Add(this.txtStudMiddleName);
             this.panel3.Controls.Add(this.lblName);
             this.panel3.Controls.Add(this.txtStudFirstName);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel3.Location = new System.Drawing.Point(12, 95);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(462, 384);
