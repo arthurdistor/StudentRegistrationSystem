@@ -318,6 +318,7 @@ namespace TestStudentRegistration
             loadAccountData();
             enableComponents(false);
             loadActiveUserInfo();
+            btnSave.Enabled = false;
             Accounts.BringToFront();
         }
         private void buttonStudents_Click(object sender, EventArgs e)

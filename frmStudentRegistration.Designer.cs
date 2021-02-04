@@ -736,14 +736,26 @@
             this.txtYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtYear.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYear.FormattingEnabled = true;
+            this.txtYear.ItemHeight = 15;
             this.txtYear.Items.AddRange(new object[] {
-            "Grade 12",
-            "Grade 11",
             "4th Year",
             "3rd Year",
             "2nd Year",
-            "1st Year"});
+            "1st Year",
+            "Grade 12",
+            "Grade 11",
+            "Grade 10",
+            "Grade 9",
+            "Grade 8",
+            "Grade 7",
+            "Grade 6",
+            "Grade 5",
+            "Grade 4",
+            "Grade 3",
+            "Grade 2",
+            "Grade 1"});
             this.txtYear.Location = new System.Drawing.Point(323, 137);
+            this.txtYear.MaxDropDownItems = 5;
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(121, 23);
             this.txtYear.TabIndex = 23;
@@ -788,6 +800,7 @@
             this.txtDateOfGraduation.Name = "txtDateOfGraduation";
             this.txtDateOfGraduation.Size = new System.Drawing.Size(121, 23);
             this.txtDateOfGraduation.TabIndex = 24;
+            this.txtDateOfGraduation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDateOfGraduation_KeyPress_1);
             // 
             // txtProgram
             // 

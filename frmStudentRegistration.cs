@@ -60,8 +60,9 @@ namespace TestStudentRegistration
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@accounttype,@logintime,@loglevel,@logMessage)", con);
+            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, Username, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@username,@accounttype,@logintime,@loglevel,@logMessage)", con);
             cmd.Parameters.AddWithValue("@fullname", fullname);
+            cmd.Parameters.AddWithValue("@username", userName);
             cmd.Parameters.AddWithValue("@accounttype", accountType);
             cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
             cmd.Parameters.AddWithValue("@loglevel", logLevel);
@@ -934,6 +935,14 @@ namespace TestStudentRegistration
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void txtDateOfGraduation_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            txtDateOfGraduation.MaxLength = 4;
+        }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)
         {
