@@ -906,6 +906,17 @@ namespace TestStudentRegistration
             txtDateOfGraduation.MaxLength = 4;
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             txtZipCode.MaxLength = 9;

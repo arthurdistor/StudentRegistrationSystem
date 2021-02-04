@@ -34,8 +34,9 @@ namespace TestStudentRegistration
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname,@accounttype,@logintime,@loglevel,@logMessage)", con);
+            SqlCommand cmd = new SqlCommand("insert into tblLogs(Name, Username, AccountType, LoginTime, LogLevel, LogMessage ) values(@fullname, @username, @accounttype,@logintime,@loglevel,@logMessage)", con);
             cmd.Parameters.AddWithValue("@fullname", fullname);
+            cmd.Parameters.AddWithValue("@username", userName);
             cmd.Parameters.AddWithValue("@accounttype", accountType);
             cmd.Parameters.AddWithValue("@logintime", DateTime.Now);
             cmd.Parameters.AddWithValue("@loglevel", logLevel);
@@ -251,7 +252,7 @@ namespace TestStudentRegistration
                         frmStudent.studentNumberFromAdmin = dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
                         frmStudent.name = fullname;
                         frmStudent.accounttype = accountType;
-                        frmStudent.ShowDialog();
+                        frmStudent.Show();
                     }
                 }
             }
@@ -728,7 +729,7 @@ namespace TestStudentRegistration
             frmStudentRegistration.btnEdit.Visible = false;
             frmStudentRegistration.name = fullname;
             frmStudentRegistration.accounttype = accountType;
-            frmStudentRegistration.ShowDialog();
+            frmStudentRegistration.Show();
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
@@ -762,7 +763,7 @@ namespace TestStudentRegistration
                     frmStudentRegistration.name = fullname;
                     frmStudentRegistration.accounttype = accountType;
                     frmStudentRegistration.btnEdit.Visible = false;
-                    frmStudentRegistration.ShowDialog();
+                    frmStudentRegistration.Show();
                 }
             }
             catch (Exception ex)
@@ -908,7 +909,7 @@ namespace TestStudentRegistration
                 frmStudentRegistration.name = fullname;
                 frmStudentRegistration.accounttype = accountType;
                 frmStudentRegistration.btnEdit.Visible = false;
-                frmStudentRegistration.ShowDialog();
+                frmStudentRegistration.Show();
             }
             catch (Exception ex)
             {
@@ -1115,9 +1116,8 @@ namespace TestStudentRegistration
         private void studentDataGrid()
         {
             SqlConnection con = new SqlConnection(connectionString);
-            string sqlquery = "select tblStudent.StudentID, tblStudent.LRN, tblStudent.FirstName, tblStudent.MiddleName, tblStudent.LastName, tblStudent.Suffix, tblStudent.Gender, tblStudent.Birthdate, tblStudent.Birthplace, tblStudent.CivilStatus, tblStudent.Citizenship, tblStudent.StreetNo, tblStudent.Street, tblStudent.Subdivision, tblStudent.Barangay, tblStudent.City, tblStudent.Province, tblStudent.ZipCode, tblStudent.EmailAdd, tblStudent.ContactNo, tblStudent.ContactNo, tblParentGuardianTable.FathersName, tblParentGuardianTable.FathersOccupation, tblParentGuardianTable.FathersContactNum, tblParentGuardianTable.MotherName, tblParentGuardianTable.MotherOccupation, tblParentGuardianTable.MothersContactNum, tblParentGuardianTable.GuardiansName, tblParentGuardianTable.GuardiansOccupation, tblParentGuardianTable.GuardiansContactNum, tblParentGuardianTable.GuardiansRelationship, tblEducation.SchoolType, tblEducation.SchoolName, tblEducation.Program, tblEducation.Grade, tblEducation.GradudationDate, tblEducation.ChosenCourse from [dbo].[tblStudent] inner join [dbo].[tblParentGuardianTable]";
-            sqlquery += "on tblStudent.StudentID = tblParentGuardianTable.StudentID inner join [dbo].[tblEducation] on tblParentGuardianTable.StudentID=tblEducation.StudentID";
-
+            string sqlquery = "select tblStudent.StudentID, tblStudent.LRN, tblStudent.FirstName, tblStudent.MiddleName, tblStudent.LastName, tblStudent.Suffix, tblStudent.Gender, tblStudent.Birthdate, tblStudent.Birthplace, tblStudent.CivilStatus, tblStudent.Citizenship, tblStudent.StreetNo, tblStudent.Street, tblStudent.Subdivision, tblStudent.Barangay, tblStudent.City, tblStudent.Province, tblStudent.ZipCode, tblStudent.EmailAdd, tblStudent.ContactNo, tblStudent.ContactNo, tblParentGuardianTable.FathersName, tblParentGuardianTable.FathersOccupation, tblParentGuardianTable.FathersContactNum, tblParentGuardianTable.MotherName, tblParentGuardianTable.MotherOccupation, tblParentGuardianTable.MothersContactNum, tblParentGuardianTable.GuardiansName, tblParentGuardianTable.GuardiansOccupation, tblParentGuardianTable.GuardiansContactNum, tblParentGuardianTable.GuardiansRelationship, tblEducation.SchoolType, tblEducation.SchoolName, tblEducation.Program, tblEducation.Grade, tblEducation.GradudationDate, tblEducation.ChosenCourse, tblRegistrationInfo.Remarks, tblRegistrationInfo.Status, tblRegistrationInfo.DateTime as 'Last Modified Date' from [dbo].[tblStudent] inner join [dbo].[tblParentGuardianTable]";
+            sqlquery += "on tblStudent.StudentID = tblParentGuardianTable.StudentID inner join [dbo].[tblEducation] on tblParentGuardianTable.StudentID=tblEducation.StudentID INNER JOIN [dbo].[tblRegistrationInfo] on tblEducation.StudentID=tblRegistrationInfo.StudentID WHERE tblRegistrationInfo.Status = 'Enrolled' OR tblRegistrationInfo.Status = 'Registered'";
             SqlCommand com = new SqlCommand(sqlquery, con);
             con.Open();
             SqlDataAdapter sdr = new SqlDataAdapter(com);
@@ -1155,7 +1155,7 @@ namespace TestStudentRegistration
                         frmStudent.studentNumberFromAdmin = dataGridFullStudent.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
                         frmStudent.name = fullname;
                         frmStudent.accounttype = accountType;
-                        frmStudent.ShowDialog();
+                        frmStudent.Show();
                     }
                 }
             }

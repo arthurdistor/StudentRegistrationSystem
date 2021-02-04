@@ -171,7 +171,7 @@ namespace TestStudentRegistration
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Application.Exit();
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
