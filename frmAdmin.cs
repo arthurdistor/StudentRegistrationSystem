@@ -694,8 +694,7 @@ namespace TestStudentRegistration
 
         private void buttonLogout1_Click_1(object sender, EventArgs e)
         {
-            LogoutBox logoutBox = new LogoutBox();
-            logoutBox.ShowDialog();
+            LogoutDialogBox.BringToFront();
         }
 
         private void pictureBox8_Click_1(object sender, EventArgs e)
@@ -1186,6 +1185,18 @@ namespace TestStudentRegistration
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnLogoutNo_Click(object sender, EventArgs e)
+        {
+            LogoutDialogBox.SendToBack();
+        }
+
+        private void btnLogoutYes_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Hide();
         }
     }
 }
