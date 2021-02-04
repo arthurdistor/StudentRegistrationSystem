@@ -38,3 +38,9 @@ E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\Reg
 E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.LogoutBox.resources
 E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\TestStudentRegistration.Properties.Resources.resources
 E:\JOMARIE FILES\3rd Year Files\Event-Driven Programming\Registration System\RegistrationSystem_Rev4\obj\Debug\StudentRegistration.csproj.GenerateResource.Cache
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\StudentRegistration.csproj.ResolveComReference.cache
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\TestStudentRegistration.LogoutBox.resources
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\itextsharp.dll
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\bin\Debug\itextsharp.xml
+C:\Users\Bryan\Documents\GitHub\StudentRegistrationSystem\obj\Debug\StudentRegistration.csproj.CopyComplete

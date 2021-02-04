@@ -254,6 +254,7 @@
             this.btnAttachment.Size = new System.Drawing.Size(82, 48);
             this.btnAttachment.TabIndex = 65;
             this.btnAttachment.UseVisualStyleBackColor = false;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click);
             // 
             // btnSave
             // 
@@ -1070,9 +1071,9 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label15.Location = new System.Drawing.Point(160, 273);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 15);
+            this.label15.Size = new System.Drawing.Size(94, 15);
             this.label15.TabIndex = 57;
-            this.label15.Text = "Contact Number";
+            this.label15.Text = "Mobile Number";
             // 
             // txtStudContactNum
             // 

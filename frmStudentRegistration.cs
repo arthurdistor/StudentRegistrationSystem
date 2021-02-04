@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Runtime.InteropServices;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 
 namespace TestStudentRegistration
 {
@@ -942,6 +945,72 @@ namespace TestStudentRegistration
                 e.Handled = true;
             }
             txtDateOfGraduation.MaxLength = 4;
+        }
+
+        private void btnAttachment_Click(object sender, EventArgs e)
+        {
+            Student student = null;
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Text files (*.txt)|*.txt|Rich Text Format (*.rtf) |*.rtf|Pdf Files(*.pdf)|*.pdf";
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                string ext = System.IO.Path.GetExtension(openFile.FileName);
+               //MessageBox.Show(ext);
+                if (ext.Equals(".txt"))
+                {
+             
+                    string[] filelines = File.ReadAllLines(openFile.FileName);
+                    student = Student.getStudentByAttachment(filelines);   
+                }
+                else if (ext.Equals(".pdf"))
+                {
+                    //MessageBox.Show("Naka pdf");
+                    StringBuilder text = new StringBuilder();
+                    ITextExtractionStrategy Strategy = new SimpleTextExtractionStrategy();
+                    PdfReader reader = new PdfReader(openFile.FileName);
+                    
+                        for (int i = 1; i <= reader.NumberOfPages; i++)
+                        {
+                            string page = "";
+                            page = PdfTextExtractor.GetTextFromPage(reader, i, Strategy);
+                            string[] lines = page.Split('\n');
+                            student = Student.getStudentByAttachment(lines);
+                    }
+                   
+                }
+
+                //MessageBox.Show(student.CivilStatus);
+                txtStudFirstName.Text = student.FirstName;
+                txtStudMiddleName.Text = student.MiddleName;
+                txtStudLastName.Text = student.LastName;
+                txtStudSuffix.Text = student.Suffix;
+                txtStreet.Text = student.Street;
+                txtStreetNum.Text = student.StreetUnit;
+                txtSubdivision.Text = student.SubdivisionVillage;
+                txtStudBirthdPlace.Text = student.BirthPlace;
+                txtBarangay.Text = student.Barangay;
+                txtCity.Text = student.CityMunicipality;
+                txtZipCode.Text = student.Zipcode;
+                txtProvince.Text = student.Province;
+                txtEmail.Text = student.EmailAddress;
+                txtStudContactNum.Text = student.ContactNumber;
+                txtStudCitizenship.Text = student.Citizenship;
+                txtFathersName.Text = student.FatherFullname;
+                txtFatherOccupation.Text = student.FatherOccupation;
+                txtFatherContact.Text = student.FatherContactNumber;
+                txtMotherContact.Text = student.MotherContactNumber;
+                txtMotherName.Text = student.MotherFullname;
+                txtMotherOccupation.Text = student.MotherOccupation;
+                txtGuardianName.Text = student.GuardianFullname;
+                txtGuardianOccupation.Text = student.GuardianOccupation;
+                txtGuardianContact.Text = student.GuardianContactNumber;
+                txtRelationship.Text = student.GuardianRelationship;
+                comboGender.SelectedIndex = comboGender.FindString(student.Gender);
+                txtStudStatus.SelectedIndex = txtStudStatus.FindString(student.CivilStatus);
+                dateOfBirth.Value = student.getDateOfBirth();
+          
+            }
+         
         }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)

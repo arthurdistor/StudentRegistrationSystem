@@ -1,0 +1,34 @@
+First Name:Arnel
+Middle Name:Santos
+Last Name:Pineda
+Suffix:Jr.
+Gender:Male
+Date Of Birth:11/28/1988
+Birthplace:Quezon City
+Civil Status:Single
+Citizenship:Filipino
+Street#/Unit#:B13 L21
+Street:Korea
+Subdivision/Village:Nangka
+Barangay:Ampid
+City/Municipality:San Mateo
+Province:Rizal
+Zip Code:1851
+Mobile Number:9801234321
+Email Address:test@gmail.com
+Father's Full Name:Gregorio Pineda
+Father's Occupation:Singer
+Father's Contact Number:1232432
+Mother's Full Name:Maria Santos
+Mother's Occupation:House Wife
+Mother's Contact Number:646456345
+Guardian's Full Name:Maria Ozawa
+Guardian's Occupation:Bussiness Woman
+Guardian's Contact Number:12312321
+Guardian's Relationship:My Girl
+School Type: Private
+Learner's Reference Number:01233445567
+Name Of School:STI
+Year/Grade:
+Program/Track and Strand/Specialization:BSIT
+Year Of Graduation:2022
