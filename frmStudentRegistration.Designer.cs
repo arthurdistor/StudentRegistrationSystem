@@ -309,7 +309,7 @@
             this.lblTimestamp.AutoSize = true;
             this.lblTimestamp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimestamp.ForeColor = System.Drawing.Color.Black;
-            this.lblTimestamp.Location = new System.Drawing.Point(17, 189);
+            this.lblTimestamp.Location = new System.Drawing.Point(13, 192);
             this.lblTimestamp.Name = "lblTimestamp";
             this.lblTimestamp.Size = new System.Drawing.Size(0, 17);
             this.lblTimestamp.TabIndex = 73;
@@ -337,16 +337,16 @@
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label27.Location = new System.Drawing.Point(13, 65);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 15);
+            this.label27.Size = new System.Drawing.Size(53, 15);
             this.label27.TabIndex = 70;
-            this.label27.Text = "Course";
+            this.label27.Text = "Course *";
             // 
             // lblLastEditBy
             // 
             this.lblLastEditBy.AutoSize = true;
             this.lblLastEditBy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastEditBy.ForeColor = System.Drawing.Color.Black;
-            this.lblLastEditBy.Location = new System.Drawing.Point(16, 138);
+            this.lblLastEditBy.Location = new System.Drawing.Point(13, 139);
             this.lblLastEditBy.Name = "lblLastEditBy";
             this.lblLastEditBy.Size = new System.Drawing.Size(0, 17);
             this.lblLastEditBy.TabIndex = 72;
@@ -393,9 +393,9 @@
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label28.Location = new System.Drawing.Point(13, 16);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(92, 15);
+            this.label28.Size = new System.Drawing.Size(100, 15);
             this.label28.TabIndex = 71;
-            this.label28.Text = "Admission Type";
+            this.label28.Text = "Admission Type *";
             // 
             // txtRemarks
             // 
@@ -456,9 +456,9 @@
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label42.Location = new System.Drawing.Point(13, 118);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(70, 15);
+            this.label42.Size = new System.Drawing.Size(78, 15);
             this.label42.TabIndex = 63;
-            this.label42.Text = "Last Edit By";
+            this.label42.Text = "Last Edit By *";
             // 
             // label29
             // 
@@ -467,9 +467,9 @@
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
             this.label29.Location = new System.Drawing.Point(7, 484);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(288, 25);
+            this.label29.Size = new System.Drawing.Size(303, 25);
             this.label29.TabIndex = 61;
-            this.label29.Text = "Parent\'s & Guardian Information";
+            this.label29.Text = "Parent\'s && Guardian Information";
             // 
             // panel5
             // 
@@ -508,9 +508,9 @@
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label40.Location = new System.Drawing.Point(325, 118);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(99, 15);
+            this.label40.Size = new System.Drawing.Size(107, 15);
             this.label40.TabIndex = 61;
-            this.label40.Text = "Contact Number";
+            this.label40.Text = "Contact Number *";
             // 
             // txtGuardianContact
             // 
@@ -529,9 +529,9 @@
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label39.Location = new System.Drawing.Point(325, 65);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(99, 15);
+            this.label39.Size = new System.Drawing.Size(107, 15);
             this.label39.TabIndex = 59;
-            this.label39.Text = "Contact Number";
+            this.label39.Text = "Contact Number *";
             // 
             // txtMotherContact
             // 
@@ -550,9 +550,9 @@
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label38.Location = new System.Drawing.Point(325, 12);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(99, 15);
+            this.label38.Size = new System.Drawing.Size(107, 15);
             this.label38.TabIndex = 57;
-            this.label38.Text = "Contact Number";
+            this.label38.Text = "Contact Number *";
             // 
             // txtFatherContact
             // 
@@ -628,9 +628,9 @@
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label33.Location = new System.Drawing.Point(7, 173);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(135, 15);
+            this.label33.Size = new System.Drawing.Size(143, 15);
             this.label33.TabIndex = 39;
-            this.label33.Text = "Guardian\'s Relationship";
+            this.label33.Text = "Guardian\'s Relationship *";
             // 
             // txtRelationship
             // 
@@ -647,9 +647,9 @@
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label32.Location = new System.Drawing.Point(7, 118);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(122, 15);
+            this.label32.Size = new System.Drawing.Size(130, 15);
             this.label32.TabIndex = 37;
-            this.label32.Text = "Guardian\'s Full Name";
+            this.label32.Text = "Guardian\'s Full Name *";
             // 
             // txtGuardianName
             // 
@@ -666,9 +666,9 @@
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label31.Location = new System.Drawing.Point(7, 65);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(115, 15);
+            this.label31.Size = new System.Drawing.Size(123, 15);
             this.label31.TabIndex = 35;
-            this.label31.Text = "Mother\'s Full Name";
+            this.label31.Text = "Mother\'s Full Name *";
             // 
             // txtMotherName
             // 
@@ -685,9 +685,9 @@
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label30.Location = new System.Drawing.Point(7, 12);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(109, 15);
+            this.label30.Size = new System.Drawing.Size(117, 15);
             this.label30.TabIndex = 33;
-            this.label30.Text = "Father\'s Full Name";
+            this.label30.Text = "Father\'s Full Name *";
             // 
             // txtFathersName
             // 
@@ -767,9 +767,9 @@
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label23.Location = new System.Drawing.Point(321, 117);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(76, 15);
+            this.label23.Size = new System.Drawing.Size(84, 15);
             this.label23.TabIndex = 65;
-            this.label23.Text = "Year / Grade";
+            this.label23.Text = "Year / Grade *";
             // 
             // label22
             // 
@@ -789,9 +789,9 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label21.Location = new System.Drawing.Point(13, 167);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(246, 15);
+            this.label21.Size = new System.Drawing.Size(254, 15);
             this.label21.TabIndex = 63;
-            this.label21.Text = "Program / Track and Strand / Specialization";
+            this.label21.Text = "Program / Track and Strand / Specialization *";
             // 
             // txtDateOfGraduation
             // 
@@ -817,9 +817,9 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label20.Location = new System.Drawing.Point(13, 117);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(95, 15);
+            this.label20.Size = new System.Drawing.Size(103, 15);
             this.label20.TabIndex = 59;
-            this.label20.Text = "Name of School";
+            this.label20.Text = "Name of School *";
             // 
             // comboSchoolType
             // 
@@ -851,9 +851,9 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label19.Location = new System.Drawing.Point(13, 62);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(73, 15);
+            this.label19.Size = new System.Drawing.Size(81, 15);
             this.label19.TabIndex = 61;
-            this.label19.Text = "School Type";
+            this.label19.Text = "School Type *";
             // 
             // label18
             // 
@@ -873,9 +873,9 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label17.Location = new System.Drawing.Point(171, 62);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(169, 15);
+            this.label17.Size = new System.Drawing.Size(177, 15);
             this.label17.TabIndex = 59;
-            this.label17.Text = "Learner\'s Reference Number";
+            this.label17.Text = "Learner\'s Reference Number *";
             // 
             // txtLRN
             // 
@@ -974,9 +974,9 @@
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label59.Location = new System.Drawing.Point(7, 273);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(55, 15);
+            this.label59.Size = new System.Drawing.Size(63, 15);
             this.label59.TabIndex = 69;
-            this.label59.Text = "Zip Code";
+            this.label59.Text = "Zip Code *";
             // 
             // txtZipCode
             // 
@@ -1013,9 +1013,9 @@
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label57.Location = new System.Drawing.Point(161, 219);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(106, 15);
+            this.label57.Size = new System.Drawing.Size(114, 15);
             this.label57.TabIndex = 64;
-            this.label57.Text = "City / Municipality";
+            this.label57.Text = "City / Municipality *";
             // 
             // txtCity
             // 
@@ -1032,9 +1032,9 @@
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label56.Location = new System.Drawing.Point(7, 219);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(58, 15);
+            this.label56.Size = new System.Drawing.Size(66, 15);
             this.label56.TabIndex = 62;
-            this.label56.Text = "Barangay";
+            this.label56.Text = "Barangay *";
             // 
             // txtBarangay
             // 
@@ -1051,9 +1051,9 @@
             this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label54.Location = new System.Drawing.Point(160, 167);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(43, 15);
+            this.label54.Size = new System.Drawing.Size(51, 15);
             this.label54.TabIndex = 59;
-            this.label54.Text = "Street";
+            this.label54.Text = "Street *";
             // 
             // txtStreet
             // 
@@ -1070,9 +1070,9 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label15.Location = new System.Drawing.Point(160, 273);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 15);
+            this.label15.Size = new System.Drawing.Size(107, 15);
             this.label15.TabIndex = 57;
-            this.label15.Text = "Contact Number";
+            this.label15.Text = "Contact Number *";
             // 
             // txtStudContactNum
             // 
@@ -1110,9 +1110,9 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label13.Location = new System.Drawing.Point(316, 168);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(118, 15);
+            this.label13.Size = new System.Drawing.Size(126, 15);
             this.label13.TabIndex = 53;
-            this.label13.Text = "Subdivision / Village";
+            this.label13.Text = "Subdivision / Village *";
             // 
             // txtSubdivision
             // 
@@ -1129,9 +1129,9 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label12.Location = new System.Drawing.Point(7, 168);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 15);
+            this.label12.Size = new System.Drawing.Size(106, 15);
             this.label12.TabIndex = 51;
-            this.label12.Text = "Street # / Unit #";
+            this.label12.Text = "Street # / Unit # *";
             // 
             // txtStreetNum
             // 
@@ -1148,9 +1148,9 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label11.Location = new System.Drawing.Point(316, 117);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 15);
+            this.label11.Size = new System.Drawing.Size(75, 15);
             this.label11.TabIndex = 49;
-            this.label11.Text = "Citizenship";
+            this.label11.Text = "Citizenship *";
             // 
             // txtStudCitizenship
             // 
@@ -1167,9 +1167,9 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label10.Location = new System.Drawing.Point(160, 117);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 15);
+            this.label10.Size = new System.Drawing.Size(76, 15);
             this.label10.TabIndex = 47;
-            this.label10.Text = "Civil Status";
+            this.label10.Text = "Civil Status *";
             // 
             // label8
             // 
@@ -1178,9 +1178,9 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label8.Location = new System.Drawing.Point(7, 117);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 15);
+            this.label8.Size = new System.Drawing.Size(72, 15);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Birthplace";
+            this.label8.Text = "Birthplace *";
             // 
             // txtStudBirthdPlace
             // 
@@ -1197,9 +1197,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label4.Location = new System.Drawing.Point(316, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 15);
+            this.label4.Size = new System.Drawing.Size(88, 15);
             this.label4.TabIndex = 41;
-            this.label4.Text = "Date of Birth";
+            this.label4.Text = "Date of Birth *";
             // 
             // comboGender
             // 
@@ -1222,9 +1222,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label3.Location = new System.Drawing.Point(160, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 15);
+            this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 38;
-            this.label3.Text = "Gender";
+            this.label3.Text = "Gender *";
             // 
             // label1
             // 
@@ -1252,9 +1252,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.label7.Location = new System.Drawing.Point(316, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 15);
+            this.label7.Size = new System.Drawing.Size(73, 15);
             this.label7.TabIndex = 35;
-            this.label7.Text = "Last Name";
+            this.label7.Text = "Last Name *";
             // 
             // txtStudLastName
             // 
@@ -1290,9 +1290,9 @@
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
             this.lblName.Location = new System.Drawing.Point(7, 10);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(67, 15);
+            this.lblName.Size = new System.Drawing.Size(75, 15);
             this.lblName.TabIndex = 31;
-            this.lblName.Text = "First Name";
+            this.lblName.Text = "First Name *";
             // 
             // panel2
             // 
