@@ -9,15 +9,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Runtime.InteropServices;
+
 namespace TestStudentRegistration
 {
     public partial class frmLogin : Form
     {
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int LPAR);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        const int HT_CAPTION = 0x2;
         protected readonly string _k3ys = "agapitechkey2successXDXD"; 
         public frmLogin()
         {
             InitializeComponent();
-            
+            this.MouseDown += new MouseEventHandler(move_window);
+
+        }
+        private void move_window(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
         //For Devs, DO NOT MODIFY THIS CONNECTIONSTRING, MODIFY YOUR OWN CONNECTION STRING TO THE APP.CONFIG
         string connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ToString();
@@ -171,7 +189,8 @@ namespace TestStudentRegistration
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Logout.BringToFront();
+
         }
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
@@ -188,6 +207,16 @@ namespace TestStudentRegistration
             {
                 loginFunction();
             }
+        }
+
+        private void btnCloseNo_Click(object sender, EventArgs e)
+        {
+            Panel.BringToFront();
+        }
+
+        private void btnCloseYes_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

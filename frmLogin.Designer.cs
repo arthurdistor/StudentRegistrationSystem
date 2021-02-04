@@ -43,10 +43,12 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.Logout = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button_WOC45 = new ePOSOne.btnProduct.Button_WOC();
+            this.btnCloseYes = new ePOSOne.btnProduct.Button_WOC();
             this.label44 = new System.Windows.Forms.Label();
             this.Panel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnCloseNo = new ePOSOne.btnProduct.Button_WOC();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.Logout.SuspendLayout();
@@ -121,6 +123,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 557);
             this.panel1.TabIndex = 6;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // btnClose
             // 
@@ -194,12 +197,14 @@
             // Logout
             // 
             this.Logout.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Logout.Controls.Add(this.label6);
+            this.Logout.Controls.Add(this.btnCloseNo);
             this.Logout.Controls.Add(this.label7);
-            this.Logout.Controls.Add(this.button_WOC45);
+            this.Logout.Controls.Add(this.btnCloseYes);
             this.Logout.Controls.Add(this.label44);
-            this.Logout.Location = new System.Drawing.Point(194, 193);
+            this.Logout.Location = new System.Drawing.Point(254, 200);
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(419, 170);
+            this.Logout.Size = new System.Drawing.Size(373, 170);
             this.Logout.TabIndex = 83;
             // 
             // label7
@@ -207,43 +212,44 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Sitka Heading", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label7.Location = new System.Drawing.Point(197, 10);
+            this.label7.Location = new System.Drawing.Point(176, 7);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 39);
             this.label7.TabIndex = 66;
             this.label7.Text = "i";
             // 
-            // button_WOC45
+            // btnCloseYes
             // 
-            this.button_WOC45.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC45.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.button_WOC45.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_WOC45.FlatAppearance.BorderSize = 0;
-            this.button_WOC45.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC45.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_WOC45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_WOC45.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_WOC45.Location = new System.Drawing.Point(146, 94);
-            this.button_WOC45.Name = "button_WOC45";
-            this.button_WOC45.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC45.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
-            this.button_WOC45.OnHoverTextColor = System.Drawing.Color.White;
-            this.button_WOC45.Size = new System.Drawing.Size(121, 46);
-            this.button_WOC45.TabIndex = 65;
-            this.button_WOC45.Text = "Okay";
-            this.button_WOC45.TextColor = System.Drawing.Color.White;
-            this.button_WOC45.UseVisualStyleBackColor = true;
+            this.btnCloseYes.BorderColor = System.Drawing.Color.Red;
+            this.btnCloseYes.ButtonColor = System.Drawing.Color.Red;
+            this.btnCloseYes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseYes.FlatAppearance.BorderSize = 0;
+            this.btnCloseYes.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCloseYes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCloseYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseYes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseYes.Location = new System.Drawing.Point(28, 100);
+            this.btnCloseYes.Name = "btnCloseYes";
+            this.btnCloseYes.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnCloseYes.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnCloseYes.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCloseYes.Size = new System.Drawing.Size(121, 46);
+            this.btnCloseYes.TabIndex = 65;
+            this.btnCloseYes.Text = "Yes";
+            this.btnCloseYes.TextColor = System.Drawing.Color.White;
+            this.btnCloseYes.UseVisualStyleBackColor = true;
+            this.btnCloseYes.Click += new System.EventHandler(this.btnCloseYes_Click);
             // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
-            this.label44.Location = new System.Drawing.Point(125, 43);
+            this.label44.Location = new System.Drawing.Point(77, 36);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(179, 30);
+            this.label44.Size = new System.Drawing.Size(241, 30);
             this.label44.TabIndex = 0;
-            this.label44.Text = "Closing System...";
+            this.label44.Text = "Are you sure you want ";
             // 
             // Panel
             // 
@@ -252,14 +258,48 @@
             this.Panel.Controls.Add(this.panel1);
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(808, 557);
+            this.Panel.Size = new System.Drawing.Size(808, 558);
             this.Panel.TabIndex = 84;
+            this.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.move_window);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnCloseNo
+            // 
+            this.btnCloseNo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnCloseNo.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
+            this.btnCloseNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseNo.FlatAppearance.BorderSize = 0;
+            this.btnCloseNo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCloseNo.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCloseNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseNo.Location = new System.Drawing.Point(226, 105);
+            this.btnCloseNo.Name = "btnCloseNo";
+            this.btnCloseNo.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnCloseNo.OnHoverButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(153)))), ((int)(((byte)(193)))));
+            this.btnCloseNo.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCloseNo.Size = new System.Drawing.Size(121, 46);
+            this.btnCloseNo.TabIndex = 67;
+            this.btnCloseNo.Text = "No";
+            this.btnCloseNo.TextColor = System.Drawing.Color.White;
+            this.btnCloseNo.UseVisualStyleBackColor = true;
+            this.btnCloseNo.Click += new System.EventHandler(this.btnCloseNo_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(45)))), ((int)(((byte)(101)))));
+            this.label6.Location = new System.Drawing.Point(103, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(182, 30);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "close the system?";
             // 
             // frmLogin
             // 
@@ -296,11 +336,13 @@
         private ePOSOne.btnProduct.Button_WOC btnLogin;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Panel Logout;
-        private ePOSOne.btnProduct.Button_WOC button_WOC45;
+        private ePOSOne.btnProduct.Button_WOC btnCloseYes;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label6;
+        private ePOSOne.btnProduct.Button_WOC btnCloseNo;
     }
 }
