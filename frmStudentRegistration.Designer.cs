@@ -1023,7 +1023,7 @@
             this.txtCity.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCity.Location = new System.Drawing.Point(163, 239);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(122, 23);
+            this.txtCity.Size = new System.Drawing.Size(123, 23);
             this.txtCity.TabIndex = 14;
             // 
             // label56
@@ -1061,7 +1061,7 @@
             this.txtStreet.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStreet.Location = new System.Drawing.Point(162, 186);
             this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(122, 23);
+            this.txtStreet.Size = new System.Drawing.Size(124, 23);
             this.txtStreet.TabIndex = 11;
             // 
             // label15
@@ -1081,7 +1081,7 @@
             this.txtStudContactNum.Location = new System.Drawing.Point(163, 293);
             this.txtStudContactNum.MaxLength = 15;
             this.txtStudContactNum.Name = "txtStudContactNum";
-            this.txtStudContactNum.Size = new System.Drawing.Size(122, 23);
+            this.txtStudContactNum.Size = new System.Drawing.Size(123, 23);
             this.txtStudContactNum.TabIndex = 17;
             this.txtStudContactNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudContactNum_KeyPress);
             // 
