@@ -45,8 +45,23 @@ namespace TestStudentRegistration
 
         public DateTime getDateOfBirth()
         {
-            string[] date = dateOfBirth.Split('/');
-            return new DateTime(Convert.ToInt32(date[2]), Convert.ToInt32(date[0]), Convert.ToInt32(date[1]));
+
+            var str = dateOfBirth;
+            DateTime dt;
+            var isValidDate = DateTime.TryParse(str, out dt);
+            if (isValidDate)
+            {
+                Console.WriteLine(dt);
+                string[] date = dateOfBirth.Split('/');
+                return new DateTime(Convert.ToInt32(date[2]), Convert.ToInt32(date[0]), Convert.ToInt32(date[1]));
+            }
+            else
+            {
+                dt = DateTime.Now;
+                Console.WriteLine($"{str} is not a valid date string");
+                return dt;
+            }
+
         }
 
         public static Student getStudentByAttachment(string[] lines)
@@ -203,6 +218,32 @@ namespace TestStudentRegistration
                 if (line.Contains("Guardian's Relationship:"))
                 {
                     attachStudent.GuardianRelationship = word[1];
+                    //MessageBox.Show(word[1]);
+                }  if (line.Contains("School Type:"))
+                {
+                    attachStudent.SchoolType = word[1];
+                    //MessageBox.Show(word[1]);
+                }
+                if (line.Contains("Learner's Reference Number:"))
+                {
+                    attachStudent.ReferenceNumber = word[1];
+                    //MessageBox.Show(word[1]);
+                } if (line.Contains("Name Of School:"))
+                {
+                    attachStudent.NameOfSchool= word[1];
+                    //MessageBox.Show(word[1]);
+                }
+                if (line.Contains("Year/Grade:"))
+                {
+                    attachStudent.YearGrade = word[1];
+                    //MessageBox.Show(word[1]);
+                }if (line.Contains("Program/Track and Strand/Specialization:"))
+                {
+                    attachStudent.ProgramTrack = word[1];
+                    //MessageBox.Show(word[1]);
+                }if (line.Contains("Year Of Graduation:"))
+                {
+                    attachStudent.YearGraduation = word[1];
                     //MessageBox.Show(word[1]);
                 }
             }

@@ -1008,6 +1008,12 @@ namespace TestStudentRegistration
                 comboGender.SelectedIndex = comboGender.FindString(student.Gender);
                 txtStudStatus.SelectedIndex = txtStudStatus.FindString(student.CivilStatus);
                 dateOfBirth.Value = student.getDateOfBirth();
+                comboSchoolType.SelectedIndex = comboSchoolType.FindString(student.SchoolType);
+                txtYear.SelectedIndex = txtYear.FindString(student.YearGrade);
+                txtLRN.Text = student.ReferenceNumber;
+                txtDateOfGraduation.Text = student.YearGraduation;
+                txtSchoolName.Text = student.NameOfSchool;
+                txtProgram.Text = student.ProgramTrack;
           
             }
          
