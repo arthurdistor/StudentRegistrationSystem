@@ -117,7 +117,7 @@ namespace TestStudentRegistration
             string readText = File.ReadAllText("");
 
         }
-
+            
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -356,25 +356,75 @@ namespace TestStudentRegistration
             SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                string query = @"
-            UPDATE tblAccounts
-            SET
-            FullName = @Fullname,            
-            Username = @Username,           
-            AccountType = @AccountType,            
-            AccountStatus = @AccountStatus
-            WHERE accountID ='" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
-                
-                SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
-                command.Parameters.AddWithValue("@Fullname", txtFullname.Text);
-                command.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtUsername.Text, _k3ys));
-                command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
-                command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("Update Successfully");
+                string AccType;
+                int totalFA;
+                string countFullAdmin = "SELECT COUNT(tblAccounts.AccountType) from tblAccounts WHERE tblAccounts.AccountType='Full Admin' AND tblAccounts.AccountStatus='Enabled';";
+                string checkAccountType = "SELECT AccountType from tblAccounts WHERE accountID = '" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
+                var cmd = new SqlCommand(checkAccountType, connection);
+                AccType = cmd.ExecuteScalar().ToString();
+                cmd = new SqlCommand(countFullAdmin, connection);
+                totalFA = (int)cmd.ExecuteScalar();
+
+                if (AccType.Equals("Full Admin") && totalFA == 1)
+                {
+                    if (!comboAccountType.Text.Equals("Full Admin"))
+                    {
+                        MessageBox.Show("Account type cannot be change if there is only 1 Full Admin");
+                        comboAccountType.Text = "Full Admin";
+                        comboAccStatus.Text = "Enabled";
+                    }
+                    else if (comboAccStatus.Text.Equals("Disabled"))
+                    {
+                        MessageBox.Show("Account Status cannot be change if there is only 1 Full Admin");
+                        comboAccStatus.Text = "Enabled";
+                        comboAccountType.Text = "Full Admin";
+                    }
+                    else
+                    {
+                        string query = @"
+                        UPDATE tblAccounts
+                        SET
+                        FullName = @Fullname,            
+                        Username = @Username,           
+                        AccountType = @AccountType,            
+                        AccountStatus = @AccountStatus
+                        WHERE accountID ='" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
+
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@Fullname", txtFullname.Text);
+                        command.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtUsername.Text, _k3ys));
+                        command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
+                        command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Update Successfully");
+                        insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
+                    }
+                }
+                else
+                {
+                    string query = @"
+                        UPDATE tblAccounts
+                        SET
+                        FullName = @Fullname,            
+                        Username = @Username,           
+                        AccountType = @AccountType,            
+                        AccountStatus = @AccountStatus
+                        WHERE accountID ='" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Fullname", txtFullname.Text);
+                    command.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtUsername.Text, _k3ys));
+                    command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
+                    command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Update Successfully");
+                    insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
+                }
+                
             }
-            catch(Exception Ex)
+            
+            catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
             }
@@ -383,16 +433,15 @@ namespace TestStudentRegistration
                 connection.Close();
                 loadAccountData();
             }
-           
-           
         }
+           
         private void btnSave_Click(object sender, EventArgs e)
         {
             enableComponents(false);
             btnSave.Enabled = false;
             btnEdit.Enabled = true;
             UpdateAccount();
-            insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
+            
         }
 
         private void enableComponents(Boolean isTrue)
@@ -451,8 +500,7 @@ namespace TestStudentRegistration
                 {
 
                     //Use this query if tblLogs was implemented
-                   string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.FullName = L.Name where A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString() + " ORDER BY L.LoginTime DESC;";
-
+                   string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.Username = L.Username where A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString() + " ORDER BY L.LoginTime DESC;";
                    // string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
 
                     SqlConnection connection = new SqlConnection(connectionString);
@@ -604,6 +652,7 @@ namespace TestStudentRegistration
         {
             Accounts.BringToFront();
             clearTextAccount();
+           
         }
         private void loadFullStudentData()
         {
@@ -1198,6 +1247,19 @@ namespace TestStudentRegistration
             frmLogin frmLogin = new frmLogin();
             frmLogin.Show();
             this.Hide();
+        }
+
+        private void btnNewAccount_Click(object sender, EventArgs e)
+        {
+            EnableContentAddAccountPanel(pnlCreateAccountComponents, true);
+            clearTextAccount();
+            pnlCreateAccount.BringToFront();
+        }
+
+        private void txtCreateAccName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            txtCreateAccName.MaxLength = 100;
         }
     }
 }
