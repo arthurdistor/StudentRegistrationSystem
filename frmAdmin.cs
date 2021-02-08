@@ -359,6 +359,7 @@ namespace TestStudentRegistration
                 connection.Open();
                 string AccType;
                 int totalFA;
+                bool isTrue =true;
                 string countFullAdmin = "SELECT COUNT(tblAccounts.AccountType) from tblAccounts WHERE tblAccounts.AccountType='Full Admin' AND tblAccounts.AccountStatus='Enabled';";
                 string checkAccountType = "SELECT AccountType from tblAccounts WHERE accountID = '" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
                 var cmd = new SqlCommand(checkAccountType, connection);
@@ -373,35 +374,21 @@ namespace TestStudentRegistration
                         MessageBox.Show("Account type cannot be change if there is only 1 Full Admin");
                         comboAccountType.Text = "Full Admin";
                         comboAccStatus.Text = "Enabled";
+                        isTrue = false;
                     }
                     else if (comboAccStatus.Text.Equals("Disabled"))
                     {
                         MessageBox.Show("Account Status cannot be change if there is only 1 Full Admin");
                         comboAccStatus.Text = "Enabled";
                         comboAccountType.Text = "Full Admin";
+                        isTrue = false;
                     }
                     else
                     {
-                        string query = @"
-                        UPDATE tblAccounts
-                        SET
-                        FullName = @Fullname,            
-                        Username = @Username,           
-                        AccountType = @AccountType,            
-                        AccountStatus = @AccountStatus
-                        WHERE accountID ='" + dataGridAccount.CurrentRow.Cells["AccountID"].FormattedValue.ToString() + "';";
-
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@Fullname", txtFullname.Text);
-                        command.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtUsername.Text, _k3ys));
-                        command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
-                        command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Update Successfully");
-                        insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
+                        isTrue = true;
                     }
                 }
-                else
+                if(isTrue)
                 {
                     string query = @"
                         UPDATE tblAccounts
@@ -500,7 +487,7 @@ namespace TestStudentRegistration
                 {
 
                     //Use this query if tblLogs was implemented
-                   string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.Username = L.Username where A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString() + " ORDER BY L.LoginTime DESC;";
+                   string query = "SELECT TOP 1 A.FullName, A.Username, A.AccountType, A.AccountStatus, L.LoginTime, L.LogMessage FROM tblAccounts A RIGHT JOIN tblLogs L ON A.Username = L.Username where A.AccountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString() + " ORDER BY L.LoginTime DESC;";
                    // string query = "SELECT A.FullName, A.Username, A.AccountType, A.AccountStatus, A.LastLogin FROM tblAccounts A WHERE A.accountID =" + dataGridAccount.Rows[e.RowIndex].Cells["accountID"].FormattedValue.ToString();
 
                     SqlConnection connection = new SqlConnection(connectionString);
@@ -1277,7 +1264,7 @@ namespace TestStudentRegistration
                 {
                     worksheet.Cells[1, i] = dataGridLogs.Columns[i - 1].HeaderText;
                 }
-                //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
+                
                 for (int i = 0; i < dataGridLogs.Rows.Count + 0; i++)
                 {
                     for (int j = 0; j < dataGridLogs.Columns.Count; j++)

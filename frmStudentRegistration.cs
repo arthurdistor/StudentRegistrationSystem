@@ -56,7 +56,17 @@ namespace TestStudentRegistration
         }
         private void frmStudentRegistration_Load_1(object sender, EventArgs e)
         {
+            if(studentNumberFromAdmin== null || studentNumberFromAdmin.Equals(""))
+            {
+                generateStudentID();
+                lblRegistrationNum.Text = "Student No.: " + finalStudID;
+            }
+            else
+            {
 
+                lblRegistrationNum.Text= "Student No.: " + studentNumberFromAdmin;
+            }
+          
         }
 
         public void insertLogs(string fullname, string accountType, string logLevel, string logMessage)
@@ -556,6 +566,7 @@ namespace TestStudentRegistration
             BEGIN TRANSACTION 
             UPDATE tblStudent 
             SET 
+            
             tblStudent.FirstName = @FirstName,
             tblStudent.MiddleName = @MiddleName,
             tblStudent.LastName = @LastName,
@@ -574,7 +585,8 @@ namespace TestStudentRegistration
             tblStudent.ZipCode = @ZipCode,
             tblStudent.EmailAdd = @EmailAdd,
             tblStudent.ContactNo = @ContactNo,
-            tblStudent.admissionType = @admissionType   
+            tblStudent.admissionType = @admissionType,   
+            tblStudent.LRN = @LRN
             WHERE tblStudent.StudentID = @studentID;    
 
             UPDATE tblEducation
@@ -638,6 +650,7 @@ namespace TestStudentRegistration
             command.Parameters.AddWithValue("@EmailAdd", txtEmail.Text);
             command.Parameters.AddWithValue("@ContactNo", txtStudContactNum.Text);
             command.Parameters.AddWithValue("@admissionType", comboAdmissionType.Text);
+            command.Parameters.AddWithValue("@LRN", txtLRN.Text);
 
             command.Parameters.AddWithValue("@SchoolType", comboSchoolType.Text);
             command.Parameters.AddWithValue("@SchoolName", txtSchoolName.Text);
@@ -664,7 +677,31 @@ namespace TestStudentRegistration
            command.ExecuteNonQuery();
             connection.Close();
         }
+        private void generateStudentID()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
 
+            DateTime dateTime = DateTime.Now;
+            customID = dateTime.ToString("yyyyMM");
+
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(studentID) as numrows FROM tblStudent;", con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            if (!dr.HasRows || dr.IsDBNull(0))
+            {
+                finalStudID = customID + "00001";
+            }
+            else
+            {
+                int newID = Convert.ToInt32(dr.GetInt32(0));
+                newID++;
+                finalStudID = customID + newID.ToString("00000");
+            }
+            
+            con.Close();
+         
+        }
         private void generateStudentID1()
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -731,6 +768,8 @@ namespace TestStudentRegistration
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Student Registered");
+                generateStudentID();
+                lblRegistrationNum.Text = "Student No.: " finalStudID;
             con.Close();
             
             }

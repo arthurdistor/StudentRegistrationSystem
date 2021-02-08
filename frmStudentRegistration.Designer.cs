@@ -180,6 +180,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDelete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnDelete.Controls.Add(this.btnEdit);
             this.btnDelete.Controls.Add(this.btnMinimize);
             this.btnDelete.Controls.Add(this.btnClose);
@@ -1310,13 +1311,13 @@
             // lblRegistrationNum
             // 
             this.lblRegistrationNum.AutoSize = true;
-            this.lblRegistrationNum.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrationNum.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistrationNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(114)))), ((int)(((byte)(168)))));
-            this.lblRegistrationNum.Location = new System.Drawing.Point(3, 3);
+            this.lblRegistrationNum.Location = new System.Drawing.Point(3, 12);
             this.lblRegistrationNum.Name = "lblRegistrationNum";
-            this.lblRegistrationNum.Size = new System.Drawing.Size(209, 40);
+            this.lblRegistrationNum.Size = new System.Drawing.Size(162, 25);
             this.lblRegistrationNum.TabIndex = 0;
-            this.lblRegistrationNum.Text = "Registration #";
+            this.lblRegistrationNum.Text = "Student Number";
             // 
             // SaveChanges
             // 
