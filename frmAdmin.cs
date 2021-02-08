@@ -1261,5 +1261,51 @@ namespace TestStudentRegistration
 
             txtCreateAccName.MaxLength = 100;
         }
+
+        private void btnExportLogs_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                app.Visible = false;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+
+                for (int i = 1; i < dataGridLogs.Columns.Count + 1; i++)
+                {
+                    worksheet.Cells[1, i] = dataGridLogs.Columns[i - 1].HeaderText;
+                }
+                //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
+                for (int i = 0; i < dataGridLogs.Rows.Count + 0; i++)
+                {
+                    for (int j = 0; j < dataGridLogs.Columns.Count; j++)
+                    {
+                        if (dataGridLogs.Rows[i].Cells[j].Value != null)
+                        {
+                            worksheet.Cells[i + 2, j + 1] = dataGridLogs.Rows[i].Cells[j].Value.ToString();
+                        }
+                        else
+                        {
+                            worksheet.Cells[i + 2, j + 1] = "";
+                        }
+                    }
+                }
+                worksheet.Cells[1, 1].EntireRow.Font.Bold = true;
+
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = "System Logs Reports " + DateTime.Now.ToString("MMMM-dd-yyyy HH-mm");
+                saveFileDialog.DefaultExt = ".xlsx";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
