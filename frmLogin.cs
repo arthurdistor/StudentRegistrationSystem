@@ -64,7 +64,7 @@ namespace TestStudentRegistration
 
             UserInfo matchingUser = new UserInfo();
 
-            string query = "SELECT * from tblAccounts WHERE Username = @username and Password=@password";
+            string query = "SELECT * from tblAccounts WHERE Username = @username AND Password=@password AND AccountStatus='Enabled'";
 
             string userlevel = "";
             SqlConnection con = new SqlConnection(connectionString);
@@ -169,10 +169,13 @@ namespace TestStudentRegistration
                     else if (x.userlevel == "Student Assistant")
                     {
                         dashboard.StudentAssistantUser();
-                        
                     }
                     dashboard.Show();
                     this.Hide();
+                }
+                else
+                {
+                    txtPass.Text = "";
                 }
 
             }
