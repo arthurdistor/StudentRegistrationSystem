@@ -27,7 +27,7 @@ namespace TestStudentRegistration
         {
             InitializeComponent();
             this.MouseDown += new MouseEventHandler(move_window);
-
+            lblDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
         }
         private void move_window(object sender, MouseEventArgs e)
         {
