@@ -955,11 +955,9 @@ namespace TestStudentRegistration
                 {
                     frmStudentRegistration.StudentAssistantUser();
                 }
-                foreach (DataGridViewRow row in DataGridArchive.Rows)
-                {
-                    frmStudentRegistration.loadStudData(DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString());
-                    frmStudentRegistration.studentNumberFromAdmin = DataGridArchive.Rows[row.Index].Cells["StudentID"].FormattedValue.ToString();
-                }
+              
+                frmStudentRegistration.loadStudData(DataGridArchive.CurrentRow.Cells["StudentID"].FormattedValue.ToString());
+                frmStudentRegistration.studentNumberFromAdmin = DataGridArchive.CurrentRow.Cells["StudentID"].FormattedValue.ToString();
                 frmStudentRegistration.name = fullname;
                 frmStudentRegistration.accounttype = accountType;
                 frmStudentRegistration.btnEdit.Visible = false;

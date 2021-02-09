@@ -769,7 +769,7 @@ namespace TestStudentRegistration
 
             MessageBox.Show("Student Registered");
                 generateStudentID();
-                lblRegistrationNum.Text = "Student No.: " finalStudID;
+                lblRegistrationNum.Text = "Student No.: " +finalStudID;
             con.Close();
             
             }
@@ -988,18 +988,24 @@ namespace TestStudentRegistration
 
         private void btnAttachment_Click(object sender, EventArgs e)
         {
+           
+         
+        }
+
+        private void btnAttachment_Click_1(object sender, EventArgs e)
+        {
             Student student = null;
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Text files (*.txt)|*.txt|Rich Text Format (*.rtf) |*.rtf|Pdf Files(*.pdf)|*.pdf";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 string ext = System.IO.Path.GetExtension(openFile.FileName);
-               //MessageBox.Show(ext);
+                //MessageBox.Show(ext);
                 if (ext.Equals(".txt"))
                 {
-             
+
                     string[] filelines = File.ReadAllLines(openFile.FileName);
-                    student = Student.getStudentByAttachment(filelines);   
+                    student = Student.getStudentByAttachment(filelines);
                 }
                 else if (ext.Equals(".pdf"))
                 {
@@ -1007,15 +1013,15 @@ namespace TestStudentRegistration
                     StringBuilder text = new StringBuilder();
                     ITextExtractionStrategy Strategy = new SimpleTextExtractionStrategy();
                     PdfReader reader = new PdfReader(openFile.FileName);
-                    
-                        for (int i = 1; i <= reader.NumberOfPages; i++)
-                        {
-                            string page = "";
-                            page = PdfTextExtractor.GetTextFromPage(reader, i, Strategy);
-                            string[] lines = page.Split('\n');
-                            student = Student.getStudentByAttachment(lines);
+
+                    for (int i = 1; i <= reader.NumberOfPages; i++)
+                    {
+                        string page = "";
+                        page = PdfTextExtractor.GetTextFromPage(reader, i, Strategy);
+                        string[] lines = page.Split('\n');
+                        student = Student.getStudentByAttachment(lines);
                     }
-                   
+
                 }
 
                 //MessageBox.Show(student.CivilStatus);
@@ -1053,9 +1059,8 @@ namespace TestStudentRegistration
                 txtDateOfGraduation.Text = student.YearGraduation;
                 txtSchoolName.Text = student.NameOfSchool;
                 txtProgram.Text = student.ProgramTrack;
-          
+
             }
-         
         }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)

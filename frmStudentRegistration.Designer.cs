@@ -258,6 +258,7 @@
             this.btnAttachment.TabIndex = 65;
             this.toolTip1.SetToolTip(this.btnAttachment, "Import Student Data via External Document");
             this.btnAttachment.UseVisualStyleBackColor = false;
+            this.btnAttachment.Click += new System.EventHandler(this.btnAttachment_Click_1);
             // 
             // btnSave
             // 
