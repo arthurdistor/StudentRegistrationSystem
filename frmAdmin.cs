@@ -65,6 +65,7 @@ namespace TestStudentRegistration
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             lblGreetings.Text = "Welcome " + fullname;
+            lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
             studentDataGrid();
             loadSimpleStudentData();
             loadTotalData();
@@ -193,7 +194,7 @@ namespace TestStudentRegistration
            
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+                MessageBox.Show("Cannot load data. Error Message: " + ex.Message, "Error Loading Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -223,7 +224,7 @@ namespace TestStudentRegistration
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+                MessageBox.Show("Cannot load data. Error Message: " + ex.Message, "Error Loading Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -236,50 +237,17 @@ namespace TestStudentRegistration
 
             loadSimpleStudentData();
             loadTotalData();
-            lblLogsDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
-            lblArcDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
-            lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
-            lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
-            lblAccTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
-            lblAdminTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+            lblLogsDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy" + Environment.NewLine + "hh:mm:ss tt");
+            lblArcDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
+            lblStudDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
+            lblTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
+            lblAccTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
+            lblAdminTimeDate.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
         }
 
         private void dataGridSimpleStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (e.RowIndex != -1)
-                {
-                    if (dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                    {
-                        frmStudentRegistration frmStudent = new frmStudentRegistration();
-                        if (accountType.Equals("Full Admin"))
-                        {
-                            frmStudent.FullAdmin();
-                        }
-                        else if (accountType.Equals("Admin"))
-                        {
-                            frmStudent.AdminUser();
-                        }
-                        else if (accountType.Equals("Student Assistant"))
-                        {
-                            frmStudent.StudentAssistantUser();
-                        }
-                        frmStudent.disableComponents();
-                        frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
-                        frmStudent.studentNumberFromAdmin = dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
-                        frmStudent.name = fullname;
-                        frmStudent.accounttype = accountType;
-                        frmStudent.Show();
-                    }
-                }
-            }
-
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("No Data Found");
-            }
-            
+           
         }
         private void btnAdminPanel_Click(object sender, EventArgs e)
         {
@@ -294,19 +262,21 @@ namespace TestStudentRegistration
         }
         private void UIButtonDashboarClick()
         {
-            btnDashboard.BorderColor = Color.White;
-            btnDashboard.ButtonColor = Color.White;
+            btnDashboard.BorderColor = Color.FromArgb(192, 229, 237);
+            btnDashboard.ButtonColor = Color.FromArgb(192, 229, 237);
             buttonStudents.ButtonColor = Color.FromArgb(4, 45, 101);
             buttonStudents.BorderColor = Color.FromArgb(4, 45, 101);
-
+            btnControlPanel.ButtonColor = Color.FromArgb(4, 45, 101);
+            btnControlPanel.BorderColor = Color.FromArgb(4, 45, 101);
         }
         private void UIButtonStudentsClick()
         {
-            buttonStudents.ButtonColor = Color.White;
-            buttonStudents.BorderColor = Color.White;
+            buttonStudents.ButtonColor = Color.FromArgb(192, 229, 237);
+            buttonStudents.BorderColor = Color.FromArgb(192, 229, 237);
             btnDashboard.ButtonColor = Color.FromArgb(4, 45, 101);
             btnDashboard.BorderColor = Color.FromArgb(4, 45, 101);
-
+            btnControlPanel.ButtonColor = Color.FromArgb(4, 45, 101);
+            btnControlPanel.BorderColor = Color.FromArgb(4, 45, 101);
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -371,14 +341,14 @@ namespace TestStudentRegistration
                 {
                     if (!comboAccountType.Text.Equals("Full Admin"))
                     {
-                        MessageBox.Show("Account type cannot be change if there is only 1 Full Admin");
+                        MessageBox.Show("Account Type cannot be change if there is only 1 Full Admin", "Information cannot be change", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         comboAccountType.Text = "Full Admin";
                         comboAccStatus.Text = "Enabled";
                         isTrue = false;
                     }
                     else if (comboAccStatus.Text.Equals("Disabled"))
                     {
-                        MessageBox.Show("Account Status cannot be change if there is only 1 Full Admin");
+                        MessageBox.Show("Account Status cannot be change if there is only 1 Full Admin", "Information cannot be changen", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         comboAccStatus.Text = "Enabled";
                         comboAccountType.Text = "Full Admin";
                         isTrue = false;
@@ -405,15 +375,17 @@ namespace TestStudentRegistration
                     command.Parameters.AddWithValue("@AccountType", comboAccountType.Text);
                     command.Parameters.AddWithValue("@AccountStatus", comboAccStatus.Text);
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Update Successfully");
+                    MessageBox.Show("Account information updated successfully", "Information cannot be changen", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     insertLogs(fullname, accountType, "High", "Update Account Information for user: " + txtFullname.Text);
+
                 }
                 
             }
             
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -612,7 +584,7 @@ namespace TestStudentRegistration
                         cmd.Parameters.AddWithValue("@accstatus", "Enabled");
 
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Your Account is created. You can now login.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Your Account is created. You can now login.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loadAccountData();
                         con.Close();
                         ClearText();
@@ -623,9 +595,9 @@ namespace TestStudentRegistration
                     MessageBox.Show("Incorrect Security Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(Exception Ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("An error Occured \n" + Ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -663,7 +635,7 @@ namespace TestStudentRegistration
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -673,9 +645,9 @@ namespace TestStudentRegistration
 
         private void pictureBox8_MouseHover(object sender, EventArgs e)
         {
-            buttonLogout1.ButtonColor = Color.White;
-            buttonLogout1.BorderColor = Color.White;
-            pictureBox8.BackColor = Color.White;
+            buttonLogout1.ButtonColor = Color.FromArgb(192, 229, 237);
+            buttonLogout1.BorderColor = Color.FromArgb(192, 229, 237);
+            pictureBox8.BackColor = Color.FromArgb(192, 229, 237);
 
         }
 
@@ -700,6 +672,7 @@ namespace TestStudentRegistration
         {
             button_WOC4.Visible = false;
             btnAdminPanel.Visible = false;
+            btnControlPanel.Visible = false;
             btnExport.Visible = false;
             btnFolder.Visible = false;
             btnEditStudent.Visible = false;
@@ -708,6 +681,7 @@ namespace TestStudentRegistration
         }
         public void AdminUser()
         {
+            btnControlPanel.Visible = false;
             btnAdminPanel.Visible = false;
         }
 
@@ -742,14 +716,14 @@ namespace TestStudentRegistration
 
         private void pictureBox8_MouseHover_1(object sender, EventArgs e)
         {
-            buttonLogout1.ButtonColor = Color.White;
-            buttonLogout1.BorderColor = Color.White;
-            pictureBox8.BackColor = Color.White;
+            buttonLogout1.ButtonColor = Color.FromArgb(192, 229, 237);
+            buttonLogout1.BorderColor = Color.FromArgb(192, 229, 237);
+            pictureBox8.BackColor = Color.FromArgb(192, 229, 237);
         }
 
         private void buttonLogout1_MouseHover_1(object sender, EventArgs e)
         {
-            pictureBox8.BackColor = Color.White;
+            pictureBox8.BackColor = Color.FromArgb(192, 229, 237);
         }
 
         private void buttonLogout1_MouseLeave_1(object sender, EventArgs e)
@@ -792,7 +766,7 @@ namespace TestStudentRegistration
             {
                 if (dataGridFullStudent.Rows.Count == 0)
                 {
-                    MessageBox.Show("No Data Found");
+                    MessageBox.Show("No Data found!", "Edit Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -822,7 +796,8 @@ namespace TestStudentRegistration
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No data to show");
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -835,7 +810,8 @@ namespace TestStudentRegistration
         {
             if (comboSearchType.Text.Equals("") || comboSearchType.Text.Equals(null))
             {
-                MessageBox.Show("Please include what data to search");
+
+                MessageBox.Show("Please include what data to search", "Search Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 comboSearchType.Focus();
             }
             else
@@ -853,7 +829,7 @@ namespace TestStudentRegistration
         {
             if (comboSearchTypeArc.Text.Equals("") || comboSearchTypeArc.Text.Equals(null))
             {
-                MessageBox.Show("Please include what data to search");
+                MessageBox.Show("Please include what data to search", "Search Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 comboSearchType.Focus();
             }
             else
@@ -888,7 +864,7 @@ namespace TestStudentRegistration
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+                MessageBox.Show("Cannot load data. Error Message: " + ex.Message, "Error Loading Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -918,6 +894,7 @@ namespace TestStudentRegistration
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
+            folderArcback = false;
             enableComponents(true);
             loadArchiveStudentData();
             Archive.BringToFront();
@@ -965,7 +942,7 @@ namespace TestStudentRegistration
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No data to show");
+                MessageBox.Show("No Data found!", "Export Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             /*
             try
@@ -1065,7 +1042,7 @@ namespace TestStudentRegistration
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "ERROR Loading");
+                MessageBox.Show("Cannot load data. Error Message: " + ex.Message, "Error Loading Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -1075,94 +1052,64 @@ namespace TestStudentRegistration
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-            //    Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-            //    Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-            //    app.Visible = true;
-            //    worksheet = workbook.Sheets["Sheet1"];
-            //    worksheet = workbook.ActiveSheet;
-
-            //    for (int i = 1; i < dataGridStudentFullData.Columns.Count + 1; i++)
-            //    {
-            //        worksheet.Cells[1, i] = dataGridStudentFullData.Columns[i - 1].HeaderText;
-            //    }
-            //    //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
-            //    for (int i = 0; i < dataGridStudentFullData.Rows.Count + 0; i++)
-            //    {
-            //        for (int j = 0; j < dataGridStudentFullData.Columns.Count; j++)
-            //        {
-            //            if (dataGridStudentFullData.Rows[i].Cells[j].Value != null)
-            //            {
-            //                worksheet.Cells[i + 2, j + 1] = dataGridStudentFullData.Rows[i].Cells[j].Value.ToString();
-            //            }
-            //            else
-            //            {
-            //                worksheet.Cells[i + 2, j + 1] = "";
-            //            }
-            //        }
-            //    }
-
-            //    var saveFileDialog = new SaveFileDialog();
-            //    saveFileDialog.FileName = "Student Data";
-            //    saveFileDialog.DefaultExt = ".xlsx";
-            //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //    {
-            //        workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            exportStudentData();
 
         }
-
-        private void btnExportStudent_Click(object sender, EventArgs e)
+        private void exportStudentData()
         {
-            try
+            if (dataGridStudentFullData.Rows.Count == 0)
             {
-                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = false;
-                worksheet = workbook.Sheets["Sheet1"];
-                worksheet = workbook.ActiveSheet;
+                MessageBox.Show("No Data found!", "Export Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                try
+                {
+                    Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                    Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                    app.Visible = false;
+                    worksheet = workbook.Sheets["Sheet1"];
+                    worksheet = workbook.ActiveSheet;
 
-                for (int i = 1; i < dataGridStudentFullData.Columns.Count + 1; i++)
-                {
-                    worksheet.Cells[1, i] = dataGridStudentFullData.Columns[i - 1].HeaderText;
-                }
-                //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
-                for (int i = 0; i < dataGridStudentFullData.Rows.Count + 0; i++)
-                {
-                    for (int j = 0; j < dataGridStudentFullData.Columns.Count; j++)
+                    for (int i = 1; i < dataGridStudentFullData.Columns.Count + 1; i++)
                     {
-                        if (dataGridStudentFullData.Rows[i].Cells[j].Value != null)
+                        worksheet.Cells[1, i] = dataGridStudentFullData.Columns[i - 1].HeaderText;
+                    }
+                    //for (int i = 0; i < dataGridStudentFullData.Rows.Count - 1; i++)
+                    for (int i = 0; i < dataGridStudentFullData.Rows.Count + 0; i++)
+                    {
+                        for (int j = 0; j < dataGridStudentFullData.Columns.Count; j++)
                         {
-                            worksheet.Cells[i + 2, j + 1] = dataGridStudentFullData.Rows[i].Cells[j].Value.ToString();
-                        }
-                        else
-                        {
-                            worksheet.Cells[i + 2, j + 1] = "";
+                            if (dataGridStudentFullData.Rows[i].Cells[j].Value != null)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = dataGridStudentFullData.Rows[i].Cells[j].Value.ToString();
+                            }
+                            else
+                            {
+                                worksheet.Cells[i + 2, j + 1] = "";
+                            }
                         }
                     }
-                }
-                worksheet.Cells[1, 1].EntireRow.Font.Bold = true;
+                    worksheet.Cells[1, 1].EntireRow.Font.Bold = true;
 
-                var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.FileName = "Student Data Reports " + DateTime.Now.ToString("MMMM-dd-yyyy HH-mm");
-                saveFileDialog.DefaultExt = ".xlsx";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    var saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.FileName = "Student Data Reports " + DateTime.Now.ToString("MMMM-dd-yyyy HH-mm");
+                    saveFileDialog.DefaultExt = ".xlsx";
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    }
+                }
+                catch (Exception ex)
                 {
-                    workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
+        private void btnExportStudent_Click(object sender, EventArgs e)
+        {
+            exportStudentData();
         }
 
         private void studentDataGrid()
@@ -1214,11 +1161,11 @@ namespace TestStudentRegistration
 
             catch (NullReferenceException ex)
             {
-                MessageBox.Show("No Data Found");
+                MessageBox.Show("No Data Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1289,8 +1236,62 @@ namespace TestStudentRegistration
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridSimpleStudentInfo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex != -1)
+                {
+                    if (dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                    {
+                        frmStudentRegistration frmStudent = new frmStudentRegistration();
+                        if (accountType.Equals("Full Admin"))
+                        {
+                            frmStudent.FullAdmin();
+                        }
+                        else if (accountType.Equals("Admin"))
+                        {
+                            frmStudent.AdminUser();
+                        }
+                        else if (accountType.Equals("Student Assistant"))
+                        {
+                            frmStudent.StudentAssistantUser();
+                        }
+                        frmStudent.disableComponents();
+                        frmStudent.loadStudData(dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString());
+                        frmStudent.studentNumberFromAdmin = dataGridSimpleStudentInfo.Rows[e.RowIndex].Cells["StudentID"].FormattedValue.ToString();
+                        frmStudent.name = fullname;
+                        frmStudent.accounttype = accountType;
+                        frmStudent.Show();
+                    }
+                }
+            }
+
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No Data Found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnControlPanel_Click(object sender, EventArgs e)
+        {
+             Admin_Control.BringToFront();
+            btnControlPanel.ButtonColor = Color.FromArgb(192, 229, 237);
+            btnControlPanel.BorderColor = Color.FromArgb(192, 229, 237);
+            btnDashboard.ButtonColor = Color.FromArgb(4, 45, 101);
+            btnDashboard.BorderColor = Color.FromArgb(4, 45, 101);
+            buttonStudents.ButtonColor = Color.FromArgb(4, 45, 101);
+            buttonStudents.BorderColor = Color.FromArgb(4, 45, 101);
+        }
+
+        private void txtCreateAccUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
         }
     }
 }

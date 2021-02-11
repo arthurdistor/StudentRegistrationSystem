@@ -56,15 +56,17 @@ namespace TestStudentRegistration
         }
         private void frmStudentRegistration_Load_1(object sender, EventArgs e)
         {
+            
             if(studentNumberFromAdmin== null || studentNumberFromAdmin.Equals(""))
             {
                 generateStudentID();
                 lblRegistrationNum.Text = "Student No.: " + finalStudID;
+                this.Text = "New Student";
             }
             else
             {
-
                 lblRegistrationNum.Text= "Student No.: " + studentNumberFromAdmin;
+                this.Text = studentNumberFromAdmin;
             }
           
         }
@@ -106,7 +108,7 @@ namespace TestStudentRegistration
                 cmd.Parameters.AddWithValue("@LastEditBy", userName);
                 cmd.Parameters.AddWithValue("@DateTime", DateTime.Now);
                 cmd.Parameters.AddWithValue("@Status", comboStatus.Text);
-                cmd.Parameters.AddWithValue("@Remarks", txtRemarks.Text);
+                cmd.Parameters.AddWithValue("@Remarks", txtRemarks.Text + txtRemarkInput.Text +" - "+DateTime.Now + Environment.NewLine);
 
                 cmd.ExecuteNonQuery();
 
@@ -116,7 +118,8 @@ namespace TestStudentRegistration
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "gg");
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
 
@@ -150,8 +153,10 @@ namespace TestStudentRegistration
                 {
 
                     if (control is TextBox)
+                    {
                         (control as TextBox).Enabled = false;
-
+                        txtRemarks.Enabled = true;
+                    }
                     if (control is ComboBox)
                         (control as ComboBox).Enabled = false;
                     if (control is DateTimePicker)
@@ -176,8 +181,11 @@ namespace TestStudentRegistration
                 {
 
                     if (control is TextBox)
+                    {
+                      
                         (control as TextBox).Enabled = true;
-
+                        //txtRemarks.Enabled = false;
+                    }
                     if (control is ComboBox)
                         (control as ComboBox).Enabled = true;
                     if (control is DateTimePicker)
@@ -205,7 +213,7 @@ namespace TestStudentRegistration
             {
                 studNumber = myReader[0].ToString();
                 txtLRN.Text = myReader[1].ToString();
-                txtStudFirstName.Text = myReader[2].ToString();
+                txtStudFirstName.Text = myReader[2].ToString();f
                 txtStudMiddleName.Text = myReader[3].ToString();
                 txtStudLastName.Text = myReader[4].ToString();
                 txtStudSuffix.Text = myReader[5].ToString();
@@ -361,14 +369,14 @@ namespace TestStudentRegistration
                 txtRelationship.Text == string.Empty
                 )
             {
-                MessageBox.Show("Fill all the required textbox");
+                MessageBox.Show("Fill all the required textbox", "Cannot insert data", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
                 if (isLRNExist())
                 {
-                    MessageBox.Show("LRN already exist");
+                    MessageBox.Show("LRN already exist", "Cannot insert data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -382,8 +390,15 @@ namespace TestStudentRegistration
                         //Update student info  
                         dr.Close();
                         UpdateStudentInfo();
-                        MessageBox.Show("Successfully Update");
+                        MessageBox.Show("Student data updated successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnEdit.Visible = true;
                         insertLogs(name, accounttype, "Medium", "Update Student Information of Student: " + studNumber);
+                        if (txtRemarkInput.Text.Equals("") || txtRemarkInput.Text.Equals(null))
+                            txtRemarks.Text = txtRemarks.Text;
+                        else
+                            txtRemarks.Text = txtRemarks.Text + txtRemarkInput.Text + " - " + DateTime.Now;
+
+                        txtRemarkInput.Text = "";
                     }
                     else
                     {
@@ -409,6 +424,7 @@ namespace TestStudentRegistration
                         txtZipCode.Text = "";
                         txtEmail.Text = "";
                         txtStudContactNum.Text = "";
+
                         //20 Stud timestamp
                         comboAdmissionType.SelectedIndex = -1;
                         //22education ID 23 studID
@@ -430,8 +446,10 @@ namespace TestStudentRegistration
                         txtGuardianOccupation.Text = "";
                         txtGuardianContact.Text = "";
                         txtRelationship.Text = "";
-
+                        
                         comboStatus.SelectedIndex = -1;
+                        txtRemarks.Text = "";
+                        txtRemarkInput.Text = "";
                     }
                 }
             }
@@ -504,7 +522,8 @@ namespace TestStudentRegistration
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
@@ -527,7 +546,8 @@ namespace TestStudentRegistration
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
             }
         }
@@ -553,7 +573,8 @@ namespace TestStudentRegistration
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
             }
         }
@@ -672,9 +693,13 @@ namespace TestStudentRegistration
             command.Parameters.AddWithValue("@RegLastEdit", userName);
             command.Parameters.AddWithValue("@RegDateTimeNow", DateTime.Now);
             command.Parameters.AddWithValue("@RegStatus", comboStatus.Text);
-            command.Parameters.AddWithValue("@RegRemarks", txtRemarks.Text);
 
-           command.ExecuteNonQuery();
+            if (txtRemarkInput.Text.Equals("") || txtRemarkInput.Text.Equals(null))
+                command.Parameters.AddWithValue("@RegRemarks", txtRemarks.Text);  
+            else
+            command.Parameters.AddWithValue("@RegRemarks", txtRemarks.Text + txtRemarkInput.Text + " - " + DateTime.Now + Environment.NewLine);
+
+            command.ExecuteNonQuery();
             connection.Close();
         }
         private void generateStudentID()
@@ -766,8 +791,7 @@ namespace TestStudentRegistration
             insertToTblRegistrationInfo();
 
             cmd.ExecuteNonQuery();
-
-            MessageBox.Show("Student Registered");
+                MessageBox.Show("Student successfully registered", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 generateStudentID();
                 lblRegistrationNum.Text = "Student No.: " +finalStudID;
             con.Close();
@@ -775,7 +799,8 @@ namespace TestStudentRegistration
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "gg");
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
         
@@ -894,6 +919,9 @@ namespace TestStudentRegistration
             btnEdit.Visible = false;
             btnAttachment.Visible = false;
             comboStatus.Enabled = false;
+            comboStatus.Items.Add("Enrolled");
+            comboStatus.Items.Add("Registered");
+            comboStatus.Items.Add("Archived");
         }
         public void AdminUser()
         {
@@ -947,7 +975,7 @@ namespace TestStudentRegistration
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -968,7 +996,16 @@ namespace TestStudentRegistration
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to close this form?", "Close this form?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
+         
             
         }
 
@@ -1000,7 +1037,6 @@ namespace TestStudentRegistration
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 string ext = System.IO.Path.GetExtension(openFile.FileName);
-                //MessageBox.Show(ext);
                 if (ext.Equals(".txt"))
                 {
 
@@ -1009,7 +1045,6 @@ namespace TestStudentRegistration
                 }
                 else if (ext.Equals(".pdf"))
                 {
-                    //MessageBox.Show("Naka pdf");
                     StringBuilder text = new StringBuilder();
                     ITextExtractionStrategy Strategy = new SimpleTextExtractionStrategy();
                     PdfReader reader = new PdfReader(openFile.FileName);
@@ -1061,6 +1096,49 @@ namespace TestStudentRegistration
                 txtProgram.Text = student.ProgramTrack;
 
             }
+        }
+
+        private void comboSchoolType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboSchoolType.Text.Equals("Elementary")) 
+            {
+                txtYear.Items.Clear();
+                txtYear.Items.Add("Grade 1");
+                txtYear.Items.Add("Grade 2");
+                txtYear.Items.Add("Grade 3");
+                txtYear.Items.Add("Grade 4");
+                txtYear.Items.Add("Grade 5");
+                txtYear.Items.Add("Grade 6");
+
+            }
+            else if(comboSchoolType.Text.Equals("Senior High School"))
+            {
+                txtYear.Items.Clear();
+                txtYear.Items.Add("Grade 11");
+                txtYear.Items.Add("Grade 12");
+            }
+            else if (comboSchoolType.Text.Equals("Junior High School"))
+            {
+                txtYear.Items.Clear();
+                txtYear.Items.Add("Grade 7");
+                txtYear.Items.Add("Grade 8");
+                txtYear.Items.Add("Grade 9");
+                txtYear.Items.Add("Grade 10");
+            }
+            else if (comboSchoolType.Text.Equals("Tertiary"))
+            {
+                txtYear.Items.Clear();
+                txtYear.Items.Add("1st Year");
+                txtYear.Items.Add("2nd Year");
+                txtYear.Items.Add("3rd Year");
+                txtYear.Items.Add("4th Year");
+            }
+            else if (comboSchoolType.Text.Equals("ALS"))
+            {
+                txtYear.Items.Clear();
+                txtYear.Items.Add("ALS");
+            }
+
         }
 
         private void txtZipCode_KeyPress_1(object sender, KeyPressEventArgs e)

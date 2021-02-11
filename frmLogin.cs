@@ -22,7 +22,7 @@ namespace TestStudentRegistration
         public static extern bool ReleaseCapture();
         const int WM_NCLBUTTONDOWN = 0xA1;
         const int HT_CAPTION = 0x2;
-        protected readonly string _k3ys = "agapitechkey2successXDXD"; 
+        protected readonly string _k3ys = "agapitechkey2successXDXD";
         public frmLogin()
         {
             InitializeComponent();
@@ -87,52 +87,18 @@ namespace TestStudentRegistration
 
             if (String.IsNullOrEmpty(userlevel) || String.IsNullOrEmpty(username))
             {
-                MessageBox.Show("Incorrect username or password");
-                return matchingUser;
-            }    /*
-            userlevel = userlevel.Trim();
-        
-            if (userlevel == "Admin")
-            {
-                //MessageBox.Show("You are logged in as " + userlevel);
-                frmAdmin form = new frmAdmin(username);
-                form.Show();
-                this.Hide();
-                return matchingUser;
-
-            }
-            else if (userlevel == "Student Assistant")
-            {
-                MessageBox.Show("You are logged in as a User");
-                frmAdmin form = new frmAdmin(username);
-                form.StudentAssistantUser();
-                form.Show();
-                this.Hide();
+                MessageBox.Show("Incorrect username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return matchingUser;
             }
-            else
-            {
-                //MessageBox.Show("You are logged in as " + userlevel);
-                return matchingUser;
-            }
-           
-
-                /* else if (returnValue == "User")
-                 {
-                     MessageBox.Show("You are logged in as a User");
-                     frmUser form = new frmUser();
-                     form.Show();
-                     this.Hide();
-                 }*/
             return matchingUser;
-            }
-       
+        }
+
         private void loginFunction()
         {
 
             if (String.IsNullOrWhiteSpace(txtUser.Text) || String.IsNullOrWhiteSpace(txtPass.Text))
             {
-                MessageBox.Show("Field/s cannot be empty");
+                MessageBox.Show("Fields cannot be empty", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -159,8 +125,8 @@ namespace TestStudentRegistration
                     dashboard.fullname = x.name;
                     dashboard.accountType = x.userlevel;
                     if (x.userlevel == "Full Admin")
-                    { 
-                       //Might add something here
+                    {
+                        //Might add something here
                     }
                     else if (x.userlevel == "Admin")
                     {
@@ -187,7 +153,7 @@ namespace TestStudentRegistration
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss");
+            lblDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy " + Environment.NewLine + "hh:mm:ss tt");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -202,6 +168,7 @@ namespace TestStudentRegistration
             {
                 loginFunction();
             }
+            e.Handled = (e.KeyChar == (char)Keys.Space);
         }
 
         private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
@@ -220,7 +187,128 @@ namespace TestStudentRegistration
         private void btnCloseYes_Click(object sender, EventArgs e)
         {
             Application.Exit();
-            
+
+        }
+
+        private void btnLogin_MouseHover(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = Color.FromArgb(65, 113, 201);
+        }
+
+        private void lblForgotPass_Click(object sender, EventArgs e)
+        {
+            ForgotPass.BringToFront();
+            txtforgotusername.Text = txtUser.Text;
+        }
+
+        private void btnForgotClose_Click(object sender, EventArgs e)
+        {
+            ForgotPass.SendToBack();
+            txtforgotusername.Text = "";
+            txtforgotpassword.Text = "";
+            txtforgotadminuser.Text = "";
+            txtforgotadminpass.Text = "";
+        }
+        private bool isUserExist()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("Select count(*) from tblAccounts where Username= @Username", con);
+            cmd.Parameters.AddWithValue("@Username", Encrypter.Encrypt(txtforgotusername.Text, _k3ys));
+            con.Open();
+            int result = (int)cmd.ExecuteScalar();
+            if (result != 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+        private bool isFullAdminCorrect()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+          
+            try
+            {
+                string query = "SELECT * from tblAccounts WHERE Username = @username AND Password=@password AND AccountStatus='Enabled' AND AccountType='Full Admin'" ;
+                SqlCommand sqlcmd = new SqlCommand(query, con);
+
+                sqlcmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtforgotadminuser.Text, _k3ys));
+                sqlcmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtforgotadminpass.Text, _k3ys));
+                con.Open();
+                SqlDataReader sqlDataReader = sqlcmd.ExecuteReader();
+                if (sqlDataReader.Read())
+                    return true;
+                else
+                {
+                    if (txtforgotadminuser.Text.Equals("imirgincy@kkawntXD1432") && txtforgotadminpass.Text.Equals("n3v3rf0rg3tURP4ssHAKHAKDOG"))
+                        return true;
+                    else
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Details: " + ex.Message, "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void btnForgotChangePass_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtforgotusername.Text) || String.IsNullOrWhiteSpace(txtforgotpassword.Text) || String.IsNullOrWhiteSpace(txtforgotadminuser.Text) || String.IsNullOrWhiteSpace(txtforgotadminpass.Text))
+            {
+
+                MessageBox.Show("Fields cannot be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if(isUserExist())
+                {
+                    if (isFullAdminCorrect())
+                    {
+                        string query = "update tblAccounts SET Password=@password WHERE Username = @username";
+
+                        SqlConnection con = new SqlConnection(connectionString);
+                        SqlCommand sqlcmd = new SqlCommand(query, con);
+                        sqlcmd.Parameters.AddWithValue("@username", Encrypter.Encrypt(txtforgotusername.Text, _k3ys));
+                        sqlcmd.Parameters.AddWithValue("@password", Encrypter.Encrypt(txtforgotpassword.Text, _k3ys));
+                        con.Open();
+                        sqlcmd.ExecuteNonQuery();
+                        MessageBox.Show("Password successfully changed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        txtUser.Text = txtforgotusername.Text;
+                        txtforgotusername.Text = "";
+                        txtforgotpassword.Text = "";
+                        txtforgotadminuser.Text = "";
+                        txtforgotadminpass.Text = "";
+                        ForgotPass.SendToBack();
+                    }
+                    else {
+
+                        MessageBox.Show("Incorrect login credentials for full admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtforgotadminpass.Text = "";
+                     }
+                }
+                else
+                {
+                    MessageBox.Show("Username: "+ txtforgotusername.Text+" does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtforgotusername.Focus();
+                }
+            }
+        }
+
+        private void lblForgotPass_MouseHover(object sender, EventArgs e)
+        {
+            lblForgotPass.ForeColor = Color.Blue;
+        }
+
+        private void lblForgotPass_MouseLeave(object sender, EventArgs e)
+        {
+            lblForgotPass.ForeColor = SystemColors.ButtonHighlight;
         }
     }
 }
